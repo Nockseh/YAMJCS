@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Raptorboy Hat" identifier="raptorcowboyhat" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" scale="0.4">
+    <PreferredContainer primary="wreckcrewcab" amount="1" spawnprobability="0.04" notcampaign="true" />
+    <Price baseprice="90">
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="1.1" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
+    </Price>
+    <Deconstruct time="10" />
+    <Sprite name="Raptorboy Hat" texture="%ModDir%/Items/RaptorHats.png" depth="0.6" sourcerect="0,0,145,59" origin="0.5,0.5" />
+    <Body width="145" height="59" density="10" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="RaptorboyHat" texture="%ModDir%/Items/RaptorHats.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="false" scale="1.1" hidelimb="false" sourcerect="0,0,145,59" origin="0.45,1.3325" />
+      <SkillModifier skillidentifier="weapons" skillvalue="25" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" />
+      <StatusEffect tags="tootin" type="OnWearing" target="Character" HideFace="false" duration="0.1" stackable="false" />
+    </Wearable>
+  </Item>
+  <!-- Raptor Guitar for talent because the devs dont let us check HasTalent in items for some reason -->
+  <Item name="" identifier="raptorguitar" category="Misc" Tags="bigitem" scale="0.5" description="" price="600" isshootable="true">
+    <InventoryIcon texture="%ModDir%/Items/RaptorGuitar_Icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/RaptorGuitar.png" sourcerect="0,0,97,254" depth="0.6" origin="0.5,0.5" />
+    <Body radius="40" height="160" density="12" />
+    <RangedWeapon reload="1" />
+    <Deconstruct time="4">
+      <Item identifier="organicfiber" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="8" requiresrecipe="true" HideIfNoRecipe="true">
+      <Item identifier="organicfiber" amount="5" />
+      <Item identifier="plastic" amount="2" />
+      <Item identifier="rubber" amount="1" />
+    </Fabricate>
+    <Holdable slots="RightHand+LeftHand" controlpose="true" aimpos="30,-20" handle1="-2,-40" handle2="5,50" swingamount="15,25" swingspeed="1" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="Character" comparison="and">
+        <Conditional HasStatusTag="!equals clown" />
+        <Conditional HasStatusTag="!equals tootin" />
+        <Conditional HasStatusTag="raptorguitarist" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar1.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar2.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar3.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar4.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar5.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar6.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar7.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar1.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar2.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar3.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar4.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar5.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar6.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar7.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar1.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar2.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar3.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar4.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar5.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar6.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar7.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar8.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar9.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" comparison="and">
+        <Conditional HasStatusTag="!equals clown" />
+        <Conditional HasStatusTag="tootin" />
+        <sound file="%ModDir%/Sounds/RaptorboyGuitar1.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorboyGuitar2.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorboyGuitar3.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorboyGuitar4.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorboyGuitar5.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorboyGuitar6.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar9.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" comparison="and">
+        <Conditional HasStatusTag="clown" />
+        <Conditional HasStatusTag="!equals tootin" />
+        <sound file="%ModDir%/Sounds/RaptorGuitar8.ogg" type="OnUse" selectionmode="CharacterSpecific" range="650" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" comparison="and">
+        <Conditional HasStatusTag="!equals clown" />
+        <Conditional HasStatusTag="!equals tootin" />
+        <Conditional HasStatusTag="!equals raptorguitarist" />
+        <sound file="Content/Items/Misc/Guitar1.ogg" type="OnUse" selectionmode="CharacterSpecific" range="600" loop="true" />
+        <sound file="Content/Items/Misc/Guitar2.ogg" type="OnUse" selectionmode="CharacterSpecific" range="600" loop="true" />
+        <sound file="Content/Items/Misc/Guitar3.ogg" type="OnUse" selectionmode="CharacterSpecific" range="600" loop="true" />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Mudraptor Job" identifier="raptorstartitem" category="Equipment" Tags="smallitem,clothing" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" nonplayerteaminteractable="False">
+    <InventoryIcon texture="%ModDir%/Job/YAMJIcons.png" sourcerect="257,0,100,100" />
+    <Body width="85" height="90" density="40" />
+    <Sprite name="Security Vest Item" texture="Content/Items/Jobgear/Mechanic/safetyharness.png" sourcerect="14,45,103,180" depth="0.6" origin="0.5,0.35" />
+    <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Security Vest Wearable" texture="Content/Items/Jobgear/Mechanic/safetyharness.png" limb="Torso" hidelimb="false" inheritscale="true" scale="0.65" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="14,45,103,180" />
+      <StatusEffect type="OnWearing" target="This">
+        <SpawnItem identifiers="idcard" spawnposition="ThisInventory" />
+        <SpawnItem identifiers="headset" spawnposition="ThisInventory" />
+        <RemoveItem />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" Condition="-30" delay="0.25" />
+      <StatusEffect type="OnBroken" targettype="This">
+        <remove />
+      </StatusEffect>
+    </Wearable>
+  </Item>
+  <Item name="" identifier="jumptalentitem" category="Medical" maxstacksize="8" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="50" amount="1">
+      <RequiredSkill identifier="medical" level="25" />
+      <RequiredItem identifier="organicfiber" />
+    </Fabricate>
+    <Deconstruct time="25" />
+    <InventoryIcon texture="Content/Items/Medical/Medicines.png" sourcerect="448,256,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="303,310,35,67" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="65" density="15" />
+    <!--
+	<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
+      <RequiredSkill identifier="medical" level="35" />
+      <StatusEffect tags="medical" type="OnUse" target="Character">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <GiveTalentInfo giverandom="true" talentidentifiers="YAMJJump" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnFailure" target="Character">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <GiveTalentInfo giverandom="true" talentidentifiers="YAMJJump" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+	-->
+    <MeleeWeapon slots="Any,RightHand+LeftHand" aimable="false" aimpos="40,-20" handle1="5,0" holdangle="260" swingamount="0,3" swingspeed="0.5" swingwhenaiming="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0" />
+      <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
+        <Conditional Condition="lte 0" />
+        <GiveTalentInfo giverandom="true" talentidentifiers="YAMJJump" />
+        <RemoveItem />
+      </StatusEffect>
+    </MeleeWeapon>
+    <Wearable slots="Head" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" />
+  </Item>
+  <!-- Talent items -->
+  <!-- Backpacks -->
+  <Item name="Mudraptor Backpack" identifier="backpackYAMJ" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+    <PreferredContainer primary="engcab" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem identifier="iron" amount="4" />
+      <RequiredItem identifier="steel" amount="3" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="iron" amount="2" />
+      <Item identifier="steel" amount="1" />
+    </Deconstruct>
+    <Price baseprice="65" sold="false">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" multiplier="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" />
+    </Price>
+    <InventoryIcon texture="%ModDir%/Items/TalentItemsBackpack_Straight.png" sourcerect="2,2,146,82" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/TalentItemsBackpack_Straight.png" sourcerect="2,2,146,82" depth="0.54" origin="0.5,0.5" />
+    <Body width="130" height="70" density="40" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Mudraptor Backpack" texture="%ModDir%/Items/TalentItemsBackpack.png" sourcerect="2,2,146,82" limb="Torso" inherittexturescale="true" origin="1,.5" scale="1.35" inheritlimbdepth="false" />
+      <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" description="A wearable container for storing ammunition, suits, and a storage container. Much lighter than other backpacks so it's possible to wear it as a Human." canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.8" setvalue="true">
+        <Conditional ishuman="true" />
+      </StatusEffect>
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="0" hideitems="true" slotsperrow="2" >
+      <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      <SubContainer capacity="5" maxstacksize="64">
+        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="Mudraptor Bio Backpack" identifier="backpackYAMJbio" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon,light" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+    <PreferredContainer primary="engcab" />
+    <Deconstruct time="10">
+      <Item identifier="steel" amount="1" />
+      <Item identifier="flareYAMJ" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem identifier="iron" amount="4" />
+      <RequiredItem identifier="steel" amount="3" />
+      <RequiredItem identifier="flareYAMJ" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem identifier="iron" amount="4" />
+      <RequiredItem identifier="steel" amount="3" />
+      <RequiredItem tag="plant" amount="1" header="fabricationheader.YAMJanyplant" />
+    </Fabricate>
+    <Price baseprice="65" sold="false">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" multiplier="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" />
+    </Price>
+    <InventoryIcon texture="%ModDir%/Items/TalentItemsGlowpack_Straight.png" sourcerect="3,2,145,82" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/TalentItemsGlowpack_Straight.png" sourcerect="2,2,146,82" depth="0.54" origin="0.5,0.5" />
+    <Body width="130" height="70" density="40" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Mudraptor Backpack" texture="%ModDir%/Items/TalentItemsGlowpack.png" sourcerect="3,2,145,82" limb="Torso" inherittexturescale="true" origin="1,.5" scale="1.35" inheritlimbdepth="false">
+        <LightComponent LightColor="200,200,255,255" PulseFrequency="0.3" PulseAmount="0.2" range="800" IsOn="true" />
+      </sprite>
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" description="A wearable container for storing ammunition, suits, and a storage container. It's lined with Bio Flare materials. WARNING: Not made for Humans." canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false">
+        <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.6" setvalue="true">
+          <Conditional ishuman="true" />
+          <Affliction identifier="YAMJinternaldamage" amount="3" />
+        </StatusEffect>
+      </Holdable>
+    </Wearable>
+    <ItemContainer capacity="2" maxstacksize="0" hideitems="true" slotsperrow="3">
+      <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      <SubContainer capacity="7" maxstacksize="64">
+        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="Mudraptor Caravan Backpack" identifier="backpackYAMJ2" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.6" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+    <PreferredContainer primary="engcab" />
+    <Deconstruct time="10">
+      <Item identifier="ballisticfiber" amount="1" />
+      <Item identifier="iron" amount="3" />
+      <Item identifier="steel" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="40" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem identifier="titanium" amount="1" />
+      <RequiredItem identifier="iron" amount="4" />
+      <RequiredItem identifier="steel" amount="4" />
+    </Fabricate>
+    <Price baseprice="200" sold="false">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" multiplier="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" />
+    </Price>
+    <InventoryIcon texture="%ModDir%/Items/TalentItemsCaravanpack_Straight.png" sourcerect="2,2,146,95" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/TalentItemsCaravanpack_Straight.png" sourcerect="2,2,146,95" depth="0.54" origin="0.5,0.5" />
+    <Body width="145" height="78" density="40" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Mudraptor Caravan Backpack" texture="%ModDir%/Items/TalentItemsCaravanpack.png" sourcerect="2,2,146,95" limb="Torso" inherittexturescale="true" origin="1,.5" scale="1.35" inheritlimbdepth="false" />
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" description="A wearable container for storing ammunition, suits, containers, and crates. Reduces movement speed by 25% while worn even as a Mudraptor. WARNING: Not made for Humans." canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false">
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.75" setvalue="true">
+          <Conditional ishuman="false" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.5" setvalue="true">
+          <Conditional ishuman="true" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" setvalue="true" disabledeltatime="true" />
+        <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.4">
+          <Conditional ishuman="true" />
+          <Affliction identifier="YAMJinternaldamage" amount="6" />
+        </StatusEffect>
+      </Holdable>
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="0" hideitems="true" slotsperrow="3">
+      <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/Items/BackpackIconCrate.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/Items/BackpackIconCrate.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      <SubContainer capacity="2" maxstacksize="64">
+        <Containable items="smallitem,mediumitem,bigitem,largeitem,railgunammo,ammobox,deepdiving,crate" excludeditems="backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      </SubContainer>
+      <SubContainer capacity="9" maxstacksize="64">
+        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <!-- Bio Flares
+  <ParticleEmitter particle="flare" emitinterval="2.1" particleamount="10" particlespersecond="60" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" />
+  -->
+  <Item name="Bio Flare" identifier="flareYAMJ" category="Equipment" maxstacksize="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative" description="A bright sponge that glows when in contact with skin." impactsoundtag="impact_soft" isshootable="true">
+    <Price baseprice="30" sold="false">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" />
+      <Price storeidentifier="merchantresearch" multiplier="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="glowstick" amount="1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem tag="plant" amount="1" header="fabricationheader.YAMJanyplant" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Items/TalentItems.png" sourcerect="2,2,45,45" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/TalentItems.png" sourcerect="2,2,45,45" depth="0.55" origin="0.5,0.5" />
+    <Body width="35" height="35" density="10.2" />
+    <!--
+    <Throwable slots="Any,RightHand,LeftHand,Head" holdpos="0,0" handle1="0,0" holdangle="90" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="25,50,255,255" PulseFrequency="0.3" PulseAmount="0.2" range="500" IsOn="false">
+      <StatusEffect type="OnUse" targettype="This" IsOn="true">
+        <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
+        <sound file="Content/Characters/Leucocyte/CARRIER_cellDeath3.ogg" range="800.0" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" Condition="-0.05" />
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional PhysicsBodyActive="eq true" />
+        <ParticleEmitter particle="FlareBubbles" particlespersecond="0.5" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" IsOn="false">
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+	-->
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-50" aimpos="60,0" handle1="-20,0" msg="ItemMsgPickUpSelect">
+      <LightComponent LightColor="200,200,255,255" PulseFrequency="0.3" PulseAmount="0.2" range="1200" IsOn="false">
+        <StatusEffect type="OnActive" targettype="This" Condition="-0.01" />
+        <StatusEffect type="OnActive" targettype="This">
+          <Conditional PhysicsBodyActive="eq true" />
+          <ParticleEmitter particle="FlareBubbles" particlespersecond="0.5" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" targettype="This" IsOn="false">
+          <Remove />
+        </StatusEffect>
+      </LightComponent>
+    </Holdable>
+    <AiTarget sightrange="4000" />
+  </Item>
+  <Item name="Ice Bio Flare" identifier="iceflareYAMJ" category="Equipment" maxstacksize="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative" description="An Ice Bio Flare, Strangely cold to the touch and emits a freezing aura. Though it doesn't seem to effect you." impactsoundtag="impact_soft" isshootable="true">
+    <Price baseprice="30" sold="false">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" />
+      <Price storeidentifier="merchantresearch" multiplier="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="glowstick" amount="1" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Items/TalentItems.png" sourcerect="2,2,45,45" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/TalentItems.png" sourcerect="2,2,45,45" depth="0.55" origin="0.5,0.5" />
+    <Body width="35" height="35" density="10.2" />
+    <!--
+    <Throwable slots="Any,RightHand,LeftHand,Head" holdpos="0,0" handle1="0,0" holdangle="90" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="25,50,255,255" PulseFrequency="0.3" PulseAmount="0.2" range="500" IsOn="false">
+      <StatusEffect type="OnUse" targettype="This" IsOn="true">
+        <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
+        <sound file="Content/Characters/Leucocyte/CARRIER_cellDeath3.ogg" range="800.0" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" Condition="-0.05" />
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional PhysicsBodyActive="eq true" />
+        <ParticleEmitter particle="FlareBubbles" particlespersecond="0.5" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" IsOn="false">
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+	-->
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-50" aimpos="60,0" handle1="-20,0" msg="ItemMsgPickUpSelect">
+      <LightComponent LightColor="100,100,255,255" PulseFrequency="0.3" PulseAmount="0.2" range="1200" IsOn="false">
+        <StatusEffect type="OnActive" targettype="This" Condition="-0.05" />
+        <StatusEffect type="OnActive" targettype="This">
+          <Conditional PhysicsBodyActive="eq true" />
+          <ParticleEmitter particle="FlareBubbles" particlespersecond="0.5" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" targettype="This" IsOn="false">
+          <Remove />
+        </StatusEffect>
+      </LightComponent>
+    </Holdable>
+    <AiTarget sightrange="4000" />
+  </Item>
+  <Item name="Fire Bio Flare" identifier="fireflareYAMJ" category="Equipment" maxstacksize="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative" description="A Flaming Bio Flare, Warm to the touch and emits a burning aura. Though it doesn't seem to effect you." impactsoundtag="impact_soft" isshootable="true">
+    <Price baseprice="30" sold="false">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" />
+      <Price storeidentifier="merchantresearch" multiplier="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="glowstick" amount="1" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Items/TalentItems_2.png" sourcerect="2,2,45,45" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/TalentItems_2.png" sourcerect="2,2,45,45" depth="0.55" origin="0.5,0.5" />
+    <Body width="35" height="35" density="10.2" />
+    <!--
+    <Throwable slots="Any,RightHand,LeftHand,Head" holdpos="0,0" handle1="0,0" holdangle="90" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="25,50,255,255" PulseFrequency="0.3" PulseAmount="0.2" range="500" IsOn="false">
+      <StatusEffect type="OnUse" targettype="This" IsOn="true">
+        <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
+        <sound file="Content/Characters/Leucocyte/CARRIER_cellDeath3.ogg" range="800.0" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" Condition="-0.05" />
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional PhysicsBodyActive="eq true" />
+        <ParticleEmitter particle="FlareBubbles" particlespersecond="0.5" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" IsOn="false">
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+	-->
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-50" aimpos="60,0" handle1="-20,0" msg="ItemMsgPickUpSelect">
+      <LightComponent LightColor="255,100,100,255" PulseFrequency="0.3" PulseAmount="0.2" range="1200" IsOn="false">
+        <StatusEffect type="OnActive" targettype="This" Condition="-0.05" />
+        <StatusEffect type="OnActive" targettype="This">
+          <Conditional PhysicsBodyActive="eq true" />
+          <ParticleEmitter particle="FlareBubbles" particlespersecond="0.5" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" targettype="This" IsOn="false">
+          <Remove />
+        </StatusEffect>
+      </LightComponent>
+    </Holdable>
+    <AiTarget sightrange="4000" />
+  </Item>
+  <!-- Mudraptor Shield
+  -->
+  <Item name="" identifier="mudraptorshield" category="Equipment" tags="weapon,smallitem" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.5" allowasextracargo="true">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <Price baseprice="1" soldeverywhere="false" canbespecial="false">
+      <Price locationtype="outpost" sold="false" />
+      <Price locationtype="city" sold="false" />
+      <Price locationtype="research" sold="false" />
+      <Price locationtype="military" sold="false" />
+      <Price locationtype="mine" sold="false" />
+    </Price>
+    <PreferredContainer primary="locker" />
+    <Deconstruct time="15">
+      <RequiredItem identifier="titanium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="mudraptorshell" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="962,322,61,61" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="464,1,48,229" origin="0.5,0.5" depth="0.55" />
+    <Body width="40" height="145" density="30" />
+    <Holdable slots="Any,RightHand+LeftHand" aimpos="60,-30" holdpos="45,-30" handle1="-10,0" handle2="10,0" controlpose="false" deflectprojectiles="true" blocksplayers="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.9" setvalue="true">
+        <Affliction identifier="shieldblock" amount="10.0" />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Mudraptor Human Armor -->
+  <Item name="Mudraptor Guard Helmet" identifier="mudhelmet" scale="0.5" category="Diving,Equipment" Tags="mediumitem,alien,diving,provocative" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" description="A living carapace helmet forged by the hands of one that knows both human and mudraptor biology greatly." maxstacksize="1" hideinmenus="False">
+    <Sprite texture="%ModDir%/Items/MudraptorHelm.png" depth="0.55" sourcerect="32,2,130,68" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Items/MudraptorHelm.png" sourcerect="32,2,130,68" origin="0.5,0.5" />
+    <Deconstruct time="4">
+      <Item identifier="organicfiber" amount="1" />
+      <Item identifier="divingmask" amount="1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredSkill identifier="mechanical" level="48" />
+      <RequiredSkill identifier="helm" level="34" />
+      <Item identifier="organicfiber" amount="2" />
+      <Item identifier="alienblood" amount="2" />
+      <Item identifier="titaniumaluminiumalloy" amount="1" />
+      <Item identifier="divingmask" amount="1" />
+    </Fabricate>
+    <Body radius="20" density="20" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect" displaycontainedstatus="True">
+      <sprite name="Alien Helmet Wearable" texture="%ModDir%/Items/MudraptorHelm.png" limb="Head" inheritlimbdepth="True" inheritscale="False" ignorelimbscale="True" scale="0.5" hidelimb="False" hideotherwearables="True" sourcerect="32,2,130,68" origin="0.5,0.55">
+        <LightComponent range="100.0" lightcolor="220,180,120,220" powerconsumption="10" IsOn="True" pulsefrequency="0.2" pulseamount="0.85" allowingameediting="False">
+          <StatusEffect type="OnWearing" target="This,Character" Voltage="1.0" setvalue="True">
+            <Conditional IsDead="False" />
+          </StatusEffect>
+          <LightTexture texture="Content/Lights/light.png" origin="0.5,0.5" size="0.13,0.13" />
+        </LightComponent>
+      </sprite>
+      <damagemodifier afflictionidentifiers="concussion" armorsector="0.0,360.0" damagemultiplier="0.0" damagesound="LimbBlunt" deflectprojectiles="True" />
+      <damagemodifier afflictionidentifiers="huskinfection" armorsector="0.0,360.0" damagemultiplier="0.7" probabilitymultiplier="0.7" damagesound="Gore" />
+      <damagemodifier afflictionidentifiers="explosiondamage,blunttrauma,lacerations,gunshotwound,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="ArmorBreak" deflectprojectiles="False" />
+      <StatusEffect type="OnWearing" target="Character" HideFace="True" ObstructVision="True" SpeedMultiplier="0.8" setvalue="True" disabledeltatime="True" />
+      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1000.0" Condition="-0.5" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="oxygentank" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-5.0" Condition="-5.0">
+        <Conditional IsDead="false" />
+        <RequiredItem items="weldingfueltank" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-7.0" Condition="-5.0">
+        <RequiredItem items="incendiumfueltank" type="Contained" />
+        <Affliction identifier="burn" amount="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1500.0" Condition="-0.1" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="oxygenitetank" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" SpeedMultiplier="1.2" setvalue="True" comparison="Or" disabledeltatime="True">
+        <Conditional IsDead="False" />
+        <RequiredItem items="oxygeniteshard,oxygenitetank" type="Contained" />
+        <Sound file="Content/Items/Alien/AlienPump.ogg" range="500" loop="True" volume="0.3" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Character" setvalue="True" DisableDeltaTime="True">
+        <Affliction identifier="hallucinating" amount="5" />
+      </StatusEffect>
+      <!--StatusEffect type="OnDeath" target="Character" setvalue="True" DisableDeltaTime="True" >
+        <Sound file="Content/Items/Alien/ALIEN_guardianPodLoop.ogg" range="500" loop="True" volume="0.5" /> this does not work yet
+      </StatusEffect-->
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="True">
+      <Containable items="oxygensource,weldingtoolfuel,oxygeniteshard" />
+    </ItemContainer>
+    <PreferredContainer primary="divingcab,supplycab" spawnprobability="0.0" />
+    <PreferredContainer secondary="ruinstorage,ruinstoragesmall,ruinstoragelarge" maxamount="1" spawnprobability="0.05" allowtransfershere="False" />
+    <PreferredContainer secondary="ruintreasure,ruinstoragelarge" maxamount="0" spawnprobability="0.1" allowtransfershere="False" />
+    <Price sold="False" baseprice="7000" />
+  </Item>
+  <Item name="Mudraptor Guard Shell" identifier="mudraptorshello2" category="Equipment" tags="mediumitem,clothing" description="A living carapace armor capable of holding up against Europas deep water preasures with the help of Oxygenite. Forged by the hands of one that knows both human and mudraptor biology greatly." impactsoundtag="impact_metal_light" scale="0.5" allowasextracargo="true">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <Deconstruct time="4">
+      <Item identifier="organicfiber" amount="2" />
+      <Item identifier="mudraptorshell" amount="1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredSkill identifier="mechanical" level="65" />
+      <RequiredSkill identifier="weapons" level="48" />
+      <Item identifier="combatdivingsuit" amount="1" />
+      <Item identifier="titaniumaluminiumalloy" amount="1" />
+      <Item identifier="organicfiber" amount="5" />
+      <Item identifier="mudraptorshell" amount="1" />
+    </Fabricate>
+    <Price baseprice="1" sold="false" canbespecial="false" />
+    <PreferredContainer primary="locker" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,384,64,64" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="363,0,100,165" depth="0.6" />
+    <Body radius="40" height="60" density="40" />
+    <Wearable slots="RightHand+LeftHand,OuterClothes" msg="ItemMsgPickUpSelect">
+      <damagemodifier afflictiontypes="burn" armorsector="0.0,360.0" damagemultiplier="0.8" />
+      <damagemodifier afflictiontypes="damage" armorsector="0.0,360.0" damagemultiplier="0.3" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictiontypes="bleeding" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <sprite name="shellshield" texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="363,0,100,165" limb="Torso" depthlimb="head" hidelimb="false" inherittexturescale="true" inheritorigin="false" inheritsourcerect="false" origin="0.5,0.65" />
+      <sprite name="SlipSuit Torso" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="false" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Hand" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Hand" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Lower Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Lower Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Upper Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Upper Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Waist" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="Waist" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Thigh" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Thigh" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Leg" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Leg" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Shoe" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Shoe" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.7" setvalue="true" disabledeltatime="true" />
+      <StatusEffect type="OnWearing" target="Contained,Character" PressureProtection="6000.0" Condition="-0.1" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="oxygeniteshard,oxygenitetank" type="Contained" />
+      </StatusEffect>
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="True">
+      <Containable items="oxygeniteshard,oxygenitetank" />
+    </ItemContainer>
+  </Item>
+</Items>

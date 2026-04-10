@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<huskappendage>
+  <limb id="17" width="120" height="0" name="AppendageFront" type="None" spriteorientation="270" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="0" steerforce="0" radius="30" density="0.5" ignorecollisions="False" angulardamping="140" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" minseverancedamage="2" healthindex="0" friction="0.3" restitution="0.05" severedfadeouttime="0" applytailangle="False" applysinemovement="True" inheritlimbdepth="None" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" onlyblinkinwater="False" blinktransitionin="Linear" blinktransitionout="Linear" canbeseveredalive="False">
+    <sprite texture="Content/Characters/Variants/Mudraptor_veteran/Mudraptor_veteran.png" sourcerect="777,105,205,72" origin="0.5,0.5" depth="0.050" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="True" />
+    <damagemodifier armorsector="0,360" afflictiontypes="damage" damagemultiplier="0.1" damagesound="LimbArmor" damageparticle="brownchunks" deflectprojectiles="True" afflictionidentifiers="" probabilitymultiplier="1" />
+    <damagemodifier armorsector="0,360" afflictiontypes="bleeding" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="" probabilitymultiplier="1" damageparticle="" />
+    <damagemodifier armorsector="0,360" afflictiontypes="burn" damagemultiplier="0.25" damagesound="" deflectprojectiles="True" afflictionidentifiers="" probabilitymultiplier="1" damageparticle="" />
+    <StatusEffect type="OnSevered" target="This">
+      <particleemitter particle="brownchunks" drawontop="true" particleamount="20" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.3" />
+    </StatusEffect>
+  </limb>
+  <joint limb1="2" limb2="17" limb1anchor="-7.514481,48.616577" limb2anchor="87.445496,-14.322847" name="Joint 3 - 17" canbesevered="True" severanceprobabilitymodifier="2" breaksound="armorbreak" limitenabled="True" upperlimit="0" lowerlimit="-55" stiffness="0.25" scale="1" weldjoint="False" clockwiserotation="False" />
+</huskappendage>

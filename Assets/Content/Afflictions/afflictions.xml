@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!-- Gained when wearing the mudraptor backpack, decreses.-->
+  <InternalDamage name="Internal Damage" identifier="YAMJinternaldamage" description="The area is an ugly shade of purple, and apparently very painful to touch. You suspect a bone might be broken." type="damage" causeofdeathdescription="Died from wearing a heavy backpack" selfcauseofdeathdescription="You died from wearing a heavy backpack." limbspecific="false" indicatorlimb="LeftLeg,RightLeg" maxstrength="200" damageoverlayalpha="0.1">
+    <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="2" strengthchange="-0.1" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,768,128,128" color="195,136,60,255" origin="0,0" />
+  </InternalDamage>
+  <Affliction name="Mudraptor Item Thing" identifier="raptorpickup" description="" type="buff" limbspecific="false" indicatorlimb="Torso" activationthreshold="1.0" showiconthreshold="1" maxstrength="30">
+    <Effect minstrength="1" maxstrength="30" minvitalitydecrease="0" maxvitalitydecrease="0" strengthchange="-1">
+      <StatusEffect target="Character" duration="0.5" lifetime="0.5" setvalue="true" />
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="Shield Block" identifier="shieldblock" type="stonewall" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="10" strengthchange="-5" resistancefor="damage,stun" minresistance="0.45" maxresistance="0.45" />
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

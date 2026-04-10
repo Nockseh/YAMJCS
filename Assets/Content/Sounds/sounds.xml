@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sounds>
+  <footstep_mudraptor_player file="%ModDir%/Sounds/Footsteps/FootstepMudraptor1.ogg" volume="0.5" range="500" />
+  <footstep_mudraptor_player file="%ModDir%/Sounds/Footsteps/FootstepMudraptor2.ogg" volume="0.5" range="500" />
+  <footstep_mudraptor_player file="%ModDir%/Sounds/Footsteps/FootstepMudraptor3.ogg" volume="0.5" range="500" />
+  <footstep_mudraptor_player file="%ModDir%/Sounds/Footsteps/FootstepMudraptor4.ogg" volume="0.5" range="500" />
+  <footstep_mudraptor_player file="%ModDir%/Sounds/Footsteps/FootstepMudraptor5.ogg" volume="0.5" range="500" />
+  <footstep_mudraptor_player file="%ModDir%/Sounds/Footsteps/FootstepMudraptor6.ogg" volume="0.5" range="500" />
+  <footstep_mudraptor_player file="%ModDir%/Sounds/Footsteps/FootstepMudraptor7.ogg" volume="0.5" range="500" />
+  <footstep_mudraptor_baby file="%ModDir%/Sounds/Footsteps/FootstepMudraptor1.ogg" volume="0.25" range="400" />
+  <footstep_mudraptor_baby file="%ModDir%/Sounds/Footsteps/FootstepMudraptor2.ogg" volume="0.25" range="400" />
+  <footstep_mudraptor_baby file="%ModDir%/Sounds/Footsteps/FootstepMudraptor3.ogg" volume="0.25" range="400" />
+  <footstep_mudraptor_baby file="%ModDir%/Sounds/Footsteps/FootstepMudraptor4.ogg" volume="0.25" range="400" />
+  <footstep_mudraptor_baby file="%ModDir%/Sounds/Footsteps/FootstepMudraptor5.ogg" volume="0.25" range="400" />
+  <footstep_mudraptor_baby file="%ModDir%/Sounds/Footsteps/FootstepMudraptor6.ogg" volume="0.25" range="400" />
+  <footstep_mudraptor_baby file="%ModDir%/Sounds/Footsteps/FootstepMudraptor7.ogg" volume="0.25" range="400" />
+</sounds>

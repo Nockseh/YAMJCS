@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TalentTrees>
+  <TalentTree jobidentifier="PlayerMudraptorJob">
+    <SubTree identifier="YAMJTree" nameidentifier="talenttree.primary" type="primary">
+      <TalentOptions requiredtalents="2" maxchosentalents="6">
+        <TalentOption identifier="protectandserve" />
+        <TalentOption identifier="warstories" />
+        <TalentOption identifier="YAMJEgg" />
+        <TalentOption identifier="YAMJSleepTime" />
+        <TalentOption identifier="YAMJFlare" />
+        <TalentOption identifier="YAMJArmor" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="2" maxchosentalents="5">
+        <!-- <TalentOption identifier="YAMJGuardian" /> -->
+        <!-- <TalentOption identifier="YAMJVouch" /> -->
+        <TalentOption identifier="YAMJSleepTime2" />
+        <TalentOption identifier="YAMJBackpack" />
+        <TalentOption identifier="YAMJBestFriend" />
+        <TalentOption identifier="YAMJFlareIce" />
+        <TalentOption identifier="YAMJFlareFire" />
+      </TalentOptions>
+    </SubTree>
+    <!-- Hired Claw -->
+    <SubTree identifier="YAMJTree1" type="specialization" requires="YAMJTree" blocks="YAMJTree2,YAMJTree3">
+      <TalentOptions>
+        <TalentOption identifier="YAMJArmorPirate" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJBackpack2" />
+        <TalentOption identifier="YAMJHeatSignature" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJHumanoid" />
+        <TalentOption identifier="YAMJGunner" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJBond_Security" />
+        <TalentOption identifier="YAMJBond_Doctor" />
+      </TalentOptions>
+    </SubTree>
+    <!-- Predator -->
+    <SubTree identifier="YAMJTree2" type="specialization" requires="YAMJTree" blocks="YAMJTree1,YAMJTree3">
+      <TalentOptions>
+        <TalentOption identifier="YAMJArmorVet" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJFamiliarWaters" />
+        <TalentOption identifier="YAMJBloodthirsty" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJMonsterInstinct" />
+        <TalentOption identifier="YAMJSwimSpeed" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJRelentless" />
+        <TalentOption identifier="YAMJBond_Captain" />
+      </TalentOptions>
+    </SubTree>
+    <!-- Student -->
+    <SubTree identifier="YAMJTree3" type="specialization" requires="YAMJTree" blocks="YAMJTree2,YAMJTree1">
+      <TalentOptions>
+        <TalentOption identifier="YAMJSkillGain" />
+        <TalentOption identifier="YAMJBackpackBio" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJGuardianAngel" />
+        <TalentOption identifier="YAMJClownCollege" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJRepairSpeed" />
+        <TalentOption identifier="YAMJMachinist" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="YAMJPostgrad" />
+        <TalentOption identifier="YAMJBond_Mechanic" />
+        <TalentOption identifier="YAMJBond_Engineer" />
+      </TalentOptions>
+    </SubTree>
+  </TalentTree>
+</TalentTrees>

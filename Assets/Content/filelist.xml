@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentpackage name="MyModName" modversion="1.0" corepackage="false">
+    <Jobs file="%ModDir%/Job/Jobs.xml" />
+    <TalentTrees file="%ModDir%/Job/TalentTrees.xml" />
+    <Talents file="%ModDir%/Job/Talents.xml" />
+    <Character file="%ModDir%/Characters/Mudraptor_player/Mudraptor_player.xml" />
+    <Character file="%ModDir%/Characters/Mudraptor_pet/RaptorPet.xml" />
+    <Character file="%ModDir%/Characters/Mudraptor_playerhusk/Mudraptor_playerhusk.xml" />
+    <Item file="%ModDir%/Items/Raptoritems.xml" />
+    <Item file="%ModDir%/Items/RaptorArmors.xml" />
+    <Item file="%ModDir%/Items/RaptorBabies.xml" />
+    <Item file="%ModDir%/Items/Overrides.xml" />
+    <Afflictions file="%ModDir%/Afflictions/huskaffictions.xml" />
+    <Afflictions file="%ModDir%/Afflictions/afflictions.xml" />
+    <Afflictions file="%ModDir%/Job/TalentAfflictions.xml" />
     <Text file="%ModDir%/Texts/English.xml" />
+    <Submarine file="%ModDir%/Dugong-Mudraptor Job.sub" />
+    <Sounds file="%ModDir%/Sounds/sounds.xml" />
+    <LocationTypes file="%ModDir%/Map/LocationTypesOverride.xml" />
 </contentpackage>

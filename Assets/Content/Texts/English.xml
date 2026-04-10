@@ -1,17 +1,177 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="false" translatedname="English">
-    <!-- Sample Client Setting -->
-    <MyModName.SampleSettingClient.DisplayName>Sample Client Setting</MyModName.SampleSettingClient.DisplayName>
-    <MyModName.SampleSettingClient.DisplayCategory>Sample</MyModName.SampleSettingClient.DisplayCategory>
-    <MyModName.SampleSettingClient.Tooltip>Sample tooltip!</MyModName.SampleSettingClient.Tooltip>
+  <!-- Sample Client Setting -->
+  <MyModName.SampleSettingClient.DisplayName>Sample Client Setting</MyModName.SampleSettingClient.DisplayName>
+  <MyModName.SampleSettingClient.DisplayCategory>Sample</MyModName.SampleSettingClient.DisplayCategory>
+  <MyModName.SampleSettingClient.Tooltip>Sample tooltip!</MyModName.SampleSettingClient.Tooltip>
 
-    <!-- Sample Server Setting -->
-    <MyModName.SampleSettingServer.DisplayName>Sample Server Setting</MyModName.SampleSettingServer.DisplayName>
-    <MyModName.SampleSettingServer.DisplayCategory>Sample</MyModName.SampleSettingServer.DisplayCategory>
-    <MyModName.SampleSettingServer.Tooltip>Sample tooltip!</MyModName.SampleSettingServer.Tooltip>
+  <!-- Sample Server Setting -->
+  <MyModName.SampleSettingServer.DisplayName>Sample Server Setting</MyModName.SampleSettingServer.DisplayName>
+  <MyModName.SampleSettingServer.DisplayCategory>Sample</MyModName.SampleSettingServer.DisplayCategory>
+  <MyModName.SampleSettingServer.Tooltip>Sample tooltip!</MyModName.SampleSettingServer.Tooltip>
 
-    <!-- Sample Shared Setting -->
-    <MyModName.SampleSettingShared.DisplayName>Sample Shared Setting</MyModName.SampleSettingShared.DisplayName>
-    <MyModName.SampleSettingShared.DisplayCategory>Sample</MyModName.SampleSettingShared.DisplayCategory>
-    <MyModName.SampleSettingShared.Tooltip>Sample tooltip!</MyModName.SampleSettingShared.Tooltip>
+  <!-- Sample Shared Setting -->
+  <MyModName.SampleSettingShared.DisplayName>Sample Shared Setting</MyModName.SampleSettingShared.DisplayName>
+  <MyModName.SampleSettingShared.DisplayCategory>Sample</MyModName.SampleSettingShared.DisplayCategory>
+  <MyModName.SampleSettingShared.Tooltip>Sample tooltip!</MyModName.SampleSettingShared.Tooltip>
+  
+  <!--Job.xml-->
+  <jobName.PlayerMudraptorJob>Friendly Mudraptor</jobName.PlayerMudraptorJob>
+  <jobdescription.PlayerMudraptorJob>A mudraptor bred and spliced with human genes to be companions. A return for Man's best friend.</jobdescription.PlayerMudraptorJob>
+  <!--Talent Items-->
+  <entityname.backpackYAMJ>Mudraptor Backpack</entityname.backpackYAMJ>
+  <entitydescription.backpackYAMJ>A backpack for storing ammunition, suits, and children. Light and human-wearable.</entitydescription.backpackYAMJ>
+  <entityname.backpackYAMJbio>Mudraptor Bio Backpack</entityname.backpackYAMJbio>
+  <entitydescription.backpackYAMJbio>A large, luminescent backpack for storing ammunition, suits, and children. WARNING: Not made for Humans.</entitydescription.backpackYAMJbio>
+  <entityname.backpackYAMJ2>Mudraptor Caravan Backpack</entityname.backpackYAMJ2>
+  <entitydescription.backpackYAMJ2>A massive, heavy backpack for storing large items, containers, and children. Reduces movement speed by 25% while worn. WARNING: Not made for Humans.</entitydescription.backpackYAMJ2>
+  <entityname.flareYAMJ>Bio Flare</entityname.flareYAMJ>
+  <entitydescription.flareYAMJ>A bright sponge that glows when in contact with skin.</entitydescription.flareYAMJ>
+  <entityname.raptorguitar>Raptor Guitar</entityname.raptorguitar>
+  <entitydescription.raptorguitar>A dark blue guitar created by the one and only Guitar Raptor.</entitydescription.raptorguitar>
+  <entityname.raptorcowboyhat>Raptorboy Hat</entityname.raptorcowboyhat>
+  <entitydescription.raptorcowboyhat>Be rootin', be tootin', be shootin', but most importantly, launch nuclear shells at pirates.</entitydescription.raptorcowboyhat>
+  <!--Fabrication-->
+  <fabricationheader.YAMJanyplant>Any plant</fabricationheader.YAMJanyplant>
+  <fabricationheader.petegg>Any pet egg</fabricationheader.petegg>
+  <fabricationdescription.mudraptordna>Minimum strength: 25%</fabricationdescription.mudraptordna>
+  <!--Armor Items-->
+  <entityname.mudraptorequiphelmet>Mudraptor Helmet</entityname.mudraptorequiphelmet>
+  <entitydescription.mudraptorequiphelmet>A strong helmet made to fit the mudraptor.</entitydescription.mudraptorequiphelmet>
+  <entityname.mudraptorpiratehelmet>Mudraptor Pirate Helmet</entityname.mudraptorpiratehelmet>
+  <entitydescription.mudraptorpiratehelmet>A strong pirate helmet made to fit the mudraptor.</entitydescription.mudraptorpiratehelmet>
+  <entityname.mudraptorveteranhelmet>Mudraptor Veteran Helmet</entityname.mudraptorveteranhelmet>
+  <entitydescription.mudraptorveteranhelmet>A strong mudraptor veteran helmet.</entitydescription.mudraptorveteranhelmet>
+  <entityname.mudraptorequiparmor>Mudraptor Armor</entityname.mudraptorequiparmor>
+  <entitydescription.mudraptorequiparmor>Strong piece of armor for the mudraptor (don't equip as a human).</entitydescription.mudraptorequiparmor>
+  <entityname.mudraptorpiratearmor>Mudraptor Pirate Armor</entityname.mudraptorpiratearmor>
+  <entitydescription.mudraptorpiratearmor>Strong piece of pirate armor for the mudraptor (don't equip as a human).</entitydescription.mudraptorpiratearmor>
+  <entityname.mudraptorveteranarmor>Mudraptor Veteran Armor</entityname.mudraptorveteranarmor>
+  <entitydescription.mudraptorveteranarmor>Strong piece of veteran armor for the mudraptor (don't equip as a human).</entitydescription.mudraptorveteranarmor>
+  <entityname.mudraptorclownmask2>Mudraptor Clown Helmet</entityname.mudraptorclownmask2>
+  <entitydescription.mudraptorclownmask2>A strong mudraptor clown helmet?</entitydescription.mudraptorclownmask2>
+  <entityname.mudraptorclownmask>Mudraptor Clown Mask</entityname.mudraptorclownmask>
+  <entitydescription.mudraptorclownmask>A strong mudraptor clown mask?</entitydescription.mudraptorclownmask>
+  <entityname.mudraptorclownarmor>Mudraptor Clown Armor</entityname.mudraptorclownarmor>
+  <entitydescription.mudraptorclownarmor>Strong piece of clown armor for the mudraptor (don't equip as a human).</entitydescription.mudraptorclownarmor>
+  <!--Other items-->
+  <entityname.crowbarYAMJ>Mudraptor Armor Remover</entityname.crowbarYAMJ>
+  <entitydescription.crowbarYAMJ>A special tool for removing armor from your friendly mudraptors.</entitydescription.crowbarYAMJ>
+  <entityname.jumptalentitem>Jumpy</entityname.jumptalentitem>
+  <entitydescription.jumptalentitem>After injecting this, you gain the ability to jump by ragdolling. Very useful for mudraptors.</entitydescription.jumptalentitem>
+  <entityname.mudraptorbook>Mudraptor Training Book</entityname.mudraptorbook>
+  <entitydescription.mudraptorbook>A book with instructions on how to train your mudraptor pet to lay down, and be carried.</entitydescription.mudraptorbook>
+  <entityname.mudraptorshield>Mudraptor Shield</entityname.mudraptorshield>
+  <entitydescription.mudraptorshield>A shield made of mudraptor shell, capable of stopping small arms fire.</entitydescription.mudraptorshield>
+  <!--Mudraptor Talents-->
+  <talenttree.YAMJTree1>Hired Claw</talenttree.YAMJTree1>
+  <talenttree.YAMJTree2>Predator</talenttree.YAMJTree2>
+  <talenttree.YAMJTree3>Student</talenttree.YAMJTree3>
+  <!--General Tier 1-->
+  <talentname.YAMJArmor>Natural Armor</talentname.YAMJArmor>
+  <talentdescription.YAMJArmorDesc>Gain the ability to form a hard shell and an extra [amount]% reduction to damage</talentdescription.YAMJArmorDesc>
+  <talentname.YAMJEgg>Mudraptor Mother</talentname.YAMJEgg>
+  <talentdescription.YAMJEgg>Gain the ability to foster mudraptor eggs, and the recipe for mudraptor shields to protect them.</talentdescription.YAMJEgg>
+  <talentname.YAMJFlare>Bio Flare</talentname.YAMJFlare>
+  <talentdescription.YAMJFlareDesc>Gain the recipe for Bio Flares, sponges that glow very brightly when held. Gain one after every mission.</talentdescription.YAMJFlareDesc>
+  <talentname.YAMJSleepTime>Raptor Nap</talentname.YAMJSleepTime>
+  <talentdescription.YAMJSleepTime>Ragdolling for [seconds] seconds grants the Sleepy Raptor bonus, healing damage over time but only while on land. Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.YAMJSleepTime>
+  <!--General Tier 2-->
+  <talentname.YAMJBackpack>Raptor Backpack</talentname.YAMJBackpack>
+  <talentdescription.YAMJBackpackDesc>Make mudraptor backpacks. Humans can wear it, but it looks a little silly. 5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpackDesc>
+  <talentname.YAMJFlareIce>Cold Bio Flare</talentname.YAMJFlareIce>
+  <talentdescription.YAMJFlareIceDesc>An ice cold sponge that glows very brightly when held. It slows down any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareIceDesc>
+  <talentname.YAMJFlareFire>Hot Bio Flare</talentname.YAMJFlareFire>
+  <talentdescription.YAMJFlareFireDesc>A flaming red hot sponge that glows very brightly when held. It slowly burns any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareFireDesc>
+  <talentname.YAMJBestFriend>Man's Best Friend</talentname.YAMJBestFriend>
+  <talentdescription.YAMJBestFriendDesc>Humans within a fair range of you can always rely on you to catch them when they fall. They gain +[walkspeed]% Walk/Run Speed, +[swimspeed]% Swim Speed, +[waterflowresist]% Water Flow Resistance (Including Yourself).</talentdescription.YAMJBestFriendDesc>
+  <talentname.YAMJSleepTime2>Contagious Nap</talentname.YAMJSleepTime2>
+  <talentdescription.YAMJSleepTime2>Naps become stronger. Humans now also gain the [affliction] bonus if they're near you while you nap. They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
+  <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
+  <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
+  <!--Hired Claw 1-->
+  <talentname.YAMJArmorPirate>Pirate Raptor</talentname.YAMJArmorPirate>
+  <talentdescription.YAMJArmorPirateDesc>Learn new ways to protect yourself. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirateDesc>
+  <!--Hired Claw 2-->
+  <talentname.YAMJBackpack2>Pack Mule</talentname.YAMJBackpack2>
+  <talentdescription.YAMJBackpack2Desc>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 9 slots for items, 2 for containers, 1 for children. Slows movement when equipped. Humans should definitely not wear this.</talentdescription.YAMJBackpack2Desc>
+  <talentname.YAMJHeatSignature>Heat Signature</talentname.YAMJHeatSignature>
+  <talentdescription.YAMJHeatSignature>Your time near humans and on land has given you a better understanding of how body heat functions. Gain [amount]% burn and poison resistance.</talentdescription.YAMJHeatSignature>
+  <!--Hired Claw 3-->
+  <talentname.YAMJGunner>Gunner</talentname.YAMJGunner>
+  <talentdescription.YAMJGunner>Gain a [amount]% power increase to submarine turrets.</talentdescription.YAMJGunner>
+  <talentname.YAMJHumanoid>Humanoid Instinct</talentname.YAMJHumanoid>
+  <talentdescription.YAMJHumanoid>Gain a [amount]% power increase to melee weapons and firearms.</talentdescription.YAMJHumanoid>
+  <!--Hired Claw 4-->
+  <talentname.YAMJBond_Security>Guard Dog (Bond with Security)</talentname.YAMJBond_Security>
+  <talentdescription.YAMJBond_SecurityDesc>Trained by Security to be the best Guard Dog this side of europa. Not attacking for 10 seconds grants you the Raptor Bite bonus, increasing your Creature Attack by 150% for one attack. While near others they gain 35% Stun Resistance. +10% Turret Attack Speed and Charge Speed. -10% Turret Power Cost. +10% Attack Speed. -20% Ranged Weapon Spread.</talentdescription.YAMJBond_SecurityDesc>
+  <talentname.YAMJBond_Doctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBond_Doctor>
+  <talentdescription.YAMJBond_DoctorDesc>Your interest in the crew Doctor has led you to some interesting discoveries. You gain the Gene Harvester Talent. While near others they heal most Physical Damage very slowly while also gaining +20% Stun, Poison and Chem Addiction Resistance. +30 Medical Skill Bonus. +30% Medical Item Effectiveness.</talentdescription.YAMJBond_DoctorDesc>
+  <!--Predator 1-->
+  <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
+  <talentdescription.YAMJArmorVetDesc>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVetDesc>
+  <!--Predator 2-->
+  <talentname.YAMJBloodthirsty>Bloodthirsty</talentname.YAMJBloodthirsty>
+  <talentdescription.YAMJBloodthirsty>The scent of your own blood only fuels your frenzy.</talentdescription.YAMJBloodthirsty>
+  <talentname.YAMJFamiliarWaters>Familiar Waters</talentname.YAMJFamiliarWaters>
+  <talentdescription.YAMJFamiliarWaters>It's all coming back to you. While submerged in water, you gain the following:</talentdescription.YAMJFamiliarWaters>
+  <!--Predator 3-->
+  <talentname.YAMJSwimSpeed>Feisty</talentname.YAMJSwimSpeed>
+  <talentdescription.YAMJSwimSpeed>Get in, ravage, get out.</talentdescription.YAMJSwimSpeed>
+  <talentname.YAMJMonsterInstinct>Monstrous</talentname.YAMJMonsterInstinct>
+  <talentdescription.YAMJMonsterInstinctDesc>The old ways of combat are strong in your mind. Gain a [amount]% power increase to your creature attacks. It's only natural, after all.</talentdescription.YAMJMonsterInstinctDesc>
+  <!--Predator 4-->
+  <talentname.YAMJRelentless>Relentless</talentname.YAMJRelentless>
+  <talentdescription.cannotfallunconsciousforsecondsYAMJ>Your eyes glare with a burning passion for blood. Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.cannotfallunconsciousforsecondsYAMJ>
+  <talentdescription.cannotfallunconsciousforsecondsYAMJ2>Whenever you fall below 0 health, you will remain fully conscious for [duration] seconds and your attacks receive +300% power.</talentdescription.cannotfallunconsciousforsecondsYAMJ2>
+  <talentname.YAMJBond_Captain>Best in Show (Bond with Captain)</talentname.YAMJBond_Captain>
+  <talentdescription.YAMJBond_CaptainDesc>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds. Whenever your crew completes a mission, everyone gains +10% Extra EXP and Marks. While near others they gain 15% Stun and Damage Resistance. +30 Helm Skill Bonus. +10% Attack Power.</talentdescription.YAMJBond_CaptainDesc>
+  <!--Student 1-->
+  <talentname.YAMJBackpackBio>Bio Backpack</talentname.YAMJBackpackBio>
+  <talentdescription.YAMJBackpackBioDesc>Make mudraptor backpacks lined with glowing chemicals. 7 slots for items, 2 for children. Humans can't wear this without extreme pain.</talentdescription.YAMJBackpackBioDesc>
+  <talentname.YAMJSkillGain>Quick Learner</talentname.YAMJSkillGain>
+  <talentname.YAMJRepairSpeed>Hydrophobe</talentname.YAMJRepairSpeed>
+  <!--Student 2-->
+  <talentname.YAMJClownCollege>Clown College for Raptors</talentname.YAMJClownCollege>
+  <talentdescription.YAMJClownCollege>The Honkmother's reach goes far in these deep dark waters...</talentdescription.YAMJClownCollege>
+  <talentdescription.YAMJGuitarRaptorDesc>Anyone hearing your music will be invigorated with the desire to do more, gaining a +10 bonus to All Skills. If you keep playing, people around you will gain 10 XP at random.</talentdescription.YAMJGuitarRaptorDesc>
+  <talentname.YAMJGuardianAngel>Guardian Angel</talentname.YAMJGuardianAngel>
+  <talentdescription.YAMJGuardianAngel>Enemies will prioritize attacking you over your allies, and you take [amount]% less damage.</talentdescription.YAMJGuardianAngel>
+  <!--Student 3-->
+  <talentname.YAMJMachinist>Machinist</talentname.YAMJMachinist>
+  <talentdescription.YAMJMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.YAMJMachinist>
+  <!--Student 4-->
+  <talentname.YAMJPostgrad>Postgrad</talentname.YAMJPostgrad>
+  <talentdescription.YAMJPostgradLimits>You may only install a maximum of 1 portable pump and 1 makeshift shelf.</talentdescription.YAMJPostgradLimits>
+  <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>
+  <talentdescription.YAMJBond_EngineerDesc>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake. You gain the Electrochemist Talent with a bonus 35 Radiation Sickness applied when it activates. +30 Electrical Skill Bonus. 25% Repair Speed.</talentdescription.YAMJBond_EngineerDesc>
+  <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
+  <talentdescription.YAMJBond_MechanicDesc>You've picked up some tricks on how to better seek out what a mechanic requires. You gain the Scrounger Talent. +30 Mechanical Skill Bonus. +25% Hull/Mechanical Repair Speed and +50% Mining Speed.</talentdescription.YAMJBond_MechanicDesc>
+  <!-- Afflictions! -->
+  <afflictionname.YAMJGuardianAngelBuff>Guardian Angel</afflictionname.YAMJGuardianAngelBuff>
+  <afflictiondescription.YAMJGuardianAngelBuff>Your bleeding heart drives you to defend your allies to the last breath.</afflictiondescription.YAMJGuardianAngelBuff>
+  <afflictionname.YAMJBestFriendBuff>My Best Friend</afflictionname.YAMJBestFriendBuff>
+  <afflictiondescription.YAMJBestFriendBuff>The Mudraptor close to you is bolstering your actions. +20% Walk/Run Speed. +40% Swim Speed. +75% Water Flow Resistance.</afflictiondescription.YAMJBestFriendBuff>
+  <afflictionname.YAMJSleepTimeIcon>Raptor Nap</afflictionname.YAMJSleepTimeIcon>
+  <afflictiondescription.YAMJSleepTimeIcon>While under the effects of Raptor Nap, your vitality is slowly regenerating. Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.YAMJSleepTimeIcon>
+  <afflictionname.YAMJguitarraptorbuff>Guitar Raptor Serenade</afflictionname.YAMJguitarraptorbuff>
+  <afflictiondescription.YAMJguitarraptorbuff>Guitar Raptor's songs invigorate you with a passion to do more.</afflictiondescription.YAMJguitarraptorbuff>
+  <afflictionname.YAMJFamiliarWaterBuff>Familiar Waters</afflictionname.YAMJFamiliarWaterBuff>
+  <afflictiondescription.YAMJFamiliarWaterBuff>You know exactly what you're doing and where you are.</afflictiondescription.YAMJFamiliarWaterBuff>
+  <afflictionname.YAMJBond_CaptainBuff>Best in Show</afflictionname.YAMJBond_CaptainBuff>
+  <afflictiondescription.YAMJBond_CaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.YAMJBond_CaptainBuff>
+  <afflictionname.YAMJBond_SecurityBuff>Guard Dog</afflictionname.YAMJBond_SecurityBuff>
+  <afflictiondescription.YAMJBond_SecurityBuff>Your skill with weapons and turrets is bolstered due to the Guard Dog.</afflictiondescription.YAMJBond_SecurityBuff>
+  <afflictionname.YAMJRaptorBite>Raptor Bite</afflictionname.YAMJRaptorBite>
+  <afflictiondescription.YAMJRaptorBite>Fully charged and ready to nibble!</afflictiondescription.YAMJRaptorBite>
+  <afflictionname.YAMJBond_EngineerBuff>Radiation Rascal</afflictionname.YAMJBond_EngineerBuff>
+  <afflictiondescription.YAMJBond_EngineerBuff>Your skill with electronics and repairing is bolstered due to the Radiation Rascal.</afflictiondescription.YAMJBond_EngineerBuff>
+  <afflictionname.YAMJBond_MechanicBuff>Tool Seeker</afflictionname.YAMJBond_MechanicBuff>
+  <afflictiondescription.YAMJBond_MechanicBuff>Your skills with mechanical devices and hull repairs are bolstered due to the Tool Seeker.</afflictiondescription.YAMJBond_MechanicBuff>
+  <afflictionname.YAMJBond_DoctorBuff>Therapy's Left Claw</afflictionname.YAMJBond_DoctorBuff>
+  <afflictiondescription.YAMJBond_DoctorBuff>Your skills with medicines and poisons are bolstered due to the Doctor's Raptor.</afflictiondescription.YAMJBond_DoctorBuff>
+  <afflictionname.YAMJimplacable>Relentless</afflictionname.YAMJimplacable>
+  <afflictiondescription.YAMJimplacable>KILL! KILL! KILL!</afflictiondescription.YAMJimplacable>
+  <afflictionname.YAMJVouchBuff>Vouched</afflictionname.YAMJVouchBuff>
+  <afflictiondescription.YAMJVouchBuff>test</afflictiondescription.YAMJVouchBuff>
 </infotexts>

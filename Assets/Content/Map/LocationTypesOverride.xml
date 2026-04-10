@@ -1,0 +1,234 @@
+<Override>
+
+    <City
+    identifier="City"
+    replaceinradiation="abandoned"
+    descriptioninradiation="locationdescription.abandonedirradiated"
+    nameidentifiers="city"
+    BiomeGate="Allow">
+
+    <AreaSettings zone="1" count="1" commonness="0"/>
+    <AreaSettings zone="2" commonness="0.5"/>
+    <Symbol texture="Content/Map/MapAtlas.png" sourcerect="384,512,128,128" color="128,206,175,255"/>
+    <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
+    <Portrait texture="Content/Map/LocationPortraits/Colony.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+    <Portrait texture="Content/Map/LocationPortraits/Colony2.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+
+    <Hireable identifier="assistant" commonness="10" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="engineer" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="mechanic" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="medicaldoctor" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="securityofficer" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="captain" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="PlayerMudraptorJob" commonness="1" AlwaysAvailableIfMissingFromCrew="true" />
+
+    <Store
+      maxreputationmodifier="0.1"
+      minreputationmodifier="1.0"
+      sellpricemodifier="0.3"
+      dailyspecialpricemodifier="0.5"
+      requestgoodpricemodifier="2"
+      initialbalance="6000"
+      pricemodifierrange="5"
+      dailyspecialscount="3"
+      requestedgoodscount="3" />
+  </City>
+
+  <Outpost
+    identifier="Outpost"
+    replaceinradiation="abandoned"
+    descriptioninradiation="locationdescription.abandonedirradiated"
+    nameidentifiers="generic,city"
+    BiomeGate="Allow">
+
+    <AreaSettings zone="1" commonness="1.5"/>
+    <AreaSettings zone="2" commonness="2.5"/>
+    <AreaSettings zone="3" commonness="1.0"/>
+    <AreaSettings zone="4" commonness="0.75"/>
+    <Symbol texture="Content/Map/MapAtlas.png" sourcerect="256,512,128,128" color="128,206,175,255"/>
+    <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
+    <Portrait texture="Content/Map/LocationPortraits/HabitationOutpost.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+    <Portrait texture="Content/Map/LocationPortraits/HabitationOutpost2.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+
+    <Hireable identifier="assistant" commonness="10" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="engineer" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="mechanic" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="medicaldoctor" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="securityofficer" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="captain" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="PlayerMudraptorJob" commonness="1" AlwaysAvailableIfMissingFromCrew="false" />
+
+    <!-- can become a specialized outpost if there are no adjacent lairs -->
+    <ChangeTo type="Military" probability="0.2" 
+              requireddurationrange="2,5"
+              disallowedadjacentlocations="Lair"
+              disallowedproximity="2"
+              messagetag="locationchange.outpost.changeto.military"/>
+
+    <ChangeTo type="Research" probability="0.2" 
+              requireddurationrange="2,5"
+              disallowedadjacentlocations="Lair"
+              disallowedproximity="2"
+              messagetag="locationchange.outpost.changeto.research"/>
+    
+    <ChangeTo type="Mine" probability="0.2" 
+              requireddurationrange="2,5"
+              disallowedadjacentlocations="Lair"
+              disallowedproximity="2"
+              messagetag="locationchange.outpost.changeto.mine"/>
+
+    <ChangeTo type="Abandoned" requireddurationrange="1,1" messagetag="locationchange.outpost.changeto.abandoned">
+      <Requirement requirehuntinggrounds="true" probability="0.5" requiredproximity="0" />  
+    </ChangeTo>
+
+    <Store
+      maxreputationmodifier="0.1"
+      minreputationmodifier="1.0"
+      sellpricemodifier="0.3"
+      dailyspecialpricemodifier="0.5"
+      requestgoodpricemodifier="2"
+      initialbalance="5000"
+      pricemodifierrange="5" />
+  </Outpost>
+
+  <Military
+    identifier="Military"
+    replaceinradiation="abandoned"
+    descriptioninradiation="locationdescription.abandonedirradiated"
+    nameidentifiers="city"
+    UsePortraitInMainMenu="true"
+    BiomeGate="Allow">
+
+    <AreaSettings zone="1" commonness="0.6"/>
+    <AreaSettings zone="2" commonness="1.75"/>
+    <AreaSettings zone="3" commonness="1.0"/>
+    <AreaSettings zone="4" commonness="0.75"/>
+    <Symbol texture="Content/Map/MapAtlas.png" sourcerect="640,512,128,128" color="128,206,175,255"/>
+    <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
+    <Portrait texture="Content/Map/LocationPortraits/WorkCampMilitary.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+    <Portrait texture="Content/Map/LocationPortraits/WorkCampMilitary2.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+
+    <Hireable identifier="securityofficer" commonness="10" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="captain" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="assistant" commonness="2" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="engineer" commonness="2" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="mechanic" commonness="2" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="medicaldoctor" commonness="2" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="PlayerMudraptorJob" commonness="3" AlwaysAvailableIfMissingFromCrew="true" />
+
+    <!-- can become a city if there are no adjacent lairs -->
+    <ChangeTo type="City"
+              requireddurationrange="3,5"
+              probability="0.2"
+              requiredlocations="City" requiredproximity="3"
+              disallowedadjacentlocations="Lair,City"
+              disallowedproximity="2"
+              messagetag="locationchange.military.changeto.city"/>
+
+    <ChangeTo type="Abandoned" requireddurationrange="1,1" messagetag="locationchange.outpost.changeto.abandoned">
+      <Requirement requirehuntinggrounds="true" probability="0.5" requiredproximity="0" />
+    </ChangeTo>
+
+    <Store
+      maxreputationmodifier="0.1"
+      minreputationmodifier="1.0"
+      sellpricemodifier="0.3"
+      dailyspecialpricemodifier="0.5"
+      requestgoodpricemodifier="2"
+      initialbalance="5000"
+      pricemodifierrange="5" />
+  </Military>
+
+  <Research
+    identifier="Research"
+    replaceinradiation="abandoned"
+    descriptioninradiation="locationdescription.abandonedirradiated"
+    nameidentifiers="generic,city"
+    BiomeGate="Allow">
+
+    <AreaSettings zone="1" commonness="0.0"/>
+    <AreaSettings zone="2" commonness="1.75"/>
+    <AreaSettings zone="3" commonness="1.0"/>
+    <AreaSettings zone="4" commonness="0.75"/>
+    <Symbol texture="Content/Map/MapAtlas.png" sourcerect="512,512,128,128" color="128,206,175,255"/>
+    <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
+    <Portrait texture="Content/Map/LocationPortraits/WorkCampResearchFacility1.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+
+    <Hireable identifier="engineer" commonness="5" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="mechanic" commonness="5" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="medicaldoctor" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="assistant" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="securityofficer" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="captain" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="PlayerMudraptorJob" commonness="3" AlwaysAvailableIfMissingFromCrew="true" />
+
+    <!-- can become a city if there are no adjacent lairs -->
+    <ChangeTo type="City"
+          requireddurationrange="2,4"
+          probability="0.2"
+          requiredlocations="City" requiredproximity="3"
+          disallowedadjacentlocations="Lair,City"
+          disallowedproximity="2"
+          messagetag="locationchange.research.changeto.city"/>
+
+    <ChangeTo type="Abandoned" requireddurationrange="1,1" messagetag="locationchange.outpost.changeto.abandoned">
+      <Requirement requirehuntinggrounds="true" probability="0.5" requiredproximity="0" />  
+    </ChangeTo>
+
+    <Store
+      maxreputationmodifier="0.1"
+      minreputationmodifier="1.0"
+      sellpricemodifier="0.3"
+      dailyspecialpricemodifier="0.5"
+      requestgoodpricemodifier="2"
+      initialbalance="5000"
+      pricemodifierrange="5" />
+  </Research>
+  
+  <Mine
+    identifier="Mine"
+    replaceinradiation="abandoned"
+    descriptioninradiation="locationdescription.abandonedirradiated"
+    nameidentifiers="generic,city"
+    BiomeGate="Allow">
+
+    <AreaSettings zone="1" commonness="0.6"/>
+    <AreaSettings zone="2" commonness="1.75"/>
+    <AreaSettings zone="3" commonness="1.0"/>
+    <AreaSettings zone="4" commonness="0.75"/>
+    <Symbol texture="Content/Map/MapAtlas.png" sourcerect="256,640,128,128" color="128,206,175,255"/>
+    <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
+    <Portrait texture="Content/Map/LocationPortraits/WorkCampMining1.png" sourcerect="0,0,2160,1080" premultiplyalpha="false"/>
+	  
+    <Hireable identifier="engineer" commonness="5" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="mechanic" commonness="5" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="assistant" commonness="3" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="medicaldoctor" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>    
+    <Hireable identifier="securityofficer" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="captain" commonness="1" AlwaysAvailableIfMissingFromCrew="true"/>
+    <Hireable identifier="PlayerMudraptorJob" commonness="1" AlwaysAvailableIfMissingFromCrew="false" />
+
+    <!-- can become a city if there are no adjacent lairs -->
+    <ChangeTo type="City"
+          requireddurationrange="2,4"
+          probability="0.15"
+          requiredlocations="City" requiredproximity="3"
+          disallowedadjacentlocations="Lair,City"
+          disallowedproximity="2"
+          messagetag="locationchange.mine.changeto.city"/>
+
+    <ChangeTo type="Abandoned" requireddurationrange="1,1" messagetag="locationchange.outpost.changeto.abandoned">
+      <Requirement requirehuntinggrounds="true" probability="0.5" requiredproximity="0" />  
+    </ChangeTo>
+
+    <Store
+      maxreputationmodifier="0.1"
+      minreputationmodifier="1.0"
+      sellpricemodifier="0.3"
+      dailyspecialpricemodifier="0.5"
+      requestgoodpricemodifier="2"
+      initialbalance="5000"
+      pricemodifierrange="5" />
+  </Mine>
+  
+</Override>

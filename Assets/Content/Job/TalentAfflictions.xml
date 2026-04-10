@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!--Vouch-->
+  <Affliction identifier="YAMJVouchBuff" type="talentbuff" isbuff="true" limbspecific="false" indicatorlimb="Head" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000" maxstrength="60">
+    <Effect minstrength="0" maxstrength="60" strengthchange="-1" group="mudraptor" />
+    <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,768,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!--Bloodthirsty-->
+  <Affliction identifier="YAMJBloodThirsty" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" duration="1" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1">
+      <StatValue stattype="AttackMultiplier" value="0.75" />
+    </Effect>
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128" color="200,50,50,255" origin="0,0" />
+  </Affliction>
+  <!--Guardian-->
+  <Affliction identifier="YAMJGuardianAngelBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" hideiconafterdelay="true" duration="1" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1" resistancefor="damage" minresistance="0.10" maxresistance="0.10" tag="provocative">
+      <StatValue stattype="SoundRangeMultiplier" value="1.0" />
+      <StatValue stattype="SightRangeMultiplier" value="1.0" />
+    </Effect>
+    <Icon texture="Content/UI/TalentsIcons4.png" sheetindex="6,0" sheetelementsize="128,128" origin="0,0" />
+  </Affliction>
+  <!--guarded-->
+  <Affliction identifier="guarded_YAMJ" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="10" maxstrength="10" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="10" strengthchange="0" />
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Familiar Water Buff -->
+  <Affliction identifier="YAMJFamiliarWaterBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="1" maxstrength="1" strengthchange="0" resistancefor="stun" minresistance="0.5" maxresistance="0.5">
+      <StatValue stattype="MovementSpeed" value="0.15" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="5,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Relentless Eyes Effect -->
+  <Affliction name="Relentless Gaze" identifier="relentlessgaze" description="" type="gaze" limbspecific="false" indicatorlimb="Head" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000" karmachangeonapplied="0" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1" minscreendistort="0" maxscreendistort="0" minscreenblur="0" maxscreenblur="0" minradialdistort="0" maxradialdistort="0" minchromaticaberration="0" maxchromaticaberration="0" strengthchange="0">
+      <StatusEffect target="Character" targetlimb="Head" SpeedMultiplier="1.2" HealthMultiplier="1.2" setvalue="true"></StatusEffect>
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,0" sheetelementsize="128,128" />
+  </Affliction>
+  <!-- Sleep Time Icon & Blur Effect -->
+  <Affliction identifier="YAMJSleepTimeIcon" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="0" maxstrength="2" duration="2" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="2">
+      <StatValue stattype="SkillGainSpeed" minvalue="0.5" maxvalue="0.5" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction identifier="YAMJSleepTimeVFX" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="2" duration="2" showiconthreshold="1000" showinhealthscannerthreshold="1000" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="2"
+      MinAfflictionOverlayAlphaMultiplier="0.0" MaxAfflictionOverlayAlphaMultiplier="1.0"
+      minscreenblur="0.0" maxscreenblur="1.0"
+    />
+    <AfflictionOverlay texture="%ModDir%/UI/SleepOverlay.png" /> <!--why the fuck does this not render-->
+  </Affliction>
+  <!-- Guitar Raptor Affliction -->
+  <Affliction identifier="YAMJguitarraptorbuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="480" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="480" strengthchange="-1">
+      <StatValue stattype="HelmSkillBonus" value="10" />
+      <StatValue stattype="WeaponsSkillBonus" value="10" />
+      <StatValue stattype="ElectricalSkillBonus" value="10" />
+      <StatValue stattype="MechanicalSkillBonus" value="10" />
+      <StatValue stattype="MedicalSkillBonus" value="10" />
+    </Effect>
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="4,7" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Implacable YAMJ -->
+  <Affliction identifier="YAMJimplacable" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="30" showiconthreshold="0" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="30" strengthchange="-1">
+      <StatValue stattype="AttackMultiplier" value="3.00" />
+      <AbilityFlag flagtype="AlwaysStayConscious" />
+      <StatusEffect target="Character" targetlimb="Head" setvalue="true">
+        <ParticleEmitter particle="gazerage" particlespersecond="20" scalemin="0.6" scalemax="1" velocitymin="0" velocitymax="0" anglemin="0" anglemax="360" copyentityangle="false" />
+      </StatusEffect>
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Best Friend Buff -->
+  <Affliction identifier="YAMJBestFriendBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" hideiconafterdelay="true" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1">
+      <StatValue stattype="WalkingSpeed" value="0.2" />
+      <StatValue stattype="SwimmingSpeed" value="0.4" />
+      <StatValue stattype="FlowResistance" value="0.75" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Best Friend Buff Self -->
+  <Affliction identifier="YAMJBestFriendBuffSelf" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" hideiconafterdelay="true" showiconthreshold="1000" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1">
+      <StatValue stattype="FlowResistance" value="0.75" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Bond Buffs -->
+  <Affliction identifier="YAMJBond_CaptainBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="0.15" maxresistance="0.15">
+      <StatValue stattype="HelmSkillBonus" value="30" />
+      <StatValue stattype="AttackMultiplier" value="0.1" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction identifier="YAMJBond_SecurityBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1" resistancefor="stun" minresistance="0.35" maxresistance="0.35">
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.1" />
+      <StatValue stattype="RangedAttackSpeed" value="0.1" />
+      <StatValue stattype="TurretAttackSpeed" value="0.1" />
+      <StatValue stattype="TurretPowerCostReduction" value="0.1" />
+      <StatValue stattype="TurretChargeSpeed" value="0.1" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction identifier="YAMJBond_EngineerBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun,nausea" minresistance="0.0" maxresistance="0.0">
+      <StatValue stattype="ElectricalSkillBonus" value="30" />
+      <StatValue stattype="RepairSpeed" value="0.25" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction identifier="YAMJBond_MechanicBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="0.0" maxresistance="0.0">
+      <StatValue stattype="MechanicalSkillBonus" value="30" />
+      <StatValue stattype="MechanicalRepairSpeed" value="0.25" />
+      <StatValue stattype="RepairToolStructureRepairMultiplier" value="0.25" />
+      <StatValue stattype="RepairToolDeattachTimeMultiplier" value="0.5" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction identifier="YAMJBond_DoctorBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1" resistancefor="stun,poison,chemaddiction" minresistance="0.2" maxresistance="0.2">
+      <StatValue stattype="MedicalSkillBonus" value="30" />
+      <StatValue stattype="MedicalItemEffectivenessMultiplier" value="0.3" />
+    </Effect>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Security Bond Bite Buff -->
+  <Affliction identifier="YAMJRaptorBite" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="10" maxstrength="10" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="10" strengthchange="0" />
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,1" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Item Afflictions -->
+  <Affliction name="Ice Cold" identifier="iceflare_slowdown" type="poison" limbspecific="false" indicatorlimb="Torso" showiconthreshold="0.1" duration="1" showinhealthscannerthreshold="0.1" maxstrength="1">
+    <!-- Slow the player down and paralyze in the end-->
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" minscreendistort="0.0" maxscreendistort="0.1" minscreenblur="0.0" maxscreenblur="0.1">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.8">
+        <Conditional isplayer="true" invert="true" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="0,255,0,255" origin="0,0" />
+  </Affliction>
+  <!-- Fire Flare Affliction -->
+  <Affliction name="Red Hot" identifier="fireflare_burn" type="burn" limbspecific="false" indicatorlimb="Torso" showiconthreshold="5000" duration="1" showinhealthscannerthreshold="5000" maxstrength="1">
+    <!-- Burn the bastard -->
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" minscreendistort="0.0" maxscreendistort="0.0" minscreenblur="0.0" maxscreenblur="0.0">
+      <StatusEffect target="Character" setvalue="true">
+        <Conditional isplayer="true" invert="true" />
+        <Affliction identifier="burn" strength="1" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="0,255,0,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

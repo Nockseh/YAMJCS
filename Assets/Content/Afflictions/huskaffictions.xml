@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!-- NORMAL ARMOR -->
+  <AfflictionHusk name="Mudraptor Chest Armor" identifier="mudraptorchestarmor" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="0" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" resistancefor="damage" minresistance="0.1" maxresistance="0.1" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Tail Armor" identifier="mudraptortailarmor" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Right Leg Armor" identifier="mudraptorrlarmor" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Left Leg Armor" identifier="mudraptorllarmor" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <!-- Those weird top armor things the mudraptor has -->
+  <AfflictionHusk name="Mudraptor Front Prober Armor" identifier="mudraptortopfarmor" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Back Prober Armor" identifier="mudraptortopbarmor" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <!-- PIRATE ARMOR -->
+  <AfflictionHusk name="Mudraptor Chest Armor" identifier="mudraptorchestpirate" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="0" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" resistancefor="damage" minresistance="0.1" maxresistance="0.1" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Tail Armor" identifier="mudraptortailpirate" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <!-- CLOWN ARMOR -->
+  <AfflictionHusk name="Mudraptor Chest Armor" identifier="mudraptorchestclown" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="0" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" resistancefor="damage" minresistance="0.1" maxresistance="0.1" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Tail Armor" identifier="mudraptortailclown" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <!-- VETERAN ARMOR -->
+  <AfflictionHusk name="Mudraptor Chest Armor" identifier="mudraptorchestveteran" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="0" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" resistancefor="damage" minresistance="0.1" maxresistance="0.1" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Tail Armor" identifier="mudraptortailveteran" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Right Leg Armor" identifier="mudraptorrlveteran" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Left Leg Armor" identifier="mudraptorllveteran" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <!-- Those weird top armor things the mudraptor has -->
+  <AfflictionHusk name="Mudraptor Front Prober Armor" identifier="mudraptortopfveteran" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <AfflictionHusk name="Mudraptor Back Prober Armor" identifier="mudraptortopbveteran" type="alieninfection" healableinmedicalclinic="false" limbspecific="false" targets="Mudraptor_player" huskedspeciesname="husk" indicatorlimb="Torso" showiconthreshold="1000" needsair="true" causespeechimpediment="false" treatmentthreshold="1000" dormantthreshold="0" activethreshold="0" transitionthreshold="1000" transformthresholdondeath="1000" sendmessages="false" maxstrength="100" iconcolors="94,54,95;163,73,164;200,191,231">
+    <Effect minstrength="0" maxstrength="100" maxvitalitydecrease="0" strengthchange="0" />
+    <icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,0" sheetelementsize="128,128" color="181,230,29,255" origin="0,0" />
+  </AfflictionHusk>
+  <!-- Resistances that should stop people from putting on different types of mudraptor armor at the same time -->
+  <!-- The chest and torso default armor -->
+  <Affliction name="Default Mudraptor Armor Resistance" identifier="mudraptorarmorresist" description="Stops default armor from being equipped." type="resistance" isbuff="true" limbspecific="false" maxstrength="1" showiconthreshold="1000">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="mudraptorchestarmor,mudraptortailarmor" minresistance="1" maxresistance="1" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!--
+	resistancefor="mudraptorchestarmor"
+	resistancefor="mudraptortailarmor"
+  -->
+  <!-- Right and left leg default armor -->
+  <Affliction name="Default Mudraptor Leg Resistance" identifier="mudraptorlegarmorresist" description="Stops default leg armor from being equipped." type="resistance" isbuff="true" limbspecific="false" maxstrength="1" showiconthreshold="1000">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="mudraptorrlarmor,mudraptorllarmor" minresistance="1" maxresistance="1" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Top right and left prober default armor -->
+  <Affliction name="Default Mudraptor Probe Armor Resistance" identifier="mudraptorprobearmorresist" description="Stops default prober armor from being equipped." type="resistance" isbuff="true" limbspecific="false" maxstrength="1" showiconthreshold="1000">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="mudraptortopfarmor,mudraptortopbarmor" minresistance="1" maxresistance="1" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- The chest and torso pirate armor -->
+  <Affliction name="Pirate Mudraptor Armor Resistance" identifier="mudraptorpirateresist" description="Stops pirate armor from being equipped." type="resistance" isbuff="true" limbspecific="false" maxstrength="1" showiconthreshold="1000">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="mudraptorchestpirate,mudraptortailpirate" minresistance="1" maxresistance="1" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- The chest and torso Clown armor -->
+  <Affliction name="Clown Mudraptor Armor Resistance" identifier="mudraptorclownresist" description="Stops clown armor from being equipped." type="resistance" isbuff="true" limbspecific="false" maxstrength="1" showiconthreshold="1000">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="mudraptorchestclown,mudraptortailclown" minresistance="1" maxresistance="1" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- The chest, torso, right leg, left leg, top front prober, top back prober veteran armor -->
+  <Affliction name="Veteran Mudraptor Armor Resistance" identifier="mudraptorveteranresist" description="Stops veteran armor from being equipped." type="resistance" isbuff="true" limbspecific="false" maxstrength="1" showiconthreshold="1000">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="mudraptorchestveteran,mudraptortailveteran,mudraptorrlveteran,mudraptorllveteran,mudraptortopfveteran,mudraptortopbveteran" minresistance="1" maxresistance="1" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

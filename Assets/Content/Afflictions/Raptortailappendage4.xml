@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<huskappendage>
+  <limb id="26" width="150" height="0" name="TailArmor" type="None" spriteorientation="270" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" steerforce="0" radius="45" density="0.1" ignorecollisions="False" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" minseverancedamage="2" healthindex="0" friction="0.3" restitution="0.05" severedfadeouttime="0" applytailangle="False" applysinemovement="True" inheritlimbdepth="None" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" onlyblinkinwater="False" blinktransitionin="Linear" blinktransitionout="Linear" canbeseveredalive="False">
+    <sprite texture="%ModDir%/Items/MudraptorClownClothing.png" sourcerect="501,3,234,111" origin="0.45421833,0.48860997" depth="0.059" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="True" />
+    <damagemodifier armorsector="0,360" afflictiontypes="damage" damagemultiplier="0.1" damagesound="LimbArmor" damageparticle="brownchunks" deflectprojectiles="True" afflictionidentifiers="" probabilitymultiplier="1" />
+    <damagemodifier armorsector="0,360" afflictiontypes="bleeding" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="" probabilitymultiplier="1" damageparticle="" />
+    <damagemodifier armorsector="0,360" afflictiontypes="burn" damagemultiplier="0.25" damagesound="" deflectprojectiles="True" afflictionidentifiers="" probabilitymultiplier="1" damageparticle="" />
+    <StatusEffect type="OnSevered" target="This">
+      <particleemitter particle="brownchunks" drawontop="true" particleamount="30" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.35" />
+    </StatusEffect>
+  </limb>
+  <joint limb1="15" limb2="26" limb1anchor="16.184809,21.871902" limb2anchor="0,0" name="Joint Tail - Armor" canbesevered="True" severanceprobabilitymodifier="1" breaksound="armorbreak" limitenabled="True" upperlimit="0" lowerlimit="0" stiffness="0.25" scale="1" weldjoint="True" clockwiserotation="False" />
+</huskappendage>

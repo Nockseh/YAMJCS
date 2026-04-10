@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Mudraptor Eggs -->
+  <Item name="" identifier="smallmudraptoreggYAMJ" nameidentifier="mudraptoregg" Tags="smallitem,ignorebyai" health="40" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="toxcontainer" notcampaign="true" />
+    <PreferredContainer secondary="locker" notcampaign="true" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.18" sourcerect="164,3,42,49" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="0.5" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem identifier="smallmudraptoregg" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="0.5" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem tag="petegg" amount="1" header="fabricationheader.petegg" />
+      <RequiredItem identifier="geneticmaterialmudraptor" mincondition="0.25" maxcondition="1.0" usecondition="false" description="fabricationdescription.mudraptordna" />
+    </Fabricate>
+    <Deconstruct time="0.5">
+      <Item identifier="alienblood" />
+    </Deconstruct>
+    <Body width="40" height="45" friction="1.0" restitution="0.01" angulardamping="0.8" />
+    <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10">
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+    </Holdable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false">
+      <Containable items="antibloodloss1">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.005" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+        <!-- remove and spawn a medium egg when scale is greater than or equal to 0.95 -->
+        <StatusEffect type="OnContaining" target="This">
+          <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
+          <particleemitter particle="brownchunks" particleamount="10" emitinterval="1000" velocitymin="0" velocitymax="100" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.3" />
+          <Conditional Scale="gte 0.95" />
+          <SpawnItem identifier="mediummudraptoreggYAMJ" spawnposition="This" />
+          <Remove />
+        </StatusEffect>
+      </Containable>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="mediummudraptoreggYAMJ" nameidentifier="mudraptoregg" hideinmenus="true" health="50" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.18" sourcerect="235,156,67,82" origin="0.5,0.5" />
+    <Deconstruct time="10">
+      <Item identifier="alienblood" />
+      <Item identifier="adrenalinegland" />
+    </Deconstruct>
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Body width="65" height="75" friction="1.0" restitution="0.01" angulardamping="1.0" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false" canbeselected="true">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+      <Containable items="antibloodloss1">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.005" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+        <StatusEffect type="OnContaining" target="This">
+          <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
+          <particleemitter particle="brownchunks" particleamount="10" emitinterval="1000" velocitymin="0" velocitymax="500" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+          <Conditional Scale="gte 0.75" />
+          <SpawnItem identifier="largemudraptoreggYAMJ" spawnposition="This" />
+          <Remove />
+        </StatusEffect>
+      </Containable>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="largemudraptoreggYAMJ" nameidentifier="mudraptoregg" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.18" sourcerect="80,105,124,147" origin="0.5,0.5" />
+    <Deconstruct time="10">
+      <Item identifier="alienblood" />
+      <Item identifier="alienblood" />
+      <Item identifier="adrenalinegland" />
+      <Item identifier="mudraptorshell" />
+    </Deconstruct>
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Body width="120" height="120" friction="1.0" restitution="0.01" angulardamping="1.0" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false" canbeselected="true">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.4" scalemax="0.6" />
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <Sound file="Content/Sounds/Damage/Gore7.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+      <!-- spawn a mudraptor and remove the item if scale is above 0.95 -->
+      <StatusEffect type="Always" target="This" Condition="0" setvalue="true">
+        <Conditional Scale="gte 0.95" />
+        <SpawnCharacter speciesname="RaptorPet" />
+        <Remove />
+      </StatusEffect>
+      <Containable items="antibloodloss1">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.005" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+      </Containable>
+    </ItemContainer>
+    <LightComponent range="5" lightcolor="127,196,196,61" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false" pulsefrequency="1" pulseamount="0.30">
+      <sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.025" sourcerect="300,291,98,113" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+    <LightComponent range="40" lightcolor="255,199,0,58" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">
+      <sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.025" sourcerect="410,301,88,95" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+  </Item>
+  <!-- Veteran Mudraptor Egg -->
+  <Item name="" identifier="smallmudraptoregg2YAMJ" nameidentifier="mudraptoregg" Tags="smallitem,ignorebyai" health="40" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="toxcontainer" notcampaign="true" />
+    <PreferredContainer secondary="locker" notcampaign="true" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.18" sourcerect="164,3,42,49" origin="0.5,0.5" />
+    <!--
+	<Fabricate suitablefabricators="medicalfabricator" requiredtime="0.5" requiresrecipe="true" HideIfNoRecipe="true">
+      <RequiredItem identifier="smallmudraptoregg" />
+    </Fabricate>
+	-->
+    <Deconstruct time="0.5">
+      <Item identifier="smallmudraptoregg" />
+    </Deconstruct>
+    <Body width="40" height="45" friction="1.0" restitution="0.01" angulardamping="0.8" />
+    <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10">
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+    </Holdable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false">
+      <Containable items="antibloodloss1">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.005" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+        <!-- remove and spawn a medium egg when scale is greater than or equal to 0.95 -->
+        <StatusEffect type="OnContaining" target="This">
+          <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
+          <particleemitter particle="brownchunks" particleamount="10" emitinterval="1000" velocitymin="0" velocitymax="100" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.3" />
+          <Conditional Scale="gte 0.95" />
+          <SpawnItem identifier="mediummudraptoregg2YAMJ" spawnposition="This" />
+          <Remove />
+        </StatusEffect>
+      </Containable>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="mediummudraptoregg2YAMJ" nameidentifier="mudraptoregg" hideinmenus="true" health="50" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.18" sourcerect="235,156,67,82" origin="0.5,0.5" />
+    <Deconstruct time="10">
+      <Item identifier="alienblood" />
+      <Item identifier="adrenalinegland" />
+    </Deconstruct>
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Body width="65" height="75" friction="1.0" restitution="0.01" angulardamping="1.0" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false" canbeselected="true">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+      <Containable items="antibloodloss1">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.005" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+        <StatusEffect type="OnContaining" target="This">
+          <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
+          <particleemitter particle="brownchunks" particleamount="10" emitinterval="1000" velocitymin="0" velocitymax="500" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+          <Conditional Scale="gte 0.75" />
+          <SpawnItem identifier="largemudraptoregg2YAMJ" spawnposition="This" />
+          <Remove />
+        </StatusEffect>
+      </Containable>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="largemudraptoregg2YAMJ" nameidentifier="mudraptoregg" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.18" sourcerect="80,105,124,147" origin="0.5,0.5" />
+    <Deconstruct time="10">
+      <Item identifier="alienblood" />
+      <Item identifier="alienblood" />
+      <Item identifier="adrenalinegland" />
+      <Item identifier="mudraptorshell" />
+    </Deconstruct>
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Body width="120" height="120" friction="1.0" restitution="0.01" angulardamping="1.0" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false" canbeselected="true">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.4" scalemax="0.6" />
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <Sound file="Content/Sounds/Damage/Gore7.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+      <!-- spawn a mudraptor and remove the item if scale is above 0.95 -->
+      <StatusEffect type="Always" target="This" Condition="0" setvalue="true">
+        <Conditional Scale="gte 0.95" />
+        <!-- <SpawnCharacter speciesname="RaptorPet" /> -->
+        <Remove />
+      </StatusEffect>
+      <Containable items="antibloodloss1">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.005" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+      </Containable>
+    </ItemContainer>
+    <LightComponent range="5" lightcolor="127,196,196,61" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false" pulsefrequency="1" pulseamount="0.30">
+      <sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.025" sourcerect="300,291,98,113" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+    <LightComponent range="40" lightcolor="255,199,0,58" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">
+      <sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.025" sourcerect="410,301,88,95" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+  </Item>
+  <!-- Mudraptor eggs END -->
+  <!-- Mudraptor make-raptorbaby-carryable item -->
+  <Item name="" identifier="mudraptorbook" category="Equipment" hideinmenus="fale" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,tool,weapon" impactsoundtag="impact_metal_light" scale="0.32">
+    <Price baseprice="40">
+      <Price storeidentifier="merchantoutpost" multiplier="1.5" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" multiplier="1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1" sold="false" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="carbon" amount="2" />
+      <Item identifier="silicon" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <Item identifier="carbon" amount="2" />
+      <Item identifier="silicon" />
+    </Fabricate>
+    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="107,74,32,38" depth="0.6" origin="0.5,0.5" />
+    <Body width="30" height="94" density="10" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="50,10" handle1="-24,-25" handle2="0,-25" msg="ItemMsgPickUpSelect" />
+    <RepairTool structurefixamount="0" range="300" barrelpos="35,13" repairmultiple="true" repairthroughwalls="false" combatpriority="1">
+      <StatusEffect type="OnUse" targettype="Limb">
+        <Affliction identifier="raptorpickup" amount="10" />
+      </StatusEffect>
+    </RepairTool>
+  </Item>
+  <!-- Mudraptor pet character, as an item
+  tags="" waterproof="true" fireproof="true"
+  <Holdable holdpos="0,0" holdangle="30" swingamount="0,0" swingspeed="0" swingwhenholding="False" swingwhenaiming="False" swingwhenusing="False"
+  -->
+  <Item name="Adorable Mudraptor" identifier="raptorpetitem" scale="0.5" sonarsize="4" impactsoundtag="impact_soft" hideinmenus="true">
+    <InventoryIcon texture="%ModDir%/Characters/Mudraptor_Pet/RaptorPetItems.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Characters/Mudraptor_Pet/RaptorPetInHands.png" depth="0.54" sourcerect="0,0,128,223" origin="0.5,0.5" />
+    <Body width="150" height="80" density="10" />
+    <Holdable slots="RightHand+LeftHand" holdpos="15,-30" handle1="32,0" handle2="37,64" aimable="false">
+      <StatusEffect type="OnContained" targettype="This" Condition="30" delay="0.25">
+        <Conditional condition="lt 100.0" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" Condition="-30" delay="0.25" />
+      <StatusEffect type="OnBroken" targettype="This">
+        <SpawnCharacter speciesname="RaptorPet" />
+        <remove />
+      </StatusEffect>
+    </Holdable>
+    <Wearable slots="Head,Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Wearable Mudraptor pet" texture="%ModDir%/Characters/Mudraptor_Pet/RaptorPetShoulder.png" limb="Torso" inheritlimbdepth="false" depth="0.49" inheritscale="false" ignorelimbscale="false" scale="0.5" hidelimb="false" hideotherwearables="false" sourcerect="0,0,153,223" origin="0.5,0.5" />
+      <sprite name="Wearable Mudraptor pet2" texture="%ModDir%/Characters/Mudraptor_Pet/RaptorPetShoulder2.png" limb="Torso" inheritlimbdepth="true" inheritscale="false" ignorelimbscale="false" scale="0.5" hidelimb="false" hideotherwearables="false" sourcerect="0,0,153,223" origin="0.5,0.5" />
+    </Wearable>
+  </Item>
+</Items>
