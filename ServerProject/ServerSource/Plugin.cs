@@ -1,4 +1,4 @@
-﻿namespace MyModName
+﻿namespace YAMJCS
 {
     public partial class Plugin : IAssemblyPlugin
     {

@@ -1,4 +1,7 @@
-﻿namespace MyModName
+﻿using HarmonyLib;
+
+namespace YAMJCS
+
 {
     public partial class Plugin : IAssemblyPlugin
     {
@@ -6,31 +9,32 @@
         public IConfigService ConfigService { get; set; }
         public IPluginManagementService PluginService { get; set; }
         public ILoggerService LoggerService { get; set; }
+        //vars
+        public Harmony Harmony;
+        internal static Plugin? Instance { get; private set; }
         
-        public void Initialize()
-        {
-            // When your plugin is loading, use this instead of the constructor for code relying on
-            // the services above.
-            
-            // Put any code here that does not rely on other plugins.
-            LoggerService.Log($"MyModName Plugin Initialized. Welcome to modding!");
+        public void Initialize() {
+            Instance = this;
+            Harmony = new Harmony("Nockseh.YAMJCS");
+            Harmony.PatchAll(typeof(Plugin).Assembly);
+
+            LoggerService.Log($"[YAMJCS] Plugin initialized.");
         }
 
-        public void OnLoadCompleted()
-        {
-            // After all plugins have loaded
-            // Put code that interacts with other plugins here.
-        }
+        public void PreInitPatching() { } //runs after constructor
+        public void OnLoadCompleted() { } //for code that relies on other plugins
 
-        public void PreInitPatching()
-        {
-            //Called right after the constructor
-        }
-
-        public void Dispose()
-        {
-            // Cleanup your plugin!
-            throw new NotImplementedException();
+        public void Dispose() {
+            try {
+                Harmony?.UnpatchSelf();
+            }
+            catch (Exception ex) {
+                LoggerService?.Log($"[YAMJCS] Failed to unpatch Harmony: {ex}");
+            }
+            finally {
+                Harmony = null;
+                Instance = null;
+            }
         }
     }
 }

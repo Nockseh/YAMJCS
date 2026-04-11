@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="MyModName" modversion="1.0" corepackage="false">
+<contentpackage name="YAMJCS" modversion="1.0" corepackage="false">
     <Jobs file="%ModDir%/Job/Jobs.xml" />
     <TalentTrees file="%ModDir%/Job/TalentTrees.xml" />
     <Talents file="%ModDir%/Job/Talents.xml" />
@@ -14,7 +14,7 @@
     <Afflictions file="%ModDir%/Afflictions/afflictions.xml" />
     <Afflictions file="%ModDir%/Job/TalentAfflictions.xml" />
     <Text file="%ModDir%/Texts/English.xml" />
-    <Submarine file="%ModDir%/Dugong-Mudraptor Job.sub" />
+    <Submarine file="%ModDir%/Submarines/Dugong-Mudraptor Job.sub" />
     <Sounds file="%ModDir%/Sounds/sounds.xml" />
     <LocationTypes file="%ModDir%/Map/LocationTypesOverride.xml" />
 </contentpackage>
