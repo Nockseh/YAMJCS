@@ -16,14 +16,16 @@ namespace YAMJCS
             PluginInstance = this;
             HarmonyInstance = new Harmony("Nockseh.YAMJCS.Server");
             HarmonyInstance.PatchAll(typeof(Plugin).Assembly);
-
+            //init log
+            YAMJ.LoggerService = LoggerService;
+            //startup message
             var patched = HarmonyInstance.GetPatchedMethods().ToList();
-            LoggerService.Log($"[YAMJCS] Harmony patched {patched.Count} methods.");
+            YAMJ.Log($"Harmony patched {patched.Count} methods.");
             foreach (var method in patched)
             {
-                LoggerService.Log($"[YAMJCS] Patched: {method.DeclaringType?.FullName}.{method.Name}");
+                YAMJ.Log($"Patched: {method.DeclaringType?.FullName}.{method.Name}");
             }
-            LoggerService.Log($"[YAMJCS] Server plugin initialized.");
+            YAMJ.Log("Server plugin initialized.");
         }
 
         public void PreInitPatching() { } //runs after constructor
@@ -34,7 +36,7 @@ namespace YAMJCS
                 HarmonyInstance?.UnpatchSelf();
             }
             catch (Exception ex) {
-                LoggerService?.Log($"[YAMJCS] Failed to unpatch Harmony: {ex}");
+                YAMJ.Log($"Failed to unpatch Harmony: {ex}");
             }
             finally {
                 HarmonyInstance = null;

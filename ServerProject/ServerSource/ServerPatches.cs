@@ -4,14 +4,12 @@ using Microsoft.Xna.Framework;
 
 namespace YAMJCS;
 
-internal static class SpawnPatchTargets
-{
+internal static class SpawnPatchTargets {
     public static MethodBase CreateFromCharacterInfo() =>
         AccessTools.Method(
             typeof(Character),
             "Create",
-            new[]
-            {
+            new[] {
                 typeof(CharacterInfo),
                 typeof(Vector2),
                 typeof(string),
@@ -26,8 +24,7 @@ internal static class SpawnPatchTargets
         AccessTools.Method(
             typeof(Character),
             "Create",
-            new[]
-            {
+            new[] {
                 typeof(string),
                 typeof(Vector2),
                 typeof(string),
@@ -45,8 +42,7 @@ internal static class SpawnPatchTargets
         AccessTools.Method(
             typeof(Character),
             "Create",
-            new[]
-            {
+            new[] {
                 typeof(Identifier),
                 typeof(Vector2),
                 typeof(string),
@@ -64,8 +60,7 @@ internal static class SpawnPatchTargets
         AccessTools.Method(
             typeof(Character),
             "Create",
-            new[]
-            {
+            new[] {
                 typeof(CharacterPrefab),
                 typeof(Vector2),
                 typeof(string),
@@ -79,33 +74,28 @@ internal static class SpawnPatchTargets
             }) ?? throw new InvalidOperationException("Character.Create(CharacterPrefab, ...) not found");
 }
 
-/// Character.Create(CharacterInfo, ...)
-/// This overload is the one where species must be inferred from CharacterInfo/job.
-/// If the job is PlayerMudraptorJob, swap the CharacterInfo species before creation.
 [HarmonyPatch]
-internal static class CharacterCreateFromCharacterInfoPatch
-{
+internal static class CharacterCreateFromCharacterInfoPatch {
     static MethodBase TargetMethod() => SpawnPatchTargets.CreateFromCharacterInfo();
 
-    static void Prefix(ref CharacterInfo characterInfo)
-    {
-        if (!YAMJServer.HasMudraptorJob(characterInfo)) { return; }
+    static void Prefix(ref CharacterInfo characterInfo) {
+        if (!YAMJ.HasPlayerRaptorJob(characterInfo)) {
+            return;
+        }
 
-        var mudraptorPrefab = YAMJServer.FindMudraptorPrefab();
-        if (mudraptorPrefab is null)
-        {
-            YAMJServer.Log("Mudraptor prefab not found in Character.Create(CharacterInfo, ...) prefix.");
+        var mudraptorPrefab = YAMJ.FindMudraptorPrefab();
+        if (mudraptorPrefab is null) {
+            YAMJ.Log("Mudraptor prefab not found in Character.Create(CharacterInfo, ...) prefix.");
             return;
         }
 
         // Rebuild the CharacterInfo using the mudraptor species, preserving the original job.
         characterInfo = new CharacterInfo(
-            YAMJServer.PlayerRaptorSpecies.ToIdentifier(),
+            YAMJ.PlayerRaptorSpecies.ToIdentifier(),
             characterInfo.Name,
             characterInfo.OriginalName,
             characterInfo.Job
-        )
-        {
+        ) {
             Salary = characterInfo.Salary,
             PermanentlyDead = characterInfo.PermanentlyDead,
             RenamingEnabled = characterInfo.RenamingEnabled,
@@ -124,60 +114,54 @@ internal static class CharacterCreateFromCharacterInfoPatch
 
         characterInfo.SetExperience(characterInfo.ExperiencePoints);
 
-        YAMJServer.Log("Redirected Character.Create(CharacterInfo, ...) to Mudraptor_player.");
+        YAMJ.Log("Redirected CharacterCreateFromCharacterInfo");
     }
 }
 
-/// Character.Create(string speciesName, ...)
 [HarmonyPatch]
-internal static class CharacterCreateFromStringSpeciesPatch
-{
+internal static class CharacterCreateFromStringSpeciesPatch {
     static MethodBase TargetMethod() => SpawnPatchTargets.CreateFromStringSpecies();
 
-    static void Prefix(ref string speciesName, CharacterInfo? characterInfo)
-    {
-        if (!YAMJServer.HasMudraptorJob(characterInfo)) { return; }
+    static void Prefix(ref string speciesName, CharacterInfo? characterInfo) {
+        if (!YAMJ.HasPlayerRaptorJob(characterInfo)) {
+            return;
+        }
 
-        speciesName = YAMJServer.PlayerRaptorSpecies;
-        YAMJServer.Log("Redirected Character.Create(string, ...) to Mudraptor_player.");
+        speciesName = YAMJ.PlayerRaptorSpecies;
+        YAMJ.Log("Redirected CharacterCreateFromStringSpecies.");
     }
 }
 
-/// Character.Create(Identifier speciesName, ...)
 [HarmonyPatch]
-internal static class CharacterCreateFromIdentifierSpeciesPatch
-{
+internal static class CharacterCreateFromIdentifierSpeciesPatch {
     static MethodBase TargetMethod() => SpawnPatchTargets.CreateFromIdentifierSpecies();
 
-    static void Prefix(ref Identifier speciesName, CharacterInfo? characterInfo)
-    {
-        if (!YAMJServer.HasMudraptorJob(characterInfo)) { return; }
+    static void Prefix(ref Identifier speciesName, CharacterInfo? characterInfo) {
+        if (!YAMJ.HasPlayerRaptorJob(characterInfo)) {
+            return;
+        }
 
-        speciesName = YAMJServer.PlayerRaptorSpecies.ToIdentifier();
-        YAMJServer.Log("Redirected Character.Create(Identifier, ...) to Mudraptor_player.");
+        speciesName = YAMJ.PlayerRaptorSpecies.ToIdentifier();
+        YAMJ.Log("Redirected CharacterCreateFromIdentifierSpecies.");
     }
 }
 
-/// <summary>
-/// Character.Create(CharacterPrefab prefab, ...)
-/// </summary>
 [HarmonyPatch]
-internal static class CharacterCreateFromPrefabPatch
-{
+internal static class CharacterCreateFromPrefabPatch {
     static MethodBase TargetMethod() => SpawnPatchTargets.CreateFromPrefab();
 
-    static void Prefix(ref CharacterPrefab prefab, CharacterInfo? characterInfo)
-    {
-        if (!YAMJServer.HasMudraptorJob(characterInfo)) { return; }
+    static void Prefix(ref CharacterPrefab prefab, CharacterInfo? characterInfo) {
+        if (!YAMJ.HasPlayerRaptorJob(characterInfo)) {
+            return;
+        }
 
-        CharacterPrefab? mudraptorPrefab = YAMJServer.FindMudraptorPrefab();
-        if (mudraptorPrefab is null)
-        {
-            YAMJServer.Log("Mudraptor prefab not found in Character.Create(CharacterPrefab, ...) prefix.");
+        CharacterPrefab? mudraptorPrefab = YAMJ.FindMudraptorPrefab();
+        if (mudraptorPrefab is null) {
+            YAMJ.Log("Mudraptor prefab not found in Character.Create(CharacterPrefab, ...) prefix.");
             return;
         }
 
         prefab = mudraptorPrefab;
-        YAMJServer.Log("Redirected Character.Create(CharacterPrefab, ...) to Mudraptor_player.");
+        YAMJ.Log("Redirected CharacterCreateFromPrefab");
     }
 }
