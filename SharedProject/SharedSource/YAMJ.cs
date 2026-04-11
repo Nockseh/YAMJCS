@@ -5,7 +5,7 @@ internal static class YAMJ
     public const string PlayerRaptorSpecies = "Mudraptor_player";
     public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
     public const string PlayerRaptorJobId = "PlayerMudraptorJob";
-
+    
     public static ILoggerService? LoggerService { get; set; }
     public static void Log(string message) {
         LoggerService?.Log($"[YAMJCS] {message}");

@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using HarmonyLib;
-using Microsoft.Xna.Framework;
 
 namespace YAMJCS;
 
@@ -163,5 +162,12 @@ internal static class CharacterCreateFromPrefabPatch {
 
         prefab = mudraptorPrefab;
         YAMJ.Log("Redirected CharacterCreateFromPrefab");
+    }
+
+    static void Postfix(Character? __result, CharacterInfo? characterInfo) {
+        if (__result is null) return;
+        if (!YAMJ.HasPlayerRaptorJob(characterInfo)) return;
+        GameMain.GameSession?.CrewManager?.AddCharacter(__result);
+        GameMain.NetworkMember?.CreateEntityEvent(__result, new Character.AddToCrewEventData(__result.TeamID, __result.Inventory.AllItems));
     }
 }
