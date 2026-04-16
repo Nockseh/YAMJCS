@@ -18,6 +18,47 @@
   <!--Job.xml-->
   <jobName.PlayerMudraptorJob>Friendly Mudraptor</jobName.PlayerMudraptorJob>
   <jobdescription.PlayerMudraptorJob>A mudraptor bred and spliced with human genes to be companions. A return for Man's best friend.</jobdescription.PlayerMudraptorJob>
+  <!--GUI Messages-->
+  <yamjMsg.cantSpeak>raptors can't speak</yamjMsg.cantSpeak>
+  <!--Speech (Basic)-->
+  <raptorWord.me>me</raptorWord.me>
+  <raptorWord.you>you</raptorWord.you>
+  <raptorWord.thing>thing</raptorWord.thing>
+  <raptorWord.give>give</raptorWord.give>
+  <raptorWord.bite>bite</raptorWord.bite>
+  <raptorWord.eat>eat</raptorWord.eat>
+  <raptorWord.yes>yes</raptorWord.yes>
+  <raptorWord.no>no</raptorWord.no>
+  <raptorWord.help>help</raptorWord.help>
+  <raptorWord.questionMark>?</raptorWord.questionMark>
+  <!--Speech (Student)-->
+  <raptorWord.i>i</raptorWord.i>
+  <raptorWord.has>has</raptorWord.has>
+  <raptorWord.that>that</raptorWord.that>
+  <raptorWord.this>this</raptorWord.this>
+  <raptorWord.water>water</raptorWord.water>
+  <raptorWord.inside>inside</raptorWord.inside>
+  <raptorWord.outside>outside</raptorWord.outside>
+  <raptorWord.here>here</raptorWord.here>
+  <raptorWord.boat>boat</raptorWord.boat>
+  <raptorWord.make>make</raptorWord.make>
+  <raptorWord.fix>fix</raptorWord.fix>
+  <raptorWord.move>move</raptorWord.move>
+  <raptorWord.need>need</raptorWord.need>
+  <raptorWord.bad>bad</raptorWord.bad>
+  <raptorWord.good>good</raptorWord.good>
+  <!--Speech (Hired Claw)-->
+  <raptorWord.kill>kill</raptorWord.kill>
+  <raptorWord.shoot>shoot</raptorWord.shoot>
+  <raptorWord.enemy>enemy</raptorWord.enemy>
+  <raptorWord.dead>dead</raptorWord.dead>
+  <raptorWord.blood>blood</raptorWord.blood>
+  <raptorWord.gun>gun</raptorWord.gun>
+  <raptorWord.ammo>ammo</raptorWord.ammo>
+  <raptorWord.go>go</raptorWord.go>
+  <raptorWord.come>come</raptorWord.come>
+  <raptorWord.hurt>hurt</raptorWord.hurt>
+  <raptorWord.exclamation>!</raptorWord.exclamation>
   <!--Talent Items-->
   <entityname.backpackYAMJ>Mudraptor Backpack</entityname.backpackYAMJ>
   <entitydescription.backpackYAMJ>A backpack for storing ammunition, suits, and children. Light and human-wearable.</entitydescription.backpackYAMJ>
@@ -57,8 +98,9 @@
   <!--Other items-->
   <entityname.crowbarYAMJ>Mudraptor Armor Remover</entityname.crowbarYAMJ>
   <entitydescription.crowbarYAMJ>A special tool for removing armor from your friendly mudraptors.</entitydescription.crowbarYAMJ>
-  <entityname.jumptalentitem>Jumpy</entityname.jumptalentitem>
+  <entityname.jumptalentitem>Jump Serum</entityname.jumptalentitem>
   <entitydescription.jumptalentitem>After injecting this, you gain the ability to jump by ragdolling. Very useful for mudraptors.</entitydescription.jumptalentitem>
+  <talentdescription.YAMJJump>yump!</talentdescription.YAMJJump>
   <entityname.mudraptorbook>Mudraptor Training Book</entityname.mudraptorbook>
   <entitydescription.mudraptorbook>A book with instructions on how to train your mudraptor pet to lay down, and be carried.</entitydescription.mudraptorbook>
   <entityname.mudraptorshield>Mudraptor Shield</entityname.mudraptorshield>
@@ -68,6 +110,8 @@
   <talenttree.YAMJTree2>Predator</talenttree.YAMJTree2>
   <talenttree.YAMJTree3>Student</talenttree.YAMJTree3>
   <!--General Tier 1-->
+  <talentname.YAMJSpeechBasic>Speech (Basic)</talentname.YAMJSpeechBasic>
+  <talentdescription.YAMJSpeechBasic>Gain the ability to speak, and learn [amount] new words.</talentdescription.YAMJSpeechBasic>
   <talentname.YAMJArmor>Natural Armor</talentname.YAMJArmor>
   <talentdescription.YAMJArmorDesc>Gain the ability to form a hard shell and an extra [amount]% reduction to damage</talentdescription.YAMJArmorDesc>
   <talentname.YAMJEgg>Mudraptor Mother</talentname.YAMJEgg>

@@ -20,7 +20,7 @@ namespace YAMJCS
             YAMJ.LoggerService = LoggerService;
             //startup message
             var patched = HarmonyInstance.GetPatchedMethods().ToList();
-            YAMJ.Log($"Harmony patched {patched.Count} methods.");
+            YAMJ.Log($"Harmony patched {patched.Count} methods on the server side.");
             foreach (var method in patched)
             {
                 YAMJ.Log($"Patched: {method.DeclaringType?.FullName}.{method.Name}");

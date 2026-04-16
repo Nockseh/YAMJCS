@@ -3,8 +3,8 @@
   <TalentTree jobidentifier="PlayerMudraptorJob">
     <SubTree identifier="YAMJTree" nameidentifier="talenttree.primary" type="primary">
       <TalentOptions requiredtalents="2" maxchosentalents="6">
-        <TalentOption identifier="protectandserve" />
-        <TalentOption identifier="warstories" />
+        <TalentOption identifier="protectandserve" /> <!--escort mission xp and rep bonus-->
+        <TalentOption identifier="YAMJSpeechBasic" />
         <TalentOption identifier="YAMJEgg" />
         <TalentOption identifier="YAMJSleepTime" />
         <TalentOption identifier="YAMJFlare" />
@@ -22,11 +22,12 @@
     </SubTree>
     <!-- Hired Claw -->
     <SubTree identifier="YAMJTree1" type="specialization" requires="YAMJTree" blocks="YAMJTree2,YAMJTree3">
-      <TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
         <TalentOption identifier="YAMJArmorPirate" />
+        <TalentOption identifier="YAMJSpeechCombat" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJBackpack2" />
+        <TalentOption identifier="YAMJBackpack2" /> <!--caravan backpack-->
         <TalentOption identifier="YAMJHeatSignature" />
       </TalentOptions>
       <TalentOptions>
@@ -62,7 +63,8 @@
         <TalentOption identifier="YAMJSkillGain" />
         <TalentOption identifier="YAMJBackpackBio" />
       </TalentOptions>
-      <TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <TalentOption identifier="YAMJSpeechAdvanced" />
         <TalentOption identifier="YAMJGuardianAngel" />
         <TalentOption identifier="YAMJClownCollege" />
       </TalentOptions>

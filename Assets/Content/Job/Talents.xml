@@ -2,7 +2,7 @@
 <Talents>
   <!--Non-Tree Talents-->
   <Talent identifier="YAMJJump">
-    <Description tag="talentdescription.YAMJJumpDesc" />
+    <Description tag="talentdescription.YAMJJump" />
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,0" sheetelementsize="128,128" />
     <AbilityGroupEffect abilityeffecttype="OnRagdoll">
       <Conditions>
@@ -30,6 +30,27 @@
     </AbilityGroupInterval>
   </Talent>
   <!--New-->
+  <Talent identifier="YAMJSpeechBasic"> <!--TODO-->
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJSpeechBasic">
+      <Replace tag="[amount]" value="42069" color="gui.green" />
+    </Description>
+    <!--Some effect here-->
+  </Talent>
+  <Talent identifier="YAMJSpeechAdvanced"> <!--TODO-->
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJSpeechBasic">
+      <Replace tag="[amount]" value="42069" color="gui.green" />
+    </Description>
+    <!--Some effect here-->
+  </Talent>
+  <Talent identifier="YAMJSpeechCombat"> <!--TODO-->
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJSpeechBasic">
+      <Replace tag="[amount]" value="42069" color="gui.green" />
+    </Description>
+    <!--Some effect here-->
+  </Talent>
   <Talent identifier="YAMJSkillGain">
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
     <Description tag="talentdescription.additionalstattype">
