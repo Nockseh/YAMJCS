@@ -29,28 +29,25 @@
       </Abilities>
     </AbilityGroupInterval>
   </Talent>
-  <!--New-->
-  <Talent identifier="YAMJSpeechBasic"> <!--TODO-->
+  <!--Speech-->
+  <Talent identifier="YAMJSpeechBasic">
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJSpeechBasic">
-      <Replace tag="[amount]" value="42069" color="gui.green" />
-    </Description>
-    <!--Some effect here-->
+    <Description tag="talentdescription.YAMJSpeechBasic"> </Description>
   </Talent>
-  <Talent identifier="YAMJSpeechAdvanced"> <!--TODO-->
+  <Talent identifier="YAMJSpeechAdvanced">
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJSpeechBasic">
-      <Replace tag="[amount]" value="42069" color="gui.green" />
-    </Description>
-    <!--Some effect here-->
+    <Description tag="talentdescription.YAMJSpeechAdvanced"> </Description> <!--TODO make this entry-->
   </Talent>
-  <Talent identifier="YAMJSpeechCombat"> <!--TODO-->
+  <Talent identifier="YAMJSpeechCombat">
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJSpeechBasic">
-      <Replace tag="[amount]" value="42069" color="gui.green" />
-    </Description>
-    <!--Some effect here-->
+    <Description tag="talentdescription.YAMJSpeechCombat"> </Description>
   </Talent>
+  <!--Can Use Basic Tools-->
+  <Talent identifier="YAMJCanUseTools">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJCanUseTools"> </Description>
+  </Talent>
+  <!--others-->
   <Talent identifier="YAMJSkillGain">
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
     <Description tag="talentdescription.additionalstattype">

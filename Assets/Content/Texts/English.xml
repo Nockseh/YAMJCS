@@ -19,7 +19,11 @@
   <jobName.PlayerMudraptorJob>Friendly Mudraptor</jobName.PlayerMudraptorJob>
   <jobdescription.PlayerMudraptorJob>A mudraptor bred and spliced with human genes to be companions. A return for Man's best friend.</jobdescription.PlayerMudraptorJob>
   <!--GUI Messages-->
-  <yamjMsg.cantSpeak>raptors can't speak</yamjMsg.cantSpeak>
+  <yamjMsg.cantSpeak>raptors can't speak normally</yamjMsg.cantSpeak>
+  <yamjMsg.cantUseItem>you don't know how to use that yet</yamjMsg.cantUseItem>
+  <!--UI Elements-->
+  <yamjUi.speak>speak</yamjUi.speak>
+  <yamjUi.speakTooltip>open known words</yamjUi.speakTooltip>
   <!--Speech (Basic)-->
   <raptorWord.me>me</raptorWord.me>
   <raptorWord.you>you</raptorWord.you>
@@ -110,8 +114,10 @@
   <talenttree.YAMJTree2>Predator</talenttree.YAMJTree2>
   <talenttree.YAMJTree3>Student</talenttree.YAMJTree3>
   <!--General Tier 1-->
+  <talentname.YAMJCanUseTools>Handy</talentname.YAMJCanUseTools>
+  <talentdescription.YAMJCanUseTools>Learn to properly hold and use tools.</talentdescription.YAMJCanUseTools>
   <talentname.YAMJSpeechBasic>Speech (Basic)</talentname.YAMJSpeechBasic>
-  <talentdescription.YAMJSpeechBasic>Gain the ability to speak, and learn [amount] new words.</talentdescription.YAMJSpeechBasic>
+  <talentdescription.YAMJSpeechBasic>Gain the ability to speak, and learn a few basic words.</talentdescription.YAMJSpeechBasic>
   <talentname.YAMJArmor>Natural Armor</talentname.YAMJArmor>
   <talentdescription.YAMJArmorDesc>Gain the ability to form a hard shell and an extra [amount]% reduction to damage</talentdescription.YAMJArmorDesc>
   <talentname.YAMJEgg>Mudraptor Mother</talentname.YAMJEgg>
@@ -134,6 +140,8 @@
   <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
   <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
   <!--Hired Claw 1-->
+  <talentname.YAMJSpeechCombat>Combat Training</talentname.YAMJSpeechCombat>
+  <talentdescription.YAMJSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.YAMJSpeechCombat>
   <talentname.YAMJArmorPirate>Pirate Raptor</talentname.YAMJArmorPirate>
   <talentdescription.YAMJArmorPirateDesc>Learn new ways to protect yourself. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirateDesc>
   <!--Hired Claw 2-->

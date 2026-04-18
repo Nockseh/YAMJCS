@@ -31,6 +31,16 @@ internal static class YAMJ
         }
     }
 
+    public static bool HasTalent(Character character, string talentId) {
+        HashSet<Identifier> talents = character.Info.UnlockedTalents;
+        if (talents == null || talents.Count == 0) return false;
+        if (talents.Contains(talentId.ToIdentifier())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static void SharedDispose() {
         LoggerService = null;
     }

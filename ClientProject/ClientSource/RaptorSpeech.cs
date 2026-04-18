@@ -74,8 +74,8 @@ public class RaptorSpeech {
         //ToggleButton
         toggleButton = new GUIButton(
             new RectTransform(new Vector2(0.07f, 0.04f), root.RectTransform, Anchor.BottomRight),
-            text: "Speak") {
-            ToolTip = "show known words" //TODO localize
+            text: TextManager.Get("yamjUi.speak".ToIdentifier()).Value) {
+            ToolTip = TextManager.Get("yamjUi.speakTooltip".ToIdentifier()).Value
         };
         toggleButton.OnClicked = (_, _) => {
             popupFrame.Visible = !popupFrame.Visible;

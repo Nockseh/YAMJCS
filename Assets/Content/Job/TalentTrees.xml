@@ -3,7 +3,7 @@
   <TalentTree jobidentifier="PlayerMudraptorJob">
     <SubTree identifier="YAMJTree" nameidentifier="talenttree.primary" type="primary">
       <TalentOptions requiredtalents="2" maxchosentalents="6">
-        <TalentOption identifier="protectandserve" /> <!--escort mission xp and rep bonus-->
+        <TalentOption identifier="YAMJCanUseTools" />
         <TalentOption identifier="YAMJSpeechBasic" />
         <TalentOption identifier="YAMJEgg" />
         <TalentOption identifier="YAMJSleepTime" />
