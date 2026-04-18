@@ -35,6 +35,6 @@ internal static class CharHudAddToUpdateList { //basically fires every frame
 
     static void Postfix() {
         RaptorSpeech.Initialize(); //automatically ignores extra calls
-        
+        RaptorSpeech.Update();
     }
 }

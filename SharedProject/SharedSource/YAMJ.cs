@@ -22,6 +22,15 @@ internal static class YAMJ
         return string.Equals(jobId, PlayerRaptorJobId, StringComparison.OrdinalIgnoreCase);
     }
 
+    public static bool IsPlayerRaptor(Character? character) {
+        if (character is null) return false;
+        if (character.SpeciesName.Value == PlayerRaptorSpecies || character.SpeciesName.Value == PlayerRaptorHuskSpecies) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static void SharedDispose() {
         LoggerService = null;
     }

@@ -1,10 +1,13 @@
 ﻿namespace YAMJCS;
 
 public class RaptorSpeech {
-    private static GUIFrame root;
-    private static GUIButton toggleButton;
-    private static GUIFrame popupFrame;
-    private static GUILayoutGroup wordList;
+    private static GUIFrame? root;
+    private static GUIButton? toggleButton;
+    private static GUIFrame? popupFrame;
+    private static GUILayoutGroup? basicListLayout;
+    private static GUILayoutGroup? advListLayout;
+    private static GUILayoutGroup? combatListLayout;
+    private static GUIDragHandle? dragHandle; //TODO add back in later
 
     private static readonly Identifier BasicTalent = "YAMJSpeechBasic".ToIdentifier();
     private static readonly Identifier AdvancedTalent = "YAMJSpeechAdvanced".ToIdentifier();
@@ -52,66 +55,125 @@ public class RaptorSpeech {
         "raptorWord.hurt".ToIdentifier(),
         "raptorWord.exclamation".ToIdentifier()
     ];
+    
+    private static bool built = false;
+    private static string composedString = "";
+    //private static IEnumerable? wordCache;
 
     public static void Initialize() {
-        if (root != null) return;
-
-        root = new GUIFrame(
-            new RectTransform(new Vector2(0.12f, 0.18f), GUI.Canvas, Anchor.BottomCenter) {
-                AbsoluteOffset = new Point(0, -110)
-            },
-            style: null);
-            
-        toggleButton = new GUIButton(
-            new RectTransform(new Vector2(1.0f, 0.22f), root.RectTransform),
-            text: "Words") {
-            ToolTip = "Open known words"
-        };
+        if (!YAMJ.IsPlayerRaptor(Character.Controlled)) return;
+        if (root is not null) return;
         
+        //Root
+        root = new GUIFrame(
+            new RectTransform(new Vector2(0.53f, 0.41f), GUI.Canvas, Anchor.BottomRight) { RelativeOffset = new Vector2(0.22f, 0f) },
+            style: null) {
+            CanBeFocused = false
+        };
+            
+        //ToggleButton
+        toggleButton = new GUIButton(
+            new RectTransform(new Vector2(0.07f, 0.04f), root.RectTransform, Anchor.BottomRight),
+            text: "Speak") {
+            ToolTip = "show known words" //TODO localize
+        };
         toggleButton.OnClicked = (_, _) => {
             popupFrame.Visible = !popupFrame.Visible;
             if (popupFrame.Visible) {
                 RebuildWordButtons();
             }
+            else {
+                //send composed message
+                ChatBox? chatBox = ChatBox.GetChatBox();
+                if (chatBox is not null) {
+                    chatBox.InputBox.OnEnterPressed(chatBox.InputBox, composedString);
+                }
+                composedString = "";
+            }
             return true;
         };
-
+        
+        //Word tray
         popupFrame = new GUIFrame(
-            new RectTransform(new Vector2(1.0f, 0.78f), root.RectTransform, Anchor.BottomCenter),
+            new RectTransform(new Vector2(0.4554f, 0.8122f), root.RectTransform, Anchor.TopCenter),
             style: "GUIFrame") {
             Visible = false
         };
-
-        wordList = new GUILayoutGroup(
-            new RectTransform(new Vector2(0.95f, 0.95f), popupFrame.RectTransform, Anchor.Center),
+        basicListLayout = new GUILayoutGroup(
+            new RectTransform(new Vector2(1f/3f, 1f), popupFrame.RectTransform, Anchor.BottomLeft),
             isHorizontal: false,
-            childAnchor: Anchor.TopCenter);
+            childAnchor: Anchor.BottomCenter
+        );
+        advListLayout = new GUILayoutGroup(
+            new RectTransform(new Vector2(1f/3f, 1f), popupFrame.RectTransform, Anchor.BottomCenter),
+            isHorizontal: false,
+            childAnchor: Anchor.BottomCenter
+        );
+        combatListLayout = new GUILayoutGroup(
+            new RectTransform(new Vector2(1f/3f, 1f), popupFrame.RectTransform, Anchor.BottomRight),
+            isHorizontal: false,
+            childAnchor: Anchor.BottomCenter
+        );
+
+        YAMJ.Log("Intialized raptor speech hud");
     }
 
+    public static void Update() {
+        if (root is null) return;
+        Character? controlled = Character.Controlled;
+        bool enabled = controlled is not null && YAMJ.IsPlayerRaptor(controlled);
+
+        root.Visible = enabled;
+
+        if (enabled) {
+            if (!built) {
+                RebuildWordButtons();
+                built = true;
+            }
+            root.AddToGUIUpdateList();
+        }
+        else {
+            built = false;
+        }
+    }
+    
     public static void RebuildWordButtons() {
-        if (wordList == null) return;
+        if (combatListLayout is null) return; //checking for initialized
 
-        wordList.ClearChildren();
+        basicListLayout.ClearChildren();
+        advListLayout.ClearChildren();
+        combatListLayout.ClearChildren();
+        
+        foreach (Identifier[] wordTable in GetKnownWordTags()) {
+            GUILayoutGroup targetLayout;
 
-        foreach (Identifier tag in GetKnownWordTags()) {
-            string text = TextManager.Get(tag).Value;
-
-            var button = new GUIButton(
-                new RectTransform(new Vector2(1.0f, 0.1f), wordList.RectTransform),
-                text: text);
-
-            button.UserData = tag;
-            button.OnClicked = (btn, userData) => {
-                Identifier wordTag = (Identifier)btn.UserData;
+            if (ReferenceEquals(wordTable, BasicWords)) {
+                targetLayout = basicListLayout;
+            } else if (ReferenceEquals(wordTable, AdvancedWords)) {
+                targetLayout = advListLayout;
+            } else if (ReferenceEquals(wordTable, CombatWords)) {
+                targetLayout = combatListLayout;
+            } else { continue; }
+            
+            foreach (Identifier word in wordTable) {
+                string text = TextManager.Get(word).Value;
+                var button = new GUIButton(
+                    new RectTransform(new Vector2(1f, 1f/(float)wordTable.Length), targetLayout.RectTransform),
+                    text: text
+                );
                 
-                // add word to string
+                button.UserData = text;
+                button.OnClicked = (btn, userData) => {
+                    composedString += text + " ";
+                    YAMJ.Log(composedString);
 
-                return true;
-            };
+                    return true;
+                };
+            }
         }
     }
 
-    private static IEnumerable<Identifier> GetKnownWordTags() {
+    private static IEnumerable<Identifier[]> GetKnownWordTags() {
         Character character = Character.Controlled;
         if (character?.Info == null) {
             yield break;
@@ -123,21 +185,15 @@ public class RaptorSpeech {
         }
 
         if (talents.Contains(BasicTalent)) {
-            foreach (Identifier word in BasicWords) {
-                yield return word;
-            }
+            yield return BasicWords;
         }
 
         if (talents.Contains(AdvancedTalent)) {
-            foreach (Identifier word in AdvancedWords) {
-                yield return word;
-            }
+            yield return AdvancedWords;
         }
 
         if (talents.Contains(CombatTalent)) {
-            foreach (Identifier word in CombatWords) {
-                yield return word;
-            }
+            yield return CombatWords;
         }
     }
 }
