@@ -16,11 +16,12 @@
   <MyModName.SampleSettingShared.Tooltip>Sample tooltip!</MyModName.SampleSettingShared.Tooltip>
   
   <!--Job.xml-->
-  <jobName.PlayerMudraptorJob>Friendly Mudraptor</jobName.PlayerMudraptorJob>
-  <jobdescription.PlayerMudraptorJob>A mudraptor bred and spliced with human genes to be companions. A return for Man's best friend.</jobdescription.PlayerMudraptorJob>
+  <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>
+  <jobdescription.PlayerMudraptorJob>The return of Man's best friend.</jobdescription.PlayerMudraptorJob>
   <!--GUI Messages-->
   <yamjMsg.cantSpeak>raptors can't speak normally</yamjMsg.cantSpeak>
   <yamjMsg.cantUseItem>you don't know how to use that yet</yamjMsg.cantUseItem>
+  <yamjMsg.cantRepair>you don't know how to repair that yet</yamjMsg.cantRepair>
   <!--UI Elements-->
   <yamjUi.speak>speak</yamjUi.speak>
   <yamjUi.speakTooltip>open known words</yamjUi.speakTooltip>
@@ -63,6 +64,11 @@
   <raptorWord.come>come</raptorWord.come>
   <raptorWord.hurt>hurt</raptorWord.hurt>
   <raptorWord.exclamation>!</raptorWord.exclamation>
+  <!-- Low Intelligence Item Names/Descriptions -->
+  <entityname.dumb.repairTool>Fix Thing</entityname.dumb.repairTool>
+  <entitydescription.dumb.repairTool>Humans use this to fix.</entitydescription.dumb.repairTool>
+  <entityname.dumb.weapon>False Teeth</entityname.dumb.weapon>
+  <entitydescription.dumb.weapon>Humans use this to kill.</entitydescription.dumb.weapon>
   <!--Talent Items-->
   <entityname.backpackYAMJ>Mudraptor Backpack</entityname.backpackYAMJ>
   <entitydescription.backpackYAMJ>A backpack for storing ammunition, suits, and children. Light and human-wearable.</entitydescription.backpackYAMJ>
@@ -139,60 +145,51 @@
   <talentdescription.YAMJSleepTime2>Naps become stronger. Humans now also gain the [affliction] bonus if they're near you while you nap. They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
   <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
   <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
-  <!--Hired Claw 1-->
+  <!--Hired Claw -->
   <talentname.YAMJSpeechCombat>Combat Training</talentname.YAMJSpeechCombat>
   <talentdescription.YAMJSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.YAMJSpeechCombat>
   <talentname.YAMJArmorPirate>Pirate Raptor</talentname.YAMJArmorPirate>
   <talentdescription.YAMJArmorPirateDesc>Learn new ways to protect yourself. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirateDesc>
-  <!--Hired Claw 2-->
   <talentname.YAMJBackpack2>Pack Mule</talentname.YAMJBackpack2>
   <talentdescription.YAMJBackpack2Desc>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 9 slots for items, 2 for containers, 1 for children. Slows movement when equipped. Humans should definitely not wear this.</talentdescription.YAMJBackpack2Desc>
   <talentname.YAMJHeatSignature>Heat Signature</talentname.YAMJHeatSignature>
   <talentdescription.YAMJHeatSignature>Your time near humans and on land has given you a better understanding of how body heat functions. Gain [amount]% burn and poison resistance.</talentdescription.YAMJHeatSignature>
-  <!--Hired Claw 3-->
   <talentname.YAMJGunner>Gunner</talentname.YAMJGunner>
   <talentdescription.YAMJGunner>Gain a [amount]% power increase to submarine turrets.</talentdescription.YAMJGunner>
   <talentname.YAMJHumanoid>Humanoid Instinct</talentname.YAMJHumanoid>
   <talentdescription.YAMJHumanoid>Gain a [amount]% power increase to melee weapons and firearms.</talentdescription.YAMJHumanoid>
-  <!--Hired Claw 4-->
   <talentname.YAMJBond_Security>Guard Dog (Bond with Security)</talentname.YAMJBond_Security>
   <talentdescription.YAMJBond_SecurityDesc>Trained by Security to be the best Guard Dog this side of europa. Not attacking for 10 seconds grants you the Raptor Bite bonus, increasing your Creature Attack by 150% for one attack. While near others they gain 35% Stun Resistance. +10% Turret Attack Speed and Charge Speed. -10% Turret Power Cost. +10% Attack Speed. -20% Ranged Weapon Spread.</talentdescription.YAMJBond_SecurityDesc>
   <talentname.YAMJBond_Doctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBond_Doctor>
   <talentdescription.YAMJBond_DoctorDesc>Your interest in the crew Doctor has led you to some interesting discoveries. You gain the Gene Harvester Talent. While near others they heal most Physical Damage very slowly while also gaining +20% Stun, Poison and Chem Addiction Resistance. +30 Medical Skill Bonus. +30% Medical Item Effectiveness.</talentdescription.YAMJBond_DoctorDesc>
-  <!--Predator 1-->
+  <!--Predator -->
   <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
   <talentdescription.YAMJArmorVetDesc>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVetDesc>
-  <!--Predator 2-->
   <talentname.YAMJBloodthirsty>Bloodthirsty</talentname.YAMJBloodthirsty>
   <talentdescription.YAMJBloodthirsty>The scent of your own blood only fuels your frenzy.</talentdescription.YAMJBloodthirsty>
   <talentname.YAMJFamiliarWaters>Familiar Waters</talentname.YAMJFamiliarWaters>
   <talentdescription.YAMJFamiliarWaters>It's all coming back to you. While submerged in water, you gain the following:</talentdescription.YAMJFamiliarWaters>
-  <!--Predator 3-->
   <talentname.YAMJSwimSpeed>Feisty</talentname.YAMJSwimSpeed>
   <talentdescription.YAMJSwimSpeed>Get in, ravage, get out.</talentdescription.YAMJSwimSpeed>
   <talentname.YAMJMonsterInstinct>Monstrous</talentname.YAMJMonsterInstinct>
   <talentdescription.YAMJMonsterInstinctDesc>The old ways of combat are strong in your mind. Gain a [amount]% power increase to your creature attacks. It's only natural, after all.</talentdescription.YAMJMonsterInstinctDesc>
-  <!--Predator 4-->
   <talentname.YAMJRelentless>Relentless</talentname.YAMJRelentless>
   <talentdescription.cannotfallunconsciousforsecondsYAMJ>Your eyes glare with a burning passion for blood. Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.cannotfallunconsciousforsecondsYAMJ>
   <talentdescription.cannotfallunconsciousforsecondsYAMJ2>Whenever you fall below 0 health, you will remain fully conscious for [duration] seconds and your attacks receive +300% power.</talentdescription.cannotfallunconsciousforsecondsYAMJ2>
   <talentname.YAMJBond_Captain>Best in Show (Bond with Captain)</talentname.YAMJBond_Captain>
   <talentdescription.YAMJBond_CaptainDesc>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds. Whenever your crew completes a mission, everyone gains +10% Extra EXP and Marks. While near others they gain 15% Stun and Damage Resistance. +30 Helm Skill Bonus. +10% Attack Power.</talentdescription.YAMJBond_CaptainDesc>
-  <!--Student 1-->
+  <!--Student -->
   <talentname.YAMJBackpackBio>Bio Backpack</talentname.YAMJBackpackBio>
   <talentdescription.YAMJBackpackBioDesc>Make mudraptor backpacks lined with glowing chemicals. 7 slots for items, 2 for children. Humans can't wear this without extreme pain.</talentdescription.YAMJBackpackBioDesc>
   <talentname.YAMJSkillGain>Quick Learner</talentname.YAMJSkillGain>
   <talentname.YAMJRepairSpeed>Hydrophobe</talentname.YAMJRepairSpeed>
-  <!--Student 2-->
-  <talentname.YAMJClownCollege>Clown College for Raptors</talentname.YAMJClownCollege>
-  <talentdescription.YAMJClownCollege>The Honkmother's reach goes far in these deep dark waters...</talentdescription.YAMJClownCollege>
   <talentdescription.YAMJGuitarRaptorDesc>Anyone hearing your music will be invigorated with the desire to do more, gaining a +10 bonus to All Skills. If you keep playing, people around you will gain 10 XP at random.</talentdescription.YAMJGuitarRaptorDesc>
   <talentname.YAMJGuardianAngel>Guardian Angel</talentname.YAMJGuardianAngel>
   <talentdescription.YAMJGuardianAngel>Enemies will prioritize attacking you over your allies, and you take [amount]% less damage.</talentdescription.YAMJGuardianAngel>
-  <!--Student 3-->
+  <talentname.YAMJClownCollege>Clown College for Raptors</talentname.YAMJClownCollege>
+  <talentdescription.YAMJClownCollege>The Honkmother's reach goes far in these deep dark waters...</talentdescription.YAMJClownCollege>
   <talentname.YAMJMachinist>Machinist</talentname.YAMJMachinist>
   <talentdescription.YAMJMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.YAMJMachinist>
-  <!--Student 4-->
   <talentname.YAMJPostgrad>Postgrad</talentname.YAMJPostgrad>
   <talentdescription.YAMJPostgradLimits>You may only install a maximum of 1 portable pump and 1 makeshift shelf.</talentdescription.YAMJPostgradLimits>
   <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>

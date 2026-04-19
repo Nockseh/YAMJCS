@@ -3,6 +3,6 @@
 public class YAMJClient {
     public static void ShowWarning(string text)
     {
-        GUI.AddMessage(text, Color.Red, 3f);
+        GUI.AddMessage(text, Color.Red, 5f);
     }
 }

@@ -64,13 +64,12 @@
         <TalentOption identifier="YAMJBackpackBio" />
       </TalentOptions>
       <TalentOptions requiredtalents="1" maxchosentalents="2">
-        <TalentOption identifier="YAMJSpeechAdvanced" />
         <TalentOption identifier="YAMJGuardianAngel" />
-        <TalentOption identifier="YAMJClownCollege" />
+        <TalentOption identifier="YAMJRepairSpeed" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJRepairSpeed" />
-        <TalentOption identifier="YAMJMachinist" />
+        <TalentOption identifier="YAMJSpeechAdvanced" />
+        <TalentOption identifier="YAMJClownCollege" />
       </TalentOptions>
       <TalentOptions>
         <TalentOption identifier="YAMJPostgrad" />
