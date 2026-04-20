@@ -197,6 +197,17 @@
   <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
   <talentdescription.YAMJBond_MechanicDesc>You've picked up some tricks on how to better seek out what a mechanic requires. You gain the Scrounger Talent. +30 Mechanical Skill Bonus. +25% Hull/Mechanical Repair Speed and +50% Mining Speed.</talentdescription.YAMJBond_MechanicDesc>
   <!-- Afflictions! -->
+  <afflictionname.yamjHunger>Hungry</afflictionname.yamjHunger>
+  <afflictiondescription.yamjHunger.veryLow>A faint restlessness lingers.</afflictiondescription.yamjHunger.veryLow>
+  <afflictiondescription.yamjHunger.low>A gnawing pain resides in the stomach.</afflictiondescription.yamjHunger.low>
+  <afflictiondescription.yamjHunger.medium>Focus is faltering, subject is drooling.</afflictiondescription.yamjHunger.medium>
+  <afflictiondescription.yamjHunger.high>Sluggish and weak, showing clear signs of malnutrition.</afflictiondescription.yamjHunger.high>
+  <afflictiondescription.yamjHunger.veryHigh>Experiencing severe malnutrition. A frantic surge of energy burns through what remains as the body begins to fail.</afflictiondescription.yamjHunger.veryHigh>
+  <afflictiondescription.yamjHunger.self.veryLow>...</afflictiondescription.yamjHunger.self.veryLow>
+  <afflictiondescription.yamjHunger.self.low>Eat.</afflictiondescription.yamjHunger.self.low>
+  <afflictiondescription.yamjHunger.self.medium>Need food...</afflictiondescription.yamjHunger.self.medium>
+  <afflictiondescription.yamjHunger.self.high>Starving... dying.</afflictiondescription.yamjHunger.self.high>
+  <afflictiondescription.yamjHunger.self.veryHigh>Need food NOW! Find! Kill! Eat!</afflictiondescription.yamjHunger.self.veryHigh>
   <afflictionname.YAMJGuardianAngelBuff>Guardian Angel</afflictionname.YAMJGuardianAngelBuff>
   <afflictiondescription.YAMJGuardianAngelBuff>Your bleeding heart drives you to defend your allies to the last breath.</afflictiondescription.YAMJGuardianAngelBuff>
   <afflictionname.YAMJBestFriendBuff>My Best Friend</afflictionname.YAMJBestFriendBuff>

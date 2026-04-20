@@ -26,9 +26,14 @@ internal static class PatchTargets {
     public static MethodBase Repairable_CheckCharacterSuccess =>
         AccessTools.Method(
             typeof(Repairable),
-            nameof(Repairable.CheckCharacterSuccess)
-        ) ??
+            nameof(Repairable.CheckCharacterSuccess)) ??
         throw new Exception("Repairable.CheckCharacterSuccess(...) not found");
+
+    public static MethodBase FishAnimController_DragCharacter =>
+        AccessTools.Method(
+            typeof(FishAnimController),
+            nameof(FishAnimController.DragCharacter)) ??
+        throw new Exception("FishAnimController.DragCharacter not found");
 }
 
 [HarmonyPatch]
@@ -62,6 +67,11 @@ internal static class CharacterCreateFromPrefabPatch {
             GameMain.NetworkMember?.CreateEntityEvent(__result, new Character.AddToCrewEventData(__result.TeamID, __result.Inventory.AllItems));
             YAMJ.Log("Sent AddToCrew event for player raptor " + __result.Name);
         }
+
+        if (YAMJ.IsPlayerRaptor(__result)) {
+            Affliction affliction = YAMJ.HungerPrefab.Instantiate(0.01f);
+            __result.CharacterHealth.ApplyAffliction(null, affliction, false);
+        }
     }
 }
 
@@ -75,6 +85,19 @@ internal static class CheckRepairSuccess {
             if (!YAMJ.HasTalent(character, "YAMJCanUseTools")) {
                 __result = false;
             }
+        }
+    }
+}
+
+[HarmonyPatch]
+internal static class CorpseEatingPatch {
+    static MethodBase TargetMethod() => PatchTargets.FishAnimController_DragCharacter;
+
+    static void Postfix(Character target, float deltaTime, ref FishAnimController __instance) {
+        if (YAMJ.IsPlayerRaptor(__instance.Character) && target.IsDead) {
+            Affliction reduceHunger = new Affliction(YAMJ.HungerPrefab, YAMJ.EatingHungerReduction * deltaTime * -1f);
+            __instance.Character.CharacterHealth.ApplyAffliction(null, reduceHunger);
+            
         }
     }
 }
