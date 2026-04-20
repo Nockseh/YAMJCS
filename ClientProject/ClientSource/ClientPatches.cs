@@ -39,10 +39,16 @@ internal static class PatchTargets {
             typeof(Item),
             nameof(Item.Description)) ??
         throw new Exception("Item.Description {get} not found");
+    
+    public static MethodBase CrewManager_CanIssueOrders_Get =>
+        AccessTools.PropertyGetter(
+            typeof(CrewManager),
+            nameof(CrewManager.CanIssueOrders)) ??
+        throw new Exception("CrewManager.CanIssueOrders {get} not found");
 }
 
 internal static class ItemTags {
-    public static readonly Identifier[] mediChem = { "medical, chem" };
+    public static readonly Identifier[] mediChem = { "medical", "chem" };
     public static readonly Identifier[] tech = {
         "logic", "sonar", "sensor", "signal", "sound", "lightcomponent", "mobilebattery", "detonator", "alienartifact",
         "smallalienartifact"
@@ -161,7 +167,7 @@ internal static class ItemNameGet {
                     return false;
                 }
                 if (__instance.HasTag(ItemTags.mediChem)) {
-                    __result = TextManager.Get("entityname.dumb.mediChem").Value;
+                    __result = TextManager.Get("entityname.dumb.medichem").Value;
                     return false;
                 }
                 if (__instance.HasTag("ammobox")) {
@@ -226,5 +232,19 @@ internal static class ItemDescGet {
             }
         }
         return true;
+    }
+}
+
+[HarmonyPatch]
+internal static class CanIssueOrdersGet {
+    static MethodBase TargetMethod() => PatchTargets.CrewManager_CanIssueOrders_Get;
+
+    static bool Prefix(ref bool __result) {
+        if (YAMJ.IsPlayerRaptor(Character.Controlled)) {
+            __result = false;
+            return false;
+        } else {
+            return true;
+        }
     }
 }

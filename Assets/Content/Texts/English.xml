@@ -71,8 +71,8 @@
   <entitydescription.dumb.weapon>Humans use this to kill.</entitydescription.dumb.weapon>
   <entityname.dumb.clothing>Soft Human Shell</entityname.dumb.clothing>
   <entitydescription.dumb.clothing>Weak.</entitydescription.dumb.clothing>
-  <entityname.dumb.mediChem>Medicine</entityname.dumb.mediChem>
-  <entitydescription.dumb.mediChem>???</entitydescription.dumb.mediChem>
+  <entityname.dumb.medichem>Medicine</entityname.dumb.medichem>
+  <entitydescription.dumb.medichem>???</entitydescription.dumb.medichem>
   <entityname.dumb.tech>Thing</entityname.dumb.tech>
   <entitydescription.dumb.tech>???</entitydescription.dumb.tech>
   <entityname.dumb.ammobox>Box of Teeth</entityname.dumb.ammobox>

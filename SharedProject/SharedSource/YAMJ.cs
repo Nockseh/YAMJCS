@@ -3,13 +3,14 @@
 internal static class YAMJ
 {
     //config (temp)
-    public const float EatingHungerReduction = 1.5f;
+    public const float EatingHungerReduction = 4f;
     //constants
     public const string PlayerRaptorSpecies = "Mudraptor_player";
     public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
     public const string PlayerRaptorJobId = "PlayerMudraptorJob";
     //vars
     public static AfflictionPrefab HungerPrefab;
+    public static AfflictionPrefab EatingBuffPrefab;
     
     public static ILoggerService? LoggerService { get; set; }
     public static void Log(string message) {

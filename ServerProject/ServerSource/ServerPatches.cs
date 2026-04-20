@@ -97,7 +97,8 @@ internal static class CorpseEatingPatch {
         if (YAMJ.IsPlayerRaptor(__instance.Character) && target.IsDead) {
             Affliction reduceHunger = new Affliction(YAMJ.HungerPrefab, YAMJ.EatingHungerReduction * deltaTime * -1f);
             __instance.Character.CharacterHealth.ApplyAffliction(null, reduceHunger);
-            
+            Affliction eatingBuff = new Affliction(YAMJ.EatingBuffPrefab, 2f);
+            __instance.Character.CharacterHealth.ApplyAffliction(null, eatingBuff, false);
         }
     }
 }
