@@ -22,13 +22,13 @@
     </SubTree>
     <!-- Hired Claw -->
     <SubTree identifier="YAMJTree1" type="specialization" requires="YAMJTree" blocks="YAMJTree2,YAMJTree3">
-      <TalentOptions requiredtalents="1" maxchosentalents="2">
+      <TalentOptions>
         <TalentOption identifier="YAMJArmorPirate" />
-        <TalentOption identifier="YAMJSpeechCombat" />
+        <TalentOption identifier="YAMJHeatSignature" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJBackpack2" /> <!--caravan backpack-->
-        <TalentOption identifier="YAMJHeatSignature" />
+        <TalentOption identifier="YAMJBackpackCaravan" />
+        <TalentOption identifier="YAMJSpeechCombat" />
       </TalentOptions>
       <TalentOptions>
         <TalentOption identifier="YAMJHumanoid" />
@@ -63,12 +63,12 @@
         <TalentOption identifier="YAMJSkillGain" />
         <TalentOption identifier="YAMJBackpackBio" />
       </TalentOptions>
-      <TalentOptions requiredtalents="1" maxchosentalents="2">
-        <TalentOption identifier="YAMJGuardianAngel" />
+      <TalentOptions>
+        <TalentOption identifier="YAMJSpeechAdvanced" />
         <TalentOption identifier="YAMJRepairSpeed" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJSpeechAdvanced" />
+        <TalentOption identifier="YAMJGuardianAngel" />
         <TalentOption identifier="YAMJClownCollege" />
       </TalentOptions>
       <TalentOptions>

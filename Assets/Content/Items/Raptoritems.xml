@@ -145,7 +145,7 @@
   </Item>
   <!-- Talent items -->
   <!-- Backpacks -->
-  <Item name="Mudraptor Backpack" identifier="backpackYAMJ" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+  <Item name="Mudraptor Backpack" identifier="yamjBackpack" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
     <PreferredContainer primary="engcab" />
     <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true" HideIfNoRecipe="true">
       <RequiredItem identifier="iron" amount="4" />
@@ -175,13 +175,13 @@
     </Wearable>
     <ItemContainer capacity="1" maxstacksize="0" hideitems="true" slotsperrow="2" >
       <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       <SubContainer capacity="5" maxstacksize="64">
-        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       </SubContainer>
     </ItemContainer>
   </Item>
-  <Item name="Mudraptor Bio Backpack" identifier="backpackYAMJbio" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon,light" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+  <Item name="Mudraptor Bio Backpack" identifier="yamjBackpackBio" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon,light" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
     <PreferredContainer primary="engcab" />
     <Deconstruct time="10">
       <Item identifier="steel" amount="1" />
@@ -222,13 +222,13 @@
     <ItemContainer capacity="2" maxstacksize="0" hideitems="true" slotsperrow="3">
       <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="1" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       <SubContainer capacity="7" maxstacksize="64">
-        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       </SubContainer>
     </ItemContainer>
   </Item>
-  <Item name="Mudraptor Caravan Backpack" identifier="backpackYAMJ2" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.6" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+  <Item name="Mudraptor Caravan Backpack" identifier="yamjBackpackCaravan" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.6" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
     <PreferredContainer primary="engcab" />
     <Deconstruct time="10">
       <Item identifier="ballisticfiber" amount="1" />
@@ -271,12 +271,12 @@
       <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="1" texture="%ModDir%/Items/BackpackIconCrate.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/Items/BackpackIconCrate.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       <SubContainer capacity="2" maxstacksize="64">
-        <Containable items="smallitem,mediumitem,bigitem,largeitem,railgunammo,ammobox,deepdiving,crate" excludeditems="backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+        <Containable items="smallitem,mediumitem,bigitem,largeitem,railgunammo,ammobox,deepdiving,crate" excludeditems="yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       </SubContainer>
       <SubContainer capacity="9" maxstacksize="64">
-        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,backpackYAMJ,backpackYAMJ2,backpackYAMJbio" />
+        <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       </SubContainer>
     </ItemContainer>
   </Item>
@@ -426,7 +426,7 @@
   </Item>
   <!-- Mudraptor Shield
   -->
-  <Item name="" identifier="mudraptorshield" category="Equipment" tags="weapon,smallitem" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.5" allowasextracargo="true">
+  <Item name="" identifier="yamjRiotShield" category="Equipment" tags="weapon,smallitem" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.5" allowasextracargo="true">
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
     <Price baseprice="1" soldeverywhere="false" canbespecial="false">
       <Price locationtype="outpost" sold="false" />

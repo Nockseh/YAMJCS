@@ -41,6 +41,14 @@ internal static class PatchTargets {
         throw new Exception("Item.Description {get} not found");
 }
 
+internal static class ItemTags {
+    public static readonly Identifier[] mediChem = { "medical, chem" };
+    public static readonly Identifier[] tech = {
+        "logic", "sonar", "sensor", "signal", "sound", "lightcomponent", "mobilebattery", "detonator", "alienartifact",
+        "smallalienartifact"
+    };
+}
+
 [HarmonyPatch]
 internal static class ChatBoxFocusPatch {
     private static MethodBase TargetMethod() => PatchTargets.GUITextBox_Select;
@@ -132,14 +140,42 @@ internal static class ItemNameGet {
     static MethodBase TargetMethod() => PatchTargets.Item_Name_Get;
 
     static bool Prefix(Item __instance, ref string __result) {
-        if (YAMJ.IsPlayerRaptor(Character.Controlled)) {
-            if (__instance.HasTag("weapon") && !YAMJ.HasTalent(Character.Controlled, "YAMJSpeechCombat")) {
+        Character? controlled = Character.Controlled;
+        if (YAMJ.IsPlayerRaptor(controlled)) {
+            if (__instance.HasTag("weapon") && !YAMJ.HasTalent(controlled, "YAMJSpeechCombat")) {
                 __result = TextManager.Get("entityname.dumb.weapon").Value;
                 return false;
             }
-            if (__instance.HasTag("tool") && !YAMJ.HasTalent(Character.Controlled, "YAMJCanUseTools")) {
+            if (__instance.HasTag("tool") && !YAMJ.HasTalent(controlled, "YAMJCanUseTools")) {
                 __result = TextManager.Get("entityname.dumb.repairTool").Value;
                 return false;
+            }
+
+            if (!YAMJ.HasTalent(controlled, "YAMJSpeechAdvanced")) {
+                if (__instance.HasTag("clothing")) {
+                    __result = TextManager.Get("entityname.dumb.clothing").Value;
+                    return false;
+                }
+                if (__instance.HasTag("deepdiving")) {
+                    __result = TextManager.Get("entityname.dumb.deepdiving").Value;
+                    return false;
+                }
+                if (__instance.HasTag(ItemTags.mediChem)) {
+                    __result = TextManager.Get("entityname.dumb.mediChem").Value;
+                    return false;
+                }
+                if (__instance.HasTag("ammobox")) {
+                    __result = TextManager.Get("entityname.dumb.ammobox").Value;
+                    return false;
+                }
+                if (__instance.HasTag("scooter")) {
+                    __result = TextManager.Get("entityname.dumb.scooter").Value;
+                    return false;
+                }
+                if (__instance.HasTag(ItemTags.tech)) {
+                    __result = TextManager.Get("entityname.dumb.tech").Value;
+                    return false;
+                }
             }
         }
         return true;
@@ -151,14 +187,42 @@ internal static class ItemDescGet {
     static MethodBase TargetMethod() => PatchTargets.Item_Description_Get;
 
     static bool Prefix(Item __instance, ref string __result) {
-        if (YAMJ.IsPlayerRaptor(Character.Controlled)) {
-            if (__instance.HasTag("weapon") && !YAMJ.HasTalent(Character.Controlled, "YAMJSpeechCombat")) {
+        Character? controlled = Character.Controlled;
+        if (YAMJ.IsPlayerRaptor(controlled)) {
+            if (__instance.HasTag("weapon") && !YAMJ.HasTalent(controlled, "YAMJSpeechCombat")) {
                 __result = TextManager.Get("entitydescription.dumb.weapon").Value;
                 return false;
             }
-            if (__instance.HasTag("tool") && !YAMJ.HasTalent(Character.Controlled, "YAMJCanUseTools")) {
+            if (__instance.HasTag("tool") && !YAMJ.HasTalent(controlled, "YAMJCanUseTools")) {
                 __result = TextManager.Get("entitydescription.dumb.repairTool").Value;
                 return false;
+            }
+
+            if (!YAMJ.HasTalent(controlled, "YAMJSpeechAdvanced")) {
+                if (__instance.HasTag("clothing")) {
+                    __result = TextManager.Get("entitydescription.dumb.clothing").Value;
+                    return false;
+                }
+                if (__instance.HasTag("deepdiving")) {
+                    __result = TextManager.Get("entitydescription.dumb.deepdiving").Value;
+                    return false;
+                }
+                if (__instance.HasTag(ItemTags.mediChem)) {
+                    __result = TextManager.Get("entitydescription.dumb.mediChem").Value;
+                    return false;
+                }
+                if (__instance.HasTag("ammobox")) {
+                    __result = TextManager.Get("entitydescription.dumb.ammobox").Value;
+                    return false;
+                }
+                if (__instance.HasTag("scooter")) {
+                    __result = TextManager.Get("entitydescription.dumb.scooter").Value;
+                    return false;
+                }
+                if (__instance.HasTag(ItemTags.tech)) {
+                    __result = TextManager.Get("entitydescription.dumb.tech").Value;
+                    return false;
+                }
             }
         }
         return true;

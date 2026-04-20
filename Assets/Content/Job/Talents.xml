@@ -243,7 +243,7 @@
     </Description>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,6" sheetelementsize="128,128" />
     <AddedRecipe itemidentifier="smallmudraptoreggYAMJ" />
-    <AddedRecipe itemidentifier="mudraptorshield" />
+    <AddedRecipe itemidentifier="yamjRiotShield" />
   </Talent>
   <Talent identifier="YAMJBloodthirsty">
     <Description tag="talentdescription.YAMJBloodthirsty" />
@@ -282,7 +282,7 @@
     </AbilityGroupEffect>
   </Talent>
   <Talent identifier="YAMJMonsterInstinct">
-    <Description tag="talentdescription.YAMJMonsterInstinctDesc">
+    <Description tag="talentdescription.YAMJMonsterInstinct">
       <Replace tag="[amount]" value="125" color="gui.green" />
     </Description>
     <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="2,6" sheetelementsize="128,128" />
@@ -394,9 +394,9 @@
       <Replace tag="[itemname]" value="Veteran Helmet with Thermal" color="gui.orange" />
     </Description>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="5,1" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="mudraptorequiphelmet2" />
-    <AddedRecipe itemidentifier="mudraptorpiratehelmet2" />
-    <AddedRecipe itemidentifier="mudraptorveteranhelmet2" />
+    <AddedRecipe itemidentifier="yamjHelmetBasic2" />
+    <AddedRecipe itemidentifier="yamjHelmetPirate2" />
+    <AddedRecipe itemidentifier="yamjHelmetVeteran2" />
     <AbilityGroupEffect abilityeffecttype="None">
       <Abilities>
         <CharacterAbilityGiveResistance resistance="burn" multiplier="0.5" />
@@ -405,11 +405,11 @@
     </AbilityGroupEffect>
   </Talent>
   <Talent identifier="YAMJRelentless">
-    <Description tag="talentdescription.cannotfallunconsciousforsecondsYAMJ">
+    <Description tag="talentdescription.YAMJRelentless">
       <Replace tag="[speed]" value="20" color="gui.green" />
       <Replace tag="[health]" value="20" color="gui.green" />
     </Description>
-    <Description tag="talentdescription.cannotfallunconsciousforsecondsYAMJ2">
+    <Description tag="talentdescription.YAMJRelentless2">
       <Replace tag="[duration]" value="60" color="gui.red" />
     </Description>
     <Description tag="talentdescription.maxtriggeruntildeath" />
@@ -442,7 +442,7 @@
   </Talent>
   <Talent identifier="YAMJBestFriend">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBestFriendDesc">
+    <Description tag="talentdescription.YAMJBestFriend">
       <Replace tag="[walkspeed]" value="25" color="gui.green" />
       <Replace tag="[swimspeed]" value="40" color="gui.green" />
       <Replace tag="[waterflowresist]" value="75" color="gui.green" />
@@ -473,7 +473,7 @@
   </Talent>
   <!--Armor-->
   <Talent identifier="YAMJArmor">
-    <Description tag="talentdescription.YAMJArmorDesc">
+    <Description tag="talentdescription.YAMJArmor">
       <Replace tag="[amount]" value="10" color="gui.green" />
     </Description>
     <Description tag="talentdescription.unlockrecipe">
@@ -483,8 +483,8 @@
       <Replace tag="[itemname]" value="Mudraptor Armor" color="gui.orange" />
     </Description>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,0" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="mudraptorequiphelmet" />
-    <AddedRecipe itemidentifier="mudraptorequiparmor" />
+    <AddedRecipe itemidentifier="yamjHelmetBasic" />
+    <AddedRecipe itemidentifier="yamjArmorBasic" />
     <AbilityGroupEffect abilityeffecttype="OnAttacked">
       <Abilities>
         <CharacterAbilityModifyAttackData addeddamagemultiplier="-0.1" />
@@ -492,7 +492,7 @@
     </AbilityGroupEffect>
   </Talent>
   <Talent identifier="YAMJArmorVet">
-    <Description tag="talentdescription.YAMJArmorVetDesc">
+    <Description tag="talentdescription.YAMJArmorVet">
       <Replace tag="[amount]" value="10" color="gui.green" />
     </Description>
     <Description tag="talentdescription.unlockrecipe">
@@ -502,8 +502,8 @@
       <Replace tag="[itemname]" value="Mudraptor Veteran Armor" color="gui.orange" />
     </Description>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,1" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="mudraptorveteranhelmet" />
-    <AddedRecipe itemidentifier="mudraptorveteranarmor" />
+    <AddedRecipe itemidentifier="yamjHelmetVeteran" />
+    <AddedRecipe itemidentifier="yamjArmorVeteran" />
     <AbilityGroupEffect abilityeffecttype="OnAttacked">
       <Abilities>
         <CharacterAbilityModifyAttackData addeddamagemultiplier="-0.10" />
@@ -511,7 +511,7 @@
     </AbilityGroupEffect>
   </Talent>
   <Talent identifier="YAMJArmorPirate">
-    <Description tag="talentdescription.YAMJArmorPirateDesc">
+    <Description tag="talentdescription.YAMJArmorPirate">
       <Replace tag="[amount]" value="10" color="gui.green" />
     </Description>
     <Description tag="talentdescription.unlockrecipe">
@@ -521,8 +521,8 @@
       <Replace tag="[itemname]" value="Mudraptor Pirate Armor" color="gui.orange" />
     </Description>
     <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="2,2" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="mudraptorpiratehelmet" />
-    <AddedRecipe itemidentifier="mudraptorpiratearmor" />
+    <AddedRecipe itemidentifier="yamjHelmetPirate" />
+    <AddedRecipe itemidentifier="yamjArmorPirate" />
     <AbilityGroupEffect abilityeffecttype="OnAttacked">
       <Abilities>
         <CharacterAbilityModifyAttackData addeddamagemultiplier="-0.10" />
@@ -534,7 +534,7 @@
       <Replace tag="[skillamount]" value="15" color="gui.green" />
       <Replace tag="[duration]" value="10" color="gui.green" />
     </Description>
-    <Description tag="talentdescription.YAMJGuitarRaptorDesc" />
+    <Description tag="talentdescription.YAMJGuitarRaptor" />
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Raptor Guitar" color="gui.orange" />
     </Description>
@@ -592,39 +592,39 @@
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupEffect>
-    <AddedRecipe itemidentifier="mudraptorclownmask" />
-    <AddedRecipe itemidentifier="mudraptorclownmask2" />
-    <AddedRecipe itemidentifier="mudraptorclownmask3" />
-    <AddedRecipe itemidentifier="mudraptorclownarmor" />
+    <AddedRecipe itemidentifier="yamjHelmetClown" />
+    <AddedRecipe itemidentifier="yamjHelmetClown2" />
+    <AddedRecipe itemidentifier="yamjHelmetClown3" />
+    <AddedRecipe itemidentifier="yamjArmorClown" />
   </Talent>
   <!--Backpacks-->
   <Talent identifier="YAMJBackpack">
-    <Description tag="talentdescription.YAMJBackpackDesc" />
+    <Description tag="talentdescription.YAMJBackpack" />
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Mudraptor Backpack" color="gui.orange" />
     </Description>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,0" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="backpackYAMJ" />
+    <AddedRecipe itemidentifier="yamjBackpack" />
   </Talent>
   <Talent identifier="YAMJBackpackBio">
-    <Description tag="talentdescription.YAMJBackpackBioDesc" />
+    <Description tag="talentdescription.YAMJBackpackBio" />
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Mudraptor Bio Backpack" color="gui.orange" />
     </Description>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,1" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="backpackYAMJbio" />
+    <AddedRecipe itemidentifier="yamjBackpackBio" />
   </Talent>
-  <Talent identifier="YAMJBackpack2">
-    <Description tag="talentdescription.YAMJBackpack2Desc" />
+  <Talent identifier="YAMJBackpackCaravan">
+    <Description tag="talentdescription.YAMJBackpackCaravan" />
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Mudraptor Caravan Backpack" color="gui.orange" />
     </Description>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,0" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="backpackYAMJ2" />
+    <AddedRecipe itemidentifier="yamjBackpackCaravan" />
   </Talent>
   <!--Flares-->
   <Talent identifier="YAMJFlare">
-    <Description tag="talentdescription.YAMJFlareDesc" />
+    <Description tag="talentdescription.YAMJFlare" />
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Bio Flare" color="gui.orange" />
     </Description>
@@ -637,7 +637,7 @@
     <AddedRecipe itemidentifier="flareYAMJ" />
   </Talent>
   <Talent identifier="YAMJFlareIce">
-    <Description tag="talentdescription.YAMJFlareIceDesc" />
+    <Description tag="talentdescription.YAMJFlareIce" />
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,0" sheetelementsize="128,128" />
     <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
       <Abilities>
@@ -646,7 +646,7 @@
     </AbilityGroupEffect>
   </Talent>
   <Talent identifier="YAMJFlareFire">
-    <Description tag="talentdescription.YAMJFlareFireDesc" />
+    <Description tag="talentdescription.YAMJFlareFire" />
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,1" sheetelementsize="128,128" />
     <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
       <Abilities>
@@ -741,7 +741,7 @@
   <!--Bonds-->
   <Talent identifier="YAMJBond_Captain">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_CaptainDesc" />
+    <Description tag="talentdescription.YAMJBond_Captain" />
     <AbilityGroupInterval interval="0.5">
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
@@ -767,7 +767,7 @@
   </Talent>
   <Talent identifier="YAMJBond_Security">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_SecurityDesc" />
+    <Description tag="talentdescription.YAMJBond_Security" />
     <AbilityGroupInterval interval="0.5">
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
@@ -814,7 +814,7 @@
   </Talent>
   <Talent identifier="YAMJBond_Engineer">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_EngineerDesc" />
+    <Description tag="talentdescription.YAMJBond_Engineer" />
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Mudraptor Thermal Engineer Helm" color="gui.orange" />
     </Description>
@@ -875,7 +875,7 @@
   </Talent>
   <Talent identifier="YAMJBond_Mechanic">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_MechanicDesc" />
+    <Description tag="talentdescription.YAMJBond_Mechanic" />
     <AbilityGroupInterval interval="0.5">
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
@@ -914,7 +914,7 @@
   </Talent>
   <Talent identifier="YAMJBond_Doctor">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_DoctorDesc" />
+    <Description tag="talentdescription.YAMJBond_Doctor" />
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Mudraptor Thermal Medical Helm" color="gui.orange" />
     </Description>

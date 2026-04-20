@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
     <!--Clown-->
-  <Item name="Mudraptor Clown Mask" identifier="mudraptorclownmask" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,clownmask" description="A strange mask for the mudraptor." scale="0.5">
+  <Item name="Mudraptor Clown Mask" identifier="yamjHelmetClown" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,clownmask" description="A strange mask for the mudraptor." scale="0.5">
     <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.02" />
     <PreferredContainer primary="crewcab" />
     <Sprite name="Mudraptor Clown Mask" texture="%ModDir%/Items/MudraptorClownClothing.png" depth="0.6" sourcerect="530,167,267,103" origin="0.5,0.5" scale="0.5" />
@@ -22,7 +22,7 @@
       <StatusEffect tags="clown" type="OnWearing" target="Character" HideFace="true" duration="0.1" stackable="false" />
     </Wearable>
   </Item>
-  <Item name="Mudraptor Clown Helmet" identifier="mudraptorclownmask2" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,clownmask" description="A strange helmet for the mudraptor." scale="0.5">
+  <Item name="Mudraptor Clown Helmet" identifier="yamjHelmetClown2" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,clownmask" description="A strange helmet for the mudraptor." scale="0.5">
     <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.02" />
     <PreferredContainer primary="crewcab" />
     <Sprite name="Mudraptor Clown Mask2" texture="%ModDir%/Items/MudraptorClownClothing.png" depth="0.6" sourcerect="3,3,227,83" origin="0.5,0.5" scale="0.5" />
@@ -44,7 +44,7 @@
       <StatusEffect tags="clown" type="OnWearing" target="Character" HideFace="true" duration="0.1" stackable="false" />
     </Wearable>
   </Item>
-  <Item name="Mudraptor Thermal Clown Helmet" identifier="mudraptorclownmask3" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing,clownmask" cargocontaineridentifier="metalcrate" description="A strong helmet for the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Thermal Clown Helmet" identifier="yamjHelmetClown3" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing,clownmask" cargocontaineridentifier="metalcrate" description="A strong helmet for the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -76,7 +76,7 @@
     </Wearable>
     <StatusHUD drawhudwhenequipped="true" overlaycolor="120,60,0,120" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
   </Item>
-  <Item name="Mudraptor Clown Armor" identifier="mudraptorclownarmor" maxstacksize="1" category="Equipment" tags="smallitem,clothing" description="Strange piece of armor for the mudraptor (don't equip as a human)." cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Clown Armor" identifier="yamjArmorClown" maxstacksize="1" category="Equipment" tags="smallitem,clothing" description="Strange piece of armor for the mudraptor (don't equip as a human)." cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="8" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -111,7 +111,7 @@
     </Wearable>
   </Item>
     <!--Normal Mudraptor Helmet-->
-  <Item name="Mudraptor Helmet" identifier="mudraptorequiphelmet" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong helmet for the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Helmet" identifier="yamjHelmetBasic" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong helmet for the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -138,7 +138,7 @@
     </Wearable>
   </Item>
     <!--Pirate Mudraptor Helmet-->
-  <Item name="Mudraptor Pirate Helmet" identifier="mudraptorpiratehelmet" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong pirate helmet made to fit the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Pirate Helmet" identifier="yamjHelmetPirate" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong pirate helmet made to fit the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -170,7 +170,7 @@
     </Wearable>
   </Item>
     <!--Veteran Mudraptor Helmet-->
-  <Item name="Mudraptor Veteran Helmet" identifier="mudraptorveteranhelmet" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong mudraptor veteran helmet." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Veteran Helmet" identifier="yamjHelmetVeteran" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong mudraptor veteran helmet." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -200,7 +200,7 @@
     </Wearable>
   </Item>
     <!--Normal Mudraptor Helmet with Thermal-->
-  <Item name="Mudraptor Thermal Helmet" identifier="mudraptorequiphelmet2" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong helmet for the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Thermal Helmet" identifier="yamjHelmetBasic2" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong helmet for the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -229,7 +229,7 @@
     <StatusHUD drawhudwhenequipped="true" overlaycolor="120,60,0,120" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
   </Item>
     <!--Pirate Mudraptor Helmet with Thermal-->
-  <Item name="Mudraptor Pirate Helmet with Thermal" identifier="mudraptorpiratehelmet2" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong pirate helmet made to fit the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Pirate Helmet with Thermal" identifier="yamjHelmetPirate2" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong pirate helmet made to fit the mudraptor." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -263,7 +263,7 @@
     <StatusHUD drawhudwhenequipped="true" overlaycolor="120,60,0,120" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
   </Item>
   <!--Veteran Mudraptor Helmet with Thermal-->
-  <Item name="Mudraptor Veteran Helmet with Thermal" identifier="mudraptorveteranhelmet2" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong mudraptor veteran helmet." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Veteran Helmet with Thermal" identifier="yamjHelmetVeteran2" aliases="ballistichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="A strong mudraptor veteran helmet." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -358,7 +358,7 @@
   </Item>
   <!--Mudraptor Armor
   Add back the <Item identifier="piratebodyarmor" /> to fabricate-->
-  <Item name="Mudraptor Armor" identifier="mudraptorequiparmor" maxstacksize="1" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="Strong piece of armor for the mudraptor (don't equip as a human)." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Armor" identifier="yamjArmorBasic" maxstacksize="1" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="Strong piece of armor for the mudraptor (don't equip as a human)." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="8" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -391,7 +391,7 @@
       </StatusEffect>
     </Wearable>
   </Item>
-  <Item name="Mudraptor Pirate Armor" identifier="mudraptorpiratearmor" maxstacksize="1" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="Strong piece of pirate armor for the mudraptor (don't equip as a human)." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Pirate Armor" identifier="yamjArmorPirate" maxstacksize="1" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="Strong piece of pirate armor for the mudraptor (don't equip as a human)." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="30" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -424,7 +424,7 @@
       </StatusEffect>
     </Wearable>
   </Item>
-  <Item name="Mudraptor Veteran Armor" identifier="mudraptorveteranarmor" maxstacksize="1" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="Strong piece of veteran armor for the mudraptor (don't equip as a human)." impactsoundtag="impact_metal_heavy" scale="0.4">
+  <Item name="Mudraptor Veteran Armor" identifier="yamjArmorVeteran" maxstacksize="1" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="Strong piece of veteran armor for the mudraptor (don't equip as a human)." impactsoundtag="impact_metal_heavy" scale="0.4">
     <Price baseprice="8" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -461,7 +461,7 @@
     </Wearable>
   </Item>
   <!-- Item to remove the mudraptor armor -->
-  <Item name="Mudraptor Armor Remover" identifier="crowbarYAMJ" category="Equipment" maxstacksize="1" Tags="smallitem,tool,simpletool,dooropeningtool,crowbaritem,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+  <Item name="Mudraptor Armor Remover" identifier="yamjArmorRemover" category="Equipment" maxstacksize="1" Tags="smallitem,tool,simpletool,dooropeningtool,crowbaritem,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <PreferredContainer primary="engcab" />
     <Price baseprice="20" minavailable="10">
       <Price storeidentifier="merchantoutpost" />
