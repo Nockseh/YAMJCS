@@ -1,4 +1,6 @@
-﻿namespace YAMJCS;
+﻿using Microsoft.Xna.Framework.Graphics;
+
+namespace YAMJCS;
 
 internal static class YAMJ
 {
@@ -8,6 +10,9 @@ internal static class YAMJ
     public const string PlayerRaptorSpecies = "Mudraptor_player";
     public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
     public const string PlayerRaptorJobId = "PlayerMudraptorJob";
+    public static CharacterInfo PlayerRaptorCharInfo = new CharacterInfo(
+        PlayerRaptorSpecies.ToIdentifier()
+    );
     //vars
     public static AfflictionPrefab HungerPrefab;
     public static AfflictionPrefab EatingBuffPrefab;

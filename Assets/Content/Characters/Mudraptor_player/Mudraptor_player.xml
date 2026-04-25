@@ -1,6 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <override>
-  <Character specifiertags="true" skincolors="(#ffffff, 100)" SpeciesName="Mudraptor_player" Tags="8" SpeciesTranslationOverride="mudraptor" DisplayName="" Group="human" Humanoid="False" HasInfo="True" CanInteract="True" CanClimb="True" ForceSlowClimbing="False" Husk="False" HuskedSpecies="" NonHuskedSpecies="" UseHuskAppendage="True" NeedsAir="False" NeedsWater="False" UseHumanAI="False" IsMachine="False" CanSpeak="True" ShowHealthBar="True" UseBossHealthBar="False" Noise="200" Visibility="100" BloodDecal="blood" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="True" EatingSpeed="5" UsePathFinding="True" PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="False" SonarDisruption="0" DistantSonarRange="0" DisableDistance="25000" SoundInterval="9999" DrawLast="False" AITurretPriority="1" AISlowTurretPriority="1" DespawnContainer="duffelbag">
+  <Character
+    specifiertags="true"
+    skincolors="(#ffffff, 100)"
+    SpeciesName="Mudraptor_player"
+    SpeciesTranslationOverride="mudraptor"
+    DisplayName=""
+    Group="human"
+    Humanoid="False"
+    HasInfo="True"
+    CanInteract="True"
+    CanClimb="True"
+    ForceSlowClimbing="True"
+    Husk="False"
+    HuskedSpecies=""
+    NonHuskedSpecies=""
+    UseHuskAppendage="True"
+    NeedsAir="False"
+    NeedsWater="False"
+    UseHumanAI="False"
+    IsMachine="False"
+    CanSpeak="True"
+    ShowHealthBar="True"
+    UseBossHealthBar="False"
+    Noise="200"
+    Visibility="150"
+    BloodDecal="blood"
+    BleedParticleAir="blooddrop"
+    BleedParticleWater="waterblood"
+    BleedParticleMultiplier="1"
+    CanEat="True"
+    EatingSpeed="4"
+    UsePathFinding="True"
+    PathFinderPriority="1"
+    HideInSonar="False"
+    HideInThermalGoggles="False"
+    SonarDisruption="0"
+    DistantSonarRange="0"
+    DisableDistance="25000"
+    SoundInterval="9999"
+    DrawLast="False"
+    AITurretPriority="1"
+    AISlowTurretPriority="1"
+    DespawnContainer="duffelbag">
     <names path="%ModDir%/Characters/Mudraptor_player/names.xml" />
     <ragdolls folder="default" />
     <animations folder="default" />
@@ -85,41 +127,25 @@
     <sound File="Content/Characters/Mudraptor/MUDRAPTOR_death2.ogg" State="Die" Range="2000" Volume="1" Tags="" />
     <Inventory arrowslot="7" Slots="Card, Headset, Head, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" AccessibleWhenAlive="True" Commonness="1" />
     <Heads>
-      <Head tags="head1,male" sheetindex="0,0" />
-      <Head tags="head2,male" sheetindex="1,0" />
-      <Head tags="head3,male" sheetindex="2,0" />
-      <Head tags="head4,male" sheetindex="3,0" />
-      <Head tags="head5,male" sheetindex="0,1" />
-      <Head tags="head6,male" sheetindex="1,1" />
-      <Head tags="head7,male" sheetindex="2,1" />
-      <Head tags="head8,male" sheetindex="3,1" />
-      <Head tags="head9,male" sheetindex="0,2" />
-      <Head tags="head10,male" sheetindex="1,2" />
-      <Head tags="head11,male" sheetindex="2,2" />
-      <Head tags="head12,male" sheetindex="3,2" />
-      <Head tags="head13,male" sheetindex="0,3" />
-      <Head tags="head14,male" sheetindex="1,3" />
-      <Head tags="head15,male" sheetindex="2,3" />
-      <Head tags="head16,male" sheetindex="3,3" />
-      <Head tags="head1,female" sheetindex="0,0" />
-      <Head tags="head2,female" sheetindex="1,0" />
-      <Head tags="head3,female" sheetindex="2,0" />
-      <Head tags="head4,female" sheetindex="3,0" />
-      <Head tags="head5,female" sheetindex="0,1" />
-      <Head tags="head6,female" sheetindex="1,1" />
-      <Head tags="head7,female" sheetindex="2,1" />
-      <Head tags="head8,female" sheetindex="3,1" />
-      <Head tags="head9,female" sheetindex="0,2" />
-      <Head tags="head10,female" sheetindex="1,2" />
-      <Head tags="head11,female" sheetindex="2,2" />
-      <Head tags="head12,female" sheetindex="3,2" />
-      <Head tags="head13,female" sheetindex="0,3" />
-      <Head tags="head14,female" sheetindex="1,3" />
-      <Head tags="head15,female" sheetindex="2,3" />
-      <Head tags="head16,female" sheetindex="3,3" />
+      <Head tags="head1,raptor" sheetindex="0,0" />
+      <Head tags="head2,raptor" sheetindex="1,0" />
+      <Head tags="head3,raptor" sheetindex="2,0" />
+      <Head tags="head4,raptor" sheetindex="3,0" />
+      <Head tags="head5,raptor" sheetindex="0,1" />
+      <Head tags="head6,raptor" sheetindex="1,1" />
+      <Head tags="head7,raptor" sheetindex="2,1" />
+      <Head tags="head8,raptor" sheetindex="3,1" />
+      <Head tags="head9,raptor" sheetindex="0,2" />
+      <Head tags="head10,raptor" sheetindex="1,2" />
+      <Head tags="head11,raptor" sheetindex="2,2" />
+      <Head tags="head12,raptor" sheetindex="3,2" />
+      <Head tags="head13,raptor" sheetindex="0,3" />
+      <Head tags="head14,raptor" sheetindex="1,3" />
+      <Head tags="head15,raptor" sheetindex="2,3" />
+      <Head tags="head16,raptor" sheetindex="3,3" />
     </Heads>
     <Vars>
-      <Var var="GENDER" tags="female,male" />
+      <Var var="GENDER" tags="raptor" />
     </Vars>
     <MenuCategory var="GENDER" />
     <Pronouns var="GENDER" />

@@ -70,7 +70,7 @@ internal static class CharacterCreateFromPrefabPatch {
 
         if (YAMJ.IsPlayerRaptor(__result)) {
             Affliction affliction = YAMJ.HungerPrefab.Instantiate(0.01f);
-            __result.CharacterHealth.ApplyAffliction(null, affliction, false);
+            __result.CharacterHealth.ApplyAffliction(null, affliction);
         }
     }
 }

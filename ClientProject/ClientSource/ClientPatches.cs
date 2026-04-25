@@ -45,6 +45,15 @@ internal static class PatchTargets {
             typeof(CrewManager),
             nameof(CrewManager.CanIssueOrders)) ??
         throw new Exception("CrewManager.CanIssueOrders {get} not found");
+
+    public static MethodBase CharacterInfo_LoadHeadElement =>
+        AccessTools.Method(
+            typeof(CharacterInfo),
+            nameof(CharacterInfo.LoadHeadElement),
+            new[] {
+                typeof(bool),
+                typeof(bool) }) ??
+        throw new Exception("CharacterInfo.LoadHeadElement(bool, bool) not found");
 }
 
 internal static class ItemTags {
@@ -246,5 +255,111 @@ internal static class CanIssueOrdersGet {
         } else {
             return true;
         }
+    }
+}
+
+[HarmonyPatch]
+public static class CharacterInfo_LoadHeadElement {
+    static MethodBase TargetMethod() => PatchTargets.CharacterInfo_LoadHeadElement;
+    
+    static bool Prefix(ref CharacterInfo __instance, bool loadHeadSprite, bool loadHeadSpriteTags) {
+        if (!YAMJ.HasPlayerRaptorJob(__instance)) return true;
+        
+        CharacterInfo raptorInfo = new CharacterInfo("Mudraptor_player".ToIdentifier());
+        if (raptorInfo.Ragdoll?.MainElement == null) {
+            YAMJ.Log("raptorInfo.Ragdoll.MainElement is null");
+            return true;
+        }
+
+        if (raptorInfo.Head == null) {
+            YAMJ.Log("raptorInfo.Head is null");
+            return true;
+        }
+        
+        foreach (var limbElement in raptorInfo.Ragdoll.MainElement.Elements()) {
+            if (!limbElement.GetAttributeString("type", "").Equals("head", StringComparison.OrdinalIgnoreCase)) {
+                continue;
+            }
+
+            ContentXElement spriteElement = limbElement.GetChildElement("sprite");
+            if (spriteElement == null) {
+                YAMJ.Log("headElement has no sprite child element");
+                return false;
+            }
+
+            string spritePath = spriteElement.GetAttributeContentPath("texture")?.Value;
+            if (string.IsNullOrEmpty(spritePath)) {
+                YAMJ.Log("spritePath is null or empty");
+                return false;
+            }
+
+            spritePath = raptorInfo.ReplaceVars(spritePath);
+
+            string dir = Path.GetDirectoryName(spritePath);
+            string fileName = Path.GetFileNameWithoutExtension(spritePath);
+
+            if (string.IsNullOrEmpty(dir) || string.IsNullOrEmpty(fileName)) {
+                YAMJ.Log("is null or empty (dir, fileName)");
+                return false;
+            }
+
+            foreach (string file in Directory.GetFiles(dir)) {
+                if (!file.EndsWith(".png", StringComparison.OrdinalIgnoreCase)) continue;
+
+                string fileWithoutTags = Path.GetFileNameWithoutExtension(file)
+                    .Split('[', ']')
+                    .First();
+
+                if (fileWithoutTags != fileName) continue;
+
+                if (loadHeadSprite) {
+                    SetPrivateProperty(__instance, "HeadSprite", new Sprite(spriteElement, "", file));
+                    SetPrivateProperty(__instance, "Portrait", new Sprite(spriteElement, "", file) {
+                        RelativeOrigin = Vector2.Zero
+                    });
+
+                    Sprite headSprite = __instance.HeadSprite;
+                    Point sheet = GetRaptorSheetIndex(__instance);
+                    headSprite.SourceRect = new Rectangle(
+                        sheet.X * headSprite.SourceRect.Width,
+                        sheet.Y * headSprite.SourceRect.Height,
+                        headSprite.SourceRect.Width,
+                        headSprite.SourceRect.Height);
+                    AccessTools.Field(typeof(CharacterInfo), "attachmentSprites").SetValue(__instance, new List<WearableSprite>());
+                }
+
+                if (loadHeadSpriteTags) {
+                    var tags = file.Split('[', ']')
+                        .Skip(1)
+                        .Select(id => id.ToIdentifier())
+                        .ToList();
+
+                    if (tags.Any()) {
+                        tags.RemoveAt(tags.Count - 1);
+                    }
+
+                    AccessTools.Property(typeof(CharacterInfo), "SpriteTags")
+                        .SetValue(__instance, tags);
+
+                    AccessTools.Field(typeof(CharacterInfo), "spriteTagsLoaded")
+                        .SetValue(__instance, true);
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
+    }
+    
+    private static void SetPrivateProperty(object instance, string propertyName, object value)
+    {
+        AccessTools.PropertySetter(instance.GetType(), propertyName)
+            .Invoke(instance, new[] { value });
+    }
+
+    private static Point GetRaptorSheetIndex(CharacterInfo info)
+    {
+        int index = Math.Abs(info.GetIdentifierUsingOriginalName()) % 16;
+        return new Point(index % 4, index / 4);
     }
 }
