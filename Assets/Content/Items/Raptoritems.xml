@@ -1,5 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+
+  <Item name="quickChat headset" identifier="raptorHeadset" category="Equipment" tags="smallitem,mobileradio" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="crewcab" secondary="divingcab"/>
+    <Price baseprice="200">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmilitary" minavailable="1" />
+      <Price storeidentifier="merchantmine" minavailable="0" />
+    </Price>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,0,64,64" origin="0.5,0.5" /> <!--todo replace item sprite and/or icon -->
+    <Sprite name="Headset" texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="28,321,49,62" origin="0.5,0.5" />
+    <Body radius="20" height="20" density="15" />
+    <Deconstruct time="8" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="headset" />
+    </Fabricate>
+    <WifiComponent range="35000.0" LinkToChat="true" MinChatMessageInterval="0.1">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Wearable AllowUseWhenWorn="true" limbtype="Head" slots="Any,Headset" msg="ItemMsgPickUpSelect" displaycontainedstatus="true">
+      <sprite name="Headset Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" depth="0.1" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hideotherwearables="false" sourcerect="26,317,51,64" origin="0.5,0.6" />
+    </Wearable>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.12,0.24" anchor="Center" absoluteoffset="20,138" style="ItemUI" />
+      <Button text="Hello" signal="hello">
+        <StatusEffect type="OnUse" targettype="This" />
+      </Button>
+      <Button text="Sorry" signal="sorry">
+        <StatusEffect type="OnUse" targettype="This" />
+      </Button>
+      <Button text="Help" signal="help">
+        <StatusEffect type="OnUse" targettype="This" />
+      </Button>
+    </CustomInterface>
+  </Item>
+  
   <Item name="Raptorboy Hat" identifier="raptorcowboyhat" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" scale="0.4">
     <PreferredContainer primary="wreckcrewcab" amount="1" spawnprobability="0.04" notcampaign="true" />
     <Price baseprice="90">
@@ -88,6 +129,7 @@
       </StatusEffect>
     </Holdable>
   </Item>
+  
   <Item name="Mudraptor Job" identifier="raptorstartitem" category="Equipment" Tags="smallitem,clothing" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" nonplayerteaminteractable="False">
     <InventoryIcon texture="%ModDir%/Job/YAMJIcons.png" sourcerect="257,0,100,100" />
     <Body width="85" height="90" density="40" />
@@ -105,6 +147,7 @@
       </StatusEffect>
     </Wearable>
   </Item>
+  
   <Item name="" identifier="jumptalentitem" category="Medical" maxstacksize="8" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medcab" />
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="50" amount="1">
@@ -143,7 +186,7 @@
     </MeleeWeapon>
     <Wearable slots="Head" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" />
   </Item>
-  <!-- Talent items -->
+  
   <!-- Backpacks -->
   <Item name="Mudraptor Backpack" identifier="yamjBackpack" category="Equipment" tags="bigitem,mobilecontainer,tool,mountableweapon" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
     <PreferredContainer primary="engcab" />
@@ -280,9 +323,9 @@
       </SubContainer>
     </ItemContainer>
   </Item>
-  <!-- Bio Flares
-  <ParticleEmitter particle="flare" emitinterval="2.1" particleamount="10" particlespersecond="60" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" />
-  -->
+  
+  <!-- Bio Flares -->
+  <!-- ParticleEmitter particle="flare" emitinterval="2.1" particleamount="10" particlespersecond="60" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" /-->
   <Item name="Bio Flare" identifier="flareYAMJ" category="Equipment" maxstacksize="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative" description="A bright sponge that glows when in contact with skin." impactsoundtag="impact_soft" isshootable="true">
     <Price baseprice="30" sold="false">
       <Price storeidentifier="merchantoutpost" />
@@ -424,8 +467,8 @@
     </Holdable>
     <AiTarget sightrange="4000" />
   </Item>
-  <!-- Mudraptor Shield
-  -->
+  
+  <!-- Mudraptor Shield -->
   <Item name="" identifier="yamjRiotShield" category="Equipment" tags="weapon,smallitem" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.5" allowasextracargo="true">
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
     <Price baseprice="1" soldeverywhere="false" canbespecial="false">
@@ -453,6 +496,7 @@
       </StatusEffect>
     </Holdable>
   </Item>
+  
   <!-- Mudraptor Human Armor -->
   <Item name="Mudraptor Guard Helmet" identifier="mudhelmet" scale="0.5" category="Diving,Equipment" Tags="mediumitem,alien,diving,provocative" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" description="A living carapace helmet forged by the hands of one that knows both human and mudraptor biology greatly." maxstacksize="1" hideinmenus="False">
     <Sprite texture="%ModDir%/Items/MudraptorHelm.png" depth="0.55" sourcerect="32,2,130,68" origin="0.5,0.5" />
@@ -567,4 +611,5 @@
       <Containable items="oxygeniteshard,oxygenitetank" />
     </ItemContainer>
   </Item>
+
 </Items>

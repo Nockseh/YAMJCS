@@ -34,6 +34,12 @@ internal static class PatchTargets {
             typeof(FishAnimController),
             nameof(FishAnimController.DragCharacter)) ??
         throw new Exception("FishAnimController.DragCharacter not found");
+
+    public static MethodBase CustomInterface_ButtonClicked =>
+        AccessTools.Method(
+            typeof(CustomInterface),
+            nameof(CustomInterface.ButtonClicked)) ??
+        throw new Exception("CustomInteface.ButtonClicked() not found");
 }
 
 [HarmonyPatch]
@@ -100,5 +106,17 @@ internal static class CorpseEatingPatch {
             Affliction eatingBuff = new Affliction(YAMJ.EatingBuffPrefab, 2f);
             __instance.Character.CharacterHealth.ApplyAffliction(null, eatingBuff, false);
         }
+    }
+}
+
+[HarmonyPatch]
+internal static class CustomUiButtonClicked {
+    static MethodBase TargetMethod() => PatchTargets.CustomInterface_ButtonClicked;
+
+    static void Prefix(object btnElement) {
+        PropertyInfo? signalProperty = btnElement.GetType().GetProperty("Signal");
+        if (signalProperty is null) return;
+        string? signal = signalProperty.GetValue(btnElement) as string;
+        YAMJ.Log("Signal received: " + signal);
     }
 }
