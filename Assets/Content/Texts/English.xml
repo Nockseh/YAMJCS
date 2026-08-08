@@ -20,7 +20,6 @@
   <YAMJCS.RaptorVisionAlpha.DisplayName>RaptorVision Alpha</YAMJCS.RaptorVisionAlpha.DisplayName>
   <YAMJCS.RaptorVisionAlpha.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionAlpha.DisplayCategory>
   <YAMJCS.RaptorVisionAlpha.Tooltip>Opacity of raptor vision effect</YAMJCS.RaptorVisionAlpha.Tooltip>
-  
 
   <!-- Shared Settings -->
   <YAMJCS.EatingHungerReduction.DisplayName>Eating Hunger Reduction</YAMJCS.EatingHungerReduction.DisplayName>
@@ -195,7 +194,7 @@
   <talentname.YAMJBackpackCaravan>Pack Mule</talentname.YAMJBackpackCaravan>
   <talentdescription.YAMJBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 9 slots for items, 2 for containers, 1 for children. Slows movement when equipped. Humans should definitely not wear this.</talentdescription.YAMJBackpackCaravan>
   <talentname.YAMJHeatSignature>Heat Signature</talentname.YAMJHeatSignature>
-  <talentdescription.YAMJHeatSignature>Your time near humans and on land has given you a better understanding of how body heat functions. Gain [amount]% burn and poison resistance.</talentdescription.YAMJHeatSignature>
+  <talentdescription.YAMJHeatSignature>Gain the ability to sense nearby bodies.</talentdescription.YAMJHeatSignature>
   <talentname.YAMJGunner>Gunner</talentname.YAMJGunner>
   <talentdescription.YAMJGunner>Gain a [amount]% power increase to submarine turrets.</talentdescription.YAMJGunner>
   <talentname.YAMJHumanoid>Humanoid Instinct</talentname.YAMJHumanoid>
@@ -222,7 +221,7 @@
   <talentdescription.YAMJBond_Captain>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds. Whenever your crew completes a mission, everyone gains +10% Extra EXP and Marks. While near others they gain 15% Stun and Damage Resistance. +30 Helm Skill Bonus. +10% Attack Power.</talentdescription.YAMJBond_Captain>
   <!--Student -->
   <talentname.YAMJSpeechAdvanced>Linguist</talentname.YAMJSpeechAdvanced>
-  <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.</talentdescription.YAMJSpeechAdvanced>
+  <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.\nGain [amount]% [poisonresist].\nGain [amount]% [burnresist].</talentdescription.YAMJSpeechAdvanced>
   <talentname.YAMJBackpackBio>Bio Backpack</talentname.YAMJBackpackBio>
   <talentdescription.YAMJBackpackBio>Make mudraptor backpacks lined with glowing chemicals. 7 slots for items, 2 for children. Humans can't wear this without extreme pain.</talentdescription.YAMJBackpackBio>
   <talentname.YAMJSkillGain>Quick Learner</talentname.YAMJSkillGain>
@@ -234,8 +233,6 @@
   <talentdescription.YAMJClownCollege>The Honkmother's reach goes far in these deep dark waters...</talentdescription.YAMJClownCollege>
   <talentname.YAMJMachinist>Machinist</talentname.YAMJMachinist>
   <talentdescription.YAMJMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.YAMJMachinist>
-  <talentname.YAMJPostgrad>Postgrad</talentname.YAMJPostgrad>
-  <talentdescription.YAMJPostgradLimits>You may only install a maximum of 1 portable pump and 1 makeshift shelf.</talentdescription.YAMJPostgradLimits>
   <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>
   <talentdescription.YAMJBond_Engineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake. You gain the Electrochemist Talent with a bonus 35 Radiation Sickness applied when it activates. +30 Electrical Skill Bonus. 25% Repair Speed.</talentdescription.YAMJBond_Engineer>
   <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
@@ -252,8 +249,10 @@
   <afflictiondescription.yamjHunger.self.medium>Need food...</afflictiondescription.yamjHunger.self.medium>
   <afflictiondescription.yamjHunger.self.high>Starving... dying.</afflictiondescription.yamjHunger.self.high>
   <afflictiondescription.yamjHunger.self.veryHigh>Need food NOW! Find! Kill! Eat!</afflictiondescription.yamjHunger.self.veryHigh>
-  <afflictionname.YAMJGuardianAngelBuff>Guardian Angel</afflictionname.YAMJGuardianAngelBuff>
+  <afflictionname.YAMJGuardianSelf>Guardian Angel</afflictionname.YAMJGuardianSelf>
   <afflictiondescription.YAMJGuardianAngelBuff>Your bleeding heart drives you to defend your allies to the last breath.</afflictiondescription.YAMJGuardianAngelBuff>
+  <afflictionname.YAMJGuardianOther>Guarded</afflictionname.YAMJGuardianOther>
+  <afflictiondescription.YAMJGuardianOther>You're being protected by nearby ally.</afflictiondescription.YAMJGuardianOther>
   <afflictionname.YAMJBestFriendBuff>My Best Friend</afflictionname.YAMJBestFriendBuff>
   <afflictiondescription.YAMJBestFriendBuff>The Mudraptor close to you is bolstering your actions. +20% Walk/Run Speed. +40% Swim Speed. +75% Water Flow Resistance.</afflictiondescription.YAMJBestFriendBuff>
   <afflictionname.YAMJSleepTimeIcon>Raptor Nap</afflictionname.YAMJSleepTimeIcon>
@@ -276,6 +275,8 @@
   <afflictiondescription.YAMJBond_DoctorBuff>Your skills with medicines and poisons are bolstered due to the Doctor's Raptor.</afflictiondescription.YAMJBond_DoctorBuff>
   <afflictionname.YAMJimplacable>Relentless</afflictionname.YAMJimplacable>
   <afflictiondescription.YAMJimplacable>KILL! KILL! KILL!</afflictiondescription.YAMJimplacable>
-  <afflictionname.YAMJVouchBuff>Vouched</afflictionname.YAMJVouchBuff>
-  <afflictiondescription.YAMJVouchBuff>test</afflictiondescription.YAMJVouchBuff>
+  <afflictionname.YAMJVouchBuff>Friend of Mudraptors</afflictionname.YAMJVouchBuff>
+  <afflictiondescription.YAMJVouchBuff.self>They wouldn't hurt their own kind, right..?</afflictiondescription.YAMJVouchBuff.self>
+  <afflictiondescription.YAMJVouchBuff.other.low>Mudraptors should leave you alone, for now...</afflictiondescription.YAMJVouchBuff.other.low>
+  <afflictiondescription.YAMJVouchBuff.other.high>Mudraptors won't attack you first.</afflictiondescription.YAMJVouchBuff.other.high>
 </infotexts>

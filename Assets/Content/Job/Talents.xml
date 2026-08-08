@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Talents>
+
   <!--Non-Tree Talents-->
   <Talent identifier="YAMJJump">
     <Description tag="talentdescription.YAMJJump" />
@@ -29,374 +30,20 @@
       </Abilities>
     </AbilityGroupInterval>
   </Talent>
+  
   <!--Speech-->
   <Talent identifier="YAMJSpeechBasic">
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJSpeechBasic"> </Description>
   </Talent>
+  
   <Talent identifier="YAMJSpeechAdvanced">
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJSpeechAdvanced"> </Description> <!--TODO make this entry-->
-  </Talent>
-  <Talent identifier="YAMJSpeechCombat">
-    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJSpeechCombat"> </Description>
-  </Talent>
-  <!--Can Use Basic Tools-->
-  <Talent identifier="YAMJCanUseTools">
-    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJCanUseTools"> </Description>
-  </Talent>
-  <!--others-->
-  <Talent identifier="YAMJSkillGain">
-    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.additionalstattype">
+    <Description tag="talentdescription.YAMJSpeechAdvanced">
       <Replace tag="[amount]" value="50" color="gui.green" />
-      <Replace tag="[stattype]" value="stattypenames.skillgainspeed" color="gui.orange" />
+      <Replace tag="[poisonresist]" value="Poison Resistance" color="gui.orange" />
+      <Replace tag="[burnresist]" value="Burn Resistance" color="gui.orange" />
     </Description>
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Abilities>
-        <CharacterAbilityModifyStat stattype="SkillGainSpeed" value="0.5" />
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
-  <Talent identifier="YAMJRepairSpeed">
-    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.additionalstattypeself">
-      <Replace tag="[amount]" value="40" color="gui.green" />
-      <Replace tag="[stattype]" value="stattypenames.repairspeed" color="gui.orange" />
-    </Description>
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Abilities>
-        <CharacterAbilityModifyStat stattype="RepairSpeed" value="0.40" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <Description tag="talentdescription.additionalstattypeself">
-      <Replace tag="[amount]" value="30" color="gui.green" />
-      <Replace tag="[stattype]" value="stattypenames.repairtoolstructurerepairmultiplier" color="gui.orange" />
-    </Description>
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Abilities>
-        <CharacterAbilityGiveStat stattype="RepairToolStructureRepairMultiplier" value="0.30" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <Description tag="talentdescription.reductiontostattypeself">
-      <Replace tag="[amount]" value="10" color="gui.red" />
-      <Replace tag="[stattype]" value="stattypenames.swimmingspeed" color="gui.orange" />
-    </Description>
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Abilities>
-        <CharacterAbilityGiveStat stattype="SwimmingSpeed" value="-0.10" />
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
-  <Talent identifier="YAMJPostgrad">
-    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="5,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="entityname.boardingaxe, entityname.slipsuit, entityname.safetyharness, entityname.cargoscooter, entityname.repairpack, entityname.portablepump, entityname.makeshiftshelf, entityname.bandolier, entityname.safetyharness" color="gui.orange" />
-    </Description>
-    <AddedRecipe itemidentifier="bandolier" />
-    <AddedRecipe itemidentifier="boardingaxe" />
-    <AddedRecipe itemidentifier="slipsuit" />
-    <AddedRecipe itemidentifier="safetyharness" />
-    <AddedRecipe itemidentifier="cargoscooter" />
-    <AddedRecipe itemidentifier="repairpack" />
-    <AddedRecipe itemidentifier="portablepump" />
-    <Description tag="talentdescription.YAMJPostgradLimits" />
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Abilities>
-        <CharacterAbilityGivePermanentStat statidentifier="portablepump" stattype="MaxAttachableCount" value="1" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <Migrations>
-      <AddStat version="1.0.10.0" statidentifier="makeshiftshelf" stattype="MaxAttachableCount" value="1" />
-    </Migrations>
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Abilities>
-        <CharacterAbilityGivePermanentStat statidentifier="makeshiftshelf" stattype="MaxAttachableCount" value="1" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <AddedRecipe itemidentifier="makeshiftshelf" />
-  </Talent>
-  <Talent identifier="YAMJGunner">
-    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,3" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJGunner">
-      <Replace tag="[amount]" value="20" color="gui.green" />
-    </Description>
-    <Description tag="talentdescription.gunrunner">
-      <Replace tag="[amount]" value="25" color="gui.green" />
-    </Description>
-    <AbilityGroupEffect abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionAttackData weapontype="turret" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.2" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <AbilityGroupInterval interval="0.9">
-      <Conditions>
-        <AbilityConditionHoldingItem tags="ammobox,railgunammo" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyStat stattype="MovementSpeed" value="0.25" />
-      </Abilities>
-    </AbilityGroupInterval>
-  </Talent>
-  <Talent identifier="YAMJMachinist">
-    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="6,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.massproduction">
-      <Replace tag="[chance]" value="25" color="gui.green" />
-    </Description>
-    <Description tag="talentdescription.YAMJMachinist">
-      <Replace tag="[amount]" value="1" color="gui.green" />
-    </Description>
-    <AbilityGroupEffect abilityeffecttype="OnItemFabricatedIngredients">
-      <Conditions>
-        <AbilityConditionServerRandom randomChance="0.25" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityRemoveRandomIngredient>
-          <AbilityConditionItem category="Material" />
-        </CharacterAbilityRemoveRandomIngredient>
-      </Abilities>
-    </AbilityGroupEffect>
-    <AbilityGroupInterval interval="0.9">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffectsToAllies allowself="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
-              <Affliction identifier="loyalassistant" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffectsToAllies>
-      </Abilities>
-    </AbilityGroupInterval>
-  </Talent>
-  <Talent identifier="YAMJVouch">
-    <Description tag="talentdescription.YAMJVouch" />
-    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="5,6" sheetelementsize="128,128" />
-    <AbilityGroupInterval interval="1">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffectsToAllies allowclientsimulation="true" allowself="true">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character">
-              <Affliction identifier="YAMJVouchBuff" amount="100" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffectsToAllies>
-      </Abilities>
-    </AbilityGroupInterval>
-  </Talent>
-  <Talent identifier="YAMJGuardianAngel">
-    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="7,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJGuardianAngel">
-      <Replace tag="[amount]" value="10" color="gui.green" />
-    </Description>
-    <AbilityGroupInterval interval="0.9">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
-              <Affliction identifier="YAMJGuardianAngelBuff" amount="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-  </Talent>
-  <Talent identifier="YAMJSwimSpeed">
-    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="0,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJSwimSpeed">
-      <Replace tag="[amount]" value="50" color="gui.green" />
-    </Description>
-    <Description tag="talentdescription.additionalstattypeself">
-      <Replace tag="[amount]" value="15" color="gui.green" />
-      <Replace tag="[stattype]" value="stattypenames.swimmingspeed" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.additionalstattypeself">
-      <Replace tag="[amount]" value="50" color="gui.green" />
-      <Replace tag="[stattype]" value="Creature Attack Power" color="gui.orange" />
-    </Description>
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Abilities>
-        <CharacterAbilityGiveStat stattype="SwimmingSpeed" value="0.15" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <AbilityGroupEffect abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionAttackData weapontype="noweapon" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.50" />
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
-  <!--General-->
-  <Talent identifier="YAMJEgg">
-    <Description tag="talentdescription.YAMJEgg" />
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="Mudraptor Egg" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="Mudraptor Shield" color="gui.orange" />
-    </Description>
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,6" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="smallmudraptoreggYAMJ" />
-    <AddedRecipe itemidentifier="yamjRiotShield" />
-  </Talent>
-  <Talent identifier="YAMJBloodthirsty">
-    <Description tag="talentdescription.YAMJBloodthirsty" />
-    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128" />
-    <Description tag="talentdescription.lowhealthstatboost">
-      <Replace tag="[health]" value="50" color="gui.red" />
-    </Description>
-    <Description tag="talentdescription.additionalstattype">
-      <Replace tag="[amount]" value="75" color="gui.green" />
-      <Replace tag="[stattype]" value="Attack Power" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.additionalstattype">
-      <Replace tag="[amount]" value="15" color="gui.green" />
-      <Replace tag="[stattype]" value="stattypenames.movementspeed" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.additionalstattype">
-      <Replace tag="[amount]" value="50" color="gui.green" />
-      <Replace tag="[stattype]" value="Stun Resistance" color="gui.orange" />
-    </Description>
-    <AbilityGroupInterval abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionAboveVitality invert="true" vitalitypercentage="0.5" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.75" />
-      </Abilities>
-    </AbilityGroupInterval>
-    <AbilityGroupEffect abilityeffecttype="None">
-      <Conditions>
-        <AbilityConditionAboveVitality invert="true" vitalitypercentage="0.5" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityGiveStat stattype="MovementSpeed" value="0.15" />
-        <CharacterAbilityGiveResistance resistance="stun" multiplier="0.5" />
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
-  <Talent identifier="YAMJMonsterInstinct">
-    <Description tag="talentdescription.YAMJMonsterInstinct">
-      <Replace tag="[amount]" value="125" color="gui.green" />
-    </Description>
-    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="2,6" sheetelementsize="128,128" />
-    <AbilityGroupEffect abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionAttackData weapontype="noweapon" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="1.25" />
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
-  <Talent identifier="YAMJHumanoid">
-    <Description tag="talentdescription.YAMJHumanoid">
-      <Replace tag="[amount]" value="30" color="gui.green" />
-    </Description>
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,1" sheetelementsize="128,128" />
-    <AbilityGroupEffect abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionAttackData weapontype="melee" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.3" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <AbilityGroupEffect abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionAttackData weapontype="ranged" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.3" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <AbilityGroupEffect abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionAttackData weapontype="handheldranged" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.3" />
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
-  <Talent identifier="YAMJFamiliarWaters">
-    <Description tag="talentdescription.YAMJFamiliarWaters" />
-    <Description tag="talentdescription.additionalstattype">
-      <Replace tag="[amount]" value="25" color="gui.green" />
-      <Replace tag="[stattype]" value="Attack Power" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.additionalstattype">
-      <Replace tag="[amount]" value="15" color="gui.green" />
-      <Replace tag="[stattype]" value="stattypenames.movementspeed" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.additionalstattype">
-      <Replace tag="[amount]" value="50" color="gui.green" />
-      <Replace tag="[stattype]" value="Stun Resistance" color="gui.orange" />
-    </Description>
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="5,0" sheetelementsize="128,128" />
-    <!--While in water-->
-    <AbilityGroupInterval>
-      <Conditions>
-        <AbilityConditionInWater invert="false" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character">
-              <Affliction identifier="YAMJFamiliarWaterBuff" amount="999999" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-    <!--On attack, while in water-->
-    <AbilityGroupEffect abilityeffecttype="OnAttack">
-      <Conditions>
-        <AbilityConditionInWater />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.25" />
-      </Abilities>
-    </AbilityGroupEffect>
-    <!--While NOT in water-->
-    <AbilityGroupInterval>
-      <Conditions>
-        <AbilityConditionInWater invert="true" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character">
-              <Affliction identifier="YAMJFamiliarWaterBuff" amount="-999999" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-  </Talent>
-  <Talent identifier="YAMJHeatSignature">
-    <Description tag="talentdescription.YAMJHeatSignature">
-      <Replace tag="[amount]" value="50" color="gui.green" />
-    </Description>
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="Helmet with Thermal" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="Pirate Helmet with Thermal" color="gui.orange" />
-    </Description>
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="Veteran Helmet with Thermal" color="gui.orange" />
-    </Description>
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="5,1" sheetelementsize="128,128" />
-    <AddedRecipe itemidentifier="yamjHelmetBasic2" />
-    <AddedRecipe itemidentifier="yamjHelmetPirate2" />
-    <AddedRecipe itemidentifier="yamjHelmetVeteran2" />
     <AbilityGroupEffect abilityeffecttype="None">
       <Abilities>
         <CharacterAbilityGiveResistance resistance="burn" multiplier="0.5" />
@@ -404,73 +51,12 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
-  <Talent identifier="YAMJRelentless">
-    <Description tag="talentdescription.YAMJRelentless">
-      <Replace tag="[speed]" value="20" color="gui.green" />
-      <Replace tag="[health]" value="20" color="gui.green" />
-    </Description>
-    <Description tag="talentdescription.YAMJRelentless2">
-      <Replace tag="[duration]" value="60" color="gui.red" />
-    </Description>
-    <Description tag="talentdescription.maxtriggeruntildeath" />
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,0" sheetelementsize="128,128" />
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
-              <Affliction identifier="relentlessgaze" strength="1.0" amount="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-    <AbilityGroupInterval maxtriggercount="1">
-      <Conditions>
-        <AbilityConditionAboveVitality invert="true" vitalitypercentage="0" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
-              <Affliction identifier="YAMJimplacable" amount="60.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
+  
+  <Talent identifier="YAMJSpeechCombat">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJSpeechCombat"> </Description>
   </Talent>
-  <Talent identifier="YAMJBestFriend">
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBestFriend">
-      <Replace tag="[walkspeed]" value="25" color="gui.green" />
-      <Replace tag="[swimspeed]" value="40" color="gui.green" />
-      <Replace tag="[waterflowresist]" value="75" color="gui.green" />
-    </Description>
-    <AbilityGroupInterval>
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character">
-              <Affliction identifier="YAMJBestFriendBuffSelf" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="750" allowself="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="750" setvalue="true" disabledeltatime="true">
-              <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBestFriendBuff" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-  </Talent>
+
   <!--Armor-->
   <Talent identifier="YAMJArmor">
     <Description tag="talentdescription.YAMJArmor">
@@ -491,6 +77,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+
   <Talent identifier="YAMJArmorVet">
     <Description tag="talentdescription.YAMJArmorVet">
       <Replace tag="[amount]" value="10" color="gui.green" />
@@ -510,6 +97,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+
   <Talent identifier="YAMJArmorPirate">
     <Description tag="talentdescription.YAMJArmorPirate">
       <Replace tag="[amount]" value="10" color="gui.green" />
@@ -529,6 +117,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+
   <Talent identifier="YAMJClownCollege">
     <Description tag="talentdescription.YAMJClownCollege">
       <Replace tag="[skillamount]" value="15" color="gui.green" />
@@ -597,6 +186,7 @@
     <AddedRecipe itemidentifier="yamjHelmetClown3" />
     <AddedRecipe itemidentifier="yamjArmorClown" />
   </Talent>
+
   <!--Backpacks-->
   <Talent identifier="YAMJBackpack">
     <Description tag="talentdescription.YAMJBackpack" />
@@ -606,6 +196,7 @@
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,0" sheetelementsize="128,128" />
     <AddedRecipe itemidentifier="yamjBackpack" />
   </Talent>
+
   <Talent identifier="YAMJBackpackBio">
     <Description tag="talentdescription.YAMJBackpackBio" />
     <Description tag="talentdescription.unlockrecipe">
@@ -614,6 +205,7 @@
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,1" sheetelementsize="128,128" />
     <AddedRecipe itemidentifier="yamjBackpackBio" />
   </Talent>
+
   <Talent identifier="YAMJBackpackCaravan">
     <Description tag="talentdescription.YAMJBackpackCaravan" />
     <Description tag="talentdescription.unlockrecipe">
@@ -622,6 +214,7 @@
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,0" sheetelementsize="128,128" />
     <AddedRecipe itemidentifier="yamjBackpackCaravan" />
   </Talent>
+  
   <!--Flares-->
   <Talent identifier="YAMJFlare">
     <Description tag="talentdescription.YAMJFlare" />
@@ -636,6 +229,7 @@
     </AbilityGroupEffect>
     <AddedRecipe itemidentifier="flareYAMJ" />
   </Talent>
+
   <Talent identifier="YAMJFlareIce">
     <Description tag="talentdescription.YAMJFlareIce" />
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,0" sheetelementsize="128,128" />
@@ -645,6 +239,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+
   <Talent identifier="YAMJFlareFire">
     <Description tag="talentdescription.YAMJFlareFire" />
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,1" sheetelementsize="128,128" />
@@ -654,6 +249,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+
   <!--Raptor Nap-->
   <Talent identifier="YAMJSleepTime">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,0" sheetelementsize="128,128" />
@@ -706,6 +302,7 @@
       </Abilities>
     </AbilityGroupInterval>
   </Talent>
+
   <Talent identifier="YAMJSleepTime2">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,1" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJSleepTime2">
@@ -738,6 +335,463 @@
       </Abilities>
     </AbilityGroupInterval>
   </Talent>
+  
+  <!--Others-->
+  <Talent identifier="YAMJCanUseTools">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJCanUseTools"> </Description>
+  </Talent>
+  
+  <Talent identifier="YAMJSkillGain">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="50" color="gui.green" />
+      <Replace tag="[stattype]" value="stattypenames.skillgainspeed" color="gui.orange" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="SkillGainSpeed" value="0.5" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  <Talent identifier="YAMJRepairSpeed">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.additionalstattypeself">
+      <Replace tag="[amount]" value="40" color="gui.green" />
+      <Replace tag="[stattype]" value="stattypenames.repairspeed" color="gui.orange" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="RepairSpeed" value="0.40" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <Description tag="talentdescription.additionalstattypeself">
+      <Replace tag="[amount]" value="30" color="gui.green" />
+      <Replace tag="[stattype]" value="stattypenames.repairtoolstructurerepairmultiplier" color="gui.orange" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="RepairToolStructureRepairMultiplier" value="0.30" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <Description tag="talentdescription.reductiontostattypeself">
+      <Replace tag="[amount]" value="10" color="gui.red" />
+      <Replace tag="[stattype]" value="stattypenames.swimmingspeed" color="gui.orange" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="SwimmingSpeed" value="-0.10" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  <!--
+  <Talent identifier="YAMJPostgrad">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="5,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.boardingaxe, entityname.slipsuit, entityname.safetyharness, entityname.cargoscooter, entityname.repairpack, entityname.portablepump, entityname.makeshiftshelf, entityname.bandolier, entityname.safetyharness" color="gui.orange" />
+    </Description>
+    <AddedRecipe itemidentifier="bandolier" />
+    <AddedRecipe itemidentifier="boardingaxe" />
+    <AddedRecipe itemidentifier="slipsuit" />
+    <AddedRecipe itemidentifier="safetyharness" />
+    <AddedRecipe itemidentifier="cargoscooter" />
+    <AddedRecipe itemidentifier="repairpack" />
+    <AddedRecipe itemidentifier="portablepump" />
+    <Description tag="talentdescription.YAMJPostgradLimits" />
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="portablepump" stattype="MaxAttachableCount" value="1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <Migrations>
+      <AddStat version="1.0.10.0" statidentifier="makeshiftshelf" stattype="MaxAttachableCount" value="1" />
+    </Migrations>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="makeshiftshelf" stattype="MaxAttachableCount" value="1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="makeshiftshelf" />
+  </Talent>
+  -->
+  
+  <Talent identifier="YAMJGunner">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,3" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJGunner">
+      <Replace tag="[amount]" value="20" color="gui.green" />
+    </Description>
+    <Description tag="talentdescription.gunrunner">
+      <Replace tag="[amount]" value="25" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="turret" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.2" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionHoldingItem tags="ammobox,railgunammo" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="MovementSpeed" value="0.25" />
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
+  <Talent identifier="YAMJMachinist">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="6,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.massproduction">
+      <Replace tag="[chance]" value="25" color="gui.green" />
+    </Description>
+    <Description tag="talentdescription.YAMJMachinist">
+      <Replace tag="[amount]" value="1" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnItemFabricatedIngredients">
+      <Conditions>
+        <AbilityConditionServerRandom randomChance="0.25" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityRemoveRandomIngredient>
+          <AbilityConditionItem category="Material" />
+        </CharacterAbilityRemoveRandomIngredient>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupInterval interval="0.9">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies allowself="false">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="loyalassistant" strength="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
+  <Talent identifier="YAMJVouch">
+    <Description tag="talentdescription.YAMJVouch" />
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="5,6" sheetelementsize="128,128" />
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionAllyNearby distance="1000" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies allowclientsimulation="true" maxdistance="1000" allowself="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+              <Affliction identifier="YAMJVouchBuff" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
+  <Talent identifier="YAMJGuardianAngel">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="7,2" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJGuardianAngel">
+      <Replace tag="[amount]" value="10" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval interval="0.9">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+              <Affliction identifier="YAMJGuardianSelf" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionAllyNearby distance="800" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies maxdistance="800" allowself="false">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+              <Affliction identifier="YAMJGuardianOther" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
+  <Talent identifier="YAMJSwimSpeed">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="0,2" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJSwimSpeed">
+      <Replace tag="[amount]" value="50" color="gui.green" />
+    </Description>
+    <Description tag="talentdescription.additionalstattypeself">
+      <Replace tag="[amount]" value="15" color="gui.green" />
+      <Replace tag="[stattype]" value="stattypenames.swimmingspeed" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.additionalstattypeself">
+      <Replace tag="[amount]" value="50" color="gui.green" />
+      <Replace tag="[stattype]" value="Creature Attack Power" color="gui.orange" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="SwimmingSpeed" value="0.15" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="noweapon" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.50" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  <!--General-->
+  <Talent identifier="YAMJEgg">
+    <Description tag="talentdescription.YAMJEgg" />
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="Mudraptor Egg" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="Mudraptor Shield" color="gui.orange" />
+    </Description>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,6" sheetelementsize="128,128" />
+    <AddedRecipe itemidentifier="smallmudraptoreggYAMJ" />
+    <AddedRecipe itemidentifier="yamjRiotShield" />
+  </Talent>
+  
+  <Talent identifier="YAMJBloodthirsty">
+    <Description tag="talentdescription.YAMJBloodthirsty" />
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128" />
+    <Description tag="talentdescription.lowhealthstatboost">
+      <Replace tag="[health]" value="50" color="gui.red" />
+    </Description>
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="75" color="gui.green" />
+      <Replace tag="[stattype]" value="Attack Power" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="15" color="gui.green" />
+      <Replace tag="[stattype]" value="stattypenames.movementspeed" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="50" color="gui.green" />
+      <Replace tag="[stattype]" value="Stun Resistance" color="gui.orange" />
+    </Description>
+    <AbilityGroupInterval abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAboveVitality invert="true" vitalitypercentage="0.5" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.75" />
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Conditions>
+        <AbilityConditionAboveVitality invert="true" vitalitypercentage="0.5" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="MovementSpeed" value="0.15" />
+        <CharacterAbilityGiveResistance resistance="stun" multiplier="0.5" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  <Talent identifier="YAMJMonsterInstinct">
+    <Description tag="talentdescription.YAMJMonsterInstinct">
+      <Replace tag="[amount]" value="125" color="gui.green" />
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="2,6" sheetelementsize="128,128" />
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="noweapon" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="1.25" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  <Talent identifier="YAMJHumanoid">
+    <Description tag="talentdescription.YAMJHumanoid">
+      <Replace tag="[amount]" value="30" color="gui.green" />
+    </Description>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,1" sheetelementsize="128,128" />
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="melee" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.3" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="ranged" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.3" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="handheldranged" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.3" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  <Talent identifier="YAMJFamiliarWaters">
+    <Description tag="talentdescription.YAMJFamiliarWaters" />
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="25" color="gui.green" />
+      <Replace tag="[stattype]" value="Attack Power" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="15" color="gui.green" />
+      <Replace tag="[stattype]" value="stattypenames.movementspeed" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="50" color="gui.green" />
+      <Replace tag="[stattype]" value="Stun Resistance" color="gui.orange" />
+    </Description>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="5,0" sheetelementsize="128,128" />
+    <!--While in water-->
+    <AbilityGroupInterval>
+      <Conditions>
+        <AbilityConditionInWater invert="false" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character">
+              <Affliction identifier="YAMJFamiliarWaterBuff" amount="999999" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <!--On attack, while in water-->
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionInWater />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.25" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <!--While NOT in water-->
+    <AbilityGroupInterval>
+      <Conditions>
+        <AbilityConditionInWater invert="true" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character">
+              <Affliction identifier="YAMJFamiliarWaterBuff" amount="-999999" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
+  <Talent identifier="YAMJHeatSignature">
+    <Description tag="talentdescription.YAMJHeatSignature"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="Helmet with Thermal" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="Pirate Helmet with Thermal" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="Veteran Helmet with Thermal" color="gui.orange" />
+    </Description>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="5,1" sheetelementsize="128,128" />
+    <AddedRecipe itemidentifier="yamjHelmetBasic2" />
+    <AddedRecipe itemidentifier="yamjHelmetPirate2" />
+    <AddedRecipe itemidentifier="yamjHelmetVeteran2" />
+  </Talent>
+  
+  <Talent identifier="YAMJRelentless">
+    <Description tag="talentdescription.YAMJRelentless">
+      <Replace tag="[speed]" value="20" color="gui.green" />
+      <Replace tag="[health]" value="20" color="gui.green" />
+    </Description>
+    <Description tag="talentdescription.YAMJRelentless2">
+      <Replace tag="[duration]" value="60" color="gui.red" />
+    </Description>
+    <Description tag="talentdescription.maxtriggeruntildeath" />
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,0" sheetelementsize="128,128" />
+    <AbilityGroupInterval interval="0.5">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+              <Affliction identifier="relentlessgaze" strength="1.0" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval maxtriggercount="1">
+      <Conditions>
+        <AbilityConditionAboveVitality invert="true" vitalitypercentage="0" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
+              <Affliction identifier="YAMJimplacable" amount="60.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
+  <Talent identifier="YAMJBestFriend">
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJBestFriend">
+      <Replace tag="[walkspeed]" value="25" color="gui.green" />
+      <Replace tag="[swimspeed]" value="40" color="gui.green" />
+      <Replace tag="[waterflowresist]" value="75" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character">
+              <Affliction identifier="YAMJBestFriendBuffSelf" strength="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval interval="0.5">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects maxdistance="750" allowself="false">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="NearbyCharacters" range="750" setvalue="true" disabledeltatime="true">
+              <Conditional isplayer="true" />
+              <Affliction identifier="YAMJBestFriendBuff" strength="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
   <!--Bonds-->
   <Talent identifier="YAMJBond_Captain">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetelementsize="128,128" />
@@ -765,6 +819,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+  
   <Talent identifier="YAMJBond_Security">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJBond_Security" />
@@ -812,6 +867,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+  
   <Talent identifier="YAMJBond_Engineer">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJBond_Engineer" />
@@ -873,6 +929,7 @@
     </AbilityGroupEffect>
     <AddedRecipe itemidentifier="mudraptorengihelm" />
   </Talent>
+  
   <Talent identifier="YAMJBond_Mechanic">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJBond_Mechanic" />
@@ -912,6 +969,7 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
+  
   <Talent identifier="YAMJBond_Doctor">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJBond_Doctor" />
@@ -952,4 +1010,5 @@
     </AbilityGroupEffect>
     <AddedRecipe itemidentifier="mudraptormedichelm" />
   </Talent>
+  
 </Talents>

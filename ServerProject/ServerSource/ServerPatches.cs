@@ -5,6 +5,7 @@ using HarmonyLib;
 namespace YAMJCS;
 
 internal static class PatchTargets {
+    
     public static MethodBase Character_Create_FromPrefab =>
         AccessTools.Method(
             typeof(Character),
@@ -116,18 +117,32 @@ internal static class CorpseEatingPatch {
 }
 
 
-// [HarmonyPatch]
-// internal static class CustomUiButtonClicked {
-//     static MethodBase TargetMethod() => PatchTargets.CustomInterface_ButtonClicked;
-//
-//     static void Prefix(object btnElement) {
-//         PropertyInfo? signalProperty = btnElement.GetType().GetProperty("Signal");
-//         if (signalProperty is null) return;
-//         string? signal = signalProperty.GetValue(btnElement) as string;
-//         YAMJ.Log("Signal received: " + signal);
-//     }
-// }
+[HarmonyPatch(typeof(EnemyAIController), nameof(EnemyAIController.GetTargetingTags))]
+internal static class VouchTargetingPatch {
+    private static readonly Identifier MudraptorGroup = "mudraptor".ToIdentifier();
+    private static readonly Identifier VouchBuff = "YAMJVouchBuff".ToIdentifier();
+    
+    private static void Postfix(EnemyAIController __instance, AITarget target, IEnumerable<Identifier> __result)
+    {
+        List<Identifier> targetTags = __result as List<Identifier>;
+        if (targetTags == null || targetTags.Count == 0) { return; }
 
+        Character targetCharacter = target.Entity as Character;
+        if (targetCharacter == null || targetCharacter.IsDead) { return; }
+        
+        Character enemyCharacter = __instance.Character;
+        
+        //is mudraptor
+        if (!CharacterParams.CompareGroup(enemyCharacter.Params.Group, MudraptorGroup)) { return; }
+            
+        //has vouch buff, has not been attacked by
+        if (targetCharacter.CharacterHealth.GetAfflictionStrengthByIdentifier(VouchBuff, true) <= 0.0f) { return; }
+        if (enemyCharacter.GetDamageDoneByAttacker(targetCharacter) > 0.0f) { return; }
+
+        // no tags and no matching TargetParams = UpdateTargets drops this character
+        targetTags.Clear();
+    }
+}
 
 [HarmonyPatch]
 internal static class RaptorBabyPickup {

@@ -3,7 +3,7 @@ using Barotrauma.Items.Components;
 using Microsoft.Xna.Framework.Graphics;
 namespace YAMJCS;
 
-internal static class PatchTargets {
+internal static partial class PatchTargets {
     public static MethodBase GUITextBox_Select => 
         AccessTools.Method(
             typeof(GUITextBox),
@@ -57,16 +57,6 @@ internal static class PatchTargets {
             typeof(CrewManager),
             nameof(CrewManager.CanIssueOrders)) ??
         throw new Exception("CrewManager.CanIssueOrders {get} not found");
-
-    public static MethodBase CharacterInfo_LoadHeadElement =>
-        AccessTools.Method(
-            typeof(CharacterInfo),
-            nameof(CharacterInfo.LoadHeadElement),
-            new[] {
-                typeof(bool),
-                typeof(bool)
-            }) ??
-        throw new Exception("CharacterInfo.LoadHeadElement(bool, bool) not found");
 }
 
 internal static class ItemTags {
@@ -77,7 +67,7 @@ internal static class ItemTags {
     };
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //prevents pRaptors from using the chatbox to send msgs
 internal static class ChatBoxFocusPatch {
     private static MethodBase TargetMethod() => PatchTargets.GUITextBox_Select;
 
@@ -96,7 +86,7 @@ internal static class ChatBoxFocusPatch {
     }
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //draws raptor thermal vision
 internal static class CharHudDraw {
     private static MethodBase TargetMethod() => PatchTargets.CharacterHUD_Draw;
 
@@ -105,7 +95,7 @@ internal static class CharHudDraw {
     }
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //fires every frame, mostly for hud and keybind stuff
 internal static class CharHudAddToUpdateList { //basically fires every frame
     private static MethodBase TargetMethod() => PatchTargets.CharacterHUD_AddToGUIUpdateList;
 
@@ -121,7 +111,7 @@ internal static class CharHudAddToUpdateList { //basically fires every frame
     }
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //prevents pRaptors from using some handheld items (unless talented)
 internal static class CharacterCanAimGet {
     static MethodBase TargetMethod() => PatchTargets.Character_CanAim_Get;
 
@@ -159,7 +149,7 @@ internal static class CharacterCanAimGet {
     }
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //prevents pRaptors from pressing the repair button (unless talented)
 internal static class RepairableCreateGUI {
     static MethodBase TargetMethod() => PatchTargets.Repairable_CreateGUI;
 
@@ -178,7 +168,7 @@ internal static class RepairableCreateGUI {
     }
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //changes the display name of some items
 internal static class ItemNameGet {
     static MethodBase TargetMethod() => PatchTargets.Item_Name_Get;
 
@@ -225,7 +215,7 @@ internal static class ItemNameGet {
     }
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //changes the description of some items
 internal static class ItemDescGet {
     static MethodBase TargetMethod() => PatchTargets.Item_Description_Get;
 
@@ -272,7 +262,7 @@ internal static class ItemDescGet {
     }
 }
 
-[HarmonyPatch]
+[HarmonyPatch] //prevents pRaptors from issuing orders via the command wheel
 internal static class CanIssueOrdersGet {
     static MethodBase TargetMethod() => PatchTargets.CrewManager_CanIssueOrders_Get;
 
@@ -283,111 +273,5 @@ internal static class CanIssueOrdersGet {
         } else {
             return true;
         }
-    }
-}
-
-[HarmonyPatch]
-public static class CharacterInfo_LoadHeadElement {
-    static MethodBase TargetMethod() => PatchTargets.CharacterInfo_LoadHeadElement;
-    
-    static bool Prefix(ref CharacterInfo __instance, bool loadHeadSprite, bool loadHeadSpriteTags) {
-        if (!YAMJ.HasPlayerRaptorJob(__instance)) return true;
-        
-        CharacterInfo raptorInfo = new CharacterInfo("Mudraptor_player".ToIdentifier());
-        if (raptorInfo.Ragdoll?.MainElement == null) {
-            YAMJ.Log("raptorInfo.Ragdoll.MainElement is null");
-            return true;
-        }
-
-        if (raptorInfo.Head == null) {
-            YAMJ.Log("raptorInfo.Head is null");
-            return true;
-        }
-        
-        foreach (var limbElement in raptorInfo.Ragdoll.MainElement.Elements()) {
-            if (!limbElement.GetAttributeString("type", "").Equals("head", StringComparison.OrdinalIgnoreCase)) {
-                continue;
-            }
-
-            ContentXElement spriteElement = limbElement.GetChildElement("sprite");
-            if (spriteElement == null) {
-                YAMJ.Log("headElement has no sprite child element");
-                return false;
-            }
-
-            string spritePath = spriteElement.GetAttributeContentPath("texture")?.Value;
-            if (string.IsNullOrEmpty(spritePath)) {
-                YAMJ.Log("spritePath is null or empty");
-                return false;
-            }
-
-            spritePath = raptorInfo.ReplaceVars(spritePath);
-
-            string dir = Path.GetDirectoryName(spritePath);
-            string fileName = Path.GetFileNameWithoutExtension(spritePath);
-
-            if (string.IsNullOrEmpty(dir) || string.IsNullOrEmpty(fileName)) {
-                YAMJ.Log("is null or empty (dir, fileName)");
-                return false;
-            }
-
-            foreach (string file in Directory.GetFiles(dir)) {
-                if (!file.EndsWith(".png", StringComparison.OrdinalIgnoreCase)) continue;
-
-                string fileWithoutTags = Path.GetFileNameWithoutExtension(file)
-                    .Split('[', ']')
-                    .First();
-
-                if (fileWithoutTags != fileName) continue;
-
-                if (loadHeadSprite) {
-                    SetPrivateProperty(__instance, "HeadSprite", new Sprite(spriteElement, "", file));
-                    SetPrivateProperty(__instance, "Portrait", new Sprite(spriteElement, "", file) {
-                        RelativeOrigin = Vector2.Zero
-                    });
-
-                    Sprite headSprite = __instance.HeadSprite;
-                    Point sheet = GetRaptorSheetIndex(__instance);
-                    headSprite.SourceRect = new Rectangle(
-                        sheet.X * headSprite.SourceRect.Width,
-                        sheet.Y * headSprite.SourceRect.Height,
-                        headSprite.SourceRect.Width,
-                        headSprite.SourceRect.Height);
-                    AccessTools.Field(typeof(CharacterInfo), "attachmentSprites").SetValue(__instance, new List<WearableSprite>());
-                }
-
-                if (loadHeadSpriteTags) {
-                    var tags = file.Split('[', ']')
-                        .Skip(1)
-                        .Select(id => id.ToIdentifier())
-                        .ToList();
-
-                    if (tags.Any()) {
-                        tags.RemoveAt(tags.Count - 1);
-                    }
-
-                    AccessTools.Property(typeof(CharacterInfo), "SpriteTags")
-                        .SetValue(__instance, tags);
-
-                    AccessTools.Field(typeof(CharacterInfo), "spriteTagsLoaded")
-                        .SetValue(__instance, true);
-                }
-                return false;
-            }
-            return false;
-        }
-        return false;
-    }
-    
-    private static void SetPrivateProperty(object instance, string propertyName, object value)
-    {
-        AccessTools.PropertySetter(instance.GetType(), propertyName)
-            .Invoke(instance, new[] { value });
-    }
-
-    private static Point GetRaptorSheetIndex(CharacterInfo info)
-    {
-        int index = Math.Abs(info.GetIdentifierUsingOriginalName()) % 16;
-        return new Point(index % 4, index / 4);
     }
 }

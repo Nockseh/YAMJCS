@@ -11,9 +11,8 @@
         <TalentOption identifier="YAMJArmor" />
       </TalentOptions>
       <TalentOptions requiredtalents="2" maxchosentalents="5">
-        <!-- <TalentOption identifier="YAMJGuardian" /> -->
-        <!-- <TalentOption identifier="YAMJVouch" /> -->
-        <TalentOption identifier="YAMJSleepTime2" />
+        <TalentOption identifier="YAMJGuardian" />
+        <TalentOption identifier="YAMJVouch" />
         <TalentOption identifier="YAMJBackpack" />
         <TalentOption identifier="YAMJBestFriend" />
         <TalentOption identifier="YAMJFlareIce" />
@@ -60,7 +59,8 @@
     <!-- Student -->
     <SubTree identifier="YAMJTree3" type="specialization" requires="YAMJTree" blocks="YAMJTree2,YAMJTree1">
       <TalentOptions>
-        <TalentOption identifier="YAMJSkillGain" />
+        <!--TalentOption identifier="YAMJSkillGain" /-->
+        <TalentOption identifier="YAMJSleepTime2" />
         <TalentOption identifier="YAMJBackpackBio" />
       </TalentOptions>
       <TalentOptions>
@@ -72,7 +72,6 @@
         <TalentOption identifier="YAMJClownCollege" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJPostgrad" />
         <TalentOption identifier="YAMJBond_Mechanic" />
         <TalentOption identifier="YAMJBond_Engineer" />
       </TalentOptions>

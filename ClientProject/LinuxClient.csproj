@@ -10,6 +10,9 @@
         <HintPath>..\Refs\MonoGame.Framework.Linux.NetStandard.dll</HintPath>
       </Reference>
     </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="ClientSource\RaptorTooltips.cs" />
+    </ItemGroup>
     
     <Import Project="..\SharedProject\SharedProject.projitems" Label="Shared" />
     <Import Project="../Build.props"/>
