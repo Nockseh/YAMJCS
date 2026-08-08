@@ -1,48 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<override>
-  <Character
-    specifiertags="true"
-    skincolors="(#ffffff, 100)"
-    SpeciesName="Mudraptor_player"
-    SpeciesTranslationOverride="mudraptor"
-    DisplayName=""
-    Group="human"
-    Humanoid="False"
-    HasInfo="True"
-    CanInteract="True"
-    CanClimb="True"
-    ForceSlowClimbing="True"
-    Husk="False"
-    HuskedSpecies=""
-    NonHuskedSpecies=""
-    UseHuskAppendage="True"
-    NeedsAir="False"
-    NeedsWater="False"
-    UseHumanAI="False"
-    IsMachine="False"
-    CanSpeak="True"
-    ShowHealthBar="True"
-    UseBossHealthBar="False"
-    Noise="200"
-    Visibility="150"
-    BloodDecal="blood"
-    BleedParticleAir="blooddrop"
-    BleedParticleWater="waterblood"
-    BleedParticleMultiplier="1"
-    CanEat="True"
-    EatingSpeed="4"
-    UsePathFinding="True"
-    PathFinderPriority="1"
-    HideInSonar="False"
-    HideInThermalGoggles="False"
-    SonarDisruption="0"
-    DistantSonarRange="0"
-    DisableDistance="25000"
-    SoundInterval="9999"
-    DrawLast="False"
-    AITurretPriority="1"
-    AISlowTurretPriority="1"
-    DespawnContainer="duffelbag">
+﻿<override>
+  <Character specifiertags="true" skincolors="(#ffffff, 100)" SpeciesName="Mudraptor_player" Tags="" SpeciesTranslationOverride="mudraptor" DisplayName="" Group="human" Humanoid="False" HasInfo="True" CanInteract="True" CanClimb="True" ForceSlowClimbing="True" Husk="False" HuskedSpecies="" NonHuskedSpecies="" UseHuskAppendage="True" NeedsAir="False" NeedsWater="False" UseHumanAI="False" IsMachine="False" CanSpeak="True" ShowHealthBar="True" UseBossHealthBar="False" Noise="200" Visibility="150" BloodDecal="blood" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="True" EatingSpeed="4" UsePathFinding="True" PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="False" SonarDisruption="0" DistantSonarRange="0" DisableDistance="25000" SoundInterval="9999" DrawLast="False" AITurretPriority="1" AISlowTurretPriority="1" DespawnContainer="duffelbag" MusicType="monster" MusicCommonness="1" MusicRangeMultiplier="1" UnlockKillAchievementForWholeCrew="False">
     <names path="%ModDir%/Characters/Mudraptor_player/names.xml" />
     <ragdolls folder="default" />
     <animations folder="default" />
@@ -62,26 +19,7 @@
     <huskappendage affliction="mudraptorllveteran" path="%ModDir%/Afflictions/Raptorllegappendage3.xml" onlyfromafflictions="true" />
     <huskappendage affliction="mudraptortopfveteran" path="%ModDir%/Afflictions/Raptortopfappendage3.xml" onlyfromafflictions="true" />
     <huskappendage affliction="mudraptortopbveteran" path="%ModDir%/Afflictions/Raptortopbappendage3.xml" onlyfromafflictions="true" />
-    
-    <health
-      StunReduction="0.50"
-      Vitality="250"
-      DoesBleed="True"
-      CrushDepth="Infinity"
-      UseHealthWindow="True"
-      BleedingReduction="0.75"
-      BurnReduction="-0.20"
-      ConstantHealthRegeneration="0"
-      HealthRegenerationWhenEating="2"
-      StunImmunity="False"
-      PoisonImmunity="False"
-      PoisonVulnerability="1"
-      EmpVulnerability="0"
-      ApplyMovementPenalties="True"
-      DieFromBeheading="True"
-      AllowSeveringLegs="False"
-      ApplyAfflictionColors="False"
-      Immunities="">
+    <health StunReduction="0.50" Vitality="250" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="True" BleedingReduction="0.75" BurnReduction="-0.2" ConstantHealthRegeneration="0" HealthRegenerationWhenEating="2" StunImmunity="False" PoisonImmunity="False" PoisonVulnerability="1" EmpVulnerability="0" ApplyMovementPenalties="True" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
       <MedUISilhouette texture="%ModDir%/Characters/Mudraptor_player/mudraptor_healthUI_Silhouette.png" columns="5" rows="2" sourcerect="0,0,1000,830" />
       <MedUIExtra texture="Content/UI/Health/MedUIExtra.png" columns="4" rows="4" sourcerect="0,0,1024,1024" />
       <Limb name="Head">

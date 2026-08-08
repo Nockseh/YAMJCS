@@ -17,4 +17,6 @@ public class YAMJClient {
         }
         return spriteBatch;
     }
+    
+    
 }

@@ -35,11 +35,17 @@ internal static class PatchTargets {
             nameof(FishAnimController.DragCharacter)) ??
         throw new Exception("FishAnimController.DragCharacter not found");
 
-    public static MethodBase CustomInterface_ButtonClicked =>
+    // public static MethodBase CustomInterface_ButtonClicked =>
+    //     AccessTools.Method(
+    //         typeof(CustomInterface),
+    //         nameof(CustomInterface.ButtonClicked)) ??
+    //     throw new Exception("CustomInterface.ButtonClicked() not found");
+
+    public static MethodBase Character_DoInteractionUpdate =>
         AccessTools.Method(
-            typeof(CustomInterface),
-            nameof(CustomInterface.ButtonClicked)) ??
-        throw new Exception("CustomInteface.ButtonClicked() not found");
+            typeof(Character),
+            nameof(Character.DoInteractionUpdate)) ??
+        throw new Exception("Character.DoInteractionUpdate() not found");
 }
 
 [HarmonyPatch]
@@ -109,14 +115,27 @@ internal static class CorpseEatingPatch {
     }
 }
 
-[HarmonyPatch]
-internal static class CustomUiButtonClicked {
-    static MethodBase TargetMethod() => PatchTargets.CustomInterface_ButtonClicked;
 
-    static void Prefix(object btnElement) {
-        PropertyInfo? signalProperty = btnElement.GetType().GetProperty("Signal");
-        if (signalProperty is null) return;
-        string? signal = signalProperty.GetValue(btnElement) as string;
-        YAMJ.Log("Signal received: " + signal);
+// [HarmonyPatch]
+// internal static class CustomUiButtonClicked {
+//     static MethodBase TargetMethod() => PatchTargets.CustomInterface_ButtonClicked;
+//
+//     static void Prefix(object btnElement) {
+//         PropertyInfo? signalProperty = btnElement.GetType().GetProperty("Signal");
+//         if (signalProperty is null) return;
+//         string? signal = signalProperty.GetValue(btnElement) as string;
+//         YAMJ.Log("Signal received: " + signal);
+//     }
+// }
+
+
+[HarmonyPatch]
+internal static class RaptorBabyPickup {
+    static MethodBase TargetMethod() => PatchTargets.Character_DoInteractionUpdate;
+
+    static void Postfix(Character __instance) {
+        if (!__instance.IsPlayer || __instance.Removed || __instance.IsDead || !__instance.CanInteract) {
+            return;
+        }
     }
 }

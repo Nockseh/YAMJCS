@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Barotrauma.Items.Components;
+using Microsoft.Xna.Framework.Graphics;
 namespace YAMJCS;
 
 internal static class PatchTargets {
@@ -8,6 +9,17 @@ internal static class PatchTargets {
             typeof(GUITextBox),
             nameof(GUITextBox.Select)) ??
         throw new Exception("GUITextBox.Select() not found");
+
+    public static MethodBase CharacterHUD_Draw =>
+        AccessTools.Method(
+            typeof(CharacterHUD),
+            nameof(CharacterHUD.Draw),
+            new[] {
+                typeof(SpriteBatch),
+                typeof(Character),
+                typeof(Camera)
+            }) ??
+        throw new Exception("CharacterHUD.Draw(SpriteBatch, Character, Camera) not found");
 
     public static MethodBase CharacterHUD_AddToGUIUpdateList =>
         AccessTools.Method(
@@ -52,7 +64,8 @@ internal static class PatchTargets {
             nameof(CharacterInfo.LoadHeadElement),
             new[] {
                 typeof(bool),
-                typeof(bool) }) ??
+                typeof(bool)
+            }) ??
         throw new Exception("CharacterInfo.LoadHeadElement(bool, bool) not found");
 }
 
@@ -84,12 +97,27 @@ internal static class ChatBoxFocusPatch {
 }
 
 [HarmonyPatch]
+internal static class CharHudDraw {
+    private static MethodBase TargetMethod() => PatchTargets.CharacterHUD_Draw;
+
+    static void Prefix(SpriteBatch spriteBatch, Character character) {
+        RaptorVision.Draw(spriteBatch, character);
+    }
+}
+
+[HarmonyPatch]
 internal static class CharHudAddToUpdateList { //basically fires every frame
     private static MethodBase TargetMethod() => PatchTargets.CharacterHUD_AddToGUIUpdateList;
 
     static void Postfix() {
+        //TODO: initialize these somewhere cleaner where they don't have to ignore every frame
         RaptorSpeech.Initialize(); //automatically ignores extra calls
         RaptorSpeech.Update();
+        
+        RaptorHeadset.Initialize(); //automatically ignores extra calls
+        RaptorSpeech.Update();
+        
+        RaptorVision.Update();
     }
 }
 

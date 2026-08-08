@@ -25,6 +25,17 @@
   <!--UI Elements-->
   <yamjUi.speak>speak</yamjUi.speak>
   <yamjUi.speakTooltip>open known words</yamjUi.speakTooltip>
+  <yamjUi.quickChat>quick chat</yamjUi.quickChat>
+  <yamjUi.quickChatTooltip>open preset radio messages</yamjUi.quickChatTooltip>
+  <!--QuickChat Headset -->
+  <yamjRadial.msg1>Yes</yamjRadial.msg1>
+  <yamjRadial.msg2>No</yamjRadial.msg2>
+  <yamjRadial.msg3>Need help</yamjRadial.msg3>
+  <yamjRadial.msg4>Enemy spotted</yamjRadial.msg4>
+  <yamjRadial.msg5>Follow me</yamjRadial.msg5>
+  <yamjRadial.msg6>Wait</yamjRadial.msg6>
+  <yamjRadial.msg7>Need medical attention</yamjRadial.msg7>
+  <yamjRadial.msg8>Something needs repairs</yamjRadial.msg8>
   <!--Speech (Basic)-->
   <raptorWord.me>me</raptorWord.me>
   <raptorWord.you>you</raptorWord.you>
