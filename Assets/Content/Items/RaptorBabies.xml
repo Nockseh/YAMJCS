@@ -243,32 +243,7 @@
     </LightComponent>
   </Item>
   <!-- Mudraptor eggs END -->
-  <!-- Mudraptor make-raptorbaby-carryable item -->
-  <Item name="" identifier="yamjBabyBook" category="Equipment" hideinmenus="fale" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,tool,weapon" impactsoundtag="impact_metal_light" scale="0.32">
-    <Price baseprice="40">
-      <Price storeidentifier="merchantoutpost" multiplier="1.5" minavailable="2" />
-      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="1" />
-      <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="1" />
-      <Price storeidentifier="merchantmilitary" multiplier="1" sold="false" />
-      <Price storeidentifier="merchantmine" multiplier="1" sold="false" />
-    </Price>
-    <Deconstruct time="10">
-      <Item identifier="carbon" amount="2" />
-      <Item identifier="silicon" />
-    </Deconstruct>
-    <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <Item identifier="carbon" amount="2" />
-      <Item identifier="silicon" />
-    </Fabricate>
-    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="107,74,32,38" depth="0.6" origin="0.5,0.5" />
-    <Body width="30" height="94" density="10" />
-    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="50,10" handle1="-24,-25" handle2="0,-25" msg="ItemMsgPickUpSelect" />
-    <RepairTool structurefixamount="0" range="300" barrelpos="35,13" repairmultiple="true" repairthroughwalls="false" combatpriority="1">
-      <StatusEffect type="OnUse" targettype="Limb">
-        <Affliction identifier="raptorpickup" amount="10" />
-      </StatusEffect>
-    </RepairTool>
-  </Item>
+  
   <!-- Mudraptor pet character, as an item
   tags="" waterproof="true" fireproof="true"
   <Holdable holdpos="0,0" holdangle="30" swingamount="0,0" swingspeed="0" swingwhenholding="False" swingwhenaiming="False" swingwhenusing="False"
@@ -278,13 +253,64 @@
     <Sprite texture="%ModDir%/Characters/Mudraptor_Pet/RaptorPetInHands.png" depth="0.54" sourcerect="0,0,128,223" origin="0.5,0.5" />
     <Body width="150" height="80" density="10" />
     <Holdable slots="RightHand+LeftHand" holdpos="15,-30" handle1="32,0" handle2="37,64" aimable="false">
-      <StatusEffect type="OnContained" targettype="This" Condition="30" delay="0.25">
+      <StatusEffect type="OnContained" target="This" Condition="0.1" setvalue="false" disabledeltatime="false">
         <Conditional condition="lt 100.0" />
       </StatusEffect>
-      <StatusEffect type="OnNotContained" targettype="This" Condition="-30" delay="0.25" />
-      <StatusEffect type="OnBroken" targettype="This">
+      <StatusEffect type="OnNotContained" targettype="This">
+        <Conditional condition="gte 95" />
         <SpawnCharacter speciesname="RaptorPet" />
-        <remove />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 85" /><Conditional condition="lt 95" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="10" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 75" /><Conditional condition="lt 85" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="20" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 65" /><Conditional condition="lt 75" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="30" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 55" />
+        <Conditional condition="lt 65" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="40" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 45" /><Conditional condition="lt 55" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="50" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 35" /><Conditional condition="lt 45" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="60" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 25" /><Conditional condition="lt 35" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="70" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 15" /><Conditional condition="lt 25" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="80" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This" comparison="and">
+        <Conditional condition="gte 5" /><Conditional condition="lt 15" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="90" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="This">
+        <Conditional condition="lt 5" />
+        <SpawnCharacter speciesname="RaptorPet" afflictiononspawn="internaldamage" afflictionstrength="95" />
+        <Remove />
       </StatusEffect>
     </Holdable>
     <Wearable slots="Head,Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">

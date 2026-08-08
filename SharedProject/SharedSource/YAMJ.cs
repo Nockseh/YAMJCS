@@ -108,9 +108,9 @@ internal static class YAMJ
     public const string PlayerRaptorSpecies = "Mudraptor_player";
     public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
     public const string PlayerRaptorJobId = "PlayerMudraptorJob";
-    public static CharacterInfo PlayerRaptorCharInfo = new CharacterInfo(
-        PlayerRaptorSpecies.ToIdentifier()
-    );
+    public static readonly Identifier RaptorBabySpecies = "RaptorPet".ToIdentifier();
+    public static readonly Identifier RaptorBabyItemId = "raptorpetitem".ToIdentifier();
+    public static readonly Identifier RaptorOnlyTag = "yamjraptoronly".ToIdentifier();
     // vars
     public static AfflictionPrefab HungerPrefab;
     public static AfflictionPrefab EatingBuffPrefab;
@@ -124,6 +124,10 @@ internal static class YAMJ
     public static CharacterPrefab? FindMudraptorPrefab()
     {
         return CharacterPrefab.FindBySpeciesName(PlayerRaptorSpecies.ToIdentifier());
+    }
+    public static ItemPrefab? FindRaptorBabyItemPrefab() {
+        ItemPrefab.Prefabs.TryGet(RaptorBabyItemId, out ItemPrefab? prefab);
+        return prefab;
     }
     
     public static bool HasPlayerRaptorJob(CharacterInfo? characterInfo)
@@ -140,7 +144,10 @@ internal static class YAMJ
             return false;
         }
     }
-
+    public static bool IsRaptorBaby(Character? character) {
+        return character is not null && character.SpeciesName == RaptorBabySpecies;
+    }
+    
     public static bool HasTalent(Character character, string talentId) {
         HashSet<Identifier> talents = character.Info.UnlockedTalents;
         if (talents == null || talents.Count == 0) return false;

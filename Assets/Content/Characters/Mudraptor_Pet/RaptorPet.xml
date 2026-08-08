@@ -46,24 +46,4 @@
       </itemproduction>
     </petbehavior>
   </ai>
-  <!--
-  <StatusEffect type="Always" target="Character">
-    <Conditional raptorpickup="gte 50" />
-    <Affliction identifier="stun" strength="100" />
-  </StatusEffect>
-  <StatusEffect type="Always" target="Character">
-    <Conditional raptorpickup="gte 90" />
-    <SpawnItem identifier="iron" spawnposition="This" />
-    <Removecharacter/>
-  </StatusEffect>
-  -->
-  <StatusEffect type="Always" target="Character">
-    <Conditional raptorpickup="gte 3" />
-    <Affliction identifier="stun" strength="10" />
-  </StatusEffect>
-  <StatusEffect type="Always" target="Character">
-    <Conditional raptorpickup="gte 21" />
-    <SpawnItem identifier="raptorpetitem" spawnposition="This" />
-    <RemoveCharacter />
-  </StatusEffect>
 </Character>

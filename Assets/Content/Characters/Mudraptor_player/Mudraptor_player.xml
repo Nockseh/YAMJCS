@@ -1,5 +1,50 @@
 ﻿<override>
-  <Character specifiertags="true" skincolors="(#ffffff, 100)" SpeciesName="Mudraptor_player" Tags="" SpeciesTranslationOverride="mudraptor" DisplayName="" Group="human" Humanoid="False" HasInfo="True" CanInteract="True" CanClimb="True" ForceSlowClimbing="True" Husk="False" HuskedSpecies="" NonHuskedSpecies="" UseHuskAppendage="True" NeedsAir="False" NeedsWater="False" UseHumanAI="False" IsMachine="False" CanSpeak="True" ShowHealthBar="True" UseBossHealthBar="False" Noise="200" Visibility="150" BloodDecal="blood" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="True" EatingSpeed="4" UsePathFinding="True" PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="False" SonarDisruption="0" DistantSonarRange="0" DisableDistance="25000" SoundInterval="9999" DrawLast="False" AITurretPriority="1" AISlowTurretPriority="1" DespawnContainer="duffelbag" MusicType="monster" MusicCommonness="1" MusicRangeMultiplier="1" UnlockKillAchievementForWholeCrew="False">
+  <Character
+    specifiertags="true"
+    skincolors="(#ffffff, 100)"
+    SpeciesName="Mudraptor_player"
+    Tags=""
+    SpeciesTranslationOverride="mudraptor"
+    DisplayName=""
+    Group="human"
+    Humanoid="False"
+    HasInfo="True"
+    CanInteract="True"
+    CanClimb="True"
+    ForceSlowClimbing="True"
+    Husk="False"
+    UseHuskAppendage="True"
+    NeedsAir="False"
+    NeedsWater="False"
+    UseHumanAI="False"
+    IsMachine="False"
+    CanSpeak="True"
+    ShowHealthBar="True"
+    UseBossHealthBar="False"
+    Noise="200"
+    Visibility="150"
+    BloodDecal="blood"
+    BleedParticleAir="blooddrop"
+    BleedParticleWater="waterblood"
+    BleedParticleMultiplier="1"
+    CanEat="True"
+    EatingSpeed="4"
+    UsePathFinding="True"
+    PathFinderPriority="1"
+    HideInSonar="False"
+    HideInThermalGoggles="False"
+    SonarDisruption="0"
+    DistantSonarRange="0"
+    DisableDistance="25000"
+    SoundInterval="9999"
+    DrawLast="False"
+    AITurretPriority="1"
+    AISlowTurretPriority="1"
+    DespawnContainer="duffelbag"
+    MusicType="monster"
+    MusicCommonness="1"
+    MusicRangeMultiplier="1"
+    UnlockKillAchievementForWholeCrew="False">
     <names path="%ModDir%/Characters/Mudraptor_player/names.xml" />
     <ragdolls folder="default" />
     <animations folder="default" />
@@ -111,7 +156,6 @@
       <target Tag="mudraptor_veteran" State="Follow" Priority="1" ReactDistance="750" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="True" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
       <target Tag="monsterfood" State="Eat" Priority="1" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
       <SwarmBehavior mindistfromclosest="300" maxdistfromcenter="1000" cohesion="0.25" />
-      <!--petbehavior maxhappiness="100" happinessdecreaserate="0" hungerincreaserate="0" playforce="0"></petbehavior-->
     </ai>
   </Character>
 </override>

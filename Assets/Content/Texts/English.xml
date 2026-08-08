@@ -39,6 +39,9 @@
   <yamjMsg.cantSpeak>raptors can't speak normally</yamjMsg.cantSpeak>
   <yamjMsg.cantUseItem>you don't know how to use that yet</yamjMsg.cantUseItem>
   <yamjMsg.cantRepair>you don't know how to repair that yet</yamjMsg.cantRepair>
+  <yamjMsg.noRoomInInventory>no room in inventory</yamjMsg.noRoomInInventory>
+  <!-- Hints -->
+  <yamjHint.pickUp>[[key]] Pick up</yamjHint.pickUp>
   <!--UI Elements-->
   <yamjUi.speak>speak</yamjUi.speak>
   <yamjUi.speakTooltip>open known words</yamjUi.speakTooltip>
@@ -82,7 +85,7 @@
   <raptorWord.good>good</raptorWord.good>
   <!--Speech (Hired Claw)-->
   <raptorWord.kill>kill</raptorWord.kill>
-  <raptorWord.shoot>shoot</raptorWord.shoot>
+  <raptorWord.shoot>fire</raptorWord.shoot>
   <raptorWord.enemy>enemy</raptorWord.enemy>
   <raptorWord.dead>dead</raptorWord.dead>
   <raptorWord.blood>blood</raptorWord.blood>
@@ -112,11 +115,11 @@
   
   <!--Talent Items-->
   <entityname.yamjBackpack>Mudraptor Backpack</entityname.yamjBackpack>
-  <entitydescription.yamjBackpack>A backpack for storing ammunition, suits, and children. Light and human-wearable.</entitydescription.yamjBackpack>
+  <entitydescription.yamjBackpack>A backpack for storing ammunition, suits, and children.</entitydescription.yamjBackpack>
   <entityname.yamjBackpackBio>Mudraptor Bio Backpack</entityname.yamjBackpackBio>
-  <entitydescription.yamjBackpackBio>A large, luminescent backpack for storing ammunition, suits, and children. WARNING: Not made for Humans.</entitydescription.yamjBackpackBio>
+  <entitydescription.yamjBackpackBio>A large, luminescent backpack for storing ammunition, suits, and children.</entitydescription.yamjBackpackBio>
   <entityname.yamjBackpackCaravan>Mudraptor Caravan Backpack</entityname.yamjBackpackCaravan>
-  <entitydescription.yamjBackpackCaravan>A massive, heavy backpack for storing large items, containers, and children. Reduces movement speed by 25% while worn. WARNING: Not made for Humans.</entitydescription.yamjBackpackCaravan>
+  <entitydescription.yamjBackpackCaravan>A massive, heavy backpack for storing large items, containers, and children. Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan>
   <entityname.flareYAMJ>Bio Flare</entityname.flareYAMJ>
   <entitydescription.flareYAMJ>A bright sponge that glows when in contact with skin.</entitydescription.flareYAMJ>
   <entityname.raptorguitar>Raptor Guitar</entityname.raptorguitar>
@@ -175,7 +178,7 @@
   <talentdescription.YAMJSleepTime>Ragdolling for [seconds] seconds grants the Sleepy Raptor bonus, healing damage over time but only while on land. Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.YAMJSleepTime>
   <!--General Tier 2-->
   <talentname.YAMJBackpack>Raptor Backpack</talentname.YAMJBackpack>
-  <talentdescription.YAMJBackpack>Make mudraptor backpacks. Humans can wear it, but it looks a little silly. 5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpack>
+  <talentdescription.YAMJBackpack>Make mudraptor backpacks. 5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpack>
   <talentname.YAMJFlareIce>Cold Bio Flare</talentname.YAMJFlareIce>
   <talentdescription.YAMJFlareIce>An ice cold sponge that glows very brightly when held. It slows down any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareIce>
   <talentname.YAMJFlareFire>Hot Bio Flare</talentname.YAMJFlareFire>
@@ -192,7 +195,7 @@
   <talentname.YAMJArmorPirate>Pirate Raptor</talentname.YAMJArmorPirate>
   <talentdescription.YAMJArmorPirate>Learn new ways to protect yourself. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirate>
   <talentname.YAMJBackpackCaravan>Pack Mule</talentname.YAMJBackpackCaravan>
-  <talentdescription.YAMJBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 9 slots for items, 2 for containers, 1 for children. Slows movement when equipped. Humans should definitely not wear this.</talentdescription.YAMJBackpackCaravan>
+  <talentdescription.YAMJBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 9 slots for items, 2 for containers, 1 for children. Slows movement when equipped.</talentdescription.YAMJBackpackCaravan>
   <talentname.YAMJHeatSignature>Heat Signature</talentname.YAMJHeatSignature>
   <talentdescription.YAMJHeatSignature>Gain the ability to sense nearby bodies.</talentdescription.YAMJHeatSignature>
   <talentname.YAMJGunner>Gunner</talentname.YAMJGunner>
@@ -223,7 +226,7 @@
   <talentname.YAMJSpeechAdvanced>Linguist</talentname.YAMJSpeechAdvanced>
   <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.\nGain [amount]% [poisonresist].\nGain [amount]% [burnresist].</talentdescription.YAMJSpeechAdvanced>
   <talentname.YAMJBackpackBio>Bio Backpack</talentname.YAMJBackpackBio>
-  <talentdescription.YAMJBackpackBio>Make mudraptor backpacks lined with glowing chemicals. 7 slots for items, 2 for children. Humans can't wear this without extreme pain.</talentdescription.YAMJBackpackBio>
+  <talentdescription.YAMJBackpackBio>Make mudraptor backpacks lined with glowing chemicals. 7 slots for items, 2 for children.</talentdescription.YAMJBackpackBio>
   <talentname.YAMJSkillGain>Quick Learner</talentname.YAMJSkillGain>
   <talentname.YAMJRepairSpeed>Hydrophobe</talentname.YAMJRepairSpeed>
   <talentdescription.YAMJGuitarRaptor>Anyone hearing your music will be invigorated with the desire to do more, gaining a +10 bonus to All Skills. If you keep playing, people around you will gain 10 XP at random.</talentdescription.YAMJGuitarRaptor>

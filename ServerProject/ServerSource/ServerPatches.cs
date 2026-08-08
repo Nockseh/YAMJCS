@@ -4,7 +4,7 @@ using HarmonyLib;
 
 namespace YAMJCS;
 
-internal static class PatchTargets {
+internal static partial class PatchTargets {
     
     public static MethodBase Character_Create_FromPrefab =>
         AccessTools.Method(
@@ -35,18 +35,6 @@ internal static class PatchTargets {
             typeof(FishAnimController),
             nameof(FishAnimController.DragCharacter)) ??
         throw new Exception("FishAnimController.DragCharacter not found");
-
-    // public static MethodBase CustomInterface_ButtonClicked =>
-    //     AccessTools.Method(
-    //         typeof(CustomInterface),
-    //         nameof(CustomInterface.ButtonClicked)) ??
-    //     throw new Exception("CustomInterface.ButtonClicked() not found");
-
-    public static MethodBase Character_DoInteractionUpdate =>
-        AccessTools.Method(
-            typeof(Character),
-            nameof(Character.DoInteractionUpdate)) ??
-        throw new Exception("Character.DoInteractionUpdate() not found");
 }
 
 [HarmonyPatch]
@@ -122,12 +110,12 @@ internal static class VouchTargetingPatch {
     private static readonly Identifier MudraptorGroup = "mudraptor".ToIdentifier();
     private static readonly Identifier VouchBuff = "YAMJVouchBuff".ToIdentifier();
     
-    private static void Postfix(EnemyAIController __instance, AITarget target, IEnumerable<Identifier> __result)
+    private static void Postfix(EnemyAIController __instance, AITarget aiTarget, IEnumerable<Identifier> __result)
     {
         List<Identifier> targetTags = __result as List<Identifier>;
         if (targetTags == null || targetTags.Count == 0) { return; }
 
-        Character targetCharacter = target.Entity as Character;
+        Character targetCharacter = aiTarget.Entity as Character;
         if (targetCharacter == null || targetCharacter.IsDead) { return; }
         
         Character enemyCharacter = __instance.Character;
@@ -141,16 +129,5 @@ internal static class VouchTargetingPatch {
 
         // no tags and no matching TargetParams = UpdateTargets drops this character
         targetTags.Clear();
-    }
-}
-
-[HarmonyPatch]
-internal static class RaptorBabyPickup {
-    static MethodBase TargetMethod() => PatchTargets.Character_DoInteractionUpdate;
-
-    static void Postfix(Character __instance) {
-        if (!__instance.IsPlayer || __instance.Removed || __instance.IsDead || !__instance.CanInteract) {
-            return;
-        }
     }
 }
