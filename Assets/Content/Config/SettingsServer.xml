@@ -2,6 +2,6 @@
 <!-- Server-only settings -->
 <Configuration>
     <Settings>
-        <Setting Name="SampleSettingServer" Type="string" Value="This is a sample!" />
+       
     </Settings>
 </Configuration>

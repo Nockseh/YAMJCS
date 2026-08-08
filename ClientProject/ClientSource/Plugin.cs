@@ -28,7 +28,13 @@ namespace YAMJCS
             YAMJ.Log("Client plugin initialized.");
         }
         public void PreInitPatching() { }
-        public void OnLoadCompleted() { }
-        public void Dispose() { }
+
+        public void OnLoadCompleted() {
+            YAMJ.InitializeConfig(ConfigService, PluginService);
+        }
+
+        public void Dispose() {
+            YAMJ.SharedDispose();
+        }
     }
 }

@@ -5,13 +5,8 @@ using Microsoft.Xna.Framework.Input;
 namespace YAMJCS;
 
 public class RaptorVision {
-    //TODO: make configurable
-    private static readonly Color ThermalColor = new Color(255, 127, 0, 255); //default color
-    private static readonly float ThermalRange = 1500.0f;
-    private static readonly bool ShowDeadCharacters = false;
     private static readonly string RequiredTalent = "YAMJHeatSignature";
-    private static readonly Keys VisionKey = Keys.V;
-
+    
     private static bool thermalVisionEnabled;
 
     public static bool IsEligible(Character? character) {
@@ -26,10 +21,8 @@ public class RaptorVision {
             return;
         }
         
-        //TODO: make this configurable
-        if (PlayerInput.KeyHit(VisionKey)) {
+        if (YAMJ.RaptorVisionKey.IsHit()) {
             thermalVisionEnabled = !thermalVisionEnabled;
-            YAMJ.Log($"Thermal vision {(thermalVisionEnabled ? "enabled" : "disabled")}.");
         }
     }
 
@@ -39,6 +32,6 @@ public class RaptorVision {
         }
         
         float effectState = (float)(Timing.TotalTimeUnpaused % 10000.0);
-        StatusHUD.DrawThermalOverlay(spriteBatch, refEntity: character, user: character, ThermalColor, ThermalRange, effectState, ShowDeadCharacters);
+        StatusHUD.DrawThermalOverlay(spriteBatch, refEntity: character, user: character, YAMJ.RaptorVisionColor, YAMJ.RaptorVisionRange, effectState, YAMJ.RaptorVisionShowDead);
     }
 }

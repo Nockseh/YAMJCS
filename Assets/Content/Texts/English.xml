@@ -1,19 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="false" translatedname="English">
-  <!-- Sample Client Setting -->
-  <YAMJCS.SampleSettingClient.DisplayName>Sample Client Setting</YAMJCS.SampleSettingClient.DisplayName>
-  <YAMJCS.SampleSettingClient.DisplayCategory>Sample</YAMJCS.SampleSettingClient.DisplayCategory>
-  <YAMJCS.SampleSettingClient.Tooltip>Sample tooltip!</YAMJCS.SampleSettingClient.Tooltip>
 
-  <!-- Sample Server Setting -->
-  <YAMJCS.SampleSettingServer.DisplayName>Sample Server Setting</YAMJCS.SampleSettingServer.DisplayName>
-  <YAMJCS.SampleSettingServer.DisplayCategory>Sample</YAMJCS.SampleSettingServer.DisplayCategory>
-  <YAMJCS.SampleSettingServer.Tooltip>Sample tooltip!</YAMJCS.SampleSettingServer.Tooltip>
+  <!-- Client Settings -->
+  <YAMJCS.RaptorVisionKey.DisplayName>Raptor Vision Keybind</YAMJCS.RaptorVisionKey.DisplayName>
+  <YAMJCS.RaptorVisionKey.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionKey.DisplayCategory>
+  <YAMJCS.RaptorVisionKey.Tooltip>Button to toggle thermal vision as a raptor (requires talent).</YAMJCS.RaptorVisionKey.Tooltip>
+  <YAMJCS.QuickChatKey.DisplayName>QuickChat Headset Keybind</YAMJCS.QuickChatKey.DisplayName>
+  <YAMJCS.QuickChatKey.DisplayCategory>YAMJ Client</YAMJCS.QuickChatKey.DisplayCategory>
+  <YAMJCS.QuickChatKey.Tooltip>Button to bring up the quickchat wheel (requires headset).</YAMJCS.QuickChatKey.Tooltip>
+  <YAMJCS.RaptorVisionRed.DisplayName>RaptorVision Red</YAMJCS.RaptorVisionRed.DisplayName>
+  <YAMJCS.RaptorVisionRed.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionRed.DisplayCategory>
+  <YAMJCS.RaptorVisionRed.Tooltip>Red value of raptor vision effect</YAMJCS.RaptorVisionRed.Tooltip>
+  <YAMJCS.RaptorVisionGreen.DisplayName>RaptorVision Green</YAMJCS.RaptorVisionGreen.DisplayName>
+  <YAMJCS.RaptorVisionGreen.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionGreen.DisplayCategory>
+  <YAMJCS.RaptorVisionGreen.Tooltip>Green value of raptor vision effect</YAMJCS.RaptorVisionGreen.Tooltip>
+  <YAMJCS.RaptorVisionBlue.DisplayName>RaptorVision Blue</YAMJCS.RaptorVisionBlue.DisplayName>
+  <YAMJCS.RaptorVisionBlue.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionBlue.DisplayCategory>
+  <YAMJCS.RaptorVisionBlue.Tooltip>Blue value of raptor vision effect</YAMJCS.RaptorVisionBlue.Tooltip>
+  <YAMJCS.RaptorVisionAlpha.DisplayName>RaptorVision Alpha</YAMJCS.RaptorVisionAlpha.DisplayName>
+  <YAMJCS.RaptorVisionAlpha.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionAlpha.DisplayCategory>
+  <YAMJCS.RaptorVisionAlpha.Tooltip>Opacity of raptor vision effect</YAMJCS.RaptorVisionAlpha.Tooltip>
+  
 
-  <!-- Sample Shared Setting -->
-  <YAMJCS.SampleSettingShared.DisplayName>Sample Shared Setting</YAMJCS.SampleSettingShared.DisplayName>
-  <YAMJCS.SampleSettingShared.DisplayCategory>Sample</YAMJCS.SampleSettingShared.DisplayCategory>
-  <YAMJCS.SampleSettingShared.Tooltip>Sample tooltip!</YAMJCS.SampleSettingShared.Tooltip>
+  <!-- Shared Settings -->
+  <YAMJCS.EatingHungerReduction.DisplayName>Eating Hunger Reduction</YAMJCS.EatingHungerReduction.DisplayName>
+  <YAMJCS.EatingHungerReduction.DisplayCategory>YAMJ Server Settings</YAMJCS.EatingHungerReduction.DisplayCategory>
+  <YAMJCS.EatingHungerReduction.Tooltip>How much hunger is reduced per second when player raptors are eating.</YAMJCS.EatingHungerReduction.Tooltip>
+  <YAMJCS.RaptorVisionRange.DisplayName>Raptor Vision Range</YAMJCS.RaptorVisionRange.DisplayName>
+  <YAMJCS.RaptorVisionRange.DisplayCategory>YAMJ Server Settings</YAMJCS.RaptorVisionRange.DisplayCategory>
+  <YAMJCS.RaptorVisionRange.Tooltip>Range at which player raptors can sense enemies through walls (requires talent).</YAMJCS.RaptorVisionRange.Tooltip>
+  <YAMJCS.RaptorVisionShowDead.DisplayName>Raptor Vision Shows Dead</YAMJCS.RaptorVisionShowDead.DisplayName>
+  <YAMJCS.RaptorVisionShowDead.DisplayCategory>YAMJ Server Settings</YAMJCS.RaptorVisionShowDead.DisplayCategory>
+  <YAMJCS.RaptorVisionShowDead.Tooltip>If enabled, raptors can sense dead bodies through walls (requires talent).</YAMJCS.RaptorVisionShowDead.Tooltip>
   
   <!--Job.xml-->
   <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>
@@ -28,14 +46,14 @@
   <yamjUi.quickChat>quick chat</yamjUi.quickChat>
   <yamjUi.quickChatTooltip>open preset radio messages</yamjUi.quickChatTooltip>
   <!--QuickChat Headset -->
-  <yamjRadial.msg1>Yes</yamjRadial.msg1>
-  <yamjRadial.msg2>No</yamjRadial.msg2>
-  <yamjRadial.msg3>Need help</yamjRadial.msg3>
-  <yamjRadial.msg4>Enemy spotted</yamjRadial.msg4>
-  <yamjRadial.msg5>Follow me</yamjRadial.msg5>
-  <yamjRadial.msg6>Wait</yamjRadial.msg6>
-  <yamjRadial.msg7>Need medical attention</yamjRadial.msg7>
-  <yamjRadial.msg8>Something needs repairs</yamjRadial.msg8>
+  <yamjRadial.msg1>Affirmative.</yamjRadial.msg1>
+  <yamjRadial.msg2>Negative.</yamjRadial.msg2>
+  <yamjRadial.msg3>Need help!</yamjRadial.msg3>
+  <yamjRadial.msg4>Enemy spotted!</yamjRadial.msg4>
+  <yamjRadial.msg5>Follow me.</yamjRadial.msg5>
+  <yamjRadial.msg6>Wait.</yamjRadial.msg6>
+  <yamjRadial.msg7>I don't understand.</yamjRadial.msg7>
+  <yamjRadial.msg8>Repairs are needed.</yamjRadial.msg8>
   <!--Speech (Basic)-->
   <raptorWord.me>me</raptorWord.me>
   <raptorWord.you>you</raptorWord.you>

@@ -115,7 +115,7 @@ internal static class CharHudAddToUpdateList { //basically fires every frame
         RaptorSpeech.Update();
         
         RaptorHeadset.Initialize(); //automatically ignores extra calls
-        RaptorSpeech.Update();
+        RaptorHeadset.Update();
         
         RaptorVision.Update();
     }

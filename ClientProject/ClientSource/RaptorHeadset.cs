@@ -4,11 +4,12 @@ namespace YAMJCS;
 
 public class RaptorHeadset {
     private const string ItemIdentifier = "raptorHeadset";
-    //TODO: make configurable
-    private static readonly Keys MenuKey = Keys.B;
     
-    private const int Radius = 140;
-    private static readonly Point ButtonSize = new Point(100, 40);
+    private const int Radius = 210;
+    private static readonly Point ButtonSize = new Point(170, 40);
+    //has to clear the widest button or their outer corners poke out of the backdrop
+    private static readonly int BackdropRadius = Radius + ButtonSize.X / 2 + 10;
+    private static readonly Color BackdropColor = new Color(0, 0, 0, 150);
     
     private static readonly Identifier[] MessageIds = [
         "yamjRadial.msg1".ToIdentifier(),
@@ -44,17 +45,36 @@ public class RaptorHeadset {
         };
 
         wheelFrame = new GUIFrame(
-            new RectTransform(new Point(Radius * 2 + ButtonSize.X, Radius * 2 + ButtonSize.Y), GUI.Canvas, Anchor.Center),
-            style: "GUIFrame") {
-            Visible = false
+            new RectTransform(new Point(BackdropRadius * 2, BackdropRadius * 2), GUI.Canvas, Anchor.Center),
+            style: null) {
+            Visible = false,
+            CanBeFocused = false
         };
 
+        //circle backdrop
+        new GUICustomComponent(
+            new RectTransform(Vector2.One, wheelFrame.RectTransform, Anchor.Center),
+            onDraw: (spriteBatch, component) => GUI.DrawDonutSection( //MUST USE onDraw instead of Draw(), Draw() would be called too early
+                spriteBatch,
+                component.Rect.Center.ToVector2(),
+                new Range<float>(0f, BackdropRadius),
+                MathHelper.TwoPi,
+                BackdropColor)
+            )
+            { CanBeFocused = false };
+        
+        //ui label
         new GUITextBlock(
-            new RectTransform(new Vector2(1f, 0.14f), wheelFrame.RectTransform, Anchor.TopCenter),
+            new RectTransform(ButtonSize, wheelFrame.RectTransform, Anchor.Center),
             text: TextManager.Get("yamjUi.quickChat".ToIdentifier()).Value,
-            textAlignment: Alignment.Center);
+            textAlignment: Alignment.Center,
+            style: null
+            )
+            { CanBeFocused = false };
+        
 
         for (int i = 0; i < MessageIds.Length; i++) {
+            //arrange in a circle
             string text = TextManager.Get(MessageIds[i]).Value;
             float angle = -MathHelper.PiOver2 + i * (MathHelper.TwoPi / MessageIds.Length);
             Point offset = new Point(
@@ -64,6 +84,7 @@ public class RaptorHeadset {
             var button = new GUIButton(
                 new RectTransform(ButtonSize, wheelFrame.RectTransform, Anchor.Center) { AbsoluteOffset = offset },
                 text: text);
+            button.TextBlock.AutoScaleHorizontal = true;
 
             button.OnClicked = (_, _) => {
                 SendMessage(text);
@@ -73,6 +94,25 @@ public class RaptorHeadset {
         }
 
         YAMJ.Log("Initialized raptor headset radial menu");
+    }
+    
+    public static void Update() {
+        if (toggleButton is null || wheelFrame is null) return;
+        Character? controlled = Character.Controlled;
+        bool eligible = IsEligible(controlled);
+
+        if (!eligible) {
+            radialMenuOpen = false;
+        } else {
+            if (YAMJ.QuickChatKey.IsHit()) radialMenuOpen = !radialMenuOpen;
+            if (radialMenuOpen && PlayerInput.KeyHit(Keys.Escape)) radialMenuOpen = false;
+        }
+
+        toggleButton.Visible = eligible;
+        wheelFrame.Visible = radialMenuOpen;
+
+        if (eligible) toggleButton.AddToGUIUpdateList();
+        if (radialMenuOpen) wheelFrame.AddToGUIUpdateList();
     }
     
     private static void SendMessage(string text) {
