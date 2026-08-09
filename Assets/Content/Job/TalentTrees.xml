@@ -5,18 +5,17 @@
       <TalentOptions requiredtalents="2" maxchosentalents="6">
         <TalentOption identifier="YAMJCanUseTools" />
         <TalentOption identifier="YAMJSpeechBasic" />
-        <TalentOption identifier="YAMJEgg" />
         <TalentOption identifier="YAMJSleepTime" />
         <TalentOption identifier="YAMJFlare" />
         <TalentOption identifier="YAMJArmor" />
+        <TalentOption identifier="YAMJBackpack" />
       </TalentOptions>
       <TalentOptions requiredtalents="2" maxchosentalents="5">
         <TalentOption identifier="YAMJGuardian" />
         <TalentOption identifier="YAMJVouch" />
-        <TalentOption identifier="YAMJBackpack" />
         <TalentOption identifier="YAMJBestFriend" />
-        <TalentOption identifier="YAMJFlareIce" />
-        <TalentOption identifier="YAMJFlareFire" />
+        <TalentOption identifier="YAMJSpeechAdvanced" />
+        <TalentOption identifier="YAMJEgg" />
       </TalentOptions>
     </SubTree>
     <!-- Hired Claw -->
@@ -59,12 +58,11 @@
     <!-- Student -->
     <SubTree identifier="YAMJTree3" type="specialization" requires="YAMJTree" blocks="YAMJTree2,YAMJTree1">
       <TalentOptions>
-        <!--TalentOption identifier="YAMJSkillGain" /-->
+        <TalentOption identifier="YAMJSkillGain" />
         <TalentOption identifier="YAMJSleepTime2" />
-        <TalentOption identifier="YAMJBackpackBio" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJSpeechAdvanced" />
+        <TalentOption identifier="YAMJBackpackBio" />
         <TalentOption identifier="YAMJRepairSpeed" />
       </TalentOptions>
       <TalentOptions>

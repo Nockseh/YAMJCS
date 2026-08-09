@@ -28,7 +28,7 @@
   </Affliction>
   
   <!--Guardian other-->
-  <Affliction identifier="YAMJGuardedOther" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" hideiconafterdelay="true" duration="1" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+  <Affliction identifier="YAMJGuardianOther" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" hideiconafterdelay="true" duration="1" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1">
       <AbilityFlag flagtype="IgnoredByEnemyAI" />
     </Effect>

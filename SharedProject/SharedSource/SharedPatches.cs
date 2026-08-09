@@ -54,7 +54,7 @@ internal static class RaptorGear {
 }
 
 [HarmonyPatch] //allows baby raptors to be picked up with LMB
-internal static class RaptorPetPickup {
+internal static class RaptorBbyPickup {
     static MethodBase TargetMethod() => PatchTargets.Character_DoInteractionUpdate;
 
     static void Postfix(Character __instance) {

@@ -4,7 +4,7 @@
     <TalentTrees file="%ModDir%/Job/TalentTrees.xml" />
     <Talents file="%ModDir%/Job/Talents.xml" />
     <Character file="%ModDir%/Characters/Mudraptor_player/Mudraptor_player.xml" />
-    <Character file="%ModDir%/Characters/Mudraptor_pet/RaptorPet.xml" />
+    <Character file="%ModDir%/Characters/RaptorBaby/RaptorBaby.xml" />
     <Character file="%ModDir%/Characters/Mudraptor_playerhusk/Mudraptor_playerhusk.xml" />
     <Item file="%ModDir%/Items/Raptoritems.xml" />
     <Item file="%ModDir%/Items/RaptorArmors.xml" />

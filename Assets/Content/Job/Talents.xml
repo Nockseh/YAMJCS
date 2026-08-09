@@ -606,7 +606,8 @@
   
   <Talent identifier="YAMJMonsterInstinct">
     <Description tag="talentdescription.YAMJMonsterInstinct">
-      <Replace tag="[amount]" value="125" color="gui.green" />
+      <Replace tag="[damage]" value="100" color="gui.green" />
+      <Replace tag="[piercing]" value="35" color="gui.green" />
     </Description>
     <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="2,6" sheetelementsize="128,128" />
     <AbilityGroupEffect abilityeffecttype="OnAttack">
@@ -614,7 +615,7 @@
         <AbilityConditionAttackData weapontype="noweapon" />
       </Conditions>
       <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="1.25" />
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="1.00" addedpenetration="0.35"/>
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
@@ -782,7 +783,7 @@
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="750" allowself="false">
           <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="750" setvalue="true" disabledeltatime="true">
+            <StatusEffect type="OnAbility" target="NearbyCharacters" range="800" setvalue="true" disabledeltatime="true">
               <Conditional isplayer="true" />
               <Affliction identifier="YAMJBestFriendBuff" strength="1.0" />
             </StatusEffect>
@@ -871,9 +872,6 @@
   <Talent identifier="YAMJBond_Engineer">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJBond_Engineer" />
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="Mudraptor Thermal Engineer Helm" color="gui.orange" />
-    </Description>
     <AbilityGroupInterval interval="0.5">
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
@@ -891,7 +889,7 @@
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
             <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
-              <Affliction identifier="guarded_YAMJ" amount="1.0" />
+              <Affliction identifier="guarded" amount="1.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
@@ -899,7 +897,7 @@
     </AbilityGroupInterval>
     <AbilityGroupEffect abilityeffecttype="OnAttacked">
       <Conditions>
-        <AbilityConditionHasAffliction afflictionidentifier="guarded_YAMJ" minimumpercentage="1.0" />
+        <AbilityConditionHasAffliction afflictionidentifier="guarded" minimumpercentage="1.0" />
         <AbilityConditionAttackData ignorenonharmfulattacks="true" weapontype="NoWeapon,Melee" />
       </Conditions>
       <Abilities>
@@ -921,7 +919,7 @@
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
             <StatusEffect type="OnAbility" target="This">
-              <ReduceAffliction identifier="guarded_YAMJ" strength="10.0" />
+              <ReduceAffliction identifier="guarded" strength="10.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>

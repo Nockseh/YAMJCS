@@ -108,8 +108,8 @@ internal static class YAMJ
     public const string PlayerRaptorSpecies = "Mudraptor_player";
     public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
     public const string PlayerRaptorJobId = "PlayerMudraptorJob";
-    public static readonly Identifier RaptorBabySpecies = "RaptorPet".ToIdentifier();
-    public static readonly Identifier RaptorBabyItemId = "raptorpetitem".ToIdentifier();
+    public static readonly Identifier RaptorBabySpecies = "RaptorBaby".ToIdentifier();
+    public static readonly Identifier RaptorBabyItemId = "raptorbabyitem".ToIdentifier();
     public static readonly Identifier RaptorOnlyTag = "yamjraptoronly".ToIdentifier();
     // vars
     public static AfflictionPrefab HungerPrefab;

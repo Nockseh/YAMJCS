@@ -97,9 +97,9 @@
   <raptorWord.exclamation>!</raptorWord.exclamation>
   <!-- Low Intelligence Item Names/Descriptions -->
   <entityname.dumb.repairTool>Fix Thing</entityname.dumb.repairTool>
-  <entitydescription.dumb.repairTool>Humans use this to fix.</entitydescription.dumb.repairTool>
-  <entityname.dumb.weapon>False Teeth</entityname.dumb.weapon>
-  <entitydescription.dumb.weapon>Humans use this to kill.</entitydescription.dumb.weapon>
+  <entitydescription.dumb.repairTool>For boat?</entitydescription.dumb.repairTool>
+  <entityname.dumb.weapon>Hurt Thing</entityname.dumb.weapon>
+  <entitydescription.dumb.weapon>For killing.</entitydescription.dumb.weapon>
   <entityname.dumb.clothing>Soft Human Shell</entityname.dumb.clothing>
   <entitydescription.dumb.clothing>Weak.</entitydescription.dumb.clothing>
   <entityname.dumb.medichem>Medicine</entityname.dumb.medichem>
@@ -109,9 +109,11 @@
   <entityname.dumb.ammobox>Box of Teeth</entityname.dumb.ammobox>
   <entitydescription.dumb.ammobox>Does nothing on its own.</entitydescription.dumb.ammobox>
   <entityname.dumb.deepdiving>Hard Human Shell</entityname.dumb.deepdiving>
-  <entitydescription.dumb.deepdiving>Allows them to swim.</entitydescription.dumb.deepdiving>
+  <entitydescription.dumb.deepdiving>Helps humans swim.</entitydescription.dumb.deepdiving>
   <entityname.dumb.scooter>Slave Fish?</entityname.dumb.scooter>
-  <entitydescription.dumb.scooter>???</entitydescription.dumb.scooter>
+  <entitydescription.dumb.scooter>What?</entitydescription.dumb.scooter>
+  <entityname.dumb.ore>Rock</entityname.dumb.ore>
+  <entitydescription.dumb.ore>Hard.</entitydescription.dumb.ore>
   
   <!--Talent Items-->
   <entityname.yamjBackpack>Mudraptor Backpack</entityname.yamjBackpack>
@@ -184,7 +186,7 @@
   <talentname.YAMJFlareFire>Hot Bio Flare</talentname.YAMJFlareFire>
   <talentdescription.YAMJFlareFire>A flaming red hot sponge that glows very brightly when held. It slowly burns any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareFire>
   <talentname.YAMJBestFriend>Man's Best Friend</talentname.YAMJBestFriend>
-  <talentdescription.YAMJBestFriend>Humans within a fair range of you can always rely on you to catch them when they fall. They gain +[walkspeed]% Walk/Run Speed, +[swimspeed]% Swim Speed, +[waterflowresist]% Water Flow Resistance (Including Yourself).</talentdescription.YAMJBestFriend>
+  <talentdescription.YAMJBestFriend>Nearby crewmates gain +[walkspeed]% Walk/Run Speed and +[swimspeed]% Swim Speed. You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.YAMJBestFriend>
   <talentname.YAMJSleepTime2>Contagious Nap</talentname.YAMJSleepTime2>
   <talentdescription.YAMJSleepTime2>Naps become stronger. Humans now also gain the [affliction] bonus if they're near you while you nap. They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
   <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
@@ -216,7 +218,7 @@
   <talentname.YAMJSwimSpeed>Feisty</talentname.YAMJSwimSpeed>
   <talentdescription.YAMJSwimSpeed>Get in, ravage, get out.</talentdescription.YAMJSwimSpeed>
   <talentname.YAMJMonsterInstinct>Monstrous</talentname.YAMJMonsterInstinct>
-  <talentdescription.YAMJMonsterInstinct>The old ways of combat are strong in your mind. Gain a [amount]% power increase to your creature attacks. It's only natural, after all.</talentdescription.YAMJMonsterInstinct>
+  <talentdescription.YAMJMonsterInstinct>The old ways of combat are strong in your mind. Your creature attacks gain [damage]% damage and [piercing]% piercing.</talentdescription.YAMJMonsterInstinct>
   <talentname.YAMJRelentless>Relentless</talentname.YAMJRelentless>
   <talentdescription.YAMJRelentless>Your eyes glare with a burning passion for blood. Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.YAMJRelentless>
   <talentdescription.YAMJRelentless2>Whenever you fall below 0 health, you will remain fully conscious for [duration] seconds and your attacks receive +300% power.</talentdescription.YAMJRelentless2>
@@ -237,7 +239,7 @@
   <talentname.YAMJMachinist>Machinist</talentname.YAMJMachinist>
   <talentdescription.YAMJMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.YAMJMachinist>
   <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>
-  <talentdescription.YAMJBond_Engineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake. You gain the Electrochemist Talent with a bonus 35 Radiation Sickness applied when it activates. +30 Electrical Skill Bonus. 25% Repair Speed.</talentdescription.YAMJBond_Engineer>
+  <talentdescription.YAMJBond_Engineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake. You gain the Electrochemist Talent. +30 Electrical Skill Bonus. 25% Repair Speed.</talentdescription.YAMJBond_Engineer>
   <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
   <talentdescription.YAMJBond_Mechanic>You've picked up some tricks on how to better seek out what a mechanic requires. You gain the Scrounger Talent. +30 Mechanical Skill Bonus. +25% Hull/Mechanical Repair Speed and +50% Mining Speed.</talentdescription.YAMJBond_Mechanic>
   <!-- Afflictions! -->

@@ -206,7 +206,7 @@
     </Wearable>
     <ItemContainer capacity="1" maxstacksize="0" hideitems="true" slotsperrow="2" >
       <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorbabyitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       <SubContainer capacity="5" maxstacksize="64">
         <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       </SubContainer>
@@ -248,7 +248,7 @@
     <ItemContainer capacity="2" maxstacksize="0" hideitems="true" slotsperrow="3">
       <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="1" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorbabyitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       <SubContainer capacity="7" maxstacksize="64">
         <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       </SubContainer>
@@ -288,7 +288,7 @@
       <SlotIcon slotindex="0" texture="%ModDir%/Items/BackpackIconBaby.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="1" texture="%ModDir%/Items/BackpackIconCrate.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/Items/BackpackIconCrate.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorpetitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
+      <Containable items="smallitem,mediumitem,railgunammo,ammobox,deepdiving,raptorbabyitem" excludeditems="toolbox,toolbelt,bandolier,yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       <SubContainer capacity="2" maxstacksize="64">
         <Containable items="smallitem,mediumitem,bigitem,largeitem,railgunammo,ammobox,deepdiving,crate" excludeditems="yamjBackpack,yamjBackpackCaravan,yamjBackpackBio" />
       </SubContainer>

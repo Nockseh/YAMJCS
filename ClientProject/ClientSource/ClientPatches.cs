@@ -32,39 +32,37 @@ internal static partial class PatchTargets {
             typeof(Character),
             nameof(Character.CanAim)) ??
         throw new Exception("Character.CanAim {get} not found");
-
-
+    
     public static MethodBase Repairable_CreateGUI =>
         AccessTools.DeclaredMethod(
             typeof(Repairable),
             nameof(Repairable.CreateGUI)) ??
         throw new Exception("Repairable.CreateGUI() not found");
-
-    public static MethodBase Item_Name_Get =>
-        AccessTools.PropertyGetter(
-                typeof(Item),
-                nameof(Item.Name)) ??
-        throw new Exception("Item.Name {get} not found");
-        
-    public static MethodBase Item_Description_Get =>
-        AccessTools.PropertyGetter(
-            typeof(Item),
-            nameof(Item.Description)) ??
-        throw new Exception("Item.Description {get} not found");
     
     public static MethodBase CrewManager_CanIssueOrders_Get =>
         AccessTools.PropertyGetter(
             typeof(CrewManager),
             nameof(CrewManager.CanIssueOrders)) ??
         throw new Exception("CrewManager.CanIssueOrders {get} not found");
-}
 
-internal static class ItemTags {
-    public static readonly Identifier[] mediChem = { "medical", "chem" };
-    public static readonly Identifier[] tech = {
-        "logic", "sonar", "sensor", "signal", "sound", "lightcomponent", "mobilebattery", "detonator", "alienartifact",
-        "smallalienartifact"
-    };
+    public static MethodBase Item_OverrideInventorySprite_Get =>
+        AccessTools.PropertyGetter(
+            typeof(Item),
+            nameof(Item.OverrideInventorySprite)) ??
+        throw new Exception("Item.OverrideInventorySprite {get} not found");
+        
+    public static MethodBase Item_Draw =>
+        AccessTools.Method(
+            typeof(Item),
+            nameof(Item.Draw),
+            new[] {
+                typeof(SpriteBatch),
+                typeof(bool),
+                typeof(bool),
+                typeof(Color?),
+                typeof(float?)
+            }) ??
+        throw new Exception("Item.Draw(SpriteBatch, bool, bool, Color?, float?) not found");
 }
 
 [HarmonyPatch] //prevents pRaptors from using the chatbox to send msgs
@@ -165,100 +163,6 @@ internal static class RepairableCreateGUI {
 
             return oldOnClicked?.Invoke(btn, obj) ?? true;
         };
-    }
-}
-
-[HarmonyPatch] //changes the display name of some items
-internal static class ItemNameGet {
-    static MethodBase TargetMethod() => PatchTargets.Item_Name_Get;
-
-    static bool Prefix(Item __instance, ref string __result) {
-        Character? controlled = Character.Controlled;
-        if (YAMJ.IsPlayerRaptor(controlled)) {
-            if (__instance.HasTag("weapon") && !YAMJ.HasTalent(controlled, "YAMJSpeechCombat")) {
-                __result = TextManager.Get("entityname.dumb.weapon").Value;
-                return false;
-            }
-            if (__instance.HasTag("tool") && !YAMJ.HasTalent(controlled, "YAMJCanUseTools")) {
-                __result = TextManager.Get("entityname.dumb.repairTool").Value;
-                return false;
-            }
-
-            if (!YAMJ.HasTalent(controlled, "YAMJSpeechAdvanced")) {
-                if (__instance.HasTag("clothing")) {
-                    __result = TextManager.Get("entityname.dumb.clothing").Value;
-                    return false;
-                }
-                if (__instance.HasTag("deepdiving")) {
-                    __result = TextManager.Get("entityname.dumb.deepdiving").Value;
-                    return false;
-                }
-                if (__instance.HasTag(ItemTags.mediChem)) {
-                    __result = TextManager.Get("entityname.dumb.medichem").Value;
-                    return false;
-                }
-                if (__instance.HasTag("ammobox")) {
-                    __result = TextManager.Get("entityname.dumb.ammobox").Value;
-                    return false;
-                }
-                if (__instance.HasTag("scooter")) {
-                    __result = TextManager.Get("entityname.dumb.scooter").Value;
-                    return false;
-                }
-                if (__instance.HasTag(ItemTags.tech)) {
-                    __result = TextManager.Get("entityname.dumb.tech").Value;
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-}
-
-[HarmonyPatch] //changes the description of some items
-internal static class ItemDescGet {
-    static MethodBase TargetMethod() => PatchTargets.Item_Description_Get;
-
-    static bool Prefix(Item __instance, ref string __result) {
-        Character? controlled = Character.Controlled;
-        if (YAMJ.IsPlayerRaptor(controlled)) {
-            if (__instance.HasTag("weapon") && !YAMJ.HasTalent(controlled, "YAMJSpeechCombat")) {
-                __result = TextManager.Get("entitydescription.dumb.weapon").Value;
-                return false;
-            }
-            if (__instance.HasTag("tool") && !YAMJ.HasTalent(controlled, "YAMJCanUseTools")) {
-                __result = TextManager.Get("entitydescription.dumb.repairTool").Value;
-                return false;
-            }
-
-            if (!YAMJ.HasTalent(controlled, "YAMJSpeechAdvanced")) {
-                if (__instance.HasTag("clothing")) {
-                    __result = TextManager.Get("entitydescription.dumb.clothing").Value;
-                    return false;
-                }
-                if (__instance.HasTag("deepdiving")) {
-                    __result = TextManager.Get("entitydescription.dumb.deepdiving").Value;
-                    return false;
-                }
-                if (__instance.HasTag(ItemTags.mediChem)) {
-                    __result = TextManager.Get("entitydescription.dumb.mediChem").Value;
-                    return false;
-                }
-                if (__instance.HasTag("ammobox")) {
-                    __result = TextManager.Get("entitydescription.dumb.ammobox").Value;
-                    return false;
-                }
-                if (__instance.HasTag("scooter")) {
-                    __result = TextManager.Get("entitydescription.dumb.scooter").Value;
-                    return false;
-                }
-                if (__instance.HasTag(ItemTags.tech)) {
-                    __result = TextManager.Get("entitydescription.dumb.tech").Value;
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }
 
