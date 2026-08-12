@@ -35,6 +35,7 @@ namespace YAMJCS
 
         public void Dispose() {
             YAMJ.SharedDispose();
+            RaptorIdentify.ClearCache();
         }
     }
 }

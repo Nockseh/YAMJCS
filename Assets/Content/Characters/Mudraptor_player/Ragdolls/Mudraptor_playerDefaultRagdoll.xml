@@ -36,6 +36,26 @@
       <spritedeformation type="bendjoint" typename="bendjoint" Sync="-1" BlendMode="Add" Strength="1" MaxRotation="30" UseMovementSine="False" StopWhenHostIsDead="False" OnlyInWater="False" SineOffset="0" Resolution="5,5" />
     </sprite>
   </limb>
+  <!--Spit Attack Limb-->
+  <limb mass="0" Name="SpitAttack" ID="28" Type="None" SecondaryType="None" Notes="" Scale="1" Flip="True" MirrorVertically="False" MirrorHorizontally="False" Hide="True" SpriteOrientation="0" InheritLimbDepth="None" SteerForce="0" Radius="0" Height="1" Width="1" Density="0.1" IgnoreCollisions="True" AngularDamping="7" AttackPriority="0" PullPos="0,0" StepOffset="0,0" RefJoint="-1" MouthPos="0,0" EatTorque="50" EatImpulse="2" ConstantTorque="0" ConstantAngle="0" AttackForceMultiplier="1" MinSeveranceDamage="0" CanBeSeveredAlive="False" SeveredFadeOutTime="10" ApplyTailAngle="False" ApplySineMovement="True" SineFrequencyMultiplier="1" SineAmplitudeMultiplier="1" BlinkFrequency="0" BlinkDurationIn="0.2" BlinkDurationOut="0.5" BlinkHoldTime="0" BlinkRotationIn="0" BlinkRotationOut="45" BlinkForce="50" OnlyBlinkInWater="False" UseTextureOffsetForBlinking="False" BlinkTextureOffsetIn="0.5,0.5" BlinkTextureOffsetOut="0.5,0.5" BlinkTransitionIn="Linear" BlinkTransitionOut="Linear" HealthIndex="0" Friction="0.3" Restitution="0.05" CanEnterSubmarine="True" InheritHiding="None">
+    <sprite SourceRect="356,260,217,84" Origin="0.5,0.5" Depth="0" Texture="" IgnoreTint="False" Color="255,255,255,255" DeadColor="255,255,255,255" DeadColorTime="0" />
+    <attack stickchance="0" StructureSoundType="StructureSlash" Context="Any" TargetType="Any" 
+          TargetLimbType="None" HitDetectionType="None" AfterAttack="Pursue" AfterAttackDelay="0" 
+          AfterAttackSecondary="FallBack" AfterAttackSecondaryDelay="0" Reverse="False" SnapRopeOnNewAttack="True" 
+          Retreat="False" Range="1200" DamageRange="0" MinRange="0" Duration="0.2" CoolDown="6" SecondaryCoolDown="0" 
+          CoolDownRandomFactor="0" FullSpeedAfterAttack="True" StructureDamage="0" CreateWallDamageProjectiles="False" 
+          EmitStructureDamageParticles="False" ItemDamage="0" Penetration="0" LevelWallDamage="0" Ranged="True" AvoidFriendlyFire="False" 
+          RequiredAngle="0" RequiredAngleToShoot="30" AimRotationTorque="25" RotationLimbIndex="-1" SwayAmount="0" SwayFrequency="5" 
+          Stun="0" OnlyHumans="False" ApplyForceOnLimbs="" Force="0" RootForceWorldStart="0,0" RootForceWorldMiddle="0,0" 
+          RootForceWorldEnd="0,0" RootTransitionEasing="Linear" Torque="0" ApplyForcesOnlyOnce="True" TargetImpulse="0" 
+          TargetImpulseWorld="0,0" TargetForce="0" TargetForceWorld="0,0" SubmarineImpactMultiplier="1" SeverLimbsProbability="0" 
+          Priority="3" Blink="False">
+      <conditional targetself="true" YAMJNeurotoxinBuff="gt 0" />
+      <StatusEffect type="OnFailure" target="This">
+        <SpawnItem identifier="yamjNeurotoxinProjectile" spawnposition="This" count="1" aimspread="2" rotationtype="MainLimb" rotation="0" />
+      </StatusEffect>
+    </attack>
+  </limb>
   <!--Legs-->
   <limb mass="0" Name="RightThigh" ID="5" Type="RightThigh" SecondaryType="None" Notes="" Scale="1" Flip="True" MirrorVertically="False" MirrorHorizontally="False" Hide="False" SpriteOrientation="0" InheritLimbDepth="None" SteerForce="0" Radius="35" Height="55" Width="0" Density="10" IgnoreCollisions="False" AngularDamping="7" AttackPriority="1" PullPos="0,0" StepOffset="0,0" RefJoint="-1" MouthPos="0,0" EatTorque="50" EatImpulse="2" ConstantTorque="0" ConstantAngle="0" AttackForceMultiplier="1" MinSeveranceDamage="0.8" CanBeSeveredAlive="False" SeveredFadeOutTime="10" ApplyTailAngle="False" ApplySineMovement="True" SineFrequencyMultiplier="1" SineAmplitudeMultiplier="1" BlinkFrequency="0" BlinkDurationIn="0.2" BlinkDurationOut="0.5" BlinkHoldTime="0" BlinkRotationIn="0" BlinkRotationOut="45" BlinkForce="50" OnlyBlinkInWater="False" UseTextureOffsetForBlinking="False" BlinkTextureOffsetIn="0.5,0.5" BlinkTextureOffsetOut="0.5,0.5" BlinkTransitionIn="Linear" BlinkTransitionOut="Linear" HealthIndex="2" Friction="0.3" Restitution="0.05" CanEnterSubmarine="True" InheritHiding="None">
     <sprite SourceRect="12,112,102,158" Origin="0.6054835,0.469332" Depth="0.055" Texture="" IgnoreTint="False" Color="255,255,255,255" DeadColor="255,255,255,255" DeadColorTime="0" />
@@ -165,4 +185,6 @@
   <joint Name="Joint 24 - 25" Limb1="24" Limb2="25" Limb1Anchor="2.2,-24.3" Limb2Anchor="-4.2,33.1" CanBeSevered="True" SeveranceProbabilityModifier="0" BreakSound="gore" LimitEnabled="True" UpperLimit="34" LowerLimit="-3" Stiffness="0.25" Scale="1" WeldJoint="False" ClockWiseRotation="False" />
   <joint Name="Joint 20 - 26" Limb1="20" Limb2="26" Limb1Anchor="-7.3,-23.2" Limb2Anchor="-2.7,24.1" CanBeSevered="True" SeveranceProbabilityModifier="0" BreakSound="gore" LimitEnabled="True" UpperLimit="66" LowerLimit="26" Stiffness="0.25" Scale="1" WeldJoint="False" ClockWiseRotation="False" />
   <joint Name="Joint 26 - 27" Limb1="26" Limb2="27" Limb1Anchor="2.2,-24.3" Limb2Anchor="-4.2,33.1" CanBeSevered="True" SeveranceProbabilityModifier="0" BreakSound="gore" LimitEnabled="True" UpperLimit="34" LowerLimit="-3" Stiffness="0.25" Scale="1" WeldJoint="False" ClockWiseRotation="False" />
+  <!--Spit Attack Joint-->
+  <joint Name="Joint Head - SpitAttack" Limb1="0" Limb2="28" Limb1Anchor="0,0" Limb2Anchor="0,0" CanBeSevered="False" SeveranceProbabilityModifier="0" BreakSound="armorbreak" LimitEnabled="True" UpperLimit="0" LowerLimit="0" Stiffness="0.25" Scale="1" WeldJoint="True" ClockWiseRotation="False" />
 </Ragdoll>

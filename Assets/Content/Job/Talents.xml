@@ -793,6 +793,28 @@
     </AbilityGroupInterval>
   </Talent>
   
+  <Talent identifier="YAMJCanOpener">
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJCanOpener">
+      <Replace tag="[amount]" value="300" color="gui.green" />
+    </Description>
+  </Talent>
+  
+  <Talent identifier="YAMJNeurotoxin">
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" />
+    <AbilityGroupInterval interval="1">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="YAMJNeurotoxinBuff" strength="1.0" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  
   <!--Bonds-->
   <Talent identifier="YAMJBond_Captain">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetelementsize="128,128" />

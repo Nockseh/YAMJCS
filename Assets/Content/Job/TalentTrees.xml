@@ -16,6 +16,7 @@
         <TalentOption identifier="YAMJBestFriend" />
         <TalentOption identifier="YAMJSpeechAdvanced" />
         <TalentOption identifier="YAMJEgg" />
+        <TalentOption identifier="YAMJCanOpener" />
       </TalentOptions>
     </SubTree>
     <!-- Hired Claw -->
@@ -41,6 +42,7 @@
     <SubTree identifier="YAMJTree2" type="specialization" requires="YAMJTree" blocks="YAMJTree1,YAMJTree3">
       <TalentOptions>
         <TalentOption identifier="YAMJArmorVet" />
+        <TalentOption identifier="YAMJNeurotoxin" />
       </TalentOptions>
       <TalentOptions>
         <TalentOption identifier="YAMJFamiliarWaters" />

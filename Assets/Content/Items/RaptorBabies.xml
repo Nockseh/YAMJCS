@@ -249,8 +249,8 @@
   <Holdable holdpos="0,0" holdangle="30" swingamount="0,0" swingspeed="0" swingwhenholding="False" swingwhenaiming="False" swingwhenusing="False"
   -->
   <Item name="Adorable Mudraptor" identifier="raptorbabyitem" scale="0.5" sonarsize="4" impactsoundtag="impact_soft" hideinmenus="true">
-    <InventoryIcon texture="%ModDir%/Characters/Mudraptor_Baby/RaptorBabyItems.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Characters/Mudraptor_Baby/RaptorBabyInHands.png" depth="0.54" sourcerect="0,0,128,223" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Characters/RaptorBaby/RaptorBabyItems.png" sourcerect="0,0,128,128" origin="0.5,0.5" /> <!--TODO fix -->
+    <Sprite texture="%ModDir%/Characters/RaptorBaby/RaptorBabyInHands.png" depth="0.54" sourcerect="0,0,128,223" origin="0.5,0.5" />
     <Body width="150" height="80" density="10" />
     <Holdable slots="RightHand+LeftHand" holdpos="15,-30" handle1="32,0" handle2="37,64" aimable="false">
       <StatusEffect type="OnContained" target="This" Condition="0.1" setvalue="false" disabledeltatime="false">
@@ -314,8 +314,8 @@
       </StatusEffect>
     </Holdable>
     <Wearable slots="Head,Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Wearable Mudraptor baby" texture="%ModDir%/Characters/Mudraptor_Baby/RaptorBabyShoulder.png" limb="Torso" inheritlimbdepth="false" depth="0.49" inheritscale="false" ignorelimbscale="false" scale="0.5" hidelimb="false" hideotherwearables="false" sourcerect="0,0,153,223" origin="0.5,0.5" />
-      <sprite name="Wearable Mudraptor baby2" texture="%ModDir%/Characters/Mudraptor_Baby/RaptorBabyShoulder2.png" limb="Torso" inheritlimbdepth="true" inheritscale="false" ignorelimbscale="false" scale="0.5" hidelimb="false" hideotherwearables="false" sourcerect="0,0,153,223" origin="0.5,0.5" />
+      <sprite name="Wearable Mudraptor baby" texture="%ModDir%/Characters/RaptorBaby/RaptorBabyShoulder.png" limb="Torso" inheritlimbdepth="false" depth="0.49" inheritscale="false" ignorelimbscale="false" scale="0.5" hidelimb="false" hideotherwearables="false" sourcerect="0,0,153,223" origin="0.5,0.5" />
+      <sprite name="Wearable Mudraptor baby2" texture="%ModDir%/Characters/RaptorBaby/RaptorBabyShoulder2.png" limb="Torso" inheritlimbdepth="true" inheritscale="false" ignorelimbscale="false" scale="0.5" hidelimb="false" hideotherwearables="false" sourcerect="0,0,153,223" origin="0.5,0.5" />
     </Wearable>
   </Item>
 </Items>

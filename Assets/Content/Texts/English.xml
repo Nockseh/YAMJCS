@@ -108,12 +108,18 @@
   <entitydescription.dumb.tech>???</entitydescription.dumb.tech>
   <entityname.dumb.ammobox>Box of Teeth</entityname.dumb.ammobox>
   <entitydescription.dumb.ammobox>Does nothing on its own.</entitydescription.dumb.ammobox>
+  <entityname.dumb.ammosmall>Teeth</entityname.dumb.ammosmall>
+  <entitydescription.dumb.ammosmall>Does nothing on its own.</entitydescription.dumb.ammosmall>
   <entityname.dumb.deepdiving>Hard Human Shell</entityname.dumb.deepdiving>
   <entitydescription.dumb.deepdiving>Helps humans swim.</entitydescription.dumb.deepdiving>
   <entityname.dumb.scooter>Slave Fish?</entityname.dumb.scooter>
   <entitydescription.dumb.scooter>What?</entitydescription.dumb.scooter>
   <entityname.dumb.ore>Rock</entityname.dumb.ore>
   <entitydescription.dumb.ore>Hard.</entitydescription.dumb.ore>
+  <entityname.dumb.alienlarge>Thing</entityname.dumb.alienlarge>
+  <entitydescription.alienlarge.ore>???</entitydescription.alienlarge.ore>
+  <entityname.dumb.aliensmall>Thing</entityname.dumb.aliensmall>
+  <entitydescription.dumb.aliensmall>???</entitydescription.dumb.aliensmall>
   
   <!--Talent Items-->
   <entityname.yamjBackpack>Mudraptor Backpack</entityname.yamjBackpack>
@@ -191,6 +197,8 @@
   <talentdescription.YAMJSleepTime2>Naps become stronger. Humans now also gain the [affliction] bonus if they're near you while you nap. They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
   <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
   <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
+  <talentname.YAMJCanOpener>Can Opener</talentname.YAMJCanOpener>
+  <talentdescription.YAMJCanOpener>Deal [amount]% more ‖color:gui.orange‖Creature Attack‖color:end‖ damage to structures.</talentdescription.YAMJCanOpener>
   <!--Hired Claw -->
   <talentname.YAMJSpeechCombat>Combat Training</talentname.YAMJSpeechCombat>
   <talentdescription.YAMJSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.YAMJSpeechCombat>
@@ -211,6 +219,8 @@
   <!--Predator -->
   <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
   <talentdescription.YAMJArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVet>
+  <talentname.YAMJNeurotoxin>Neurotoxin</talentname.YAMJNeurotoxin>
+  <talentdescription.YAMJNeurotoxin>Your creature attack will occasionally launch a ball of caustic spit.</talentdescription.YAMJNeurotoxin>
   <talentname.YAMJBloodthirsty>Bloodthirsty</talentname.YAMJBloodthirsty>
   <talentdescription.YAMJBloodthirsty>The scent of your own blood only fuels your frenzy.</talentdescription.YAMJBloodthirsty>
   <talentname.YAMJFamiliarWaters>Familiar Waters</talentname.YAMJFamiliarWaters>
@@ -244,7 +254,7 @@
   <talentdescription.YAMJBond_Mechanic>You've picked up some tricks on how to better seek out what a mechanic requires. You gain the Scrounger Talent. +30 Mechanical Skill Bonus. +25% Hull/Mechanical Repair Speed and +50% Mining Speed.</talentdescription.YAMJBond_Mechanic>
   <!-- Afflictions! -->
   <afflictionname.yamjHunger>Hungry</afflictionname.yamjHunger>
-  <afflictiondescription.yamjHunger.veryLow>A faint restlessness lingers.</afflictiondescription.yamjHunger.veryLow>
+  <afflictiondescription.yamjHunger.veryLow>A faint restlessness... hunger.</afflictiondescription.yamjHunger.veryLow>
   <afflictiondescription.yamjHunger.low>A gnawing pain resides in the stomach.</afflictiondescription.yamjHunger.low>
   <afflictiondescription.yamjHunger.medium>Focus is faltering, subject is drooling.</afflictiondescription.yamjHunger.medium>
   <afflictiondescription.yamjHunger.high>Sluggish and weak, showing clear signs of malnutrition.</afflictiondescription.yamjHunger.high>
@@ -253,35 +263,52 @@
   <afflictiondescription.yamjHunger.self.low>Eat.</afflictiondescription.yamjHunger.self.low>
   <afflictiondescription.yamjHunger.self.medium>Need food...</afflictiondescription.yamjHunger.self.medium>
   <afflictiondescription.yamjHunger.self.high>Starving... dying.</afflictiondescription.yamjHunger.self.high>
-  <afflictiondescription.yamjHunger.self.veryHigh>Need food NOW! Find! Kill! Eat!</afflictiondescription.yamjHunger.self.veryHigh>
+  <afflictiondescription.yamjHunger.self.veryHigh>‖color:gui.red‖Need food NOW! Seek! Kill! Eat!‖color:end‖</afflictiondescription.yamjHunger.self.veryHigh>
+  
   <afflictionname.YAMJGuardianSelf>Guardian Angel</afflictionname.YAMJGuardianSelf>
   <afflictiondescription.YAMJGuardianAngelBuff>Your bleeding heart drives you to defend your allies to the last breath.</afflictiondescription.YAMJGuardianAngelBuff>
   <afflictionname.YAMJGuardianOther>Guarded</afflictionname.YAMJGuardianOther>
   <afflictiondescription.YAMJGuardianOther>You're being protected by nearby ally.</afflictiondescription.YAMJGuardianOther>
+  
   <afflictionname.YAMJBestFriendBuff>My Best Friend</afflictionname.YAMJBestFriendBuff>
-  <afflictiondescription.YAMJBestFriendBuff>The Mudraptor close to you is bolstering your actions. +20% Walk/Run Speed. +40% Swim Speed. +75% Water Flow Resistance.</afflictiondescription.YAMJBestFriendBuff>
+  <afflictiondescription.YAMJBestFriendBuff>The Mudraptor close to you is bolstering your actions.
+    ‖color:gui.green‖+20%‖color:end‖ ‖color:gui.orange‖Walk/Run Speed.‖color:end‖
+    ‖color:gui.green‖+40%‖color:end‖ ‖color:gui.orange‖Swim Speed.‖color:end‖
+    ‖color:gui.green‖+75%‖color:end‖ ‖color:gui.orange‖Water Flow Resistance.‖color:end‖</afflictiondescription.YAMJBestFriendBuff>
+  <afflictionname.YAMJBestFriendBuffSelf>Best Friends</afflictionname.YAMJBestFriendBuffSelf>
+  <afflictiondescription.YAMJBestFriendBuffSelf>‖color:gui.green‖+75% Water Flow Resistance.‖color:gui.end‖</afflictiondescription.YAMJBestFriendBuffSelf>
+  
   <afflictionname.YAMJSleepTimeIcon>Raptor Nap</afflictionname.YAMJSleepTimeIcon>
   <afflictiondescription.YAMJSleepTimeIcon>While under the effects of Raptor Nap, your vitality is slowly regenerating. Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.YAMJSleepTimeIcon>
+  
   <afflictionname.YAMJguitarraptorbuff>Guitar Raptor Serenade</afflictionname.YAMJguitarraptorbuff>
   <afflictiondescription.YAMJguitarraptorbuff>Guitar Raptor's songs invigorate you with a passion to do more.</afflictiondescription.YAMJguitarraptorbuff>
+  
   <afflictionname.YAMJFamiliarWaterBuff>Familiar Waters</afflictionname.YAMJFamiliarWaterBuff>
   <afflictiondescription.YAMJFamiliarWaterBuff>You know exactly what you're doing and where you are.</afflictiondescription.YAMJFamiliarWaterBuff>
+  
   <afflictionname.YAMJBond_CaptainBuff>Best in Show</afflictionname.YAMJBond_CaptainBuff>
   <afflictiondescription.YAMJBond_CaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.YAMJBond_CaptainBuff>
+  
   <afflictionname.YAMJBond_SecurityBuff>Guard Dog</afflictionname.YAMJBond_SecurityBuff>
   <afflictiondescription.YAMJBond_SecurityBuff>Your skill with weapons and turrets is bolstered due to the Guard Dog.</afflictiondescription.YAMJBond_SecurityBuff>
   <afflictionname.YAMJRaptorBite>Raptor Bite</afflictionname.YAMJRaptorBite>
   <afflictiondescription.YAMJRaptorBite>Fully charged and ready to nibble!</afflictiondescription.YAMJRaptorBite>
+  
   <afflictionname.YAMJBond_EngineerBuff>Radiation Rascal</afflictionname.YAMJBond_EngineerBuff>
   <afflictiondescription.YAMJBond_EngineerBuff>Your skill with electronics and repairing is bolstered due to the Radiation Rascal.</afflictiondescription.YAMJBond_EngineerBuff>
+  
   <afflictionname.YAMJBond_MechanicBuff>Tool Seeker</afflictionname.YAMJBond_MechanicBuff>
   <afflictiondescription.YAMJBond_MechanicBuff>Your skills with mechanical devices and hull repairs are bolstered due to the Tool Seeker.</afflictiondescription.YAMJBond_MechanicBuff>
+  
   <afflictionname.YAMJBond_DoctorBuff>Therapy's Left Claw</afflictionname.YAMJBond_DoctorBuff>
   <afflictiondescription.YAMJBond_DoctorBuff>Your skills with medicines and poisons are bolstered due to the Doctor's Raptor.</afflictiondescription.YAMJBond_DoctorBuff>
+  
   <afflictionname.YAMJimplacable>Relentless</afflictionname.YAMJimplacable>
-  <afflictiondescription.YAMJimplacable>KILL! KILL! KILL!</afflictiondescription.YAMJimplacable>
+  <afflictiondescription.YAMJimplacable>‖color:red‖KILL! KILL! KILL!‖color:end‖</afflictiondescription.YAMJimplacable>
+  
   <afflictionname.YAMJVouchBuff>Friend of Mudraptors</afflictionname.YAMJVouchBuff>
-  <afflictiondescription.YAMJVouchBuff.self>They wouldn't hurt their own kind, right..?</afflictiondescription.YAMJVouchBuff.self>
-  <afflictiondescription.YAMJVouchBuff.other.low>Mudraptors should leave you alone, for now...</afflictiondescription.YAMJVouchBuff.other.low>
-  <afflictiondescription.YAMJVouchBuff.other.high>Mudraptors won't attack you first.</afflictiondescription.YAMJVouchBuff.other.high>
+  <afflictiondescription.YAMJVouchBuff.self>Mudraptors should leave you alone, for now...</afflictiondescription.YAMJVouchBuff.self>
+  <afflictiondescription.YAMJVouchBuff.other.low>The subject carries traces of mudraptor pheromones. The scent is fading.</afflictiondescription.YAMJVouchBuff.other.low>
+  <afflictiondescription.YAMJVouchBuff.other.high>The subject is saturated with mudraptor pheromones and is unlikely to be recognized as prey.</afflictiondescription.YAMJVouchBuff.other.high>
 </infotexts>

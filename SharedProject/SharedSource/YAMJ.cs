@@ -149,6 +149,10 @@ internal static class YAMJ
     }
     
     public static bool HasTalent(Character character, string talentId) {
+        return HasTalent(character, talentId.ToIdentifier());
+    }
+
+    public static bool HasTalent(Character character, Identifier talentId) {
         HashSet<Identifier> talents = character.Info.UnlockedTalents;
         if (talents == null || talents.Count == 0) return false;
         if (talents.Contains(talentId.ToIdentifier())) {
@@ -156,6 +160,13 @@ internal static class YAMJ
         } else {
             return false;
         }
+    }
+
+    public static bool HasAnyTalent(Character character, Identifier[] talentIds) {
+        foreach (Identifier talent in talentIds) {
+            if (HasTalent(character, talent)) { return true; }
+        }
+        return false;
     }
 
     public static void SharedDispose() {

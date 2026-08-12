@@ -586,4 +586,25 @@
     </ItemContainer>
   </Item>
 
+  <!--Neurotoxin Projectile-->
+  <Item name="" identifier="yamjNeurotoxinProjectile" category="Misc" scale="0.5" sonarsize="0" hideinmenus="true">
+    <Sprite texture="%ModDir%/Items/booger.png" sourcerect="0,0,64,32" depth="0.55" />
+    <Body width="64" height="32" density="1" />
+    <Projectile characterusable="false" launchimpulse="15" gravityscale="0.25" maxtargetstohit="2" sticktocharacters="false" sticktoitems="false" sticktodoors="false" sticktostructures="false" penetration="0" friendlyfire="false" damagedoors="false">
+      <Attack structuredamage="0" itemdamage="0" severlimbsprobability="0">
+        <Affliction identifier="acidburn" strength="30" />
+        <Affliction identifier="infection" strength="10" />
+        <Affliction identifier="stun" strength="1.5" />
+        <Affliction identifier="YAMJNeurotoxin" strength="30" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="This" condition="-100" />
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="5">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+
 </Items>

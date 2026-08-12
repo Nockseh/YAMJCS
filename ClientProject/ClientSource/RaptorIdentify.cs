@@ -1,6 +1,4 @@
-﻿using System.Net.Mime;
-using System.Runtime.InteropServices.JavaScript;
-using HarmonyLib;
+﻿using HarmonyLib;
 
 namespace YAMJCS;
 
@@ -19,17 +17,18 @@ internal static partial class PatchTargets {
 }
 
 internal static class RaptorIdentify {
-    private static readonly (Identifier[] itemTag, string[] requiredTalents, string langTag)[] itemCategories = {
+    private static readonly (Identifier[] itemTag, Identifier[] appraisalTalents, string langTag)[] itemCategories = {
+    // tags higher on the list take priority
         (["weapon"], 
-            ["YAMJSpeechCombat"],  
+            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],  
             "weapon"),
             
         (["tool"],
-            ["YAMJSpeechCombat"],   
+            ["YAMJCanUseTools", "YAMJSpeechBasic", "YAMJSpeechAdvanced"],   
             "repairTool"),
             
         (["ore"],
-            ["YAMJSpeechCombat"],
+            ["YAMJSpeechAdvanced"],
             "ore"),
             
         (["clothing"],
@@ -45,16 +44,28 @@ internal static class RaptorIdentify {
             "medichem"),
             
         (["ammobox"],
-            ["YAMJSpeechAdvanced"],
+            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],
             "ammobox"),
+            
+        (["handheldammo"],
+            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],
+            "ammosmall"),
             
         (["scooter"],
             ["YAMJSpeechAdvanced"],
             "scooter"),
             
-        (["logic", "sonar", "sensor", "signal", "sound", "lightcomponent", "mobilebattery", "detonator", "alienartifact", "smallalienartifact"],
+        (["logic", "sonar", "sensor", "signal", "sound", "lightcomponent", "mobilebattery", "detonator"],
             ["YAMJSpeechAdvanced"],
-            "tech")
+            "tech"),
+            
+        (["alienartifact"],
+            ["YAMJSpeechAdvanced"],
+            "alienlarge"),
+            
+        (["smallalienartifact"],
+            ["YAMJSpeechAdvanced"],
+            "aliensmall"),
     };
     
     private static readonly Dictionary<string, ItemPrefab?> artPrefabCache = new();
@@ -63,21 +74,28 @@ internal static class RaptorIdentify {
         if (item is null) { return null; }
 
         Character? controlled = Character.Controlled;
-        if (controlled is null || !YAMJ.IsPlayerRaptor(controlled)) { return null; }
-
-        foreach ((Identifier[] tags, string[] requiredTalents, string key) in itemCategories) {
-            if (item.HasTag(tags)) {
-                foreach (string talent in requiredTalents) {
-                    if (YAMJ.HasTalent(controlled, talent)) {
-                        return null;
-                    }
-                } //if doesn't have ANY of the talents
-                return key;
-            }
+        if (controlled is null) { return null; }
+        
+        if (item.HasTag("yamjraptoronly")) { return null; } //any item that is FOR raptors is auto-identified
+        
+        string? key = null;
+        foreach ((Identifier[] itemTags, Identifier[] appraisalTalents, string langTag) in itemCategories) {
+            if (!HasAnyTag(item, itemTags)) { continue; }
+            if (YAMJ.HasAnyTalent(controlled, appraisalTalents)) { return null; } //any identifiable category identifies the item
+            key ??= langTag; //remember the first unidentifiable match and keep looking
         }
-        return null;
+
+        return key;
     }
-    
+
+    private static bool HasAnyTag(Item item, Identifier[] tags) { //yes i know Item.HasTag(IEnumerable<>) exists, this is cheaper on allocation
+        foreach (Identifier tag in tags) {
+            if (item.HasTag(tag)) { return true; }
+        }
+        return false;
+    }
+
+
     private static ItemPrefab? GetDumbPrefab(string key) {
         if (artPrefabCache.TryGetValue(key, out ItemPrefab? cached)) { return cached; }
         //initialize if not cached
@@ -88,17 +106,17 @@ internal static class RaptorIdentify {
         return prefab;
     }
     
-    /// Replacement for the item's in-world sprite, or null to leave it alone.
-    public static Sprite? GetWorldSprite(Item item) { //TODO is this necessary? can it be split up elsewhere?
+    //replacement for the item's in-world sprite
+    public static Sprite? GetWorldSprite(Item item) {
         string? key = ResolveDumbKey(item);
         if (key is null) { return null; }
 
         Sprite? sprite = GetDumbPrefab(key)?.Sprite;
-        sprite?.EnsureLazyLoaded(); //TODO why?
+        sprite?.EnsureLazyLoaded();
         return sprite;
     }
     
-    /// Replacement for the item's inventory icon, or null to leave it alone.
+    //replacement for the item's inventory icon
     public static Sprite? GetInventorySprite(Item item) {
         string? key = ResolveDumbKey(item);
         if (key is null) { return null; }
@@ -107,16 +125,16 @@ internal static class RaptorIdentify {
         if (prefab is null) { return null; }
 
         Sprite? sprite = prefab.InventoryIcon ?? prefab.Sprite;
-        sprite?.EnsureLazyLoaded(); //TODO why?
+        sprite?.EnsureLazyLoaded();
         return sprite;
     }
 
-    public static void ClearCache() { //TODO why?
+    public static void ClearCache() {
         artPrefabCache.Clear();
     }
 }
 
-[HarmonyPatch] //swaps the inventory icon of some items TODO: verify
+[HarmonyPatch] //swaps the inventory icon of some items
 internal static class ItemOverrideInventorySpriteGet {
     static MethodBase TargetMethod() => PatchTargets.Item_OverrideInventorySprite_Get;
 
@@ -127,7 +145,7 @@ internal static class ItemOverrideInventorySpriteGet {
     }
 }
 
-[HarmonyPatch] //swaps the in-world sprite of some items TODO: verify
+[HarmonyPatch] //swaps the in-world sprite of some items
 internal static class ItemDrawSpriteSwap {
     static MethodBase TargetMethod() => PatchTargets.Item_Draw;
 

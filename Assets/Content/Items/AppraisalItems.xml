@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <Item name="" identifier="yamjdumbmedichem" >
+        <InventoryIcon texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+        <Sprite texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourcerect="64,0,37,69" depth="0.6" origin="0.5,0.5" />
+    </Item>
+
+    <Item name="" identifier="yamjdumbtech" >
+        <InventoryIcon texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourcerect="0,64,64,64" origin="0.5,0.5" />
+        <Sprite texture="%ModDir%/Items/AppraisalItemsAtlas.png" depth="0.8" sourcerect="12,77,36,36" origin="0.5,0.5" />
+    </Item>
+
+    <Item name="" identifier="yamjdumbammobox" >
+        <InventoryIcon texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourcerect="105,0,95,78" origin="0.5,0.5" />
+        <Sprite texture="%ModDir%/Items/AppraisalItemsAtlas.png" depth="0.54" sourcerect="105,0,95,78" origin="0.5,0.5" />
+    </Item>
+
+    <Item name="" identifier="yamjdumbalien" >
+        <InventoryIcon texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourcerect="200,0,93,103" origin="0.5,0.5" />
+        <Sprite texture="%ModDir%/Items/AppraisalItemsAtlas.png" depth="0.6" sourcerect="200,0,93,103" origin="0.5,0.5" />
+    </Item>
+
+    <Item name="" identifier="yamjdumbaliensmall" >
+        <InventoryIcon texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourcerect="293,0,82,74" origin="0.5,0.5" />
+        <Sprite texture="%ModDir%/Items/AppraisalItemsAtlas.png" depth="0.7" sourcerect="293,0,82,74" origin="0.5,0.5" />
+    </Item>
+    
+</Items>

@@ -10,6 +10,7 @@
     <Item file="%ModDir%/Items/RaptorArmors.xml" />
     <Item file="%ModDir%/Items/RaptorBabies.xml" />
     <Item file="%ModDir%/Items/Overrides.xml" />
+    <Item file="%ModDir%/Items/AppraisalItems.xml" />
     <Afflictions file="%ModDir%/Afflictions/huskaffictions.xml" />
     <Afflictions file="%ModDir%/Afflictions/afflictions.xml" />
     <Afflictions file="%ModDir%/Job/TalentAfflictions.xml" />
