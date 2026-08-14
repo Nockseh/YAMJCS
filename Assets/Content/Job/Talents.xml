@@ -254,9 +254,9 @@
   <Talent identifier="YAMJSleepTime">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,0" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJSleepTime">
-      <Replace tag="[seconds]" value="5" color="gui.green" />
+      <Replace tag="[seconds]" value="yamjConfig.SleepWindupTime.float" color="gui.green" />
     </Description>
-    <AbilityGroupInterval effectdelay="5" interval="3.25">
+    <AbilityGroupInterval effectdelay="5" interval="3.25" configoverride="effectdelay=SleepWindupTime">
       <Conditions>
         <AbilityConditionInWater invert="true" />
         <AbilityConditionRagdolled />
@@ -275,7 +275,7 @@
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
-    <AbilityGroupInterval effectdelay="5">
+    <AbilityGroupInterval effectdelay="5" configoverride="effectdelay=SleepWindupTime">
       <Conditions>
         <AbilityConditionInWater invert="true" />
         <AbilityConditionRagdolled />
@@ -309,7 +309,7 @@
       <Replace tag="[affliction]" value="Sleepy Raptor" color="gui.green" />
       <Replace tag="[bookpower]" value="50" color="gui.green" />
     </Description>
-    <AbilityGroupInterval effectdelay="5">
+    <AbilityGroupInterval effectdelay="5" configoverride="effectdelay=SleepWindupTime">
       <Conditions>
         <AbilityConditionInWater invert="true" />
         <AbilityConditionRagdolled />
@@ -654,7 +654,7 @@
   <Talent identifier="YAMJFamiliarWaters">
     <Description tag="talentdescription.YAMJFamiliarWaters" />
     <Description tag="talentdescription.additionalstattype">
-      <Replace tag="[amount]" value="25" color="gui.green" />
+      <Replace tag="[amount]" value="yamjConfig.FamiliarWatersDamageBonus.percent" color="gui.green" />
       <Replace tag="[stattype]" value="Attack Power" color="gui.orange" />
     </Description>
     <Description tag="talentdescription.additionalstattype">
@@ -687,7 +687,7 @@
         <AbilityConditionInWater />
       </Conditions>
       <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.25" />
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.25" configoverride="addeddamagemultiplier=FamiliarWatersDamageBonus" />
       </Abilities>
     </AbilityGroupEffect>
     <!--While NOT in water-->
@@ -796,7 +796,7 @@
   <Talent identifier="YAMJCanOpener">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJCanOpener">
-      <Replace tag="[amount]" value="yamjConfig.canOpenerDamageBonus" color="gui.green" />
+      <Replace tag="[amount]" value="yamjConfig.CanOpenerDamageBonus.percent" color="gui.green" />
     </Description>
     <AbilityGroupEffect abilityeffecttype="OnItemPicked">
       <Conditions>

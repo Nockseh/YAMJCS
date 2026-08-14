@@ -48,7 +48,6 @@ internal static class CharacterCreateFromPrefabPatch {
 
         CharacterPrefab? mudraptorPrefab = YAMJ.FindPlayerRaptorPrefab();
         if (mudraptorPrefab is null) {
-            YAMJ.Log("Mudraptor prefab not found in Character.Create(CharacterPrefab, ...) prefix.");
             return;
         }
 

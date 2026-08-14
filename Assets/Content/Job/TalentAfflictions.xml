@@ -92,7 +92,7 @@
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,0" sheetelementsize="128,128" />
   </Affliction>
   
-  <!-- Sleep Time Icon & Blur Effect -->
+  <!-- Sleep Time Icon, & Blur Effect -->
   <Affliction identifier="YAMJSleepTimeIcon" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="0" maxstrength="2" duration="2" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="2">
       <StatValue stattype="SkillGainSpeed" minvalue="0.5" maxvalue="0.5" />
@@ -100,7 +100,7 @@
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
   
-  <Affliction identifier="YAMJSleepTimeVFX" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="2" duration="2" showiconthreshold="1000" showinhealthscannerthreshold="1000" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+  <Affliction identifier="YAMJSleepTimeVFX" type="talentbuff" limbspecific="false" maxstrength="5" showiconthreshold="1000" showinhealthscannerthreshold="1000" treatmentthreshold="1000">
     <Effect minstrength="0" maxstrength="2"
       MinAfflictionOverlayAlphaMultiplier="0.0" MaxAfflictionOverlayAlphaMultiplier="1.0"
       minscreenblur="0.0" maxscreenblur="1.0"

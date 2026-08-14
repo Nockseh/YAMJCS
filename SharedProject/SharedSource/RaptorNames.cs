@@ -23,7 +23,7 @@ namespace YAMJCS {
             __state = null; //allows returning without swapping anything
             if (!YAMJ.HasPlayerRaptorJob(__instance)) { return; }
 
-            CharacterPrefab? raptorPrefab = YAMJ.FindMudraptorPrefab();
+            CharacterPrefab? raptorPrefab = YAMJ.FindPlayerRaptorPrefab();
 
             __state = __instance.CharacterConfigElement;
             __instance.CharacterConfigElement = raptorPrefab.ConfigElement;

@@ -31,7 +31,7 @@ namespace YAMJCS
         public void PreInitPatching() { } //runs after constructor
 
         public void OnLoadCompleted() { //for code that relies on other plugins
-            YAMJConfig.InitializeConfig(ConfigService, PluginService);
+            YAMJ.SharedOnLoadCompleted(ConfigService, PluginService);
             foreach (var prefab in AfflictionPrefab.Prefabs) {
                 if (prefab.Identifier == "yamjHunger".ToIdentifier()) {
                     YAMJ.HungerPrefab = prefab;

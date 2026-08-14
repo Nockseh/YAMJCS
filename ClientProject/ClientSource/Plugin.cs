@@ -30,8 +30,7 @@ namespace YAMJCS
         public void PreInitPatching() { }
 
         public void OnLoadCompleted() {
-            YAMJConfig.InitializeConfig(ConfigService, PluginService);
-            YAMJConfig.RebuildTalentDescriptions();
+            YAMJ.SharedOnLoadCompleted(ConfigService, PluginService);
         }
 
         public void Dispose() {

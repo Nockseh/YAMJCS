@@ -1,21 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Configuration>
     <Settings>
+        <Setting Name="HungerRate" Type="rangeFloat"
+                 Value="0.015" Min="0.0" Max="1.0" Steps="201"
+                 NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="EatingHungerReduction" Type="rangeFloat"
                  Value="4.0" Min="0.0" Max="20.0" Steps="201"
-                 NetSync="TwoWay"
-                 ShowInMenus="true" />
+                 NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="RaptorVisionRange" Type="rangeFloat"
                  Value="1500.0" Min="0.0" Max="8000.0" Steps="65"
-                 NetSync="TwoWay"
-                 ShowInMenus="true" />
+                 NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="RaptorVisionShowDead" Type="bool"
                  Value="true"
-                 NetSync="TwoWay"
-                 ShowInMenus="true" />
-        <Setting Name="CanOpenerDamageMultiplier" Type="float"
-                 Value="300.0" Min="0.0" Max="10000.0"
-                 NetSync="TwoWay"
-                 ShowInMenus="true" />
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="CanOpenerDamageBonus" Type="rangeFloat"
+                 Value="3.00" Min="0.0" Max="10.00" Steps="41"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="FamiliarWatersDamageBonus" Type="rangeFloat"
+                 Value="0.25" Min="0.0" Max="5.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SleepWindupTime" Type="rangeFloat"
+                 Value="5.0" Min="0.0" Max="30.0" Steps="61"
+                 NetSync="TwoWay" ShowInMenus="true" />
     </Settings>
 </Configuration>

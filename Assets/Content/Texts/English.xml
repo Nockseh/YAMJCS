@@ -22,21 +22,32 @@
   <YAMJCS.RaptorVisionAlpha.Tooltip>Opacity of raptor vision effect</YAMJCS.RaptorVisionAlpha.Tooltip>
 
   <!-- Shared Settings -->
+  <YAMJCS.HungerRate.DisplayName>Hunger Rate</YAMJCS.HungerRate.DisplayName>
+  <YAMJCS.HungerRate.DisplayCategory>YAMJ Server Settings</YAMJCS.HungerRate.DisplayCategory>
+  <YAMJCS.HungerRate.Tooltip>How much hunger a player raptor gains per second. At the default value 0.015, it should take ~90 minutes for a fully fed, healthy raptor to starve.</YAMJCS.HungerRate.Tooltip>
   <YAMJCS.EatingHungerReduction.DisplayName>Eating Hunger Reduction</YAMJCS.EatingHungerReduction.DisplayName>
   <YAMJCS.EatingHungerReduction.DisplayCategory>YAMJ Server Settings</YAMJCS.EatingHungerReduction.DisplayCategory>
   <YAMJCS.EatingHungerReduction.Tooltip>How much hunger is reduced per second when player raptors are eating.</YAMJCS.EatingHungerReduction.Tooltip>
-  <YAMJCS.RaptorVisionRange.DisplayName>Raptor Vision Range</YAMJCS.RaptorVisionRange.DisplayName>
+  <YAMJCS.RaptorVisionRange.DisplayName>Heat Signature Range</YAMJCS.RaptorVisionRange.DisplayName>
   <YAMJCS.RaptorVisionRange.DisplayCategory>YAMJ Server Settings</YAMJCS.RaptorVisionRange.DisplayCategory>
-  <YAMJCS.RaptorVisionRange.Tooltip>Range at which player raptors can sense enemies through walls (requires talent).</YAMJCS.RaptorVisionRange.Tooltip>
-  <YAMJCS.RaptorVisionShowDead.DisplayName>Raptor Vision Shows Dead</YAMJCS.RaptorVisionShowDead.DisplayName>
+  <YAMJCS.RaptorVisionRange.Tooltip>Range at which player raptors can sense enemies through walls (requires Heat Signature talent).</YAMJCS.RaptorVisionRange.Tooltip>
+  <YAMJCS.RaptorVisionShowDead.DisplayName>Heat Signature Shows Dead</YAMJCS.RaptorVisionShowDead.DisplayName>
   <YAMJCS.RaptorVisionShowDead.DisplayCategory>YAMJ Server Settings</YAMJCS.RaptorVisionShowDead.DisplayCategory>
-  <YAMJCS.RaptorVisionShowDead.Tooltip>If enabled, raptors can sense dead bodies through walls (requires talent).</YAMJCS.RaptorVisionShowDead.Tooltip>
-  <YAMJCS.CanOpenerDamageMultiplier.DisplayName>Can Opener Damage Multiplier</YAMJCS.CanOpenerDamageMultiplier.DisplayName>
-  <YAMJCS.CanOpenerDamageMultiplier.DisplayCategory>YAMJ Server Settings</YAMJCS.CanOpenerDamageMultiplier.DisplayCategory>
-  <YAMJCS.CanOpenerDamageMultiplier.Tooltip>Additional (percent) damage deal to structures by characters with the raptor talent "Can Opener".</YAMJCS.CanOpenerDamageMultiplier.Tooltip>
+  <YAMJCS.RaptorVisionShowDead.Tooltip>If enabled, raptors can sense alive AND dead bodies through walls when using the Heat Signature talent.</YAMJCS.RaptorVisionShowDead.Tooltip>
+  <YAMJCS.CanOpenerDamageBonus.DisplayName>Can Opener Damage Bonus</YAMJCS.CanOpenerDamageBonus.DisplayName>
+  <YAMJCS.CanOpenerDamageBonus.DisplayCategory>YAMJ Server Settings</YAMJCS.CanOpenerDamageBonus.DisplayCategory>
+  <YAMJCS.CanOpenerDamageBonus.Tooltip>Additional damage dealt to structures by raptors with the talent "Can Opener".\nexample: 3 = +300% damage bonus.</YAMJCS.CanOpenerDamageBonus.Tooltip>
+  <YAMJCS.FamiliarWatersDamageBonus.DisplayName>Familiar Waters Damage Bonus</YAMJCS.FamiliarWatersDamageBonus.DisplayName>
+  <YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>YAMJ Server Settings</YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>
+  <YAMJCS.FamiliarWatersDamageBonus.Tooltip>Outgoing damage bonus for raptors with the talent "Familiar Waters" while in the water.\nexample: 0.25 = +25% damage bonus.</YAMJCS.FamiliarWatersDamageBonus.Tooltip>
+  <YAMJCS.SleepWindupTime.DisplayName>Sleep Wind-up Time</YAMJCS.SleepWindupTime.DisplayName>
+  <YAMJCS.SleepWindupTime.DisplayCategory>YAMJ Server Settings</YAMJCS.SleepWindupTime.DisplayCategory>
+  <YAMJCS.SleepWindupTime.Tooltip>The amount of time, in seconds, it takes for raptors to fall asleep (talent required).</YAMJCS.SleepWindupTime.Tooltip>
 
   <!-- Config Text Tags -->
-  <yamjConfig.canOpenerDamageBonus.int>300</yamjConfig.canOpenerDamageBonus.int>
+  <yamjConfig.CanOpenerDamageBonus.percent>300</yamjConfig.CanOpenerDamageBonus.percent>
+  <yamjConfig.FamiliarWatersDamageBonus.percent>25</yamjConfig.FamiliarWatersDamageBonus.percent>
+  <yamjConfig.SleepWindupTime.float>5</yamjConfig.SleepWindupTime.float>
 
   <!--Job.xml-->
   <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>

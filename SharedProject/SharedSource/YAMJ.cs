@@ -27,17 +27,17 @@ internal static partial class YAMJ
     // Helper Functions //
     public static CharacterPrefab? FindPlayerRaptorPrefab() {
         if (PlayerRaptorPrefab is null) {
-            CharacterPrefab.FindBySpeciesName(PlayerRaptorSpecies.ToIdentifier());
+            PlayerRaptorPrefab = CharacterPrefab.FindBySpeciesName(PlayerRaptorSpecies.ToIdentifier());
+            if (PlayerRaptorPrefab is null) {throw new Exception("critical error: PlayerRaptor species prefab not found.");}
         }
         return PlayerRaptorPrefab;
     }
     public static ItemPrefab? FindRaptorBabyItemPrefab() {
         if (RaptorBabyItemPrefab is null) {
             ItemPrefab.Prefabs.TryGet(RaptorBabyItemId, out ItemPrefab? prefab);
-            return prefab;
-        } else {
-            return RaptorBabyItemPrefab;
+            RaptorBabyItemPrefab = prefab;
         }
+        return RaptorBabyItemPrefab;
     }
     
     public static bool HasPlayerRaptorJob(CharacterInfo? characterInfo) {
@@ -78,9 +78,15 @@ internal static partial class YAMJ
         return false;
     }
     
-    //Disposal
+    //Shared
     public static void SharedDispose() {
         YAMJConfig.DisposeConfig();
         LoggerService = null;
+    }
+
+    public static void SharedOnLoadCompleted(IConfigService configService, IPluginManagementService pluginService) {
+        YAMJConfig.InitializeConfig(configService, pluginService);
+        YAMJConfig.ApplyConfigToTalentXml();
+        YAMJConfig.RebuildTalentDescriptions();
     }
 }

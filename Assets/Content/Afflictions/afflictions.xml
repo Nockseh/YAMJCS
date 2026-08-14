@@ -25,13 +25,13 @@
         <Icon Texture="Content/UI/MainIconsAtlas.png" SourceRect="128,384,128,128" Origin="0,0"/>
         <AfflictionOverlay texture="%ModDir%/UI/HungerOverlay.png"/>
         <Effect MinStrength="0" MaxStrength="15"
-                StrengthChange="0.017"
+                StrengthChange="0.015" configoverride="StrengthChange=HungerRate"
                 MinVitalityDecrease="0.00" MaxVitalityDecrease="0.00" MultiplyByMaxVitality="true"
                 MinSpeedMultiplier="1.00" MaxSpeedMultiplier="1.00"
                 MinAfflictionOverlayAlphaMultiplier="0.00" MaxAfflictionOverlayAlphaMultiplier="0.00"
         />
         <Effect MinStrength="15" MaxStrength="35"
-                StrengthChange="0.017"
+                StrengthChange="0.015" configoverride="StrengthChange=HungerRate"
                 MinVitalityDecrease="0.00" MaxVitalityDecrease="0.10" MultiplyByMaxVitality="true"
                 MinSpeedMultiplier="1.00" MaxSpeedMultiplier="0.95"
                 ResistanceFor="stun,incrementalstun,progressivestun"
@@ -40,7 +40,7 @@
             <StatValue StatType="MeleeAttackMultiplier" MinValue="0.00" MaxValue="-0.15"/>
         </Effect>
         <Effect MinStrength="35" MaxStrength="55"
-                StrengthChange="0.017"
+                StrengthChange="0.015" configoverride="StrengthChange=HungerRate"
                 MinVitalityDecrease="0.10" MaxVitalityDecrease="0.35" MultiplyByMaxVitality="true"
                 MinSpeedMultiplier="0.95" MaxSpeedMultiplier="0.85"
                 ResistanceFor="stun,incrementalstun,progressivestun"
@@ -49,7 +49,7 @@
             <StatValue StatType="MeleeAttackMultiplier" MinValue="-0.15" MaxValue="-0.30"/>
         </Effect>
         <Effect MinStrength="55" MaxStrength="75"
-                StrengthChange="0.017"
+                StrengthChange="0.015" configoverride="StrengthChange=HungerRate"
                 MinVitalityDecrease="0.35" MaxVitalityDecrease="0.70" MultiplyByMaxVitality="true"
                 MinSpeedMultiplier="0.85" MaxSpeedMultiplier="0.70"
                 ResistanceFor="stun,incrementalstun,progressivestun"
@@ -58,8 +58,8 @@
             <StatValue StatType="MeleeAttackMultiplier" MinValue="-0.30" MaxValue="-0.50"/>
         </Effect>
         <Effect MinStrength="75" MaxStrength="100"
-                StrengthChange="0.017"
-                MinVitalityDecrease="0.50" MaxVitalityDecrease="1.50" MultiplyByMaxVitality="true"
+                StrengthChange="0.015" configoverride="StrengthChange=HungerRate"
+                MinVitalityDecrease="0.50" MaxVitalityDecrease="2.01" MultiplyByMaxVitality="true"
                 MinSpeedMultiplier="0.95" MaxSpeedMultiplier="0.40"
                 ResistanceFor="stun,incrementalstun,progressivestun"
                 MinResistance="-1.00" MaxResistance="-2.00"
