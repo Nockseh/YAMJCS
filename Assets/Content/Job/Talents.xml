@@ -796,7 +796,7 @@
   <Talent identifier="YAMJCanOpener">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJCanOpener">
-      <Replace tag="[amount]" value="300" color="gui.green" />
+      <Replace tag="[amount]" value="yamjConfig.canOpenerDamageBonus" color="gui.green" />
     </Description>
     <AbilityGroupEffect abilityeffecttype="OnItemPicked">
       <Conditions>

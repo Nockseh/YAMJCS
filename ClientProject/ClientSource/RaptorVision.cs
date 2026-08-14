@@ -21,7 +21,7 @@ public class RaptorVision {
             return;
         }
         
-        if (YAMJ.RaptorVisionKey.IsHit()) {
+        if (YAMJConfig.RaptorVisionKey.IsHit()) {
             thermalVisionEnabled = !thermalVisionEnabled;
         }
     }
@@ -32,6 +32,6 @@ public class RaptorVision {
         }
         
         float effectState = (float)(Timing.TotalTimeUnpaused % 10000.0);
-        StatusHUD.DrawThermalOverlay(spriteBatch, refEntity: character, user: character, YAMJ.RaptorVisionColor, YAMJ.RaptorVisionRange, effectState, YAMJ.RaptorVisionShowDead);
+        StatusHUD.DrawThermalOverlay(spriteBatch, refEntity: character, user: character, YAMJConfig.RaptorVisionColor, YAMJConfig.RaptorVisionRange, effectState, YAMJConfig.RaptorVisionShowDead);
     }
 }

@@ -46,7 +46,7 @@ internal static class CharacterCreateFromPrefabPatch {
             return;
         }
 
-        CharacterPrefab? mudraptorPrefab = YAMJ.FindMudraptorPrefab();
+        CharacterPrefab? mudraptorPrefab = YAMJ.FindPlayerRaptorPrefab();
         if (mudraptorPrefab is null) {
             YAMJ.Log("Mudraptor prefab not found in Character.Create(CharacterPrefab, ...) prefix.");
             return;
@@ -96,7 +96,7 @@ internal static class CorpseEatingPatch {
 
     static void Postfix(Character target, float deltaTime, ref FishAnimController __instance) {
         if (YAMJ.IsPlayerRaptor(__instance.Character) && target.IsDead) {
-            Affliction reduceHunger = new Affliction(YAMJ.HungerPrefab, YAMJ.EatingHungerReduction * deltaTime * -1f);
+            Affliction reduceHunger = new Affliction(YAMJ.HungerPrefab, YAMJConfig.EatingHungerReduction * deltaTime * -1f);
             __instance.Character.CharacterHealth.ApplyAffliction(null, reduceHunger);
             Affliction eatingBuff = new Affliction(YAMJ.EatingBuffPrefab, 2f);
             __instance.Character.CharacterHealth.ApplyAffliction(null, eatingBuff, false);

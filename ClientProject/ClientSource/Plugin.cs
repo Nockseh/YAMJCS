@@ -30,12 +30,14 @@ namespace YAMJCS
         public void PreInitPatching() { }
 
         public void OnLoadCompleted() {
-            YAMJ.InitializeConfig(ConfigService, PluginService);
+            YAMJConfig.InitializeConfig(ConfigService, PluginService);
+            YAMJConfig.RebuildTalentDescriptions();
         }
 
         public void Dispose() {
             YAMJ.SharedDispose();
             RaptorIdentify.ClearCache();
+            YAMJConfig.RebuildTalentDescriptions();
         }
     }
 }

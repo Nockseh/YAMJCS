@@ -52,7 +52,7 @@ internal static class CanOpenerAttackPatch {
         if (!YAMJ.HasTalent(attacker, RaptorCanOpener.TalentId)) { return; }
         
         __state = __instance.DamageMultiplier;
-        __instance.DamageMultiplier *= 1f + YAMJ.CanOpenerDamageMultiplier; //other damage mults exist (genes) so we mult the mult instead of add
+        __instance.DamageMultiplier *= 1f + YAMJConfig.CanOpenerDamageBonus; //other damage mults exist (genes) so we mult the mult instead of add
     }
 
     static void Postfix(Attack __instance, float? __state) {

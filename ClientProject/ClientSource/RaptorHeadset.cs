@@ -104,7 +104,7 @@ public class RaptorHeadset {
         if (!eligible) {
             radialMenuOpen = false;
         } else {
-            if (YAMJ.QuickChatKey.IsHit()) radialMenuOpen = !radialMenuOpen;
+            if (YAMJConfig.QuickChatKey.IsHit()) radialMenuOpen = !radialMenuOpen;
             if (radialMenuOpen && PlayerInput.KeyHit(Keys.Escape)) radialMenuOpen = false;
         }
 

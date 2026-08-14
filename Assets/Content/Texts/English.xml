@@ -34,7 +34,10 @@
   <YAMJCS.CanOpenerDamageMultiplier.DisplayName>Can Opener Damage Multiplier</YAMJCS.CanOpenerDamageMultiplier.DisplayName>
   <YAMJCS.CanOpenerDamageMultiplier.DisplayCategory>YAMJ Server Settings</YAMJCS.CanOpenerDamageMultiplier.DisplayCategory>
   <YAMJCS.CanOpenerDamageMultiplier.Tooltip>Additional (percent) damage deal to structures by characters with the raptor talent "Can Opener".</YAMJCS.CanOpenerDamageMultiplier.Tooltip>
-  
+
+  <!-- Config Text Tags -->
+  <yamjConfig.canOpenerDamageBonus.int>300</yamjConfig.canOpenerDamageBonus.int>
+
   <!--Job.xml-->
   <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>
   <jobdescription.PlayerMudraptorJob>The return of Man's best friend.</jobdescription.PlayerMudraptorJob>
