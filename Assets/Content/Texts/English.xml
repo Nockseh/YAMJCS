@@ -42,6 +42,8 @@
   <yamjMsg.noRoomInInventory>no room in inventory</yamjMsg.noRoomInInventory>
   <!-- Hints -->
   <yamjHint.pickUp>[[key]] Pick up</yamjHint.pickUp>
+  <yamjHint.forceOpenBeak>[[use]] Force open (Beak)</yamjHint.forceOpenBeak>
+  <yamjHint.forceCloseBeak>[[use]] Force closed (Beak)</yamjHint.forceCloseBeak>
   <!--UI Elements-->
   <yamjUi.speak>speak</yamjUi.speak>
   <yamjUi.speakTooltip>open known words</yamjUi.speakTooltip>
@@ -198,7 +200,7 @@
   <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
   <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
   <talentname.YAMJCanOpener>Can Opener</talentname.YAMJCanOpener>
-  <talentdescription.YAMJCanOpener>Deal [amount]% more ‖color:gui.orange‖Creature Attack‖color:end‖ damage to structures.</talentdescription.YAMJCanOpener>
+  <talentdescription.YAMJCanOpener>Deal [amount]% more ‖color:gui.orange‖Creature Attack‖color:end‖ damage to structures.\nGain the ability to force doors open without a crowbar.</talentdescription.YAMJCanOpener>
   <!--Hired Claw -->
   <talentname.YAMJSpeechCombat>Combat Training</talentname.YAMJSpeechCombat>
   <talentdescription.YAMJSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.YAMJSpeechCombat>

@@ -798,6 +798,14 @@
     <Description tag="talentdescription.YAMJCanOpener">
       <Replace tag="[amount]" value="300" color="gui.green" />
     </Description>
+    <AbilityGroupEffect abilityeffecttype="OnItemPicked">
+      <Conditions>
+        <AbilityConditionItem tags="door,aliendoor" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyValue multiplyvalue="0.5" />
+      </Abilities>
+    </AbilityGroupEffect>
   </Talent>
   
   <Talent identifier="YAMJNeurotoxin">
@@ -978,14 +986,6 @@
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilitySpawnItemsToContainer>
-      </Abilities>
-    </AbilityGroupEffect>
-    <AbilityGroupEffect abilityeffecttype="OnItemPicked">
-      <Conditions>
-        <AbilityConditionItem tags="door,aliendoor" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyValue multiplyvalue="0.5" />
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
