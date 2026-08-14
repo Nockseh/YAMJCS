@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase Attack_DoDamage =>
+    internal static MethodBase Attack_DoDamage =>
         AccessTools.Method(
             typeof(Attack),
             nameof(Attack.DoDamage),
@@ -19,7 +19,7 @@ internal static partial class PatchTargets {
             }) ??
         throw new Exception("Attack.DoDamage(Character, IDamageable, Vector2, float, bool, PhysicsBody, Limb) not found");
 
-    public static MethodBase Door_HasRequiredItems =>
+    internal static MethodBase Door_HasRequiredItems =>
         AccessTools.DeclaredMethod(
             typeof(Door),
             nameof(Door.HasRequiredItems),
@@ -37,8 +37,6 @@ internal static class RaptorCanOpener {
     
 [HarmonyPatch] // can opener: deal more damage to structures
 internal static class CanOpenerAttackPatch {
-    private const float StructureDamageBonus = 3.00f; //todo: configurable
-
     static MethodBase TargetMethod() => PatchTargets.Attack_DoDamage;
     
     static void Prefix(Attack __instance, Character attacker, IDamageable target, Limb sourceLimb, out float? __state) {
@@ -54,7 +52,7 @@ internal static class CanOpenerAttackPatch {
         if (!YAMJ.HasTalent(attacker, RaptorCanOpener.TalentId)) { return; }
         
         __state = __instance.DamageMultiplier;
-        __instance.DamageMultiplier *= 1f + StructureDamageBonus; //other damage mults exist (genes) so we mult the mult instead of add
+        __instance.DamageMultiplier *= 1f + YAMJ.CanOpenerDamageMultiplier; //other damage mults exist (genes) so we mult the mult instead of add
     }
 
     static void Postfix(Attack __instance, float? __state) {

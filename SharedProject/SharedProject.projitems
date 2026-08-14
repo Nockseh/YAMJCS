@@ -12,6 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\AssemblySettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorCanOpener.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorNames.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorPeriscope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorSteering.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\SharedPatches.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\YAMJ.cs" />
   </ItemGroup>

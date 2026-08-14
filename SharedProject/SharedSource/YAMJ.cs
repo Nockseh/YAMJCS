@@ -13,10 +13,13 @@ internal static class YAMJ
     private static ISettingBase<float>? eatingHungerReduction;
     private static ISettingBase<float>? raptorVisionRange;
     private static ISettingBase<bool>? raptorVisionShowDead;
+    private static ISettingBase<float>? canOpenerDamageMultiplier;
 
+    //set defaults
     public static float EatingHungerReduction => eatingHungerReduction?.Value ?? 4f;
     public static float RaptorVisionRange => raptorVisionRange?.Value ?? 1500f;
     public static bool RaptorVisionShowDead => raptorVisionShowDead?.Value ?? true;
+    public static float CanOpenerDamageMultiplier => canOpenerDamageMultiplier?.Value ?? 300f;
     
     //client settings
     #if CLIENT
@@ -57,6 +60,7 @@ internal static class YAMJ
         Bind(configService, package, "EatingHungerReduction", ref eatingHungerReduction);
         Bind(configService, package, "RaptorVisionRange", ref raptorVisionRange);
         Bind(configService, package, "RaptorVisionShowDead", ref raptorVisionShowDead);
+        Bind(configService, package, "CanOpenerDamageMultiplier", ref canOpenerDamageMultiplier);
         #if CLIENT
             Bind(configService, package, "RaptorVisionKey", ref raptorVisionKey);
             Bind(configService, package, "QuickChatKey", ref quickChatKey);

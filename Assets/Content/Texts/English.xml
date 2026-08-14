@@ -31,6 +31,9 @@
   <YAMJCS.RaptorVisionShowDead.DisplayName>Raptor Vision Shows Dead</YAMJCS.RaptorVisionShowDead.DisplayName>
   <YAMJCS.RaptorVisionShowDead.DisplayCategory>YAMJ Server Settings</YAMJCS.RaptorVisionShowDead.DisplayCategory>
   <YAMJCS.RaptorVisionShowDead.Tooltip>If enabled, raptors can sense dead bodies through walls (requires talent).</YAMJCS.RaptorVisionShowDead.Tooltip>
+  <YAMJCS.CanOpenerDamageMultiplier.DisplayName>Can Opener Damage Multiplier</YAMJCS.CanOpenerDamageMultiplier.DisplayName>
+  <YAMJCS.CanOpenerDamageMultiplier.DisplayCategory>YAMJ Server Settings</YAMJCS.CanOpenerDamageMultiplier.DisplayCategory>
+  <YAMJCS.CanOpenerDamageMultiplier.Tooltip>Additional (percent) damage deal to structures by characters with the raptor talent "Can Opener".</YAMJCS.CanOpenerDamageMultiplier.Tooltip>
   
   <!--Job.xml-->
   <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>
@@ -40,6 +43,7 @@
   <yamjMsg.cantUseItem>you don't know how to use that yet</yamjMsg.cantUseItem>
   <yamjMsg.cantRepair>you don't know how to repair that yet</yamjMsg.cantRepair>
   <yamjMsg.noRoomInInventory>no room in inventory</yamjMsg.noRoomInInventory>
+  <yamjMsg.cantSteer>you don't know how to steer</yamjMsg.cantSteer>
   <!-- Hints -->
   <yamjHint.pickUp>[[key]] Pick up</yamjHint.pickUp>
   <yamjHint.forceOpenBeak>[[use]] Force open (Beak)</yamjHint.forceOpenBeak>
@@ -129,7 +133,8 @@
   <entityname.yamjBackpackBio>Mudraptor Bio Backpack</entityname.yamjBackpackBio>
   <entitydescription.yamjBackpackBio>A large, luminescent backpack for storing ammunition, suits, and children.</entitydescription.yamjBackpackBio>
   <entityname.yamjBackpackCaravan>Mudraptor Caravan Backpack</entityname.yamjBackpackCaravan>
-  <entitydescription.yamjBackpackCaravan>A massive, heavy backpack for storing large items, containers, and children. Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan>
+  <entitydescription.yamjBackpackCaravan>A massive, heavy backpack for storing large items, containers, and children. 
+  Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan>
   <entityname.flareYAMJ>Bio Flare</entityname.flareYAMJ>
   <entitydescription.flareYAMJ>A bright sponge that glows when in contact with skin.</entitydescription.flareYAMJ>
   <entityname.raptorguitar>Raptor Guitar</entityname.raptorguitar>
@@ -185,18 +190,23 @@
   <talentname.YAMJFlare>Bio Flare</talentname.YAMJFlare>
   <talentdescription.YAMJFlare>Gain the recipe for Bio Flares, sponges that glow very brightly when held. Gain one after every mission.</talentdescription.YAMJFlare>
   <talentname.YAMJSleepTime>Raptor Nap</talentname.YAMJSleepTime>
-  <talentdescription.YAMJSleepTime>Ragdolling for [seconds] seconds grants the Sleepy Raptor bonus, healing damage over time but only while on land. Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.YAMJSleepTime>
+  <talentdescription.YAMJSleepTime>Ragdolling for [seconds] seconds grants the Sleepy Raptor bonus, healing damage over time but only while on land. 
+  Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.YAMJSleepTime>
   <!--General Tier 2-->
   <talentname.YAMJBackpack>Raptor Backpack</talentname.YAMJBackpack>
-  <talentdescription.YAMJBackpack>Make mudraptor backpacks. 5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpack>
+  <talentdescription.YAMJBackpack>Make mudraptor backpacks. 
+  5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpack>
   <talentname.YAMJFlareIce>Cold Bio Flare</talentname.YAMJFlareIce>
   <talentdescription.YAMJFlareIce>An ice cold sponge that glows very brightly when held. It slows down any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareIce>
   <talentname.YAMJFlareFire>Hot Bio Flare</talentname.YAMJFlareFire>
   <talentdescription.YAMJFlareFire>A flaming red hot sponge that glows very brightly when held. It slowly burns any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareFire>
   <talentname.YAMJBestFriend>Man's Best Friend</talentname.YAMJBestFriend>
-  <talentdescription.YAMJBestFriend>Nearby crewmates gain +[walkspeed]% Walk/Run Speed and +[swimspeed]% Swim Speed. You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.YAMJBestFriend>
+  <talentdescription.YAMJBestFriend>Nearby crewmates gain +[walkspeed]% Walk/Run Speed and +[swimspeed]% Swim Speed. 
+  You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.YAMJBestFriend>
   <talentname.YAMJSleepTime2>Contagious Nap</talentname.YAMJSleepTime2>
-  <talentdescription.YAMJSleepTime2>Naps become stronger. Humans now also gain the [affliction] bonus if they're near you while you nap. They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
+  <talentdescription.YAMJSleepTime2>Naps become stronger. 
+  Humans now also gain the [affliction] bonus if they're near you while you nap. 
+  They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
   <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
   <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
   <talentname.YAMJCanOpener>Can Opener</talentname.YAMJCanOpener>
@@ -205,19 +215,31 @@
   <talentname.YAMJSpeechCombat>Combat Training</talentname.YAMJSpeechCombat>
   <talentdescription.YAMJSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.YAMJSpeechCombat>
   <talentname.YAMJArmorPirate>Pirate Raptor</talentname.YAMJArmorPirate>
-  <talentdescription.YAMJArmorPirate>Learn new ways to protect yourself. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirate>
+  <talentdescription.YAMJArmorPirate>Learn new ways to protect yourself. 
+  Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirate>
   <talentname.YAMJBackpackCaravan>Pack Mule</talentname.YAMJBackpackCaravan>
-  <talentdescription.YAMJBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 9 slots for items, 2 for containers, 1 for children. Slows movement when equipped.</talentdescription.YAMJBackpackCaravan>
+  <talentdescription.YAMJBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 
+  9 slots for items, 2 for containers, 1 for children. Slows movement when equipped.</talentdescription.YAMJBackpackCaravan>
   <talentname.YAMJHeatSignature>Heat Signature</talentname.YAMJHeatSignature>
   <talentdescription.YAMJHeatSignature>Gain the ability to sense nearby bodies.</talentdescription.YAMJHeatSignature>
   <talentname.YAMJGunner>Gunner</talentname.YAMJGunner>
-  <talentdescription.YAMJGunner>Gain a [amount]% power increase to submarine turrets.</talentdescription.YAMJGunner>
+  <talentdescription.YAMJGunner>Learn to operate the submarine's turret periscopes, and deal [amount]% more damage with them.</talentdescription.YAMJGunner>
   <talentname.YAMJHumanoid>Humanoid Instinct</talentname.YAMJHumanoid>
   <talentdescription.YAMJHumanoid>Gain a [amount]% power increase to melee weapons and firearms.</talentdescription.YAMJHumanoid>
   <talentname.YAMJBond_Security>Guard Dog (Bond with Security)</talentname.YAMJBond_Security>
-  <talentdescription.YAMJBond_Security>Trained by Security to be the best Guard Dog this side of europa. Not attacking for 10 seconds grants you the Raptor Bite bonus, increasing your Creature Attack by 150% for one attack. While near others they gain 35% Stun Resistance. +10% Turret Attack Speed and Charge Speed. -10% Turret Power Cost. +10% Attack Speed. -20% Ranged Weapon Spread.</talentdescription.YAMJBond_Security>
+  <talentdescription.YAMJBond_Security>Trained by Security to be the best Guard Dog this side of europa. 
+  Not attacking for 10 seconds grants you the Raptor Bite bonus, increasing your Creature Attack by 150% for one attack. 
+  While near others they gain 35% Stun Resistance. 
+  +10% Turret Attack Speed and Charge Speed. 
+  -10% Turret Power Cost. 
+  +10% Attack Speed. 
+  -20% Ranged Weapon Spread.</talentdescription.YAMJBond_Security>
   <talentname.YAMJBond_Doctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBond_Doctor>
-  <talentdescription.YAMJBond_Doctor>Your interest in the crew Doctor has led you to some interesting discoveries. You gain the Gene Harvester Talent. While near others they heal most Physical Damage very slowly while also gaining +20% Stun, Poison and Chem Addiction Resistance. +30 Medical Skill Bonus. +30% Medical Item Effectiveness.</talentdescription.YAMJBond_Doctor>
+  <talentdescription.YAMJBond_Doctor>Your interest in the crew Doctor has led you to some interesting discoveries. 
+  You gain the Gene Harvester Talent. 
+  While near others they heal most Physical Damage very slowly while also gaining +20% Stun, Poison and Chem Addiction Resistance. 
+  +30 Medical Skill Bonus. 
+  +30% Medical Item Effectiveness.</talentdescription.YAMJBond_Doctor>
   <!--Predator -->
   <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
   <talentdescription.YAMJArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVet>
@@ -230,12 +252,19 @@
   <talentname.YAMJSwimSpeed>Feisty</talentname.YAMJSwimSpeed>
   <talentdescription.YAMJSwimSpeed>Get in, ravage, get out.</talentdescription.YAMJSwimSpeed>
   <talentname.YAMJMonsterInstinct>Monstrous</talentname.YAMJMonsterInstinct>
-  <talentdescription.YAMJMonsterInstinct>The old ways of combat are strong in your mind. Your creature attacks gain [damage]% damage and [piercing]% piercing.</talentdescription.YAMJMonsterInstinct>
+  <talentdescription.YAMJMonsterInstinct>The old ways of combat are strong in your mind. 
+  Your creature attacks gain [damage]% damage and [piercing]% piercing.</talentdescription.YAMJMonsterInstinct>
   <talentname.YAMJRelentless>Relentless</talentname.YAMJRelentless>
-  <talentdescription.YAMJRelentless>Your eyes glare with a burning passion for blood. Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.YAMJRelentless>
+  <talentdescription.YAMJRelentless>Your eyes glare with a burning passion for blood. 
+  Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.YAMJRelentless>
   <talentdescription.YAMJRelentless2>Whenever you fall below 0 health, you will remain fully conscious for [duration] seconds and your attacks receive +300% power.</talentdescription.YAMJRelentless2>
   <talentname.YAMJBond_Captain>Best in Show (Bond with Captain)</talentname.YAMJBond_Captain>
-  <talentdescription.YAMJBond_Captain>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds. Whenever your crew completes a mission, everyone gains +10% Extra EXP and Marks. While near others they gain 15% Stun and Damage Resistance. +30 Helm Skill Bonus. +10% Attack Power.</talentdescription.YAMJBond_Captain>
+  <talentdescription.YAMJBond_Captain>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds. 
+  Whenever your crew completes a mission, everyone gains +10% Extra EXP and Marks. 
+  While near others they gain 15% Stun and Damage Resistance. 
+  +30 Helm Skill Bonus. 
+  +10% Attack Power. 
+  Learn to steer using the navigation terminal.</talentdescription.YAMJBond_Captain>
   <!--Student -->
   <talentname.YAMJSpeechAdvanced>Linguist</talentname.YAMJSpeechAdvanced>
   <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.\nGain [amount]% [poisonresist].\nGain [amount]% [burnresist].</talentdescription.YAMJSpeechAdvanced>
@@ -274,9 +303,9 @@
   
   <afflictionname.YAMJBestFriendBuff>My Best Friend</afflictionname.YAMJBestFriendBuff>
   <afflictiondescription.YAMJBestFriendBuff>The Mudraptor close to you is bolstering your actions.
-    ‖color:gui.green‖+20%‖color:end‖ ‖color:gui.orange‖Walk/Run Speed.‖color:end‖
-    ‖color:gui.green‖+40%‖color:end‖ ‖color:gui.orange‖Swim Speed.‖color:end‖
-    ‖color:gui.green‖+75%‖color:end‖ ‖color:gui.orange‖Water Flow Resistance.‖color:end‖</afflictiondescription.YAMJBestFriendBuff>
+  ‖color:gui.green‖+20%‖color:end‖ ‖color:gui.orange‖Walk/Run Speed.‖color:end‖
+  ‖color:gui.green‖+40%‖color:end‖ ‖color:gui.orange‖Swim Speed.‖color:end‖
+  ‖color:gui.green‖+75%‖color:end‖ ‖color:gui.orange‖Water Flow Resistance.‖color:end‖</afflictiondescription.YAMJBestFriendBuff>
   <afflictionname.YAMJBestFriendBuffSelf>Best Friends</afflictionname.YAMJBestFriendBuffSelf>
   <afflictiondescription.YAMJBestFriendBuffSelf>‖color:gui.green‖+75% Water Flow Resistance.‖color:gui.end‖</afflictiondescription.YAMJBestFriendBuffSelf>
   
