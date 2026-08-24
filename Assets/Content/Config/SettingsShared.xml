@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Configuration>
     <Settings>
+    
+        <!-- Hunger -->
+        
         <Setting Name="HungerRate" Type="rangeFloat"
-                 Value="0.015" Min="0.0" Max="1.0" Steps="201"
+                 Value="0.015" Min="0.0" Max="0.5" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="EatingHungerReduction" Type="rangeFloat"
-                 Value="4.0" Min="0.0" Max="20.0" Steps="201"
+                 Value="4.0" Min="0.0" Max="20.0" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+                 
+        <!-- Talents -->
+        
         <Setting Name="RaptorVisionRange" Type="rangeFloat"
                  Value="1500.0" Min="0.0" Max="8000.0" Steps="65"
                  NetSync="TwoWay" ShowInMenus="true" />
@@ -19,8 +25,38 @@
         <Setting Name="FamiliarWatersDamageBonus" Type="rangeFloat"
                  Value="0.25" Min="0.0" Max="5.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+                 
+        <!-- Sleep -->
+        
         <Setting Name="SleepWindupTime" Type="rangeFloat"
                  Value="5.0" Min="0.0" Max="30.0" Steps="61"
                  NetSync="TwoWay" ShowInMenus="true" />
+                 
+        <Setting Name="SleepHealSelfDamage" Type="rangeFloat"
+                 Value="0.16" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SleepHealSelfBurn" Type="rangeFloat"
+                 Value="0.10" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SleepHealSelfBleeding" Type="rangeFloat"
+                 Value="0.06" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SleepHealSelfBloodLoss" Type="rangeFloat"
+                 Value="0.10" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+
+        <Setting Name="SleepHealOthersDamage" Type="rangeFloat"
+                 Value="0.08" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SleepHealOthersBurn" Type="rangeFloat"
+                 Value="0.05" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SleepHealOthersBleeding" Type="rangeFloat"
+                 Value="0.03" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SleepHealOthersBloodLoss" Type="rangeFloat"
+                 Value="0.05" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        
     </Settings>
 </Configuration>

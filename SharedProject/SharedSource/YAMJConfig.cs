@@ -21,6 +21,14 @@ public static class YAMJConfig {
     public static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
     public static float FamiliarWatersDamageBonus => GetFloat("FamiliarWatersDamageBonus") ?? 0.25f;
     public static float SleepWindupTime => GetFloat("SleepWindupTime") ?? 5;
+    public static float SleepHealSelfDamage => GetFloat("SleepHealSelfDamage") ?? 0.16f;
+    public static float SleepHealSelfBurn => GetFloat("SleepHealSelfBurn") ?? 0.10f;
+    public static float SleepHealSelfBleeding => GetFloat("SleepHealSelfBleeding") ?? 0.06f;
+    public static float SleepHealSelfBloodLoss => GetFloat("SleepHealSelfBloodLoss") ?? 0.10f;
+    public static float SleepHealOthersDamage => GetFloat("SleepHealOthersDamage") ?? 0.08f;
+    public static float SleepHealOthersBurn => GetFloat("SleepHealOthersBurn") ?? 0.05f;
+    public static float SleepHealOthersBleeding => GetFloat("SleepHealOthersBleeding") ?? 0.03f;
+    public static float SleepHealOthersBloodLoss => GetFloat("SleepHealOthersBloodLoss") ?? 0.05f;
     #endregion
     
     // Client Settings
@@ -55,6 +63,14 @@ public static class YAMJConfig {
         Bind(configService, thisPackage, "CanOpenerDamageBonus");
         Bind(configService, thisPackage, "FamiliarWatersDamageBonus");
         Bind(configService, thisPackage, "SleepWindupTime");
+        Bind(configService, thisPackage, "SleepHealSelfDamage");
+        Bind(configService, thisPackage, "SleepHealSelfBurn");
+        Bind(configService, thisPackage, "SleepHealSelfBleeding");
+        Bind(configService, thisPackage, "SleepHealSelfBloodLoss");
+        Bind(configService, thisPackage, "SleepHealOthersDamage");
+        Bind(configService, thisPackage, "SleepHealOthersBurn");
+        Bind(configService, thisPackage, "SleepHealOthersBleeding");
+        Bind(configService, thisPackage, "SleepHealOthersBloodLoss");
         #if CLIENT
         Bind(configService, thisPackage, "RaptorVisionKey");
         Bind(configService, thisPackage, "QuickChatKey");

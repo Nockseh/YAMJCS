@@ -3,46 +3,92 @@
 
   <!-- Client Settings -->
   <YAMJCS.RaptorVisionKey.DisplayName>Raptor Vision Keybind</YAMJCS.RaptorVisionKey.DisplayName>
-  <YAMJCS.RaptorVisionKey.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionKey.DisplayCategory>
+  <YAMJCS.RaptorVisionKey.DisplayCategory>Client</YAMJCS.RaptorVisionKey.DisplayCategory>
   <YAMJCS.RaptorVisionKey.Tooltip>Button to toggle thermal vision as a raptor (requires talent).</YAMJCS.RaptorVisionKey.Tooltip>
+  
   <YAMJCS.QuickChatKey.DisplayName>QuickChat Headset Keybind</YAMJCS.QuickChatKey.DisplayName>
-  <YAMJCS.QuickChatKey.DisplayCategory>YAMJ Client</YAMJCS.QuickChatKey.DisplayCategory>
+  <YAMJCS.QuickChatKey.DisplayCategory>Client</YAMJCS.QuickChatKey.DisplayCategory>
   <YAMJCS.QuickChatKey.Tooltip>Button to bring up the quickchat wheel (requires headset).</YAMJCS.QuickChatKey.Tooltip>
+  
   <YAMJCS.RaptorVisionRed.DisplayName>RaptorVision Red</YAMJCS.RaptorVisionRed.DisplayName>
-  <YAMJCS.RaptorVisionRed.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionRed.DisplayCategory>
+  <YAMJCS.RaptorVisionRed.DisplayCategory>Client</YAMJCS.RaptorVisionRed.DisplayCategory>
   <YAMJCS.RaptorVisionRed.Tooltip>Red value of raptor vision effect</YAMJCS.RaptorVisionRed.Tooltip>
+  
   <YAMJCS.RaptorVisionGreen.DisplayName>RaptorVision Green</YAMJCS.RaptorVisionGreen.DisplayName>
-  <YAMJCS.RaptorVisionGreen.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionGreen.DisplayCategory>
+  <YAMJCS.RaptorVisionGreen.DisplayCategory>Client</YAMJCS.RaptorVisionGreen.DisplayCategory>
   <YAMJCS.RaptorVisionGreen.Tooltip>Green value of raptor vision effect</YAMJCS.RaptorVisionGreen.Tooltip>
+  
   <YAMJCS.RaptorVisionBlue.DisplayName>RaptorVision Blue</YAMJCS.RaptorVisionBlue.DisplayName>
-  <YAMJCS.RaptorVisionBlue.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionBlue.DisplayCategory>
+  <YAMJCS.RaptorVisionBlue.DisplayCategory>Client</YAMJCS.RaptorVisionBlue.DisplayCategory>
   <YAMJCS.RaptorVisionBlue.Tooltip>Blue value of raptor vision effect</YAMJCS.RaptorVisionBlue.Tooltip>
+  
   <YAMJCS.RaptorVisionAlpha.DisplayName>RaptorVision Alpha</YAMJCS.RaptorVisionAlpha.DisplayName>
-  <YAMJCS.RaptorVisionAlpha.DisplayCategory>YAMJ Client</YAMJCS.RaptorVisionAlpha.DisplayCategory>
+  <YAMJCS.RaptorVisionAlpha.DisplayCategory>Client</YAMJCS.RaptorVisionAlpha.DisplayCategory>
   <YAMJCS.RaptorVisionAlpha.Tooltip>Opacity of raptor vision effect</YAMJCS.RaptorVisionAlpha.Tooltip>
 
   <!-- Shared Settings -->
+    <!--hunger-->
   <YAMJCS.HungerRate.DisplayName>Hunger Rate</YAMJCS.HungerRate.DisplayName>
-  <YAMJCS.HungerRate.DisplayCategory>YAMJ Server Settings</YAMJCS.HungerRate.DisplayCategory>
-  <YAMJCS.HungerRate.Tooltip>How much hunger a player raptor gains per second. At the default value 0.015, it should take ~90 minutes for a fully fed, healthy raptor to starve.</YAMJCS.HungerRate.Tooltip>
+  <YAMJCS.HungerRate.Tooltip>How much hunger a player raptor gains per second.
+  At the default value 0.015, it should take ~90 minutes for a fully fed, healthy raptor to starve.
+  At the max value 0.5, it takes about 3 minutes.</YAMJCS.HungerRate.Tooltip>
+  <YAMJCS.HungerRate.DisplayCategory>Hunger</YAMJCS.HungerRate.DisplayCategory>
+
   <YAMJCS.EatingHungerReduction.DisplayName>Eating Hunger Reduction</YAMJCS.EatingHungerReduction.DisplayName>
-  <YAMJCS.EatingHungerReduction.DisplayCategory>YAMJ Server Settings</YAMJCS.EatingHungerReduction.DisplayCategory>
   <YAMJCS.EatingHungerReduction.Tooltip>How much hunger is reduced per second when player raptors are eating.</YAMJCS.EatingHungerReduction.Tooltip>
+  <YAMJCS.EatingHungerReduction.DisplayCategory>Hunger</YAMJCS.EatingHungerReduction.DisplayCategory>
+    <!--talents-->
   <YAMJCS.RaptorVisionRange.DisplayName>Heat Signature Range</YAMJCS.RaptorVisionRange.DisplayName>
-  <YAMJCS.RaptorVisionRange.DisplayCategory>YAMJ Server Settings</YAMJCS.RaptorVisionRange.DisplayCategory>
   <YAMJCS.RaptorVisionRange.Tooltip>Range at which player raptors can sense enemies through walls (requires Heat Signature talent).</YAMJCS.RaptorVisionRange.Tooltip>
+  <YAMJCS.RaptorVisionRange.DisplayCategory>Talents</YAMJCS.RaptorVisionRange.DisplayCategory>
+
   <YAMJCS.RaptorVisionShowDead.DisplayName>Heat Signature Shows Dead</YAMJCS.RaptorVisionShowDead.DisplayName>
-  <YAMJCS.RaptorVisionShowDead.DisplayCategory>YAMJ Server Settings</YAMJCS.RaptorVisionShowDead.DisplayCategory>
   <YAMJCS.RaptorVisionShowDead.Tooltip>If enabled, raptors can sense alive AND dead bodies through walls when using the Heat Signature talent.</YAMJCS.RaptorVisionShowDead.Tooltip>
+  <YAMJCS.RaptorVisionShowDead.DisplayCategory>Talents</YAMJCS.RaptorVisionShowDead.DisplayCategory>
+  
   <YAMJCS.CanOpenerDamageBonus.DisplayName>Can Opener Damage Bonus</YAMJCS.CanOpenerDamageBonus.DisplayName>
-  <YAMJCS.CanOpenerDamageBonus.DisplayCategory>YAMJ Server Settings</YAMJCS.CanOpenerDamageBonus.DisplayCategory>
   <YAMJCS.CanOpenerDamageBonus.Tooltip>Additional damage dealt to structures by raptors with the talent "Can Opener".\nexample: 3 = +300% damage bonus.</YAMJCS.CanOpenerDamageBonus.Tooltip>
+  <YAMJCS.CanOpenerDamageBonus.DisplayCategory>Talents</YAMJCS.CanOpenerDamageBonus.DisplayCategory>
+  
   <YAMJCS.FamiliarWatersDamageBonus.DisplayName>Familiar Waters Damage Bonus</YAMJCS.FamiliarWatersDamageBonus.DisplayName>
-  <YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>YAMJ Server Settings</YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>
   <YAMJCS.FamiliarWatersDamageBonus.Tooltip>Outgoing damage bonus for raptors with the talent "Familiar Waters" while in the water.\nexample: 0.25 = +25% damage bonus.</YAMJCS.FamiliarWatersDamageBonus.Tooltip>
+  <YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>Talents</YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>
+    <!--sleep-->
   <YAMJCS.SleepWindupTime.DisplayName>Sleep Wind-up Time</YAMJCS.SleepWindupTime.DisplayName>
-  <YAMJCS.SleepWindupTime.DisplayCategory>YAMJ Server Settings</YAMJCS.SleepWindupTime.DisplayCategory>
   <YAMJCS.SleepWindupTime.Tooltip>The amount of time, in seconds, it takes for raptors to fall asleep (talent required).</YAMJCS.SleepWindupTime.Tooltip>
+  <YAMJCS.SleepWindupTime.DisplayCategory>Sleep</YAMJCS.SleepWindupTime.DisplayCategory>
+
+  <YAMJCS.SleepHealSelfDamage.DisplayName>Sleep Damage Healing (Self)</YAMJCS.SleepHealSelfDamage.DisplayName>
+  <YAMJCS.SleepHealSelfDamage.Tooltip>The amount of damage per second that sleeping raptors heal for.</YAMJCS.SleepHealSelfDamage.Tooltip>
+  <YAMJCS.SleepHealSelfDamage.DisplayCategory>Sleep</YAMJCS.SleepHealSelfDamage.DisplayCategory>
+
+  <YAMJCS.SleepHealSelfBurn.DisplayName>Sleep Burn Healing (Self)</YAMJCS.SleepHealSelfBurn.DisplayName>
+  <YAMJCS.SleepHealSelfBurn.Tooltip>The amount of burn per second that sleeping raptors heal for.</YAMJCS.SleepHealSelfBurn.Tooltip>
+  <YAMJCS.SleepHealSelfBurn.DisplayCategory>Sleep</YAMJCS.SleepHealSelfBurn.DisplayCategory>
+
+  <YAMJCS.SleepHealSelfBleeding.DisplayName>Sleep Bleed Healing (Self)</YAMJCS.SleepHealSelfBleeding.DisplayName>
+  <YAMJCS.SleepHealSelfBleeding.Tooltip>The amount of bleeding per second that sleeping raptors remove.</YAMJCS.SleepHealSelfBleeding.Tooltip>
+  <YAMJCS.SleepHealSelfBleeding.DisplayCategory>Sleep</YAMJCS.SleepHealSelfBleeding.DisplayCategory>
+
+  <YAMJCS.SleepHealSelfBloodLoss.DisplayName>Sleep Blood Loss Healing (Self)</YAMJCS.SleepHealSelfBloodLoss.DisplayName>
+  <YAMJCS.SleepHealSelfBloodLoss.Tooltip>The amount of blood loss per second that sleeping raptors heal for.</YAMJCS.SleepHealSelfBloodLoss.Tooltip>
+  <YAMJCS.SleepHealSelfBloodLoss.DisplayCategory>Sleep</YAMJCS.SleepHealSelfBloodLoss.DisplayCategory>
+  
+  <YAMJCS.SleepHealOthersDamage.DisplayName>Sleep Damage Healing (Allies)</YAMJCS.SleepHealOthersDamage.DisplayName>
+  <YAMJCS.SleepHealOthersDamage.Tooltip>The amount of damage per second that sleeping raptors heal their allies for.</YAMJCS.SleepHealOthersDamage.Tooltip>
+  <YAMJCS.SleepHealOthersDamage.DisplayCategory>Sleep</YAMJCS.SleepHealOthersDamage.DisplayCategory>
+
+  <YAMJCS.SleepHealOthersBurn.DisplayName>Sleep Burn Healing (Allies)</YAMJCS.SleepHealOthersBurn.DisplayName>
+  <YAMJCS.SleepHealOthersBurn.Tooltip>The amount of burn per second that sleeping raptors heal their allies for.</YAMJCS.SleepHealOthersBurn.Tooltip>
+  <YAMJCS.SleepHealOthersBurn.DisplayCategory>Sleep</YAMJCS.SleepHealOthersBurn.DisplayCategory>
+
+  <YAMJCS.SleepHealOthersBleeding.DisplayName>Sleep Bleed Healing (Allies)</YAMJCS.SleepHealOthersBleeding.DisplayName>
+  <YAMJCS.SleepHealOthersBleeding.Tooltip>The amount of bleeding per second that sleeping raptors remove from their allies.</YAMJCS.SleepHealOthersBleeding.Tooltip>
+  <YAMJCS.SleepHealOthersBleeding.DisplayCategory>Sleep</YAMJCS.SleepHealOthersBleeding.DisplayCategory>
+
+  <YAMJCS.SleepHealOthersBloodLoss.DisplayName>Sleep Blood Loss Healing (Allies)</YAMJCS.SleepHealOthersBloodLoss.DisplayName>
+  <YAMJCS.SleepHealOthersBloodLoss.Tooltip>The amount of blood loss per second that sleeping raptors heal their allies for.</YAMJCS.SleepHealOthersBloodLoss.Tooltip>
+  <YAMJCS.SleepHealOthersBloodLoss.DisplayCategory>Sleep</YAMJCS.SleepHealOthersBloodLoss.DisplayCategory>
 
   <!-- Config Text Tags -->
   <yamjConfig.CanOpenerDamageBonus.percent>300</yamjConfig.CanOpenerDamageBonus.percent>
@@ -249,11 +295,9 @@
   +10% Attack Speed. 
   -20% Ranged Weapon Spread.</talentdescription.YAMJBond_Security>
   <talentname.YAMJBond_Doctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBond_Doctor>
-  <talentdescription.YAMJBond_Doctor>Your interest in the crew Doctor has led you to some interesting discoveries. 
-  You gain the Gene Harvester Talent. 
-  While near others they heal most Physical Damage very slowly while also gaining +20% Stun, Poison and Chem Addiction Resistance. 
-  +30 Medical Skill Bonus. 
-  +30% Medical Item Effectiveness.</talentdescription.YAMJBond_Doctor>
+  <talentdescription.YAMJBond_Doctor>You're the perfect test subject. 
+  You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
+  You and nearby allies gain [resist]% resistance to [burn] and [poison].</talentdescription.YAMJBond_Doctor>
   <!--Predator -->
   <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
   <talentdescription.YAMJArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVet>
@@ -281,9 +325,12 @@
   Learn to steer using the navigation terminal.</talentdescription.YAMJBond_Captain>
   <!--Student -->
   <talentname.YAMJSpeechAdvanced>Linguist</talentname.YAMJSpeechAdvanced>
-  <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.\nGain [amount]% [poisonresist].\nGain [amount]% [burnresist].</talentdescription.YAMJSpeechAdvanced>
+  <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.
+  Gain [amount]% [poisonresist].
+  Gain [amount]% [burnresist].</talentdescription.YAMJSpeechAdvanced>
   <talentname.YAMJBackpackBio>Bio Backpack</talentname.YAMJBackpackBio>
-  <talentdescription.YAMJBackpackBio>Make mudraptor backpacks lined with glowing chemicals. 7 slots for items, 2 for children.</talentdescription.YAMJBackpackBio>
+  <talentdescription.YAMJBackpackBio>Make mudraptor backpacks lined with glowing chemicals.
+  7 slots for items, 2 for children.</talentdescription.YAMJBackpackBio>
   <talentname.YAMJSkillGain>Quick Learner</talentname.YAMJSkillGain>
   <talentname.YAMJRepairSpeed>Hydrophobe</talentname.YAMJRepairSpeed>
   <talentdescription.YAMJGuitarRaptor>Anyone hearing your music will be invigorated with the desire to do more, gaining a +10 bonus to All Skills. If you keep playing, people around you will gain 10 XP at random.</talentdescription.YAMJGuitarRaptor>
@@ -293,17 +340,14 @@
   <talentdescription.YAMJClownCollege>The Honkmother's reach goes far in these deep dark waters...</talentdescription.YAMJClownCollege>
   <talentname.YAMJMachinist>Machinist</talentname.YAMJMachinist>
   <talentdescription.YAMJMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.YAMJMachinist>
-  <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>
-  <talentdescription.YAMJBond_Engineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake. You gain the Electrochemist Talent. +30 Electrical Skill Bonus. 25% Repair Speed.</talentdescription.YAMJBond_Engineer>
-  <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
-  <talentdescription.YAMJBond_Mechanic>You've picked up some tricks on how to better seek out what a mechanic requires. You gain the Scrounger Talent. +30 Mechanical Skill Bonus. +25% Hull/Mechanical Repair Speed and +50% Mining Speed.</talentdescription.YAMJBond_Mechanic>
   <!-- Afflictions! -->
   <afflictionname.yamjHunger>Hungry</afflictionname.yamjHunger>
   <afflictiondescription.yamjHunger.veryLow>A faint restlessness... hunger.</afflictiondescription.yamjHunger.veryLow>
   <afflictiondescription.yamjHunger.low>A gnawing pain resides in the stomach.</afflictiondescription.yamjHunger.low>
   <afflictiondescription.yamjHunger.medium>Focus is faltering, subject is drooling.</afflictiondescription.yamjHunger.medium>
   <afflictiondescription.yamjHunger.high>Sluggish and weak, showing clear signs of malnutrition.</afflictiondescription.yamjHunger.high>
-  <afflictiondescription.yamjHunger.veryHigh>Experiencing severe malnutrition. A frantic surge of energy burns through what remains as the body begins to fail.</afflictiondescription.yamjHunger.veryHigh>
+  <afflictiondescription.yamjHunger.veryHigh>Experiencing severe malnutrition.
+  A frantic surge of energy burns through what remains as the body begins to fail.</afflictiondescription.yamjHunger.veryHigh>
   <afflictiondescription.yamjHunger.self.veryLow>...</afflictiondescription.yamjHunger.self.veryLow>
   <afflictiondescription.yamjHunger.self.low>Eat.</afflictiondescription.yamjHunger.self.low>
   <afflictiondescription.yamjHunger.self.medium>Need food...</afflictiondescription.yamjHunger.self.medium>
@@ -324,7 +368,8 @@
   <afflictiondescription.YAMJBestFriendBuffSelf>‖color:gui.green‖+75% Water Flow Resistance.‖color:gui.end‖</afflictiondescription.YAMJBestFriendBuffSelf>
   
   <afflictionname.YAMJSleepTimeIcon>Raptor Nap</afflictionname.YAMJSleepTimeIcon>
-  <afflictiondescription.YAMJSleepTimeIcon>While under the effects of Raptor Nap, your vitality is slowly regenerating. Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.YAMJSleepTimeIcon>
+  <afflictiondescription.YAMJSleepTimeIcon>While under the effects of Raptor Nap, your vitality is slowly regenerating.
+  Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.YAMJSleepTimeIcon>
   
   <afflictionname.YAMJguitarraptorbuff>Guitar Raptor Serenade</afflictionname.YAMJguitarraptorbuff>
   <afflictiondescription.YAMJguitarraptorbuff>Guitar Raptor's songs invigorate you with a passion to do more.</afflictiondescription.YAMJguitarraptorbuff>
@@ -339,15 +384,26 @@
   <afflictiondescription.YAMJBond_SecurityBuff>Your skill with weapons and turrets is bolstered due to the Guard Dog.</afflictiondescription.YAMJBond_SecurityBuff>
   <afflictionname.YAMJRaptorBite>Raptor Bite</afflictionname.YAMJRaptorBite>
   <afflictiondescription.YAMJRaptorBite>Fully charged and ready to nibble!</afflictiondescription.YAMJRaptorBite>
-  
+
+  <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>
+  <talentdescription.YAMJBond_Engineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake.
+  Gain the [talentName] Talent.
+  +30 Electrical Skill Bonus.
+  25% Repair Speed.</talentdescription.YAMJBond_Engineer>
   <afflictionname.YAMJBond_EngineerBuff>Radiation Rascal</afflictionname.YAMJBond_EngineerBuff>
   <afflictiondescription.YAMJBond_EngineerBuff>Your skill with electronics and repairing is bolstered due to the Radiation Rascal.</afflictiondescription.YAMJBond_EngineerBuff>
-  
+
+  <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
+  <talentdescription.YAMJBond_Mechanic>You've picked up some tricks on how to better seek out what a mechanic requires.
+  Gain the [talentName] Talent.
+  +30 Mechanical Skill Bonus.
+  +25% Hull/Mechanical Repair Speed.
+  +50% Mining Speed.</talentdescription.YAMJBond_Mechanic>
   <afflictionname.YAMJBond_MechanicBuff>Tool Seeker</afflictionname.YAMJBond_MechanicBuff>
   <afflictiondescription.YAMJBond_MechanicBuff>Your skills with mechanical devices and hull repairs are bolstered due to the Tool Seeker.</afflictiondescription.YAMJBond_MechanicBuff>
   
-  <afflictionname.YAMJBond_DoctorBuff>Therapy's Left Claw</afflictionname.YAMJBond_DoctorBuff>
-  <afflictiondescription.YAMJBond_DoctorBuff>Your skills with medicines and poisons are bolstered due to the Doctor's Raptor.</afflictiondescription.YAMJBond_DoctorBuff>
+  <afflictionname.YAMJBond_DoctorBuff.self>Test Subject</afflictionname.YAMJBond_DoctorBuff.self>
+  <afflictiondescription.YAMJBond_DoctorBuff>Your resistances to burn and poison damage are temporarily elevated.</afflictiondescription.YAMJBond_DoctorBuff>
   
   <afflictionname.YAMJimplacable>Relentless</afflictionname.YAMJimplacable>
   <afflictiondescription.YAMJimplacable>‖color:red‖KILL! KILL! KILL!‖color:end‖</afflictiondescription.YAMJimplacable>

@@ -286,16 +286,10 @@
             <StatusEffect type="OnAbility" target="Character">
               <Affliction identifier="YAMJSleepTimeVFX" amount="5.0" />
               <Affliction identifier="YAMJSleepTimeIcon" amount="2.0" />
-              <ReduceAffliction identifier="blunttrauma" strength="0.175" />
-              <ReduceAffliction identifier="explosiondamage" strength="0.175" />
-              <ReduceAffliction identifier="internaldamage" strength="0.175" />
-              <ReduceAffliction identifier="organdamage" strength="0.175" />
-              <ReduceAffliction identifier="lacerations" strength="0.175" />
-              <ReduceAffliction identifier="gunshotwound" strength="0.175" />
-              <ReduceAffliction identifier="bitewounds" strength="0.175" />
-              <ReduceAffliction identifier="burn" strength="0.1" />
-              <ReduceAffliction identifier="bleeding" strength="0.1" />
-              <ReduceAffliction identifier="bloodloss" strength="0.1" />
+              <ReduceAffliction type="damage" strength="0.16" configoverride="strength=SleepHealSelfDamage" />
+              <ReduceAffliction type="burn" strength="0.10" configoverride="strength=SleepHealSelfBurn" />
+              <ReduceAffliction identifier="bleeding" strength="0.06" configoverride="strength=SleepHealSelfBleeding" />
+              <ReduceAffliction identifier="bloodloss" strength="0.10" configoverride="strength=SleepHealSelfBloodLoss" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
@@ -318,17 +312,12 @@
         <CharacterAbilityApplyStatusEffects maxdistance="300" allowself="true">
           <StatusEffects>
             <StatusEffect type="OnAbility" target="NearbyCharacters" range="300">
+              <!-- Heals Allies at half the rate -->
               <Affliction identifier="YAMJSleepTimeIcon" amount="2.0" />
-              <ReduceAffliction identifier="blunttrauma" strength="0.13" />
-              <ReduceAffliction identifier="explosiondamage" strength="0.13" />
-              <ReduceAffliction identifier="internaldamage" strength="0.13" />
-              <ReduceAffliction identifier="organdamage" strength="0.13" />
-              <ReduceAffliction identifier="lacerations" strength="0.13" />
-              <ReduceAffliction identifier="gunshotwound" strength="0.13" />
-              <ReduceAffliction identifier="bitewounds" strength="0.13" />
-              <ReduceAffliction identifier="burn" strength="0.08" />
-              <ReduceAffliction identifier="bleeding" strength="0.08" />
-              <ReduceAffliction identifier="bloodloss" strength="0.08" />
+              <ReduceAffliction type="damage" strength="0.08" configoverride="strength=SleepHealOthersDamage" />
+              <ReduceAffliction type="burn" strength="0.05" configoverride="strength=SleepHealOthersBurn" />
+              <ReduceAffliction identifier="bleeding" strength="0.03" configoverride="strength=SleepHealOthersBleeding" />
+              <ReduceAffliction identifier="bloodloss" strength="0.05" configoverride="strength=SleepHealOthersBloodLoss" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
@@ -901,7 +890,9 @@
   
   <Talent identifier="YAMJBond_Engineer">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Engineer" />
+    <Description tag="talentdescription.YAMJBond_Engineer">
+      <Replace tag="[talentName]" value="talentname.lightningwizard" color="gui.orange" />
+    </Description>
     <AbilityGroupInterval interval="0.5">
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
@@ -914,53 +905,25 @@
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
-    <AbilityGroupInterval interval="1">
+    <AbilityGroupInterval interval="1" maxtriggercount="1">
       <Abilities>
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
-            <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
-              <Affliction identifier="guarded" amount="1.0" />
+            <StatusEffect type="OnAbility" target="This">
+              <GiveTalentInfo talentidentifiers="lightningwizard" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
-    <AbilityGroupEffect abilityeffecttype="OnAttacked">
-      <Conditions>
-        <AbilityConditionHasAffliction afflictionidentifier="guarded" minimumpercentage="1.0" />
-        <AbilityConditionAttackData ignorenonharmfulattacks="true" weapontype="NoWeapon,Melee" />
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="-0.8" />
-        <CharacterAbilityApplyStatusEffectsToAttacker>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character">
-              <Affliction identifier="stun" amount="4.0" />
-              <Affliction identifier="radiationsickness" amount="35.0" />
-              <ParticleEmitter particle="ElectricShock" distancemin="0" distancemax="50" particleamount="5" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
-              <sound file="Content/Items/Weapons/WEAPONS_electricalDischarge1.ogg" range="500" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffectsToAttacker>
-      </Abilities>
-    </AbilityGroupEffect>
-    <AbilityGroupEffect abilityeffecttype="OnAttackedResult">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="This">
-              <ReduceAffliction identifier="guarded" strength="10.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupEffect>
     <AddedRecipe itemidentifier="mudraptorengihelm" />
   </Talent>
   
   <Talent identifier="YAMJBond_Mechanic">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Mechanic" />
+    <Description tag="talentdescription.YAMJBond_Mechanic">
+      <Replace tag="[talentName]" value="talentname.scrapsavant" color="gui.orange" />
+    </Description>
     <AbilityGroupInterval interval="0.5">
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
@@ -973,61 +936,50 @@
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
-    <AbilityGroupEffect abilityeffecttype="OnOpenItemContainer">
-      <Conditions>
-        <AbilityConditionItemInSubmarine submarinetype="Wreck" />
-        <AbilityConditionItem tags="container" />
-      </Conditions>
+    <AbilityGroupInterval interval="1" maxtriggercount="1">
       <Abilities>
-        <CharacterAbilitySpawnItemsToContainer randomchance="0.4" oncepercontainer="true">
+        <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
-            <StatusEffect type="OnAbility" target="UseTarget">
-              <SpawnItem identifiers="scrap" spawnposition="ThisInventory" spawnifcantbecontained="false" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilitySpawnItemsToContainer>
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
-  
-  <Talent identifier="YAMJBond_Doctor">
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Doctor" />
-    <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="Mudraptor Thermal Medical Helm" color="gui.orange" />
-    </Description>
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
-              <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBond_DoctorBuff" strength="1.0" />
-              <ReduceAffliction type="damage" strength="0.001" />
-              <ReduceAffliction type="burn" strength="0.001" />
-              <ReduceAffliction identifier="bleeding" strength="0.001" />
-              <ReduceAffliction identifier="bloodloss" strength="0.001" />
+            <StatusEffect type="OnAbility" target="This">
+              <GiveTalentInfo talentidentifiers="scrapsavant" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
-    <AbilityGroupEffect abilityeffecttype="OnCrewKillCharacter">
-      <Conditions>
-        <AbilityConditionServerRandom randomchance="0.35" />
-        <AbilityConditionCharacter targettype="Enemy,Monster" />
-        <AbilityConditionGeneHarvester />
-      </Conditions>
+  </Talent>
+  
+  <Talent identifier="YAMJBond_Doctor">
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" />
+    <Description tag="talentdescription.YAMJBond_Doctor">
+      <Replace tag="[geneHarvester]" value="talentname.geneharvester" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="Mudraptor Thermal Medical Helm" color="gui.orange" />
+    </Description>
+    <AbilityGroupInterval interval="0.5">
       <Abilities>
-        <CharacterAbilityApplyStatusEffects>
+        <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="true">
           <StatusEffects>
-            <StatusEffect type="OnAbility" target="UseTarget" spawnitemrandomly="true">
-              <SpawnItem identifiers="geneticmaterial_unresearched" spawnposition="ThisInventory" />
+            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
+              <Conditional isplayer="true" />
+              <Affliction identifier="YAMJBond_DoctorBuff" strength="1.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
-    </AbilityGroupEffect>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval interval="1" maxtriggercount="1">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This">
+              <GiveTalentInfo talentidentifiers="geneharvester" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
     <AddedRecipe itemidentifier="mudraptormedichelm" />
   </Talent>
   

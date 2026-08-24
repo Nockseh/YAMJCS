@@ -94,14 +94,14 @@
   
   <!-- Sleep Time Icon, & Blur Effect -->
   <Affliction identifier="YAMJSleepTimeIcon" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="0" maxstrength="2" duration="2" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
-    <Effect minstrength="0" maxstrength="2">
+    <Effect minstrength="0" maxstrength="2" strengthchange="-0.5">
       <StatValue stattype="SkillGainSpeed" minvalue="0.5" maxvalue="0.5" />
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
   
   <Affliction identifier="YAMJSleepTimeVFX" type="talentbuff" limbspecific="false" maxstrength="5" showiconthreshold="1000" showinhealthscannerthreshold="1000" treatmentthreshold="1000">
-    <Effect minstrength="0" maxstrength="2"
+    <Effect minstrength="0" maxstrength="5" strengthchange="-1"
       MinAfflictionOverlayAlphaMultiplier="0.0" MaxAfflictionOverlayAlphaMultiplier="1.0"
       minscreenblur="0.0" maxscreenblur="1.0"
     />
@@ -186,10 +186,7 @@
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
   <Affliction identifier="YAMJBond_DoctorBuff" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
-    <Effect minstrength="0" maxstrength="1" resistancefor="stun,poison,chemaddiction" minresistance="0.2" maxresistance="0.2">
-      <StatValue stattype="MedicalSkillBonus" value="30" />
-      <StatValue stattype="MedicalItemEffectivenessMultiplier" value="0.3" />
-    </Effect>
+    <Effect minstrength="0" maxstrength="1" resistancefor="stun,poison,chemaddiction" minresistance="0.2" maxresistance="0.2" configoverride=""/>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
   <!-- Security Bond Bite Buff -->
