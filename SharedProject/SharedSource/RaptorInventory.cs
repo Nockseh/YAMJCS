@@ -64,10 +64,6 @@ internal static class RaptorInventory {
     private static readonly Identifier BondWithMechanic = "YAMJBond_Mechanic".ToIdentifier();
     private static readonly Identifier BondWithEngineer = "YAMJBond_Engineer".ToIdentifier();
     private static readonly Identifier BondWithDoctor = "YAMJBond_Doctor".ToIdentifier();
-    private static readonly Identifier[] Edible = new Identifier[] {"petfood1", "petfood2", "petfood3", "monsterfood"}; //TODO expand
-    private static readonly Identifier[] MechanicEdible = new Identifier[] {"ore","scrap"};
-    private static readonly Identifier[] EngineerEdible = new Identifier[] {"reactorfuel"};
-    private static readonly Identifier[] DoctorEdible = new Identifier[] {"unidentifiedgeneticmaterial"};
 
     // Helper Functions
     public static bool CanBeWorn(Item item, Character character) {
@@ -85,19 +81,19 @@ internal static class RaptorInventory {
     }
 
     public static bool CanDigest(Item item, Character character) {
-        if (item.HasTag(Edible)) {
+        if (item.HasTag(YAMJ.BasicFood)) {
             return true;
         }
 
-        if (item.HasTag(MechanicEdible) && character.HasTalent(BondWithMechanic)) {
+        if (item.HasTag(YAMJ.MechanicFood) && character.HasTalent(BondWithMechanic)) {
             return true;
         }
 
-        if (item.HasTag(EngineerEdible) && character.HasTalent(BondWithEngineer)) {
+        if (item.HasTag(YAMJ.EngineerFood) && character.HasTalent(BondWithEngineer)) {
             return true;
         }
 
-        if (item.HasTag(DoctorEdible) && character.HasTalent(BondWithDoctor)) {
+        if (item.HasTag(YAMJ.DoctorFood) && character.HasTalent(BondWithDoctor)) {
             return true;
         }
 

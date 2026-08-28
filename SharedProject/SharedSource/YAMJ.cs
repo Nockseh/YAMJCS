@@ -10,9 +10,14 @@ internal static partial class YAMJ
     public const string PlayerRaptorSpecies = "Mudraptor_player";
     public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
     public const string PlayerRaptorJobId = "PlayerMudraptorJob";
+    public static readonly Identifier HungerAfflictionId = "yamjHunger".ToIdentifier();
     public static readonly Identifier RaptorBabySpecies = "RaptorBaby".ToIdentifier();
     public static readonly Identifier RaptorBabyItemId = "raptorbabyitem".ToIdentifier();
     public static readonly Identifier RaptorOnlyTag = "yamjraptoronly".ToIdentifier();
+    public static readonly Identifier[] BasicFood = new Identifier[] {"food", "monsterfood", "plant"};
+    public static readonly Identifier[] MechanicFood = new Identifier[] {"ore","scrap"};
+    public static readonly Identifier[] EngineerFood = new Identifier[] {"reactorfuel"};
+    public static readonly Identifier[] DoctorFood = new Identifier[] {"unidentifiedgeneticmaterial", "geneticmaterial"};
     // vars
     public static AfflictionPrefab? HungerPrefab;
     public static AfflictionPrefab? EatingBuffPrefab;

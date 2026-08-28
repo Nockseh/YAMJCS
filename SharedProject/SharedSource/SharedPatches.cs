@@ -2,20 +2,52 @@
 using HarmonyLib;
 using TypeExtensions = System.TypeExtensions;
 
-namespace YAMJCS {
+namespace YAMJCS;
     
-    internal static partial class PatchTargets {
+internal static partial class PatchTargets {
+        
+    public static MethodBase Character_DoInteractionUpdate =>
+        AccessTools.Method(
+            typeof(Character),
+            nameof(Character.DoInteractionUpdate),
+            new[] {
+                typeof(float),
+                typeof(Vector2)
+            }) ??
+        throw new Exception("Character.DoInteractionUpdate(float, Vector2) not found");
+
+    public static MethodBase Character_UpdateAll =>
+        AccessTools.Method(
+            typeof(Character),
+            nameof(Character.UpdateAll),
+            new[] {
+                typeof(float),
+                typeof(Camera)
+            }) ??
+        throw new Exception("Character.UpdateAll(float, Camera) not found");
+}
+
+[HarmonyPatch] //Character.UpdateAll(deltaTime, Camera). self-explanatory. this is where i keep the timers
+internal static class Character_UpdateAll {
+    static MethodBase TargetMethod() => PatchTargets.Character_UpdateAll;
+
+    private static float digestionTimer = 0f;
+
+    static void Postfix(float deltaTime) {
+        if (GameMain.NetworkMember is { IsClient: true }) { return; }
+
+        digestionTimer += deltaTime;
+        if (digestionTimer >= YAMJConfig.DigestionUpdateInterval) {
+            float elapsed = digestionTimer;
+            digestionTimer = 0f;
             
-        public static MethodBase Character_DoInteractionUpdate =>
-            AccessTools.Method(
-                typeof(Character),
-                nameof(Character.DoInteractionUpdate),
-                new[] {
-                    typeof(float),
-                    typeof(Vector2)
-                }) ??
-            throw new Exception("Character.DoInteractionUpdate(float, Vector2) not found");
+            foreach (Character character in Character.CharacterList) {
+                if (character.Removed || character.IsDead || !YAMJ.IsPlayerRaptor(character)) { continue; }
+                RaptorGut.Digest(character, elapsed);
+            }
+        }
     }
+}
 
 [HarmonyPatch] //allows baby raptors to be picked up with LMB
 internal static class RaptorBbyPickup {
@@ -58,6 +90,4 @@ internal static class RaptorBbyPickup {
         Entity.Spawner.AddEntityToRemoveQueue(focusedCharacter);
         Entity.Spawner.AddItemToSpawnQueue(petItem, __instance.Inventory, condition: storedHealth, spawnIfInventoryFull: true);
     }
-}
-    
 }

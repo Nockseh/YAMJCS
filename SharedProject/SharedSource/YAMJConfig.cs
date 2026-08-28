@@ -14,12 +14,26 @@ public static class YAMJConfig {
     
     #region Server Settings
     // Shared Settings
+        //hunger
     public static float HungerRate => GetFloat("HungerRate") ?? 0.015f;
     public static float EatingHungerReduction => GetFloat("EatingHungerReduction") ?? 4f;
+    public static float DigestionUpdateInterval => GetFloat("DigestionUpdateInterval") ?? 2f;
+        //digestion hunger
+    public static float BasicFoodHungerReduction => GetFloat("BasicFoodHungerReduction") ?? 1.0f;
+    public static float EngineerFoodHungerReduction => GetFloat("EngineerFoodHungerReduction") ?? 0.1f;
+    public static float MechanicFoodHungerReduction => GetFloat("MechanicFoodHungerReduction") ?? 0.1f;
+    public static float DoctorFoodHungerReduction => GetFloat("DoctorFoodHungerReduction") ?? -0.1f;
+        //digestion condition
+    public static float BasicFoodConditionReduction => GetFloat("BasicFoodConditionReduction") ?? 1.0f;
+    public static float EngineerFoodConditionReduction => GetFloat("EngineerFoodConditionReduction") ?? 0.01f;
+    public static float MechanicFoodConditionReduction => GetFloat("MechanicFoodConditionReduction") ?? 0.2f;
+    public static float DoctorFoodConditionReduction => GetFloat("DoctorFoodConditionReduction") ?? -0.01f;
+        //talents
     public static float RaptorVisionRange => GetFloat("RaptorVisionRange") ?? 1500f;
     public static bool RaptorVisionShowDead => GetBool("RaptorVisionShowDead") ?? true;
     public static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
     public static float FamiliarWatersDamageBonus => GetFloat("FamiliarWatersDamageBonus") ?? 0.25f;
+        //sleep
     public static float SleepWindupTime => GetFloat("SleepWindupTime") ?? 5;
     public static float SleepHealSelfDamage => GetFloat("SleepHealSelfDamage") ?? 0.16f;
     public static float SleepHealSelfBurn => GetFloat("SleepHealSelfBurn") ?? 0.10f;
@@ -55,13 +69,26 @@ public static class YAMJConfig {
             YAMJ.Log("Could not resolve content package 'YAMJCS', config not initialized");
             return;
         }
-
+        //hunger
         Bind(configService, thisPackage, "HungerRate");
         Bind(configService, thisPackage, "EatingHungerReduction");
+        Bind(configService, thisPackage, "DigestionUpdateInterval");
+        
+        Bind(configService, thisPackage, "BasicFoodHungerReduction");
+        Bind(configService, thisPackage, "EngineerFoodHungerReduction");
+        Bind(configService, thisPackage, "MechanicFoodHungerReduction");
+        Bind(configService, thisPackage, "DoctorFoodHungerReduction");
+        
+        Bind(configService, thisPackage, "BasicFoodConditionReduction");
+        Bind(configService, thisPackage, "EngineerFoodConditionReduction");
+        Bind(configService, thisPackage, "MechanicFoodConditionReduction");
+        Bind(configService, thisPackage, "DoctorFoodConditionReduction");
+        //talents
         Bind(configService, thisPackage, "RaptorVisionRange");
         Bind(configService, thisPackage, "RaptorVisionShowDead");
         Bind(configService, thisPackage, "CanOpenerDamageBonus");
         Bind(configService, thisPackage, "FamiliarWatersDamageBonus");
+        //sleep
         Bind(configService, thisPackage, "SleepWindupTime");
         Bind(configService, thisPackage, "SleepHealSelfDamage");
         Bind(configService, thisPackage, "SleepHealSelfBurn");

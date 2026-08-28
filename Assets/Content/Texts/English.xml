@@ -35,8 +35,55 @@
   <YAMJCS.HungerRate.DisplayCategory>Hunger</YAMJCS.HungerRate.DisplayCategory>
 
   <YAMJCS.EatingHungerReduction.DisplayName>Eating Hunger Reduction</YAMJCS.EatingHungerReduction.DisplayName>
-  <YAMJCS.EatingHungerReduction.Tooltip>How much hunger is reduced per second when player raptors are eating.</YAMJCS.EatingHungerReduction.Tooltip>
+  <YAMJCS.EatingHungerReduction.Tooltip>How much hunger is reduced per second when player raptors are eating corpses.</YAMJCS.EatingHungerReduction.Tooltip>
   <YAMJCS.EatingHungerReduction.DisplayCategory>Hunger</YAMJCS.EatingHungerReduction.DisplayCategory>
+    
+  <YAMJCS.DigestionUpdateInterval.DisplayName>Digestion Update Interval</YAMJCS.DigestionUpdateInterval.DisplayName>
+  <YAMJCS.DigestionUpdateInterval.Tooltip>Time between gut digestion updates, in seconds. Does not affect rate of digestion.</YAMJCS.DigestionUpdateInterval.Tooltip>
+  <YAMJCS.DigestionUpdateInterval.DisplayCategory>Hunger</YAMJCS.DigestionUpdateInterval.DisplayCategory>
+    <!--digestion (hunger) -->
+  <YAMJCS.BasicFoodHungerReduction.DisplayName>Basic Food Hunger Reduction</YAMJCS.BasicFoodHungerReduction.DisplayName>
+  <YAMJCS.BasicFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each piece of normal food in their gut.</YAMJCS.BasicFoodHungerReduction.Tooltip>
+  <YAMJCS.BasicFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.BasicFoodHungerReduction.DisplayCategory>
+
+  <YAMJCS.EngineerFoodHungerReduction.DisplayName>Fuel Rod Hunger Reduction</YAMJCS.EngineerFoodHungerReduction.DisplayName>
+  <YAMJCS.EngineerFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each reactor fuel rod in their gut.
+  Requires Bond with Engineer.</YAMJCS.EngineerFoodHungerReduction.Tooltip>
+  <YAMJCS.EngineerFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodHungerReduction.DisplayCategory>
+
+  <YAMJCS.MechanicFoodHungerReduction.DisplayName>Ore and Scrap Hunger Reduction</YAMJCS.MechanicFoodHungerReduction.DisplayName>
+  <YAMJCS.MechanicFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each piece of ore or scrap in their gut.
+  Requires Bond with Mechanic.
+  Negative values make metal increase hunger rather than reduce it.</YAMJCS.MechanicFoodHungerReduction.Tooltip>
+  <YAMJCS.MechanicFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodHungerReduction.DisplayCategory>
+
+  <YAMJCS.DoctorFoodHungerReduction.DisplayName>Genetic Material Hunger Reduction</YAMJCS.DoctorFoodHungerReduction.DisplayName>
+  <YAMJCS.DoctorFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each unidentified genetic sample in their gut.
+  Requires Bond with Medic.
+  Negative values make genes increase hunger rather than reduce it.
+  Negative by default.</YAMJCS.DoctorFoodHungerReduction.Tooltip>
+  <YAMJCS.DoctorFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodHungerReduction.DisplayCategory>
+    <!--digestion (condition) -->
+  <YAMJCS.BasicFoodConditionReduction.DisplayName>Basic Food Condition Reduction</YAMJCS.BasicFoodConditionReduction.DisplayName>
+  <YAMJCS.BasicFoodConditionReduction.Tooltip>How much condition normal food loses per second while in a player raptor's gut.
+  The item is consumed once its condition reaches zero.</YAMJCS.BasicFoodConditionReduction.Tooltip>
+  <YAMJCS.BasicFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.BasicFoodConditionReduction.DisplayCategory>
+
+  <YAMJCS.EngineerFoodConditionReduction.DisplayName>Fuel Rod Condition Reduction</YAMJCS.EngineerFoodConditionReduction.DisplayName>
+  <YAMJCS.EngineerFoodConditionReduction.Tooltip>How much condition a reactor fuel rod loses per second while in a player raptor's gut.
+  Requires Bond with Engineer.</YAMJCS.EngineerFoodConditionReduction.Tooltip>
+  <YAMJCS.EngineerFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodConditionReduction.DisplayCategory>
+
+  <YAMJCS.MechanicFoodConditionReduction.DisplayName>Ore and Scrap Condition Reduction</YAMJCS.MechanicFoodConditionReduction.DisplayName>
+  <YAMJCS.MechanicFoodConditionReduction.Tooltip>How much condition ore and scrap lose per second while in a player raptor's gut.
+  Requires Bond with Mechanic.</YAMJCS.MechanicFoodConditionReduction.Tooltip>
+  <YAMJCS.MechanicFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodConditionReduction.DisplayCategory>
+
+  <YAMJCS.DoctorFoodConditionReduction.DisplayName>Genetic Material Condition Reduction</YAMJCS.DoctorFoodConditionReduction.DisplayName>
+  <YAMJCS.DoctorFoodConditionReduction.Tooltip>How much condition unidentified genetic material loses per second while in a player raptor's gut.
+  Requires Bond with Medic.
+  Negative values improve condition instead, refining the sample.</YAMJCS.DoctorFoodConditionReduction.Tooltip>
+  <YAMJCS.DoctorFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodConditionReduction.DisplayCategory>
     <!--talents-->
   <YAMJCS.RaptorVisionRange.DisplayName>Heat Signature Range</YAMJCS.RaptorVisionRange.DisplayName>
   <YAMJCS.RaptorVisionRange.Tooltip>Range at which player raptors can sense enemies through walls (requires Heat Signature talent).</YAMJCS.RaptorVisionRange.Tooltip>
@@ -297,7 +344,8 @@
   <talentname.YAMJBond_Doctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBond_Doctor>
   <talentdescription.YAMJBond_Doctor>You're the perfect test subject. 
   You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
-  You and nearby allies gain [resist]% resistance to [burn] and [poison].</talentdescription.YAMJBond_Doctor>
+  You and nearby allies gain [resist]% resistance to [burn] and [poison].
+  You can store genetic material in your gut, identifying and refining it over time.</talentdescription.YAMJBond_Doctor>
   <!--Predator -->
   <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
   <talentdescription.YAMJArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVet>
@@ -379,26 +427,27 @@
   
   <afflictionname.YAMJBond_CaptainBuff>Best in Show</afflictionname.YAMJBond_CaptainBuff>
   <afflictiondescription.YAMJBond_CaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.YAMJBond_CaptainBuff>
-  
+  <!-- Bond with Security -->
   <afflictionname.YAMJBond_SecurityBuff>Guard Dog</afflictionname.YAMJBond_SecurityBuff>
   <afflictiondescription.YAMJBond_SecurityBuff>Your skill with weapons and turrets is bolstered due to the Guard Dog.</afflictiondescription.YAMJBond_SecurityBuff>
   <afflictionname.YAMJRaptorBite>Raptor Bite</afflictionname.YAMJRaptorBite>
   <afflictiondescription.YAMJRaptorBite>Fully charged and ready to nibble!</afflictiondescription.YAMJRaptorBite>
-
+  <!-- Bond with Engineer -->
   <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>
   <talentdescription.YAMJBond_Engineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake.
-  Gain the [talentName] Talent.
-  +30 Electrical Skill Bonus.
-  25% Repair Speed.</talentdescription.YAMJBond_Engineer>
+  consume electricity from junction boxes to gain charge.
+  getting hit consumes some charge and shocks the attacker.
+  Gain the ability to eat fuel rods. They digest slowly, but aren't very healthy...
+  gain recipe: raptor monitor (allows teammates to view you like a periscope)</talentdescription.YAMJBond_Engineer>
   <afflictionname.YAMJBond_EngineerBuff>Radiation Rascal</afflictionname.YAMJBond_EngineerBuff>
   <afflictiondescription.YAMJBond_EngineerBuff>Your skill with electronics and repairing is bolstered due to the Radiation Rascal.</afflictiondescription.YAMJBond_EngineerBuff>
-
+  <!-- Bond with Mechanic -->
   <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
-  <talentdescription.YAMJBond_Mechanic>You've picked up some tricks on how to better seek out what a mechanic requires.
-  Gain the [talentName] Talent.
-  +30 Mechanical Skill Bonus.
-  +25% Hull/Mechanical Repair Speed.
-  +50% Mining Speed.</talentdescription.YAMJBond_Mechanic>
+  <talentdescription.YAMJBond_Mechanic>You've picked up some tricks on how to better seek out what a mechanic requires. 
+  Sense ores through walls.
+  Gain the ability to mine ores with your creature attack.
+  You can break down ores and scrap in your gut over time. 
+  Having ore in your gut provides 15% damage resistance and the ability to spit shrapnel.</talentdescription.YAMJBond_Mechanic>
   <afflictionname.YAMJBond_MechanicBuff>Tool Seeker</afflictionname.YAMJBond_MechanicBuff>
   <afflictiondescription.YAMJBond_MechanicBuff>Your skills with mechanical devices and hull repairs are bolstered due to the Tool Seeker.</afflictiondescription.YAMJBond_MechanicBuff>
   

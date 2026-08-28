@@ -10,6 +10,35 @@
         <Setting Name="EatingHungerReduction" Type="rangeFloat"
                  Value="4.0" Min="0.0" Max="20.0" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DigestionUpdateInterval" Type="rangeFloat"
+                 Value="2.0" Min="0.5" Max="30.0" Steps="60"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <!-- Digestion (Hunger Reduction) -->
+        <Setting Name="BasicFoodHungerReduction" Type="rangeFloat"
+                 Value="1.0" Min="0.0" Max="20.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="EngineerFoodHungerReduction" Type="rangeFloat"
+                 Value="0.1" Min="0.0" Max="5.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="MechanicFoodHungerReduction" Type="rangeFloat"
+                 Value="0.1" Min="-5.0" Max="5.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorFoodHungerReduction" Type="rangeFloat"
+                 Value="-0.1" Min="-5.0" Max="5.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <!-- Digestion (Condition Reduction) -->  
+        <Setting Name="BasicFoodConditionReduction" Type="rangeFloat"
+                 Value="1.0" Min="0.0" Max="20.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="EngineerFoodConditionReduction" Type="rangeFloat"
+                 Value="0.01" Min="0.0" Max="1.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="MechanicFoodConditionReduction" Type="rangeFloat"
+                 Value="0.2" Min="0.0" Max="10.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorFoodConditionReduction" Type="rangeFloat"
+                 Value="-0.01" Min="-0.5" Max="0.5" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
                  
         <!-- Talents -->
         
