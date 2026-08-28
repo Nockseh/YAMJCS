@@ -22,7 +22,7 @@
     <health StunReduction="0.50" Vitality="250" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="True" BleedingReduction="0.75" BurnReduction="-0.2" ConstantHealthRegeneration="0" HealthRegenerationWhenEating="2" StunImmunity="False" PoisonImmunity="False" PoisonVulnerability="1" EmpVulnerability="0" ApplyMovementPenalties="True" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
       <MedUISilhouette texture="%ModDir%/Characters/Mudraptor_player/mudraptor_healthUI_Silhouette.png" columns="5" rows="2" sourcerect="0,0,1000,830" />
       <!-- replace health interface gene icon with hunger icon TODO make it not suck -->
-      <MedUIExtra texture="%ModDir%/UI/Health/HungerMedUIExtra.png" columns="1" rows="1" sourcerect="0,0,256,256" />
+      <MedUIExtra texture="%ModDir%/UI/HungerMedUIExtra.png" columns="1" rows="1" sourcerect="0,0,256,256" />
       <Limb name="Head">
         <!-- HealthID0 -->
         <Sprite texture="%ModDir%/Characters/Mudraptor_player/mudraptor_healthUI.png" sourcerect="0,0,182,378" highlightarea="80,0,77,75" origin="0.5,0.5" />

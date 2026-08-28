@@ -44,6 +44,18 @@ internal static partial class PatchTargets {
                 typeof(bool)
             }) ??
         throw new Exception("CharacterInventory.TryPutItem(Item, Character, IEnumerable<InvSlotType>, ...) not found");
+        
+#if CLIENT
+// unfortunately the client determines if it even sends the request to server so i gotta patch that too
+// here seems like the best place to put it
+    public static MethodBase Item_AllowedSlots_Get =>
+        AccessTools.PropertyGetter(
+            typeof(Item),
+            nameof(Item.AllowedSlots)
+        ) ??
+        throw new Exception("Item.AllowedSlots {get;} not found");
+#endif
+
 }
 
 internal static class RaptorInventory {
@@ -57,6 +69,7 @@ internal static class RaptorInventory {
     private static readonly Identifier[] EngineerEdible = new Identifier[] {"reactorfuel"};
     private static readonly Identifier[] DoctorEdible = new Identifier[] {"unidentifiedgeneticmaterial"};
 
+    // Helper Functions
     public static bool CanBeWorn(Item item, Character character) {
         if (item.HasTag(YAMJ.RaptorOnlyTag) && !YAMJ.IsPlayerRaptor(character)) {
             return false;
@@ -90,13 +103,24 @@ internal static class RaptorInventory {
 
         return false;
     }
-
+    
+    // GrantSlots() and RevokeSlots() are no longer used but might be useful
+    /*
     public static InvSlotType GrantSlots(Item item, InvSlotType slotTypes) {
         InvSlotType granted = InvSlotType.None;
         foreach (InvSlotType flag in EnumExtensions.GetIndividualFlags(slotTypes)) {
-            if (flag == InvSlotType.None || item.AllowedSlots.Contains(flag)) {
-                continue;
+            
+            // if (flag == InvSlotType.None || item.AllowedSlots.Contains(flag)) { continue; }
+            // the client is patched to lie about AllowedSlots so i'm pretty sure you can't use the above code anymore
+            bool alreadyDeclared = false;
+            foreach (Pickable pickable in item.GetComponents<Pickable>()) {
+                if (pickable.AllowedSlots.Contains(flag)) {
+                    alreadyDeclared = true;
+                    break;
+                }
             }
+            if (flag == InvSlotType.None || alreadyDeclared) { continue; }
+            
             foreach (Pickable pickable in item.GetComponents<Pickable>()) {
                 pickable.AllowedSlots.Add(flag);
             }
@@ -113,46 +137,68 @@ internal static class RaptorInventory {
             }
         }
     }
+    */
+
+    // Custom CharacterInventory.PutItem() for allowing indexed non-Any slots
+    private static readonly MethodInfo? PutItemMethod =
+        AccessTools.Method(
+            typeof(CharacterInventory),
+            nameof(CharacterInventory.PutItem),
+            new[] {
+                typeof(Item),   //item
+                typeof(int),    //i
+                typeof(Character),//user
+                typeof(bool),   //removeItem = true
+                typeof(bool),   //createNetworkEvent = true
+                typeof(bool)    //triggerOnInsertedEffects = true
+            });
+
+    public static bool PutInSlot(CharacterInventory inventory, Item item, int index, Character user, bool createNetworkEvent, bool triggerOnInsertedEffects) {
+        if (PutItemMethod is null) {
+            YAMJ.Log("CharacterInventory.PutItem() not found");
+            return false;
+        }
+        PutItemMethod.Invoke(inventory, new object[] { item, index, user, true, createNetworkEvent, triggerOnInsertedEffects });
+        return true;
+    }
 }
 
 [HarmonyPatch] //custom inventory slot logic - manual item placement
 internal static class CharacterInventory_TryPutItem {
     static MethodBase TargetMethod() => PatchTargets.CharacterInventory_TryPutItem_Index;
     
-    static bool Prefix(CharacterInventory __instance, Item item, int index, ref bool __result, out InvSlotType __state) {
-        __state = InvSlotType.None;
+    static bool Prefix(CharacterInventory __instance, Item item, int index, Character user, bool createNetworkEvent, bool triggerOnInsertedEffects, ref bool __result) {
+        
         //necessary to replicate vanilla safeguards cus i might exit early
         if (item is null) { return true; }
         InvSlotType[] slotTypes = __instance.SlotTypes;
         if (slotTypes is null || index < 0 || index >= slotTypes.Length) { return true; }
         InvSlotType slotType = slotTypes[index];
-        
+
         // disallow non-raptors from equipping raptor gear
         if (slotType.HasAnyFlag(RaptorInventory.WearSlots) && !RaptorInventory.CanBeWorn(item, __instance.character)) {
             __result = false;
             return false;
         }
-        
+
         // allow raptors to eat things
         if (RaptorInventory.IsGutSlot(__instance, index)) {
-            if (RaptorInventory.CanDigest(item, __instance.character)) {
-                __state = RaptorInventory.GrantSlots(item, InvSlotType.HealthInterface);
-                return true;
-            }
-            else {
+            if (!RaptorInventory.CanDigest(item, __instance.character)) {
                 __result = false;
                 return false;
             }
+
+            if (__instance.GetItemsAt(index).Any()) { return true; }
+            
+            //vanilla only uses indexes for non-Any slots, must use custom PutInSlot() method
+            if (RaptorInventory.PutInSlot(__instance, item, index, user, createNetworkEvent, triggerOnInsertedEffects)) {
+                __result = true;
+                return false;
+            }
         }
-        
+
         // default
         return true;
-    }
-    
-    static void Postfix(Item item, InvSlotType __state) {
-        // cleanup for item allowedSlots mutation
-        if (__state == InvSlotType.None) { return; }
-        RaptorInventory.RevokeSlots(item, __state);
     }
 }
 
@@ -215,3 +261,21 @@ internal static class CharacterInventory_AutoEquipPatch {
         }
     }
 }
+
+#if CLIENT
+[HarmonyPatch] //client reads edibles as having HealthInterface slotType. THIS IS READ SEVERAL TIMES EVERY FRAME.
+internal static class Item_AllowedSlots_Get {
+    static MethodBase TargetMethod() => PatchTargets.Item_AllowedSlots_Get;
+    
+    static void Postfix(Item __instance, ref IEnumerable<InvSlotType> __result) {
+        if (Inventory.DraggingItems.Count == 0 && CharacterHealth.OpenHealthWindow is null) { return; }
+
+        Character? controlled = Character.Controlled;
+        if (controlled is null || !YAMJ.IsPlayerRaptor(controlled)) { return; }
+        if (!RaptorInventory.CanDigest(__instance, controlled)) { return; }
+        if (__result.Contains(InvSlotType.HealthInterface)) { return; }
+
+        __result = __result.Append(InvSlotType.HealthInterface);
+    }
+}
+#endif
