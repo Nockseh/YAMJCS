@@ -719,7 +719,7 @@
       <Replace tag="[health]" value="20" color="gui.green" />
     </Description>
     <Description tag="talentdescription.YAMJRelentless2">
-      <Replace tag="[duration]" value="60" color="gui.red" />
+      <Replace tag="[duration]" value="30" color="gui.red" />
     </Description>
     <Description tag="talentdescription.maxtriggeruntildeath" />
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,0" sheetelementsize="128,128" />

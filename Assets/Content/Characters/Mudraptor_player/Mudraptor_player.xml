@@ -21,7 +21,8 @@
     <huskappendage affliction="mudraptortopbveteran" path="%ModDir%/Afflictions/Raptortopbappendage3.xml" onlyfromafflictions="true" />
     <health StunReduction="0.50" Vitality="250" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="True" BleedingReduction="0.75" BurnReduction="-0.2" ConstantHealthRegeneration="0" HealthRegenerationWhenEating="2" StunImmunity="False" PoisonImmunity="False" PoisonVulnerability="1" EmpVulnerability="0" ApplyMovementPenalties="True" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
       <MedUISilhouette texture="%ModDir%/Characters/Mudraptor_player/mudraptor_healthUI_Silhouette.png" columns="5" rows="2" sourcerect="0,0,1000,830" />
-      <MedUIExtra texture="Content/UI/Health/MedUIExtra.png" columns="4" rows="4" sourcerect="0,0,1024,1024" />
+      <!-- replace health interface gene icon with hunger icon TODO make it not suck -->
+      <MedUIExtra texture="%ModDir%/UI/Health/HungerMedUIExtra.png" columns="1" rows="1" sourcerect="0,0,256,256" />
       <Limb name="Head">
         <!-- HealthID0 -->
         <Sprite texture="%ModDir%/Characters/Mudraptor_player/mudraptor_healthUI.png" sourcerect="0,0,182,378" highlightarea="80,0,77,75" origin="0.5,0.5" />
@@ -63,7 +64,7 @@
     <sound File="Content/Characters/Mudraptor/MUDRAPTOR_idle4.ogg" State="Idle" Range="2000" Volume="1" Tags="" />
     <sound File="Content/Characters/Mudraptor/MUDRAPTOR_death1.ogg" State="Die" Range="2000" Volume="1" Tags="" />
     <sound File="Content/Characters/Mudraptor/MUDRAPTOR_death2.ogg" State="Die" Range="2000" Volume="1" Tags="" />
-    <Inventory arrowslot="7" Slots="Card, Headset, Head, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" AccessibleWhenAlive="True" Commonness="1" />
+    <Inventory Slots="Card, Headset, Head, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface, HealthInterface, HealthInterface" AccessibleWhenAlive="True" />
     <Heads>
       <Head tags="head1,raptor" sheetindex="0,0" />
       <Head tags="head2,raptor" sheetindex="1,0" />
