@@ -1,0 +1,15 @@
+<Project>
+    <PropertyGroup>
+        <!-- Every platform variant of a project shares a directory and AssemblyName, so by
+             default they all compile to the same output path. Each project's CopyFiles target
+             then deploys whatever is sitting there, which means the first build to run wins and
+             its DLL gets copied into every platform folder (e.g. the Linux-referencing assembly
+             landing in bin/Client/Windows/, which fails to load on Windows). -->
+        <BaseOutputPath>bin\$(MSBuildProjectName)\</BaseOutputPath>
+        <BaseIntermediateOutputPath>obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+        <!-- Required alongside the paths above: the SDK derives DefaultItemExcludes from them,
+             so each project would otherwise glob its siblings' generated AssemblyInfo.cs and
+             fail with CS0579 duplicate attribute errors. -->
+        <DefaultItemExcludes>$(DefaultItemExcludes);bin\**;obj\**</DefaultItemExcludes>
+    </PropertyGroup>
+</Project>
