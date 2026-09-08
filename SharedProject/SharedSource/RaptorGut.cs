@@ -4,9 +4,45 @@ public static class RaptorGut {
     private static readonly Identifier UnidentifiedGeneTag = "unidentifiedgeneticmaterial".ToIdentifier();
     private static readonly Identifier GeneTag = "geneticmaterial".ToIdentifier();
     private static readonly Identifier DepletedFuelTag = "depletedfuel".ToIdentifier();
-    
-    private static ItemPrefab[] geneCache;
 
+    private static ItemPrefab[] geneCache;
+    
+    // for some reason afflictions are multiplied by maxVitality on application so i have to under that for a clean 0% -> 100%
+    private static void AddStrength(CharacterHealth charHealth, AfflictionPrefab? prefab, float amount) {
+        if (prefab is null || amount <= 0f) { return; }
+        Affliction? existing = charHealth.GetAffliction(prefab.Identifier, false);
+        if (existing is not null) {
+            existing.Strength += amount;
+            charHealth.RecalculateVitality();
+            return;
+        }
+
+        float vitalityScale = charHealth.MaxVitality / 100f;
+        if (vitalityScale <= 0f) { vitalityScale = 1f; }
+        charHealth.AddAffliction(prefab.Instantiate(amount * vitalityScale));
+    }
+    public static void ModifyHunger(CharacterHealth charHealth, float amount) {
+        if (amount > 0f) {
+            //amount = hunger added
+            float currentSatiety = charHealth.GetAfflictionStrengthByIdentifier(YAMJ.SatiatedAfflictionId, false);
+            float satietyReduced = Math.Min(amount, currentSatiety);
+            if (satietyReduced > 0f) { charHealth.ReduceAfflictionOnAllLimbs(YAMJ.SatiatedAfflictionId, satietyReduced); }
+            AddStrength(charHealth, YAMJ.HungerPrefab, amount - satietyReduced);
+            return;
+        }
+        else {
+            //amount = satiety added
+            amount = -amount;
+            float currentHunger = charHealth.GetAfflictionStrengthByIdentifier(YAMJ.HungerAfflictionId, false);
+            float hungerReduced = Math.Min(amount, currentHunger);
+            if (hungerReduced > 0f) {
+                charHealth.ReduceAfflictionOnAllLimbs(YAMJ.HungerAfflictionId, hungerReduced);
+            }
+            AddStrength(charHealth, YAMJ.SatiatedPrefab, amount - hungerReduced);
+            return;
+        }
+    }
+    
     private static ItemPrefab GetRandomGene() {
         if (geneCache is null) {
             List<ItemPrefab> genes = new List<ItemPrefab>();
@@ -54,26 +90,28 @@ public static class RaptorGut {
     }
 
     public static void Digest(Character character, float deltaTime) {
+
+        float hungerDelta = YAMJConfig.HungerRate;
         
-        float hungerReduction = 0f;
         CharacterInventory inventory = character.Inventory;
         
         for (int i = 0; i < inventory.Capacity; i++) {
             if (!RaptorInventory.IsGutSlot(inventory, i)) { continue; }
 
             Item item = inventory.GetItemAt(i);
+            if (item is null)  { continue; }
             
             // Basic Food
             if (item.HasTag(YAMJ.BasicFood)) {
-                hungerReduction += YAMJConfig.BasicFoodHungerReduction;
+                hungerDelta -= YAMJConfig.BasicFoodHungerReduction;
                 item.Condition  -= YAMJConfig.BasicFoodConditionReduction * deltaTime;
                 if (item.Condition <= 0) {
                     Entity.Spawner?.AddItemToRemoveQueue(item);
                 }
             }
             // Mechanic Food
-            if (item.HasTag(YAMJ.MechanicFood)) {
-                hungerReduction += YAMJConfig.MechanicFoodHungerReduction;
+            else if (item.HasTag(YAMJ.MechanicFood)) {
+                hungerDelta -= YAMJConfig.MechanicFoodHungerReduction;
                 item.Condition  -= YAMJConfig.MechanicFoodConditionReduction * deltaTime;
                 //todo later: apply buff
                 if (item.Condition <= 0) {
@@ -81,8 +119,8 @@ public static class RaptorGut {
                 }
             }
             // Engineer Food
-            if (item.HasTag(YAMJ.EngineerFood)) {
-                hungerReduction += YAMJConfig.EngineerFoodHungerReduction;
+            else if (item.HasTag(YAMJ.EngineerFood)) {
+                hungerDelta -= YAMJConfig.EngineerFoodHungerReduction;
                 item.Condition  -= YAMJConfig.EngineerFoodConditionReduction * deltaTime;
                 //todo later: apply affliction
                 if (item.Condition <= 0) {
@@ -94,9 +132,9 @@ public static class RaptorGut {
                 }
             }
             // Doctor Food
-            if (item.HasTag(YAMJ.DoctorFood)) {
+            else if (item.HasTag(YAMJ.DoctorFood)) {
                 if (item.HasTag(UnidentifiedGeneTag)) {
-                    hungerReduction += YAMJConfig.DoctorFoodHungerReduction;
+                    hungerDelta -= YAMJConfig.DoctorFoodHungerReduction;
                     item.Condition += YAMJConfig.DoctorFoodConditionReduction * deltaTime;
                     if (item.Condition <= 0) {
                         Entity.Spawner?.AddItemToRemoveQueue(item);
@@ -104,12 +142,12 @@ public static class RaptorGut {
                     }
                 }
                 else if (item.Condition < item.MaxCondition) { //already identified, but not fully refined
-                    hungerReduction += YAMJConfig.DoctorFoodHungerReduction;
+                    hungerDelta -= YAMJConfig.DoctorFoodHungerReduction;
                     item.Condition  -= YAMJConfig.DoctorFoodConditionReduction * deltaTime;
                 }
             }
         }
         
-        character.CharacterHealth.ReduceAfflictionOnAllLimbs(YAMJ.HungerAfflictionId, hungerReduction * deltaTime);
+        ModifyHunger(character.CharacterHealth, hungerDelta * deltaTime);
     }
 }

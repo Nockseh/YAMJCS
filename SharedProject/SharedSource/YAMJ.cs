@@ -7,10 +7,12 @@ namespace YAMJCS;
 internal static partial class YAMJ
 {
     // Constants //
-    public const string PlayerRaptorSpecies = "Mudraptor_player";
-    public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
-    public const string PlayerRaptorJobId = "PlayerMudraptorJob";
+    public const string PlayerRaptorSpecies = "Mudraptor_player"; //todo convert to id
+    public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk"; //todo convert to id
+    public const string PlayerRaptorJobId = "PlayerMudraptorJob"; //todo convert to id
     public static readonly Identifier HungerAfflictionId = "yamjHunger".ToIdentifier();
+    public static readonly Identifier SatiatedAfflictionId = "yamjSatiated".ToIdentifier();
+    public static readonly Identifier EatingBuffAfflictionId = "yamjEating".ToIdentifier();
     public static readonly Identifier RaptorBabySpecies = "RaptorBaby".ToIdentifier();
     public static readonly Identifier RaptorBabyItemId = "raptorbabyitem".ToIdentifier();
     public static readonly Identifier RaptorOnlyTag = "yamjraptoronly".ToIdentifier();
@@ -19,8 +21,13 @@ internal static partial class YAMJ
     public static readonly Identifier[] EngineerFood = new Identifier[] {"reactorfuel"};
     public static readonly Identifier[] DoctorFood = new Identifier[] {"unidentifiedgeneticmaterial", "geneticmaterial"};
     // vars
-    public static AfflictionPrefab? HungerPrefab;
-    public static AfflictionPrefab? EatingBuffPrefab;
+    private static AfflictionPrefab? hungerPrefab = null;
+    private static AfflictionPrefab? satiatedPrefab = null;
+    private static AfflictionPrefab? eatingBuffPrefab = null;
+    public static AfflictionPrefab? HungerPrefab => hungerPrefab ??= FindAfflictionPrefab(HungerAfflictionId);
+    public static AfflictionPrefab? SatiatedPrefab => satiatedPrefab ??= FindAfflictionPrefab(SatiatedAfflictionId);
+    public static AfflictionPrefab? EatingBuffPrefab => eatingBuffPrefab ??= FindAfflictionPrefab(EatingBuffAfflictionId);
+    
     public static ItemPrefab? RaptorBabyItemPrefab;
     public static CharacterPrefab? PlayerRaptorPrefab;
     
@@ -30,6 +37,13 @@ internal static partial class YAMJ
     }
 
     // Helper Functions //
+    private static AfflictionPrefab? FindAfflictionPrefab(Identifier id) {
+        AfflictionPrefab.Prefabs.TryGet(id, out AfflictionPrefab? prefab);
+        if (prefab is null) {
+            Log($"Affliction prefab {id} not found");
+        }
+        return prefab;
+    }
     public static CharacterPrefab? FindPlayerRaptorPrefab() {
         if (PlayerRaptorPrefab is null) {
             PlayerRaptorPrefab = CharacterPrefab.FindBySpeciesName(PlayerRaptorSpecies.ToIdentifier());

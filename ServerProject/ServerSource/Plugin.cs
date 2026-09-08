@@ -32,16 +32,6 @@ namespace YAMJCS
 
         public void OnLoadCompleted() { //for code that relies on other plugins
             YAMJ.SharedOnLoadCompleted(ConfigService, PluginService);
-            foreach (var prefab in AfflictionPrefab.Prefabs) {
-                if (prefab.Identifier == "yamjHunger".ToIdentifier()) {
-                    YAMJ.HungerPrefab = prefab;
-                    continue;
-                }
-                if (prefab.Identifier == "yamjEating".ToIdentifier()) {
-                    YAMJ.EatingBuffPrefab = prefab;
-                    continue;
-                }
-            }
         }
 
         public void Dispose() {
