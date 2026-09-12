@@ -54,6 +54,12 @@
         <Setting Name="FamiliarWatersDamageBonus" Type="rangeFloat"
                  Value="0.25" Min="0.0" Max="5.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondBurnResist" Type="rangeFloat"
+                 Value="0.20" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondPoisonResist" Type="rangeFloat"
+                 Value="0.20" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
                  
         <!-- Sleep -->
         

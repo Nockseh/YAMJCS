@@ -2,8 +2,8 @@
   type="Mudraptor_player"
   MultiplyByDir="False"
   Flip="True"
-  FlipCooldown="0.5"
-  FlipDelay="0.5"
+  FlipCooldown="0.3"
+  FlipDelay="0.3"
   HeadMoveForce="30"
   TorsoMoveForce="30"
   FootMoveForce="5"
@@ -35,4 +35,5 @@
   TorsoTorque="200"
   FootTorque="10"
   ArmIKStrength="1"
-  HandIKStrength="1" />
+  HandIKStrength="1"
+/>

@@ -18,7 +18,7 @@ internal static partial class PatchTargets {
 }
 
 internal class RaptorSteering {
-    internal static Identifier TalentId = "YAMJBond_Captain".ToIdentifier();
+    internal static Identifier TalentId = "YAMJBondCaptain".ToIdentifier();
 }
 
 [HarmonyPatch] //gates access to steering components behind a talent

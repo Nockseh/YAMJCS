@@ -97,6 +97,11 @@
                 ResistanceFor="stun,incrementalstun,progressivestun"
                 MinResistance="0.00" MaxResistance="-0.25">
             <StatValue StatType="MeleeAttackMultiplier" MinValue="0.05" MaxValue="-0.20"/>
+            <StatusEffect type="OnActive" target="Character">
+                <!-- I promise these are actually rates per-second (applied every frame) -->
+                <ReduceAffliction type="damage" strength="0.25" />
+                <ReduceAffliction type="burn" strength="0.10" />
+            </StatusEffect>
         </Effect>
         
         <Description Target="Self" TextIdentifier="afflictiondescription.yamjSatiated.self.low"       MinStrength="0"     MaxStrength="50"/>

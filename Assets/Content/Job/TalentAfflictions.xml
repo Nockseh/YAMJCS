@@ -88,7 +88,7 @@
   <!-- Relentless Eyes Effect [Hidden] -->
   <Affliction name="Relentless Gaze" ShowBarInHealthMenu="false" identifier="relentlessgaze" description="" type="gaze" limbspecific="false" indicatorlimb="Head" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000" karmachangeonapplied="0" maxstrength="1">
     <Effect minstrength="0" maxstrength="1" minscreendistort="0" maxscreendistort="0" minscreenblur="0" maxscreenblur="0" minradialdistort="0" maxradialdistort="0" minchromaticaberration="0" maxchromaticaberration="0" strengthchange="0">
-      <StatusEffect target="Character" targetlimb="Head" SpeedMultiplier="1.2" HealthMultiplier="1.2" setvalue="true"></StatusEffect>
+      <StatusEffect target="Character" targetlimb="Head" SpeedMultiplier="1.2" HealthMultiplier="1.2" setvalue="true"/>
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="6,0" sheetelementsize="128,128" />
   </Affliction>
@@ -152,14 +152,33 @@
   </Affliction>
   
   <!-- Bond Buffs -->
-  <Affliction identifier="YAMJBond_CaptainBuff" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+  <Affliction identifier="yamjDoctorBurnResist"
+              type="talentbuff" isbuff="true" limbspecific="false"
+              maxstrength="1" duration="5"
+              ShowBarInHealthMenu="false" HideIconAfterDelay="true">
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,640,128,128" color="0,204,102,255" origin="0,0"/>
+    <Effect minstrength="0" maxstrength="1"
+            resistancefor="burn" minresistance="0.2" maxresistance="0.2"
+            configoverride="minresistance=DoctorBondBurnResist;maxresistance=DoctorBondBurnResist"/>
+  </Affliction>
+  <Affliction identifier="yamjDoctorPoisonResist"
+              type="talentbuff" isbuff="true" limbspecific="false"
+              maxstrength="1" duration="5"
+              ShowBarInHealthMenu="false" HideIconAfterDelay="true">
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="0,204,102,255" origin="0,0"/>
+    <Effect minstrength="0" maxstrength="1"
+            resistancefor="poison" minresistance="0.2" maxresistance="0.2"
+            configoverride="minresistance=DoctorBondPoisonResist;maxresistance=DoctorBondPoisonResist"/>
+  </Affliction>
+  
+  <Affliction identifier="YAMJBondCaptainBuff"   ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="0.15" maxresistance="0.15">
       <StatValue stattype="HelmSkillBonus" value="30" />
       <StatValue stattype="AttackMultiplier" value="0.1" />
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
-  <Affliction identifier="YAMJBond_SecurityBuff" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+  <Affliction identifier="YAMJBondSecurityBuff"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1" resistancefor="stun" minresistance="0.35" maxresistance="0.35">
       <StatValue stattype="RangedSpreadReduction" value="0.2" />
       <StatValue stattype="MeleeAttackSpeed" value="0.1" />
@@ -170,14 +189,14 @@
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
-  <Affliction identifier="YAMJBond_EngineerBuff" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+  <Affliction identifier="YAMJBondEngineerBuff"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun,nausea" minresistance="0.0" maxresistance="0.0">
       <StatValue stattype="ElectricalSkillBonus" value="30" />
       <StatValue stattype="RepairSpeed" value="0.25" />
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
-  <Affliction identifier="YAMJBond_MechanicBuff" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+  <Affliction identifier="YAMJBondMechanicBuff"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="0.0" maxresistance="0.0">
       <StatValue stattype="MechanicalSkillBonus" value="30" />
       <StatValue stattype="MechanicalRepairSpeed" value="0.25" />
@@ -185,10 +204,6 @@
       <StatValue stattype="RepairToolDeattachTimeMultiplier" value="0.5" />
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
-  </Affliction>
-  <Affliction identifier="YAMJBond_DoctorBuff" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
-    <Effect minstrength="0" maxstrength="1" resistancefor="stun,poison,chemaddiction" minresistance="0.2" maxresistance="0.2" configoverride=""/>
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
   <!-- Security Bond Bite Buff -->
   <Affliction identifier="YAMJRaptorBite" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="10" maxstrength="10" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">

@@ -30,8 +30,8 @@
     <!--hunger-->
   <YAMJCS.HungerRate.DisplayName>Hunger Rate</YAMJCS.HungerRate.DisplayName>
   <YAMJCS.HungerRate.Tooltip>How much hunger a player raptor gains per second.
-  At the default value 0.015, it should take ~90 minutes for a fully fed, healthy raptor to starve.
-  At the max value 0.5, it takes about 3 minutes.</YAMJCS.HungerRate.Tooltip>
+At the default value 0.015, it should take ~90 minutes for a fully fed, healthy raptor to starve.
+At the max value 0.5, it takes about 3 minutes.</YAMJCS.HungerRate.Tooltip>
   <YAMJCS.HungerRate.DisplayCategory>Hunger</YAMJCS.HungerRate.DisplayCategory>
 
   <YAMJCS.EatingHungerReduction.DisplayName>Eating Hunger Reduction</YAMJCS.EatingHungerReduction.DisplayName>
@@ -48,41 +48,41 @@
 
   <YAMJCS.EngineerFoodHungerReduction.DisplayName>Fuel Rod Hunger Reduction</YAMJCS.EngineerFoodHungerReduction.DisplayName>
   <YAMJCS.EngineerFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each reactor fuel rod in their gut.
-  Requires Bond with Engineer.</YAMJCS.EngineerFoodHungerReduction.Tooltip>
+Requires Bond with Engineer.</YAMJCS.EngineerFoodHungerReduction.Tooltip>
   <YAMJCS.EngineerFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodHungerReduction.DisplayCategory>
 
   <YAMJCS.MechanicFoodHungerReduction.DisplayName>Ore and Scrap Hunger Reduction</YAMJCS.MechanicFoodHungerReduction.DisplayName>
   <YAMJCS.MechanicFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each piece of ore or scrap in their gut.
-  Requires Bond with Mechanic.
-  Negative values make metal increase hunger rather than reduce it.</YAMJCS.MechanicFoodHungerReduction.Tooltip>
+Requires Bond with Mechanic.
+Negative values make metal increase hunger rather than reduce it.</YAMJCS.MechanicFoodHungerReduction.Tooltip>
   <YAMJCS.MechanicFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodHungerReduction.DisplayCategory>
 
   <YAMJCS.DoctorFoodHungerReduction.DisplayName>Genetic Material Hunger Reduction</YAMJCS.DoctorFoodHungerReduction.DisplayName>
   <YAMJCS.DoctorFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each unidentified genetic sample in their gut.
-  Requires Bond with Medic.
-  Negative values make genes increase hunger rather than reduce it.
-  Negative by default.</YAMJCS.DoctorFoodHungerReduction.Tooltip>
+Requires Bond with Medic.
+Negative values make genes increase hunger rather than reduce it.
+Negative by default.</YAMJCS.DoctorFoodHungerReduction.Tooltip>
   <YAMJCS.DoctorFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodHungerReduction.DisplayCategory>
     <!--digestion (condition) -->
   <YAMJCS.BasicFoodConditionReduction.DisplayName>Basic Food Condition Reduction</YAMJCS.BasicFoodConditionReduction.DisplayName>
   <YAMJCS.BasicFoodConditionReduction.Tooltip>How much condition normal food loses per second while in a player raptor's gut.
-  The item is consumed once its condition reaches zero.</YAMJCS.BasicFoodConditionReduction.Tooltip>
+The item is consumed once its condition reaches zero.</YAMJCS.BasicFoodConditionReduction.Tooltip>
   <YAMJCS.BasicFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.BasicFoodConditionReduction.DisplayCategory>
 
   <YAMJCS.EngineerFoodConditionReduction.DisplayName>Fuel Rod Condition Reduction</YAMJCS.EngineerFoodConditionReduction.DisplayName>
   <YAMJCS.EngineerFoodConditionReduction.Tooltip>How much condition a reactor fuel rod loses per second while in a player raptor's gut.
-  Requires Bond with Engineer.</YAMJCS.EngineerFoodConditionReduction.Tooltip>
+Requires Bond with Engineer.</YAMJCS.EngineerFoodConditionReduction.Tooltip>
   <YAMJCS.EngineerFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodConditionReduction.DisplayCategory>
 
   <YAMJCS.MechanicFoodConditionReduction.DisplayName>Ore and Scrap Condition Reduction</YAMJCS.MechanicFoodConditionReduction.DisplayName>
   <YAMJCS.MechanicFoodConditionReduction.Tooltip>How much condition ore and scrap lose per second while in a player raptor's gut.
-  Requires Bond with Mechanic.</YAMJCS.MechanicFoodConditionReduction.Tooltip>
+Requires Bond with Mechanic.</YAMJCS.MechanicFoodConditionReduction.Tooltip>
   <YAMJCS.MechanicFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodConditionReduction.DisplayCategory>
 
   <YAMJCS.DoctorFoodConditionReduction.DisplayName>Genetic Material Condition Reduction</YAMJCS.DoctorFoodConditionReduction.DisplayName>
   <YAMJCS.DoctorFoodConditionReduction.Tooltip>How much condition unidentified genetic material loses per second while in a player raptor's gut.
-  Requires Bond with Medic.
-  Negative values improve condition instead, refining the sample.</YAMJCS.DoctorFoodConditionReduction.Tooltip>
+Requires Bond with Medic.
+Negative values improve condition instead, refining the sample.</YAMJCS.DoctorFoodConditionReduction.Tooltip>
   <YAMJCS.DoctorFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodConditionReduction.DisplayCategory>
     <!--talents-->
   <YAMJCS.RaptorVisionRange.DisplayName>Heat Signature Range</YAMJCS.RaptorVisionRange.DisplayName>
@@ -241,7 +241,7 @@
   <entitydescription.yamjBackpackBio>A large, luminescent backpack for storing ammunition, suits, and children.</entitydescription.yamjBackpackBio>
   <entityname.yamjBackpackCaravan>Mudraptor Caravan Backpack</entityname.yamjBackpackCaravan>
   <entitydescription.yamjBackpackCaravan>A massive, heavy backpack for storing large items, containers, and children. 
-  Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan>
+Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan>
   <entityname.flareYAMJ>Bio Flare</entityname.flareYAMJ>
   <entitydescription.flareYAMJ>A bright sponge that glows when in contact with skin.</entitydescription.flareYAMJ>
   <entityname.raptorguitar>Raptor Guitar</entityname.raptorguitar>
@@ -298,22 +298,22 @@
   <talentdescription.YAMJFlare>Gain the recipe for Bio Flares, sponges that glow very brightly when held. Gain one after every mission.</talentdescription.YAMJFlare>
   <talentname.YAMJSleepTime>Raptor Nap</talentname.YAMJSleepTime>
   <talentdescription.YAMJSleepTime>Ragdolling for [seconds] seconds grants the Sleepy Raptor bonus, healing damage over time but only while on land. 
-  Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.YAMJSleepTime>
+Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.YAMJSleepTime>
   <!--General Tier 2-->
   <talentname.YAMJBackpack>Raptor Backpack</talentname.YAMJBackpack>
   <talentdescription.YAMJBackpack>Make mudraptor backpacks. 
-  5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpack>
+5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpack>
   <talentname.YAMJFlareIce>Cold Bio Flare</talentname.YAMJFlareIce>
   <talentdescription.YAMJFlareIce>An ice cold sponge that glows very brightly when held. It slows down any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareIce>
   <talentname.YAMJFlareFire>Hot Bio Flare</talentname.YAMJFlareFire>
   <talentdescription.YAMJFlareFire>A flaming red hot sponge that glows very brightly when held. It slowly burns any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareFire>
   <talentname.YAMJBestFriend>Man's Best Friend</talentname.YAMJBestFriend>
   <talentdescription.YAMJBestFriend>Nearby crewmates gain +[walkspeed]% Walk/Run Speed and +[swimspeed]% Swim Speed. 
-  You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.YAMJBestFriend>
+You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.YAMJBestFriend>
   <talentname.YAMJSleepTime2>Contagious Nap</talentname.YAMJSleepTime2>
   <talentdescription.YAMJSleepTime2>Naps become stronger. 
-  Humans now also gain the [affliction] bonus if they're near you while you nap. 
-  They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
+Humans now also gain the [affliction] bonus if they're near you while you nap. 
+They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
   <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
   <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
   <talentname.YAMJCanOpener>Can Opener</talentname.YAMJCanOpener>
@@ -323,29 +323,24 @@
   <talentdescription.YAMJSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.YAMJSpeechCombat>
   <talentname.YAMJArmorPirate>Pirate Raptor</talentname.YAMJArmorPirate>
   <talentdescription.YAMJArmorPirate>Learn new ways to protect yourself. 
-  Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirate>
+Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirate>
   <talentname.YAMJBackpackCaravan>Pack Mule</talentname.YAMJBackpackCaravan>
   <talentdescription.YAMJBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 
-  9 slots for items, 2 for containers, 1 for children. Slows movement when equipped.</talentdescription.YAMJBackpackCaravan>
+9 slots for items, 2 for containers, 1 for children. Slows movement when equipped.</talentdescription.YAMJBackpackCaravan>
   <talentname.YAMJHeatSignature>Heat Signature</talentname.YAMJHeatSignature>
   <talentdescription.YAMJHeatSignature>Gain the ability to sense nearby bodies.</talentdescription.YAMJHeatSignature>
   <talentname.YAMJGunner>Gunner</talentname.YAMJGunner>
   <talentdescription.YAMJGunner>Learn to operate the submarine's turret periscopes, and deal [amount]% more damage with them.</talentdescription.YAMJGunner>
   <talentname.YAMJHumanoid>Humanoid Instinct</talentname.YAMJHumanoid>
   <talentdescription.YAMJHumanoid>Gain a [amount]% power increase to melee weapons and firearms.</talentdescription.YAMJHumanoid>
-  <talentname.YAMJBond_Security>Guard Dog (Bond with Security)</talentname.YAMJBond_Security>
-  <talentdescription.YAMJBond_Security>Trained by Security to be the best Guard Dog this side of europa. 
-  Not attacking for 10 seconds grants you the Raptor Bite bonus, increasing your Creature Attack by 150% for one attack. 
-  While near others they gain 35% Stun Resistance. 
-  +10% Turret Attack Speed and Charge Speed. 
-  -10% Turret Power Cost. 
-  +10% Attack Speed. 
-  -20% Ranged Weapon Spread.</talentdescription.YAMJBond_Security>
-  <talentname.YAMJBond_Doctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBond_Doctor>
-  <talentdescription.YAMJBond_Doctor>You're the perfect test subject. 
-  You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
-  You and nearby allies gain [resist]% resistance to [burn] and [poison].
-  You can store genetic material in your gut, identifying and refining it over time.</talentdescription.YAMJBond_Doctor>
+  <talentname.YAMJBondSecurity>Guard Dog (Bond with Security)</talentname.YAMJBondSecurity>
+  <talentdescription.YAMJBondSecurity>Trained by Security to be the best Guard Dog this side of europa. 
+Not attacking for 10 seconds grants you the Raptor Bite bonus, increasing your Creature Attack by 150% for one attack. 
+While near others they gain 35% Stun Resistance. 
++10% Turret Attack Speed and Charge Speed. 
+-10% Turret Power Cost. 
++10% Attack Speed. 
+-20% Ranged Weapon Spread.</talentdescription.YAMJBondSecurity>
   <!--Predator -->
   <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
   <talentdescription.YAMJArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVet>
@@ -359,18 +354,18 @@
   <talentdescription.YAMJSwimSpeed>Get in, ravage, get out.</talentdescription.YAMJSwimSpeed>
   <talentname.YAMJMonsterInstinct>Monstrous</talentname.YAMJMonsterInstinct>
   <talentdescription.YAMJMonsterInstinct>The old ways of combat are strong in your mind. 
-  Your creature attacks gain [damage]% damage and [piercing]% piercing.</talentdescription.YAMJMonsterInstinct>
+Your creature attacks gain [damage]% damage and [piercing]% piercing.</talentdescription.YAMJMonsterInstinct>
   <talentname.YAMJRelentless>Relentless</talentname.YAMJRelentless>
   <talentdescription.YAMJRelentless>Your eyes glare with a burning passion for blood. 
-  Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.YAMJRelentless>
+Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.YAMJRelentless>
   <talentdescription.YAMJRelentless2>Whenever you fall below 0 health, you will remain fully conscious for [duration] seconds and your attacks receive +300% power.</talentdescription.YAMJRelentless2>
-  <talentname.YAMJBond_Captain>Best in Show (Bond with Captain)</talentname.YAMJBond_Captain>
-  <talentdescription.YAMJBond_Captain>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds. 
-  Whenever your crew completes a mission, everyone gains +10% Extra EXP and Marks. 
-  While near others they gain 15% Stun and Damage Resistance. 
-  +30 Helm Skill Bonus. 
-  +10% Attack Power. 
-  Learn to steer using the navigation terminal.</talentdescription.YAMJBond_Captain>
+  <talentname.YAMJBondCaptain>Best in Show (Bond with Captain)</talentname.YAMJBondCaptain>
+  <talentdescription.YAMJBondCaptain>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds. 
+Whenever your crew completes a mission, everyone gains +10% Extra EXP and Marks. 
+While near others they gain 15% Stun and Damage Resistance. 
++30 Helm Skill Bonus. 
++10% Attack Power. 
+Learn to steer using the navigation terminal.</talentdescription.YAMJBondCaptain>
   <!--Student -->
   <talentname.YAMJSpeechAdvanced>Linguist</talentname.YAMJSpeechAdvanced>
   <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.
@@ -378,7 +373,7 @@
   Gain [amount]% [burnresist].</talentdescription.YAMJSpeechAdvanced>
   <talentname.YAMJBackpackBio>Bio Backpack</talentname.YAMJBackpackBio>
   <talentdescription.YAMJBackpackBio>Make mudraptor backpacks lined with glowing chemicals.
-  7 slots for items, 2 for children.</talentdescription.YAMJBackpackBio>
+7 slots for items, 2 for children.</talentdescription.YAMJBackpackBio>
   <talentname.YAMJSkillGain>Quick Learner</talentname.YAMJSkillGain>
   <talentname.YAMJRepairSpeed>Hydrophobe</talentname.YAMJRepairSpeed>
   <talentdescription.YAMJGuitarRaptor>Anyone hearing your music will be invigorated with the desire to do more, gaining a +10 bonus to All Skills. If you keep playing, people around you will gain 10 XP at random.</talentdescription.YAMJGuitarRaptor>
@@ -389,13 +384,16 @@
   <talentname.YAMJMachinist>Machinist</talentname.YAMJMachinist>
   <talentdescription.YAMJMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.YAMJMachinist>
   <!-- Afflictions! -->
+  <afflictiontype.burn>Burn</afflictiontype.burn>
+  <afflictiontype.poison>Poison</afflictiontype.poison>
+  
   <afflictionname.yamjHunger>Hungry</afflictionname.yamjHunger>
   <afflictiondescription.yamjHunger.veryLow>A faint restlessness... subject is hungry.</afflictiondescription.yamjHunger.veryLow>
   <afflictiondescription.yamjHunger.low>A gnawing pain resides in the stomach.</afflictiondescription.yamjHunger.low>
   <afflictiondescription.yamjHunger.medium>Focus is faltering, subject is drooling.</afflictiondescription.yamjHunger.medium>
   <afflictiondescription.yamjHunger.high>Sluggish and weak, showing clear signs of malnutrition.</afflictiondescription.yamjHunger.high>
   <afflictiondescription.yamjHunger.veryHigh>Experiencing severe malnutrition.
-  A frantic surge of energy burns through what remains as the body begins to fail.</afflictiondescription.yamjHunger.veryHigh>
+A frantic surge of energy burns through what remains as the body begins to fail.</afflictiondescription.yamjHunger.veryHigh>
   <afflictiondescription.yamjHunger.self.veryLow>...</afflictiondescription.yamjHunger.self.veryLow>
   <afflictiondescription.yamjHunger.self.low>Eat.</afflictiondescription.yamjHunger.self.low>
   <afflictiondescription.yamjHunger.self.medium>Need food...</afflictiondescription.yamjHunger.self.medium>
@@ -423,7 +421,7 @@
   
   <afflictionname.YAMJSleepTimeIcon>Raptor Nap</afflictionname.YAMJSleepTimeIcon>
   <afflictiondescription.YAMJSleepTimeIcon>While under the effects of Raptor Nap, your vitality is slowly regenerating.
-  Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.YAMJSleepTimeIcon>
+Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.YAMJSleepTimeIcon>
   
   <afflictionname.YAMJguitarraptorbuff>Guitar Raptor Serenade</afflictionname.YAMJguitarraptorbuff>
   <afflictiondescription.YAMJguitarraptorbuff>Guitar Raptor's songs invigorate you with a passion to do more.</afflictiondescription.YAMJguitarraptorbuff>
@@ -431,34 +429,44 @@
   <afflictionname.YAMJFamiliarWaterBuff>Familiar Waters</afflictionname.YAMJFamiliarWaterBuff>
   <afflictiondescription.YAMJFamiliarWaterBuff>You know exactly what you're doing and where you are.</afflictiondescription.YAMJFamiliarWaterBuff>
   
-  <afflictionname.YAMJBond_CaptainBuff>Best in Show</afflictionname.YAMJBond_CaptainBuff>
-  <afflictiondescription.YAMJBond_CaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.YAMJBond_CaptainBuff>
+  <afflictionname.YAMJBondCaptainBuff>Best in Show</afflictionname.YAMJBondCaptainBuff>
+  <afflictiondescription.YAMJBondCaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.YAMJBondCaptainBuff>
+  
+  <!-- Bond with Doctor -->
+  <talentname.YAMJBondDoctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBondDoctor>
+  <talentdescription.YAMJBondDoctor>You're the perfect test subject.
+You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
+You and your allies gain [burnResist]% resistance to [burn] and [poisonResist]% resistance to [poison].
+You can store genetic material in your gut, identifying and refining it over time.
+All player raptor bites have a strong chance to be poisonous.</talentdescription.YAMJBondDoctor>
+  <afflictionname.yamjDoctorBurnResist>Burn Resistance</afflictionname.yamjDoctorBurnResist>
+  <afflictionname.yamjDoctorPoisonResist>Poison Resistance</afflictionname.yamjDoctorPoisonResist>
+  
   <!-- Bond with Security -->
-  <afflictionname.YAMJBond_SecurityBuff>Guard Dog</afflictionname.YAMJBond_SecurityBuff>
-  <afflictiondescription.YAMJBond_SecurityBuff>Your skill with weapons and turrets is bolstered due to the Guard Dog.</afflictiondescription.YAMJBond_SecurityBuff>
+  <afflictionname.YAMJBondSecurityBuff>Guard Dog</afflictionname.YAMJBondSecurityBuff>
+  <afflictiondescription.YAMJBondSecurityBuff>Your skill with weapons and turrets is bolstered due to the Guard Dog.</afflictiondescription.YAMJBondSecurityBuff>
   <afflictionname.YAMJRaptorBite>Raptor Bite</afflictionname.YAMJRaptorBite>
   <afflictiondescription.YAMJRaptorBite>Fully charged and ready to nibble!</afflictiondescription.YAMJRaptorBite>
-  <!-- Bond with Engineer -->
-  <talentname.YAMJBond_Engineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBond_Engineer>
-  <talentdescription.YAMJBond_Engineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake.
-  consume electricity from junction boxes to gain charge.
-  getting hit consumes some charge and shocks the attacker.
-  Gain the ability to eat fuel rods. They digest slowly, but aren't very healthy...
-  gain recipe: raptor monitor (allows teammates to view you like a periscope)</talentdescription.YAMJBond_Engineer>
-  <afflictionname.YAMJBond_EngineerBuff>Radiation Rascal</afflictionname.YAMJBond_EngineerBuff>
-  <afflictiondescription.YAMJBond_EngineerBuff>Your skill with electronics and repairing is bolstered due to the Radiation Rascal.</afflictiondescription.YAMJBond_EngineerBuff>
-  <!-- Bond with Mechanic -->
-  <talentname.YAMJBond_Mechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBond_Mechanic>
-  <talentdescription.YAMJBond_Mechanic>You've picked up some tricks on how to better seek out what a mechanic requires. 
-  Sense ores through walls.
-  Gain the ability to mine ores with your creature attack.
-  You can break down ores and scrap in your gut over time. 
-  Having ore in your gut provides 15% damage resistance and the ability to spit shrapnel.</talentdescription.YAMJBond_Mechanic>
-  <afflictionname.YAMJBond_MechanicBuff>Tool Seeker</afflictionname.YAMJBond_MechanicBuff>
-  <afflictiondescription.YAMJBond_MechanicBuff>Your skills with mechanical devices and hull repairs are bolstered due to the Tool Seeker.</afflictiondescription.YAMJBond_MechanicBuff>
   
-  <afflictionname.YAMJBond_DoctorBuff.self>Test Subject</afflictionname.YAMJBond_DoctorBuff.self>
-  <afflictiondescription.YAMJBond_DoctorBuff>Your resistances to burn and poison damage are temporarily elevated.</afflictiondescription.YAMJBond_DoctorBuff>
+  <!-- Bond with Engineer -->
+  <talentname.YAMJBondEngineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBondEngineer>
+  <talentdescription.YAMJBondEngineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake.
+consume electricity from junction boxes to gain charge.
+getting hit consumes some charge and shocks the attacker.
+Gain the ability to eat fuel rods. They digest slowly, but aren't very healthy...
+gain recipe: raptor monitor (allows teammates to view you like a periscope)</talentdescription.YAMJBondEngineer>
+  <afflictionname.YAMJBondEngineerBuff>Radiation Rascal</afflictionname.YAMJBondEngineerBuff>
+  <afflictiondescription.YAMJBondEngineerBuff>Your skill with electronics and repairing is bolstered due to the Radiation Rascal.</afflictiondescription.YAMJBondEngineerBuff>
+  
+  <!-- Bond with Mechanic -->
+  <talentname.YAMJBondMechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBondMechanic>
+  <talentdescription.YAMJBondMechanic>You've picked up some tricks on how to better seek out what a mechanic requires. 
+Sense ores through walls.
+Gain the ability to mine ores with your creature attack.
+You can break down ores and scrap in your gut over time. 
+Having ore in your gut provides 15% damage resistance and the ability to spit shrapnel.</talentdescription.YAMJBondMechanic>
+  <afflictionname.YAMJBondMechanicBuff>Tool Seeker</afflictionname.YAMJBondMechanicBuff>
+  <afflictiondescription.YAMJBondMechanicBuff>Your skills with mechanical devices and hull repairs are bolstered due to the Tool Seeker.</afflictiondescription.YAMJBondMechanicBuff>
   
   <afflictionname.YAMJimplacable>Relentless</afflictionname.YAMJimplacable>
   <afflictiondescription.YAMJimplacable>‖color:red‖KILL! KILL! KILL!‖color:end‖</afflictiondescription.YAMJimplacable>

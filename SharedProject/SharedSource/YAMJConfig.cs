@@ -33,6 +33,8 @@ public static class YAMJConfig {
     public static bool RaptorVisionShowDead => GetBool("RaptorVisionShowDead") ?? true;
     public static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
     public static float FamiliarWatersDamageBonus => GetFloat("FamiliarWatersDamageBonus") ?? 0.25f;
+    public static float DoctorBondBurnResist => GetFloat("DoctorBondBurnResist") ?? 0.20f;
+    public static float DoctorBondPoisonResist => GetFloat("DoctorBondPoisonResist") ?? 0.20f;
         //sleep
     public static float SleepWindupTime => GetFloat("SleepWindupTime") ?? 5;
     public static float SleepHealSelfDamage => GetFloat("SleepHealSelfDamage") ?? 0.16f;
@@ -88,6 +90,8 @@ public static class YAMJConfig {
         Bind(configService, thisPackage, "RaptorVisionShowDead");
         Bind(configService, thisPackage, "CanOpenerDamageBonus");
         Bind(configService, thisPackage, "FamiliarWatersDamageBonus");
+        Bind(configService, thisPackage, "DoctorBondBurnResist");
+        Bind(configService, thisPackage, "DoctorBondPoisonResist");
         //sleep
         Bind(configService, thisPackage, "SleepWindupTime");
         Bind(configService, thisPackage, "SleepHealSelfDamage");

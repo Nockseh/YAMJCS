@@ -20,6 +20,7 @@ internal static partial class YAMJ
     public static readonly Identifier[] MechanicFood = new Identifier[] {"ore","scrap"};
     public static readonly Identifier[] EngineerFood = new Identifier[] {"reactorfuel"};
     public static readonly Identifier[] DoctorFood = new Identifier[] {"unidentifiedgeneticmaterial", "geneticmaterial"};
+    public static readonly Identifier[] ShrapnelAmmo = new Identifier[] {"munition_core","munition_tip"};
     // vars
     private static AfflictionPrefab? hungerPrefab = null;
     private static AfflictionPrefab? satiatedPrefab = null;
@@ -107,5 +108,6 @@ internal static partial class YAMJ
         YAMJConfig.InitializeConfig(configService, pluginService);
         YAMJConfig.ApplyConfigToTalentXml();
         YAMJConfig.RebuildTalentDescriptions();
+        YAMJConfig.ApplyConfigToAfflictionXml();
     }
 }
