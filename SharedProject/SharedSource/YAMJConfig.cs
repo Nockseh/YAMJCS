@@ -12,6 +12,13 @@ public static class YAMJConfig {
     private static readonly FieldInfo? AfflictionConfigElement = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.configElement));
     private static readonly FieldInfo? AfflictionEffects = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.effects));
     
+    //todo: bind these lazy ass
+    public static float ShrapnelSpitCost = 30f;
+    //todo shrapnel spit damage/amount
+    public static float OreVisionRange = 2000f;
+    public static Color OreVisionColor = new Color(90, 255, 200);
+    
+    
     #region Server Settings
     // Shared Settings
         //hunger

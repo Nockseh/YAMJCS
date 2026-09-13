@@ -13,6 +13,8 @@ internal static partial class YAMJ
     public static readonly Identifier HungerAfflictionId = "yamjHunger".ToIdentifier();
     public static readonly Identifier SatiatedAfflictionId = "yamjSatiated".ToIdentifier();
     public static readonly Identifier EatingBuffAfflictionId = "yamjEating".ToIdentifier();
+    public static readonly Identifier OreInGutId = "yamjOreInGut".ToIdentifier();
+    public static readonly Identifier MetalInGutId = "yamjMetalInGut".ToIdentifier();
     public static readonly Identifier RaptorBabySpecies = "RaptorBaby".ToIdentifier();
     public static readonly Identifier RaptorBabyItemId = "raptorbabyitem".ToIdentifier();
     public static readonly Identifier RaptorOnlyTag = "yamjraptoronly".ToIdentifier();
@@ -25,9 +27,13 @@ internal static partial class YAMJ
     private static AfflictionPrefab? hungerPrefab = null;
     private static AfflictionPrefab? satiatedPrefab = null;
     private static AfflictionPrefab? eatingBuffPrefab = null;
+    private static AfflictionPrefab? oreInGutPrefab = null;
+    private static AfflictionPrefab? metalInGutPrefab = null;
     public static AfflictionPrefab? HungerPrefab => hungerPrefab ??= FindAfflictionPrefab(HungerAfflictionId);
     public static AfflictionPrefab? SatiatedPrefab => satiatedPrefab ??= FindAfflictionPrefab(SatiatedAfflictionId);
     public static AfflictionPrefab? EatingBuffPrefab => eatingBuffPrefab ??= FindAfflictionPrefab(EatingBuffAfflictionId);
+    public static AfflictionPrefab? OreInGutPrefab => oreInGutPrefab ??= FindAfflictionPrefab(OreInGutId);
+    public static AfflictionPrefab? MetalInGutPrefab => metalInGutPrefab ??= FindAfflictionPrefab(MetalInGutId);
     
     public static ItemPrefab? RaptorBabyItemPrefab;
     public static CharacterPrefab? PlayerRaptorPrefab;
