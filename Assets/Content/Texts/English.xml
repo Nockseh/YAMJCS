@@ -10,21 +10,14 @@
   <YAMJCS.QuickChatKey.DisplayCategory>Client</YAMJCS.QuickChatKey.DisplayCategory>
   <YAMJCS.QuickChatKey.Tooltip>Button to bring up the quickchat wheel (requires headset).</YAMJCS.QuickChatKey.Tooltip>
   
-  <YAMJCS.RaptorVisionRed.DisplayName>RaptorVision Red</YAMJCS.RaptorVisionRed.DisplayName>
-  <YAMJCS.RaptorVisionRed.DisplayCategory>Client</YAMJCS.RaptorVisionRed.DisplayCategory>
-  <YAMJCS.RaptorVisionRed.Tooltip>Red value of raptor vision effect</YAMJCS.RaptorVisionRed.Tooltip>
+  <YAMJCS.RaptorVisionColor.DisplayName>Thermal Vision Color</YAMJCS.RaptorVisionColor.DisplayName>
+  <YAMJCS.RaptorVisionColor.DisplayCategory>Client</YAMJCS.RaptorVisionColor.DisplayCategory>
+  <YAMJCS.RaptorVisionColor.Tooltip>Color of "Heat Signature" thermal vision effect, in #RRGGBBAA or #RRGGBB format.</YAMJCS.RaptorVisionColor.Tooltip>
   
-  <YAMJCS.RaptorVisionGreen.DisplayName>RaptorVision Green</YAMJCS.RaptorVisionGreen.DisplayName>
-  <YAMJCS.RaptorVisionGreen.DisplayCategory>Client</YAMJCS.RaptorVisionGreen.DisplayCategory>
-  <YAMJCS.RaptorVisionGreen.Tooltip>Green value of raptor vision effect</YAMJCS.RaptorVisionGreen.Tooltip>
-  
-  <YAMJCS.RaptorVisionBlue.DisplayName>RaptorVision Blue</YAMJCS.RaptorVisionBlue.DisplayName>
-  <YAMJCS.RaptorVisionBlue.DisplayCategory>Client</YAMJCS.RaptorVisionBlue.DisplayCategory>
-  <YAMJCS.RaptorVisionBlue.Tooltip>Blue value of raptor vision effect</YAMJCS.RaptorVisionBlue.Tooltip>
-  
-  <YAMJCS.RaptorVisionAlpha.DisplayName>RaptorVision Alpha</YAMJCS.RaptorVisionAlpha.DisplayName>
-  <YAMJCS.RaptorVisionAlpha.DisplayCategory>Client</YAMJCS.RaptorVisionAlpha.DisplayCategory>
-  <YAMJCS.RaptorVisionAlpha.Tooltip>Opacity of raptor vision effect</YAMJCS.RaptorVisionAlpha.Tooltip>
+
+  <YAMJCS.OreVisionColor.DisplayName>Ore Vision Color</YAMJCS.OreVisionColor.DisplayName>
+  <YAMJCS.OreVisionColor.DisplayCategory>Client</YAMJCS.OreVisionColor.DisplayCategory>
+  <YAMJCS.OreVisionColor.Tooltip>Color of "Bond with Mechanic" ore vision effect, in #RRGGBBAA or #RRGGBB format.</YAMJCS.OreVisionColor.Tooltip>
 
   <!-- Shared Settings -->
     <!--hunger-->
@@ -48,18 +41,18 @@ At the max value 0.5, it takes about 3 minutes.</YAMJCS.HungerRate.Tooltip>
 
   <YAMJCS.EngineerFoodHungerReduction.DisplayName>Fuel Rod Hunger Reduction</YAMJCS.EngineerFoodHungerReduction.DisplayName>
   <YAMJCS.EngineerFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each reactor fuel rod in their gut.
-Requires Bond with Engineer.</YAMJCS.EngineerFoodHungerReduction.Tooltip>
+Talent: Bond with Engineer.</YAMJCS.EngineerFoodHungerReduction.Tooltip>
   <YAMJCS.EngineerFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodHungerReduction.DisplayCategory>
 
   <YAMJCS.MechanicFoodHungerReduction.DisplayName>Ore and Scrap Hunger Reduction</YAMJCS.MechanicFoodHungerReduction.DisplayName>
   <YAMJCS.MechanicFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each piece of ore or scrap in their gut.
-Requires Bond with Mechanic.
+Talent: Bond with Mechanic.
 Negative values make metal increase hunger rather than reduce it.</YAMJCS.MechanicFoodHungerReduction.Tooltip>
   <YAMJCS.MechanicFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodHungerReduction.DisplayCategory>
 
   <YAMJCS.DoctorFoodHungerReduction.DisplayName>Genetic Material Hunger Reduction</YAMJCS.DoctorFoodHungerReduction.DisplayName>
   <YAMJCS.DoctorFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each unidentified genetic sample in their gut.
-Requires Bond with Medic.
+Talent: Bond with Medic.
 Negative values make genes increase hunger rather than reduce it.
 Negative by default.</YAMJCS.DoctorFoodHungerReduction.Tooltip>
   <YAMJCS.DoctorFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodHungerReduction.DisplayCategory>
@@ -71,17 +64,17 @@ The item is consumed once its condition reaches zero.</YAMJCS.BasicFoodCondition
 
   <YAMJCS.EngineerFoodConditionReduction.DisplayName>Fuel Rod Condition Reduction</YAMJCS.EngineerFoodConditionReduction.DisplayName>
   <YAMJCS.EngineerFoodConditionReduction.Tooltip>How much condition a reactor fuel rod loses per second while in a player raptor's gut.
-Requires Bond with Engineer.</YAMJCS.EngineerFoodConditionReduction.Tooltip>
+Talent: Bond with Engineer.</YAMJCS.EngineerFoodConditionReduction.Tooltip>
   <YAMJCS.EngineerFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodConditionReduction.DisplayCategory>
 
   <YAMJCS.MechanicFoodConditionReduction.DisplayName>Ore and Scrap Condition Reduction</YAMJCS.MechanicFoodConditionReduction.DisplayName>
   <YAMJCS.MechanicFoodConditionReduction.Tooltip>How much condition ore and scrap lose per second while in a player raptor's gut.
-Requires Bond with Mechanic.</YAMJCS.MechanicFoodConditionReduction.Tooltip>
+Talent: Bond with Mechanic.</YAMJCS.MechanicFoodConditionReduction.Tooltip>
   <YAMJCS.MechanicFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodConditionReduction.DisplayCategory>
 
   <YAMJCS.DoctorFoodConditionReduction.DisplayName>Genetic Material Condition Reduction</YAMJCS.DoctorFoodConditionReduction.DisplayName>
   <YAMJCS.DoctorFoodConditionReduction.Tooltip>How much condition unidentified genetic material loses per second while in a player raptor's gut.
-Requires Bond with Medic.
+Talent: Bond with Medic.
 Negative values improve condition instead, refining the sample.</YAMJCS.DoctorFoodConditionReduction.Tooltip>
   <YAMJCS.DoctorFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodConditionReduction.DisplayCategory>
     <!--talents-->
@@ -94,12 +87,39 @@ Negative values improve condition instead, refining the sample.</YAMJCS.DoctorFo
   <YAMJCS.RaptorVisionShowDead.DisplayCategory>Talents</YAMJCS.RaptorVisionShowDead.DisplayCategory>
   
   <YAMJCS.CanOpenerDamageBonus.DisplayName>Can Opener Damage Bonus</YAMJCS.CanOpenerDamageBonus.DisplayName>
-  <YAMJCS.CanOpenerDamageBonus.Tooltip>Additional damage dealt to structures by raptors with the talent "Can Opener".\nexample: 3 = +300% damage bonus.</YAMJCS.CanOpenerDamageBonus.Tooltip>
+  <YAMJCS.CanOpenerDamageBonus.Tooltip>Additional damage dealt to structures by raptors with the talent "Can Opener".
+example: 3 = +300% damage bonus.</YAMJCS.CanOpenerDamageBonus.Tooltip>
   <YAMJCS.CanOpenerDamageBonus.DisplayCategory>Talents</YAMJCS.CanOpenerDamageBonus.DisplayCategory>
   
   <YAMJCS.FamiliarWatersDamageBonus.DisplayName>Familiar Waters Damage Bonus</YAMJCS.FamiliarWatersDamageBonus.DisplayName>
-  <YAMJCS.FamiliarWatersDamageBonus.Tooltip>Outgoing damage bonus for raptors with the talent "Familiar Waters" while in the water.\nexample: 0.25 = +25% damage bonus.</YAMJCS.FamiliarWatersDamageBonus.Tooltip>
+  <YAMJCS.FamiliarWatersDamageBonus.Tooltip>Outgoing damage bonus for raptors with the talent "Familiar Waters" while in the water.
+example: 0.25 = +25% damage bonus.</YAMJCS.FamiliarWatersDamageBonus.Tooltip>
   <YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>Talents</YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>
+
+  <YAMJCS.DoctorBondBurnResist.DisplayName>Doctor Bond Burn Resist</YAMJCS.DoctorBondBurnResist.DisplayName>
+  <YAMJCS.DoctorBondBurnResist.Tooltip>Amount of burn resist (percent) given to all allies when a raptor has the "Bond with Doctor" talent.
+The effect does not stack.</YAMJCS.DoctorBondBurnResist.Tooltip>
+  <YAMJCS.DoctorBondBurnResist.DisplayCategory>Talents</YAMJCS.DoctorBondBurnResist.DisplayCategory>
+
+  <YAMJCS.DoctorBondPoisonResist.DisplayName>Doctor Bond Poison Resist</YAMJCS.DoctorBondPoisonResist.DisplayName>
+  <YAMJCS.DoctorBondPoisonResist.Tooltip>Amount of poison resist (percent) given to all allies when a raptor has the "Bond with Doctor" talent.
+The effect does not stack.</YAMJCS.DoctorBondPoisonResist.Tooltip>
+  <YAMJCS.DoctorBondPoisonResist.DisplayCategory>Talents</YAMJCS.DoctorBondPoisonResist.DisplayCategory>
+  
+  <YAMJCS.ShrapnelSpitCost.DisplayName>Shrapnel Spit Cost</YAMJCS.ShrapnelSpitCost.DisplayName>
+  <YAMJCS.ShrapnelSpitCost.Tooltip>How much condition is taken from a piece of metal when a raptor spits it out as a shrapnel attack. 
+Talent: Bond with Mechanic.</YAMJCS.ShrapnelSpitCost.Tooltip>
+  <YAMJCS.ShrapnelSpitCost.DisplayCategory>Talents</YAMJCS.ShrapnelSpitCost.DisplayCategory>
+    <!--combat-->
+  <YAMJCS.ShrapnelLacerations.DisplayName>Shrapnel Lacerations Damage</YAMJCS.ShrapnelLacerations.DisplayName>
+  <YAMJCS.ShrapnelLacerations.Tooltip>Raptors with "Bond w/ Mechanic" talent can spray 13 pieces of shrapnel in a wide fan.
+This is the amount of Laceration damage each piece of shrapnel does.</YAMJCS.ShrapnelLacerations.Tooltip>
+  <YAMJCS.ShrapnelLacerations.DisplayCategory>Combat</YAMJCS.ShrapnelLacerations.DisplayCategory>
+
+  <YAMJCS.ShrapnelBleeding.DisplayName>Shrapnel Bleeding Damage</YAMJCS.ShrapnelBleeding.DisplayName>
+  <YAMJCS.ShrapnelBleeding.Tooltip>Raptors with "Bond w/ Mechanic" talent can spray 13 pieces of shrapnel in a wide fan.
+This is the amount of Bleeding damage each piece of shrapnel does.</YAMJCS.ShrapnelBleeding.Tooltip>
+  <YAMJCS.ShrapnelBleeding.DisplayCategory>Combat</YAMJCS.ShrapnelBleeding.DisplayCategory>
     <!--sleep-->
   <YAMJCS.SleepWindupTime.DisplayName>Sleep Wind-up Time</YAMJCS.SleepWindupTime.DisplayName>
   <YAMJCS.SleepWindupTime.Tooltip>The amount of time, in seconds, it takes for raptors to fall asleep (talent required).</YAMJCS.SleepWindupTime.Tooltip>
@@ -137,10 +157,12 @@ Negative values improve condition instead, refining the sample.</YAMJCS.DoctorFo
   <YAMJCS.SleepHealOthersBloodLoss.Tooltip>The amount of blood loss per second that sleeping raptors heal their allies for.</YAMJCS.SleepHealOthersBloodLoss.Tooltip>
   <YAMJCS.SleepHealOthersBloodLoss.DisplayCategory>Sleep</YAMJCS.SleepHealOthersBloodLoss.DisplayCategory>
 
-  <!-- Config Text Tags -->
+  <!-- Config Text Tags (For config values read in-game)-->
   <yamjConfig.CanOpenerDamageBonus.percent>300</yamjConfig.CanOpenerDamageBonus.percent>
   <yamjConfig.FamiliarWatersDamageBonus.percent>25</yamjConfig.FamiliarWatersDamageBonus.percent>
   <yamjConfig.SleepWindupTime.float>5</yamjConfig.SleepWindupTime.float>
+  <yamjConfig.DoctorBondBurnResist.percent>20</yamjConfig.DoctorBondBurnResist.percent>
+  <yamjConfig.DoctorBondPoisonResist.percent>20</yamjConfig.DoctorBondPoisonResist.percent>
 
   <!--Job.xml-->
   <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>

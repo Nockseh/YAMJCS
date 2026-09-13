@@ -115,5 +115,6 @@ internal static partial class YAMJ
         YAMJConfig.ApplyConfigToTalentXml();
         YAMJConfig.RebuildTalentDescriptions();
         YAMJConfig.ApplyConfigToAfflictionXml();
+        YAMJConfig.ApplyConfigToItemXml();
     }
 }

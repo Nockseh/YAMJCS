@@ -60,6 +60,17 @@
         <Setting Name="DoctorBondPoisonResist" Type="rangeFloat"
                  Value="0.20" Min="0.00" Max="1.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ShrapnelSpitCost" Type="rangeFloat"
+                 Value="30" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        
+        <!-- Combat -->
+        <Setting Name="ShrapnelLacerations" Type="rangeFloat"
+                 Value="12" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ShrapnelBleeding" Type="rangeFloat"
+                 Value="5" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
                  
         <!-- Sleep -->
         

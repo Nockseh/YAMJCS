@@ -1,5 +1,7 @@
-﻿using HarmonyLib;
+﻿using System.Xml.Linq;
+using HarmonyLib;
 using Barotrauma.Items.Components;
+using Barotrauma.LuaCs.Data;
 using Microsoft.Xna.Framework.Graphics;
 namespace YAMJCS;
 
@@ -63,6 +65,13 @@ internal static partial class PatchTargets {
                 typeof(float?)
             }) ??
         throw new Exception("Item.Draw(SpriteBatch, bool, bool, Color?, float?) not found");
+    
+    public static MethodBase SettingRangeFloat_AddDisplayComponent =>
+        AccessTools.DeclaredMethod(
+            typeof(SettingRangeFloat),
+            nameof(SettingRangeFloat.AddDisplayComponent)) ??
+        throw new Exception("SettingRangeFloat.AddDisplayComponent() not found");
+        
 }
 
 [HarmonyPatch] //prevents pRaptors from using the chatbox to send msgs
@@ -81,15 +90,6 @@ internal static class ChatBoxFocusPatch {
         YAMJClient.ShowWarning(TextManager.Get("yamjMsg.cantSpeak").Value);
         __instance.Deselect();
         return false;
-    }
-}
-
-[HarmonyPatch] //draws raptor thermal + ore vision 
-internal static class CharHudDraw {
-    private static MethodBase TargetMethod() => PatchTargets.CharacterHUD_Draw;
-
-    static void Prefix(SpriteBatch spriteBatch, Character character, Camera cam) {
-        RaptorVision.Draw(spriteBatch, character, cam);
     }
 }
 
