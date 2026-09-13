@@ -922,7 +922,7 @@
   <Talent identifier="YAMJBondMechanic">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.YAMJBondMechanic">
-      <Replace tag="[talentName]" value="talentname.scrapsavant" color="gui.orange" />
+      <Replace tag="[scrapSavant]" value="talentname.scrapsavant" color="gui.orange" />
     </Description>
     <!-- give scrap savant talent to self -->
     <AbilityGroupInterval interval="1" maxtriggercount="1">

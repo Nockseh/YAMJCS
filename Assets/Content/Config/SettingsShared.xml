@@ -48,6 +48,9 @@
         <Setting Name="RaptorVisionShowDead" Type="bool"
                  Value="true"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="OreVisionRange" Type="rangeFloat"
+                 Value="5000.0" Min="2000.0" Max="20000.0" Steps="91"
+                 NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="CanOpenerDamageBonus" Type="rangeFloat"
                  Value="3.00" Min="0.0" Max="10.00" Steps="41"
                  NetSync="TwoWay" ShowInMenus="true" />

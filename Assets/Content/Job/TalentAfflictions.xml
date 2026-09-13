@@ -208,7 +208,7 @@
     <!--Mechanic-->
     <!-- ore in gut: 15% damage, stun resist -->
   <Affliction identifier="yamjOreInGut"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="0">
-    <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="15.0" maxresistance="15.0"/>
+    <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="0.15" maxresistance="0.15"/>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" color="255,255,255,255" origin="0,0" />
   </Affliction>
     <!-- metal in gut: dummy affliction for spit attack [Hidden] -->
