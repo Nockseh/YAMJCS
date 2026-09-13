@@ -1,7 +1,5 @@
-﻿using System.Xml.Linq;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Barotrauma.Items.Components;
-using Barotrauma.LuaCs.Data;
 using Microsoft.Xna.Framework.Graphics;
 namespace YAMJCS;
 
@@ -65,13 +63,6 @@ internal static partial class PatchTargets {
                 typeof(float?)
             }) ??
         throw new Exception("Item.Draw(SpriteBatch, bool, bool, Color?, float?) not found");
-    
-    public static MethodBase SettingRangeFloat_AddDisplayComponent =>
-        AccessTools.DeclaredMethod(
-            typeof(SettingRangeFloat),
-            nameof(SettingRangeFloat.AddDisplayComponent)) ??
-        throw new Exception("SettingRangeFloat.AddDisplayComponent() not found");
-        
 }
 
 [HarmonyPatch] //prevents pRaptors from using the chatbox to send msgs
