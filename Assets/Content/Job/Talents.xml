@@ -924,18 +924,7 @@
     <Description tag="talentdescription.YAMJBondMechanic">
       <Replace tag="[talentName]" value="talentname.scrapsavant" color="gui.orange" />
     </Description>
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
-              <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBondMechanicBuff" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
+    <!-- give scrap savant talent to self -->
     <AbilityGroupInterval interval="1" maxtriggercount="1">
       <Abilities>
         <CharacterAbilityApplyStatusEffects>

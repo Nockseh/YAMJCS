@@ -5,9 +5,20 @@ public static class RaptorGut {
     private static readonly Identifier GeneTag = "geneticmaterial".ToIdentifier();
     private static readonly Identifier DepletedFuelTag = "depletedfuel".ToIdentifier();
 
-    private static ItemPrefab[] geneCache;
+    private static ItemPrefab[]? _geneCache;
     
-    // for some reason afflictions are multiplied by maxVitality on application so i have to under that for a clean 0% -> 100%
+    internal static Item? FindShrapnelAmmo(CharacterInventory inventory) {
+        for (int i = 0; i < inventory.Capacity; i++) {
+            if (!RaptorInventory.IsGutSlot(inventory, i)) { continue; }
+
+            Item? item = inventory.GetItemAt(i);
+            if (item is null || item.Removed || item.IsInRemoveQueue) { continue; }
+            if (item.HasTag(YAMJ.ShrapnelAmmo)) { return item; }
+        }
+        return null;
+    }
+    
+    // for some reason afflictions are multiplied by maxVitality on application so i have to undo that for a clean 0% -> 100%
     private static void AddStrength(CharacterHealth charHealth, AfflictionPrefab? prefab, float amount) {
         if (prefab is null || amount <= 0f) { return; }
         Affliction? existing = charHealth.GetAffliction(prefab.Identifier, false);
@@ -43,16 +54,16 @@ public static class RaptorGut {
         }
     }
     
-    private static ItemPrefab GetRandomGene() {
-        if (geneCache is null) {
+    private static ItemPrefab? GetRandomGene() {
+        if (_geneCache is null) {
             List<ItemPrefab> genes = new List<ItemPrefab>();
             foreach (ItemPrefab prefab in ItemPrefab.Prefabs) {
                 if (prefab.Tags.Contains(GeneTag)) { genes.Add(prefab); }
             }
-            geneCache = genes.ToArray();
+            _geneCache = genes.ToArray();
         }
-        if (geneCache.Length == 0) { return null; }
-        return geneCache.GetRandomUnsynced();
+        if (_geneCache.Length == 0) { return null; }
+        return _geneCache.GetRandomUnsynced();
     }
 
     private static void DigestIntoMaterials(Item item, CharacterInventory inventory) {
@@ -94,7 +105,11 @@ public static class RaptorGut {
         float hungerDelta = YAMJConfig.HungerRate;
         
         CharacterInventory inventory = character.Inventory;
+
+        bool gutContainsOre = false;
+        bool gutContainsMetal = false;
         
+        // loop through gut inventory 
         for (int i = 0; i < inventory.Capacity; i++) {
             if (!RaptorInventory.IsGutSlot(inventory, i)) { continue; }
 
@@ -111,12 +126,15 @@ public static class RaptorGut {
             }
             // Mechanic Food
             else if (item.HasTag(YAMJ.MechanicFood)) {
+                gutContainsOre = true;
                 hungerDelta -= YAMJConfig.MechanicFoodHungerReduction;
                 item.Condition  -= YAMJConfig.MechanicFoodConditionReduction * deltaTime;
-                //todo later: apply buff
                 if (item.Condition <= 0) {
                     DigestIntoMaterials(item, inventory);
                 }
+            }
+            else if (item.HasTag(YAMJ.ShrapnelAmmo)) {
+                gutContainsMetal = true;
             }
             // Engineer Food
             else if (item.HasTag(YAMJ.EngineerFood)) {
@@ -146,6 +164,21 @@ public static class RaptorGut {
                     item.Condition  -= YAMJConfig.DoctorFoodConditionReduction * deltaTime;
                 }
             }
+        }
+        
+        //apply other effects & modify hunger 
+        if (gutContainsOre) {
+            character.CharacterHealth.AddAffliction(YAMJ.OreInGutPrefab.Instantiate(1f));
+        }
+        else {
+            character.CharacterHealth.ReduceAfflictionOnAllLimbs(YAMJ.OreInGutId, 2f);
+        }
+        
+        if (gutContainsMetal) {
+            character.CharacterHealth.AddAffliction(YAMJ.MetalInGutPrefab.Instantiate(1f));
+        }
+        else {
+            character.CharacterHealth.ReduceAfflictionOnAllLimbs(YAMJ.MetalInGutId, 2f);
         }
         
         ModifyHunger(character.CharacterHealth, hungerDelta * deltaTime);

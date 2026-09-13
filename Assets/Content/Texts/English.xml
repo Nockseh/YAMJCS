@@ -464,9 +464,8 @@ gain recipe: raptor monitor (allows teammates to view you like a periscope)</tal
 Sense ores through walls.
 Gain the ability to mine ores with your creature attack.
 You can break down ores and scrap in your gut over time. 
-Having ore in your gut provides 15% damage resistance and the ability to spit shrapnel.</talentdescription.YAMJBondMechanic>
-  <afflictionname.YAMJBondMechanicBuff>Tool Seeker</afflictionname.YAMJBondMechanicBuff>
-  <afflictiondescription.YAMJBondMechanicBuff>Your skills with mechanical devices and hull repairs are bolstered due to the Tool Seeker.</afflictiondescription.YAMJBondMechanicBuff>
+Having ore in your gut provides 15% damage and stun resistance (non-stackable).
+Having ammo metals in your gut allows you to spit shrapnel.</talentdescription.YAMJBondMechanic>
   
   <afflictionname.YAMJimplacable>Relentless</afflictionname.YAMJimplacable>
   <afflictiondescription.YAMJimplacable>‖color:red‖KILL! KILL! KILL!‖color:end‖</afflictiondescription.YAMJimplacable>

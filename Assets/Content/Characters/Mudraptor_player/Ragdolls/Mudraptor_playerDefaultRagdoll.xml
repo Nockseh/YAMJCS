@@ -84,13 +84,13 @@
             RootForceWorldEnd="0,0" RootTransitionEasing="Linear" Torque="0" ApplyForcesOnlyOnce="True" TargetImpulse="0"
             TargetImpulseWorld="0,0" TargetForce="0" TargetForceWorld="0,0" SubmarineImpactMultiplier="1" SeverLimbsProbability="0"
             Priority="4" Blink="False">
-      <!--todo Conditional targetself="true" YAMJNeurotoxinBuff="gt 0" /-->
+      <Conditional targetself="true" yamjMetalInGut="gt 0" />
       <StatusEffect type="OnFailure" target="This">
-        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="1" aimspread="10" rotationtype="Limb" rotation="-20" />
-        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="1" aimspread="10" rotationtype="Limb" rotation="-10" />
-        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="1" aimspread="10" rotationtype="Limb" rotation="0" />
-        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="1" aimspread="10" rotationtype="Limb" rotation="10" />
-        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="1" aimspread="10" rotationtype="Limb" rotation="20" />
+        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="2" aimspread="10" rotationtype="Limb" rotation="-20" />
+        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="3" aimspread="10" rotationtype="Limb" rotation="-10" />
+        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="3" aimspread="10" rotationtype="Limb" rotation="0" />
+        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="3" aimspread="10" rotationtype="Limb" rotation="10" />
+        <SpawnItem identifier="yamjShrapnel" spawnposition="This" count="2" aimspread="10" rotationtype="Limb" rotation="20" />
       </StatusEffect>
     </attack>
   </limb>

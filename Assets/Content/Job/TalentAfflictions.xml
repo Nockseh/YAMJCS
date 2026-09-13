@@ -4,7 +4,6 @@
   <!--Spit Condition (Neurotoxin) [Hidden]-->
   <Affliction identifier="YAMJNeurotoxinBuff" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000" maxstrength="1" treatmentthreshold="1000" iconcolors="153,170,187">
     <Effect minstrength="0" maxstrength="1" strengthchange="0"/>
-    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128" color="200,50,50,255" origin="0,0" />
   </Affliction>
   
   <!-- Neurotoxin: ~120 organ damage over 30 seconds -->
@@ -152,6 +151,8 @@
   </Affliction>
   
   <!-- Bond Buffs -->
+    <!--Doctor-->
+    <!-- 20% burn resist-->
   <Affliction identifier="yamjDoctorBurnResist"
               type="talentbuff" isbuff="true" limbspecific="false"
               maxstrength="1" duration="5"
@@ -161,6 +162,7 @@
             resistancefor="burn" minresistance="0.2" maxresistance="0.2"
             configoverride="minresistance=DoctorBondBurnResist;maxresistance=DoctorBondBurnResist"/>
   </Affliction>
+    <!-- 20% poison resist -->
   <Affliction identifier="yamjDoctorPoisonResist"
               type="talentbuff" isbuff="true" limbspecific="false"
               maxstrength="1" duration="5"
@@ -170,7 +172,7 @@
             resistancefor="poison" minresistance="0.2" maxresistance="0.2"
             configoverride="minresistance=DoctorBondPoisonResist;maxresistance=DoctorBondPoisonResist"/>
   </Affliction>
-  
+    <!--Captain-->
   <Affliction identifier="YAMJBondCaptainBuff"   ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="0.15" maxresistance="0.15">
       <StatValue stattype="HelmSkillBonus" value="30" />
@@ -178,6 +180,7 @@
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
+    <!--Security-->
   <Affliction identifier="YAMJBondSecurityBuff"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1" resistancefor="stun" minresistance="0.35" maxresistance="0.35">
       <StatValue stattype="RangedSpreadReduction" value="0.2" />
@@ -189,6 +192,12 @@
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
+  
+  <Affliction identifier="YAMJRaptorBite" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="10" maxstrength="10" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="10" strengthchange="0" />
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,1" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+    <!--Engineer-->
   <Affliction identifier="YAMJBondEngineerBuff"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
     <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun,nausea" minresistance="0.0" maxresistance="0.0">
       <StatValue stattype="ElectricalSkillBonus" value="30" />
@@ -196,20 +205,14 @@
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
-  <Affliction identifier="YAMJBondMechanicBuff"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="5" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
-    <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="0.0" maxresistance="0.0">
-      <StatValue stattype="MechanicalSkillBonus" value="30" />
-      <StatValue stattype="MechanicalRepairSpeed" value="0.25" />
-      <StatValue stattype="RepairToolStructureRepairMultiplier" value="0.25" />
-      <StatValue stattype="RepairToolDeattachTimeMultiplier" value="0.5" />
-    </Effect>
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+    <!--Mechanic-->
+    <!-- ore in gut: 15% damage, stun resist -->
+  <Affliction identifier="yamjOreInGut"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000" duration="0">
+    <Effect minstrength="0" maxstrength="1" resistancefor="damage,stun" minresistance="15.0" maxresistance="15.0"/>
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" color="255,255,255,255" origin="0,0" />
   </Affliction>
-  <!-- Security Bond Bite Buff -->
-  <Affliction identifier="YAMJRaptorBite" ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" showiconthreshold="10" maxstrength="10" treatmentthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
-    <Effect minstrength="0" maxstrength="10" strengthchange="0" />
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,1" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
-  </Affliction>
+    <!-- metal in gut: dummy affliction for spit attack [Hidden] -->
+  <Affliction identifier="yamjMetalInGut"  ShowBarInHealthMenu="false" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000" treatmentthreshold="1000" duration="0" />
   
   <!-- Item Afflictions -->
   <Affliction name="Ice Cold" identifier="iceflare_slowdown" type="poison" limbspecific="false" indicatorlimb="Torso" showiconthreshold="0.1" duration="1" showinhealthscannerthreshold="0.1" maxstrength="1">

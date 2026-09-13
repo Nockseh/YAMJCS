@@ -15,8 +15,8 @@ internal static partial class PatchTargets {
 }
 
 internal static class RaptorAim {
-    //config
-    public const float HeadAimTorque = 200f;
+    // Configuration //
+    public const float HeadAimTorque = 100f;
     public const float FlipDeadzone = 100f;
     
     private static LimbJoint? FindNeckJoint(Ragdoll ragdoll) {

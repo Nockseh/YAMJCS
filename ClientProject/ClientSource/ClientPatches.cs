@@ -84,17 +84,17 @@ internal static class ChatBoxFocusPatch {
     }
 }
 
-[HarmonyPatch] //draws raptor thermal vision
+[HarmonyPatch] //draws raptor thermal + ore vision 
 internal static class CharHudDraw {
     private static MethodBase TargetMethod() => PatchTargets.CharacterHUD_Draw;
 
-    static void Prefix(SpriteBatch spriteBatch, Character character) {
-        RaptorVision.Draw(spriteBatch, character);
+    static void Prefix(SpriteBatch spriteBatch, Character character, Camera cam) {
+        RaptorVision.Draw(spriteBatch, character, cam);
     }
 }
 
-[HarmonyPatch] //fires every frame, mostly for hud and keybind stuff
-internal static class CharHudAddToUpdateList { //basically fires every frame
+[HarmonyPatch] //fires every frame, mostly for hud and keybind stuff 
+internal static class CharHudAddToUpdateList { //basically fires every frame 
     private static MethodBase TargetMethod() => PatchTargets.CharacterHUD_AddToGUIUpdateList;
 
     static void Postfix() {

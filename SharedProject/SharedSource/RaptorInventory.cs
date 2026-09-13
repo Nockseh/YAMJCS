@@ -85,7 +85,7 @@ internal static class RaptorInventory {
             return true;
         }
 
-        if (item.HasTag(YAMJ.MechanicFood) && character.HasTalent(BondWithMechanic)) {
+        if ((item.HasTag(YAMJ.MechanicFood) || item.HasTag(YAMJ.ShrapnelAmmo)) && character.HasTalent(BondWithMechanic)) {
             return true;
         }
 
