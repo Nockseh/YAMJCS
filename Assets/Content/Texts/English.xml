@@ -39,20 +39,17 @@ At the max value 0.5, it takes about 3 minutes.</YAMJCS.HungerRate.Tooltip>
   <YAMJCS.BasicFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each piece of normal food in their gut.</YAMJCS.BasicFoodHungerReduction.Tooltip>
   <YAMJCS.BasicFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.BasicFoodHungerReduction.DisplayCategory>
 
-  <YAMJCS.EngineerFoodHungerReduction.DisplayName>Fuel Rod Hunger Reduction</YAMJCS.EngineerFoodHungerReduction.DisplayName>
-  <YAMJCS.EngineerFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each reactor fuel rod in their gut.
-Talent: Bond with Engineer.</YAMJCS.EngineerFoodHungerReduction.Tooltip>
+  <YAMJCS.EngineerFoodHungerReduction.DisplayName>(Bond with Engineer) Fuel Rod Hunger Reduction</YAMJCS.EngineerFoodHungerReduction.DisplayName>
+  <YAMJCS.EngineerFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each reactor fuel rod in their gut.</YAMJCS.EngineerFoodHungerReduction.Tooltip>
   <YAMJCS.EngineerFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodHungerReduction.DisplayCategory>
 
-  <YAMJCS.MechanicFoodHungerReduction.DisplayName>Ore and Scrap Hunger Reduction</YAMJCS.MechanicFoodHungerReduction.DisplayName>
+  <YAMJCS.MechanicFoodHungerReduction.DisplayName>(Bond with Mechanic) Ore and Scrap Hunger Reduction</YAMJCS.MechanicFoodHungerReduction.DisplayName>
   <YAMJCS.MechanicFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each piece of ore or scrap in their gut.
-Talent: Bond with Mechanic.
 Negative values make metal increase hunger rather than reduce it.</YAMJCS.MechanicFoodHungerReduction.Tooltip>
   <YAMJCS.MechanicFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodHungerReduction.DisplayCategory>
 
-  <YAMJCS.DoctorFoodHungerReduction.DisplayName>Genetic Material Hunger Reduction</YAMJCS.DoctorFoodHungerReduction.DisplayName>
+  <YAMJCS.DoctorFoodHungerReduction.DisplayName>(Bond with Doctor) Genetic Material Hunger Reduction</YAMJCS.DoctorFoodHungerReduction.DisplayName>
   <YAMJCS.DoctorFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each unidentified genetic sample in their gut.
-Talent: Bond with Medic.
 Negative values make genes increase hunger rather than reduce it.
 Negative by default.</YAMJCS.DoctorFoodHungerReduction.Tooltip>
   <YAMJCS.DoctorFoodHungerReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodHungerReduction.DisplayCategory>
@@ -62,70 +59,90 @@ Negative by default.</YAMJCS.DoctorFoodHungerReduction.Tooltip>
 The item is consumed once its condition reaches zero.</YAMJCS.BasicFoodConditionReduction.Tooltip>
   <YAMJCS.BasicFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.BasicFoodConditionReduction.DisplayCategory>
 
-  <YAMJCS.EngineerFoodConditionReduction.DisplayName>Fuel Rod Condition Reduction</YAMJCS.EngineerFoodConditionReduction.DisplayName>
-  <YAMJCS.EngineerFoodConditionReduction.Tooltip>How much condition a reactor fuel rod loses per second while in a player raptor's gut.
-Talent: Bond with Engineer.</YAMJCS.EngineerFoodConditionReduction.Tooltip>
+  <YAMJCS.EngineerFoodConditionReduction.DisplayName>(Bond with Engineer) Fuel Rod Condition Reduction</YAMJCS.EngineerFoodConditionReduction.DisplayName>
+  <YAMJCS.EngineerFoodConditionReduction.Tooltip>How much condition a reactor fuel rod loses per second while in a player raptor's gut.</YAMJCS.EngineerFoodConditionReduction.Tooltip>
   <YAMJCS.EngineerFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.EngineerFoodConditionReduction.DisplayCategory>
 
-  <YAMJCS.MechanicFoodConditionReduction.DisplayName>Ore and Scrap Condition Reduction</YAMJCS.MechanicFoodConditionReduction.DisplayName>
-  <YAMJCS.MechanicFoodConditionReduction.Tooltip>How much condition ore and scrap lose per second while in a player raptor's gut.
-Talent: Bond with Mechanic.</YAMJCS.MechanicFoodConditionReduction.Tooltip>
+  <YAMJCS.MechanicFoodConditionReduction.DisplayName>(Bond with Mechanic) Ore and Scrap Condition Reduction</YAMJCS.MechanicFoodConditionReduction.DisplayName>
+  <YAMJCS.MechanicFoodConditionReduction.Tooltip>How much condition ore and scrap lose per second while in a player raptor's gut.</YAMJCS.MechanicFoodConditionReduction.Tooltip>
   <YAMJCS.MechanicFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.MechanicFoodConditionReduction.DisplayCategory>
 
-  <YAMJCS.DoctorFoodConditionReduction.DisplayName>Genetic Material Condition Reduction</YAMJCS.DoctorFoodConditionReduction.DisplayName>
+  <YAMJCS.DoctorFoodConditionReduction.DisplayName>(Bond with Doctor) Genetic Material Condition Reduction</YAMJCS.DoctorFoodConditionReduction.DisplayName>
   <YAMJCS.DoctorFoodConditionReduction.Tooltip>How much condition unidentified genetic material loses per second while in a player raptor's gut.
-Talent: Bond with Medic.
 Negative values improve condition instead, refining the sample.</YAMJCS.DoctorFoodConditionReduction.Tooltip>
   <YAMJCS.DoctorFoodConditionReduction.DisplayCategory>Hunger</YAMJCS.DoctorFoodConditionReduction.DisplayCategory>
     <!--talents-->
-  <YAMJCS.RaptorVisionRange.DisplayName>Heat Signature Range</YAMJCS.RaptorVisionRange.DisplayName>
-  <YAMJCS.RaptorVisionRange.Tooltip>Range at which player raptors can sense enemies through walls.
-Talent: Heat Signature.</YAMJCS.RaptorVisionRange.Tooltip>
+  <YAMJCS.RaptorVisionRange.DisplayName>(Heat Signature) Range</YAMJCS.RaptorVisionRange.DisplayName>
+  <YAMJCS.RaptorVisionRange.Tooltip>Range at which raptors with this talent can sense characters through walls.</YAMJCS.RaptorVisionRange.Tooltip>
   <YAMJCS.RaptorVisionRange.DisplayCategory>Talents</YAMJCS.RaptorVisionRange.DisplayCategory>
 
-  <YAMJCS.OreVisionRange.DisplayName>Ore Vision Range</YAMJCS.OreVisionRange.DisplayName>
-  <YAMJCS.OreVisionRange.Tooltip>Range at which player raptors can see ores (including off-screen).
-Talent: Bond with Mechanic.</YAMJCS.OreVisionRange.Tooltip>
+  <YAMJCS.OreVisionRange.DisplayName>(Bond with Mechanic) Ore Vision Range</YAMJCS.OreVisionRange.DisplayName>
+  <YAMJCS.OreVisionRange.Tooltip>Range at which player raptors can see ores (including off-screen).</YAMJCS.OreVisionRange.Tooltip>
   <YAMJCS.OreVisionRange.DisplayCategory>Talents</YAMJCS.OreVisionRange.DisplayCategory>
 
-  <YAMJCS.RaptorVisionShowDead.DisplayName>Heat Signature Shows Dead</YAMJCS.RaptorVisionShowDead.DisplayName>
-  <YAMJCS.RaptorVisionShowDead.Tooltip>If enabled, raptors can sense alive AND dead bodies through walls when using the Heat Signature talent.</YAMJCS.RaptorVisionShowDead.Tooltip>
+  <YAMJCS.RaptorVisionShowDead.DisplayName>(Heat Signature) Show Dead</YAMJCS.RaptorVisionShowDead.DisplayName>
+  <YAMJCS.RaptorVisionShowDead.Tooltip>If enabled, raptors can sense alive AND dead characters through walls when using this talent.</YAMJCS.RaptorVisionShowDead.Tooltip>
   <YAMJCS.RaptorVisionShowDead.DisplayCategory>Talents</YAMJCS.RaptorVisionShowDead.DisplayCategory>
   
-  <YAMJCS.CanOpenerDamageBonus.DisplayName>Can Opener Damage Bonus</YAMJCS.CanOpenerDamageBonus.DisplayName>
-  <YAMJCS.CanOpenerDamageBonus.Tooltip>Additional damage dealt to structures by raptors with the talent "Can Opener".
+  <YAMJCS.CanOpenerDamageBonus.DisplayName>(Can Opener) Damage Bonus</YAMJCS.CanOpenerDamageBonus.DisplayName>
+  <YAMJCS.CanOpenerDamageBonus.Tooltip>Additional damage dealt to structures by raptors with this talent.
 example: 3 = +300% damage bonus.</YAMJCS.CanOpenerDamageBonus.Tooltip>
   <YAMJCS.CanOpenerDamageBonus.DisplayCategory>Talents</YAMJCS.CanOpenerDamageBonus.DisplayCategory>
   
-  <YAMJCS.FamiliarWatersDamageBonus.DisplayName>Familiar Waters Damage Bonus</YAMJCS.FamiliarWatersDamageBonus.DisplayName>
-  <YAMJCS.FamiliarWatersDamageBonus.Tooltip>Outgoing damage bonus for raptors with the talent "Familiar Waters" while in the water.
+  <YAMJCS.FamiliarWatersDamageBonus.DisplayName>(Familiar Waters) Damage Bonus</YAMJCS.FamiliarWatersDamageBonus.DisplayName>
+  <YAMJCS.FamiliarWatersDamageBonus.Tooltip>Outgoing damage bonus for raptors with this talent while in the water.
 example: 0.25 = +25% damage bonus.</YAMJCS.FamiliarWatersDamageBonus.Tooltip>
   <YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>Talents</YAMJCS.FamiliarWatersDamageBonus.DisplayCategory>
 
-  <YAMJCS.DoctorBondBurnResist.DisplayName>Doctor Bond Burn Resist</YAMJCS.DoctorBondBurnResist.DisplayName>
-  <YAMJCS.DoctorBondBurnResist.Tooltip>Amount of burn resist (percent) given to all allies when a raptor has the "Bond with Doctor" talent.
+  <YAMJCS.DoctorBondBurnResist.DisplayName>(Bond with Doctor) Burn Resist</YAMJCS.DoctorBondBurnResist.DisplayName>
+  <YAMJCS.DoctorBondBurnResist.Tooltip>Amount of burn resist (percent) given to all allies.
 The effect does not stack.</YAMJCS.DoctorBondBurnResist.Tooltip>
   <YAMJCS.DoctorBondBurnResist.DisplayCategory>Talents</YAMJCS.DoctorBondBurnResist.DisplayCategory>
 
-  <YAMJCS.DoctorBondPoisonResist.DisplayName>Doctor Bond Poison Resist</YAMJCS.DoctorBondPoisonResist.DisplayName>
-  <YAMJCS.DoctorBondPoisonResist.Tooltip>Amount of poison resist (percent) given to all allies when a raptor has the "Bond with Doctor" talent.
+  <YAMJCS.DoctorBondPoisonResist.DisplayName>(Bond with Doctor) Poison Resist</YAMJCS.DoctorBondPoisonResist.DisplayName>
+  <YAMJCS.DoctorBondPoisonResist.Tooltip>Amount of poison resist (percent) given to all allies.
 The effect does not stack.</YAMJCS.DoctorBondPoisonResist.Tooltip>
   <YAMJCS.DoctorBondPoisonResist.DisplayCategory>Talents</YAMJCS.DoctorBondPoisonResist.DisplayCategory>
   
-  <YAMJCS.ShrapnelSpitCost.DisplayName>Shrapnel Spit Cost</YAMJCS.ShrapnelSpitCost.DisplayName>
-  <YAMJCS.ShrapnelSpitCost.Tooltip>How much condition is taken from a piece of metal when a raptor spits it out as a shrapnel attack. 
-Talent: Bond with Mechanic.</YAMJCS.ShrapnelSpitCost.Tooltip>
+  <YAMJCS.ShrapnelSpitCost.DisplayName>(Bond with Mechanic) Shrapnel Spit Cost</YAMJCS.ShrapnelSpitCost.DisplayName>
+  <YAMJCS.ShrapnelSpitCost.Tooltip>How much condition is taken from a piece of metal when a raptor spits it out as a shrapnel attack.</YAMJCS.ShrapnelSpitCost.Tooltip>
   <YAMJCS.ShrapnelSpitCost.DisplayCategory>Talents</YAMJCS.ShrapnelSpitCost.DisplayCategory>
-    <!--combat-->
-  <YAMJCS.ShrapnelLacerations.DisplayName>Shrapnel Lacerations Damage</YAMJCS.ShrapnelLacerations.DisplayName>
-  <YAMJCS.ShrapnelLacerations.Tooltip>Raptors with "Bond w/ Mechanic" talent can spray 13 pieces of shrapnel in a wide fan.
+    
+  <YAMJCS.ShrapnelLacerations.DisplayName>(Bond with Mechanic) Shrapnel Lacerations Damage</YAMJCS.ShrapnelLacerations.DisplayName>
+  <YAMJCS.ShrapnelLacerations.Tooltip>Raptors with this talent can spray 13 pieces of shrapnel in a wide fan.
 This is the amount of Laceration damage each piece of shrapnel does.</YAMJCS.ShrapnelLacerations.Tooltip>
-  <YAMJCS.ShrapnelLacerations.DisplayCategory>Combat</YAMJCS.ShrapnelLacerations.DisplayCategory>
+  <YAMJCS.ShrapnelLacerations.DisplayCategory>Talents</YAMJCS.ShrapnelLacerations.DisplayCategory>
 
-  <YAMJCS.ShrapnelBleeding.DisplayName>Shrapnel Bleeding Damage</YAMJCS.ShrapnelBleeding.DisplayName>
-  <YAMJCS.ShrapnelBleeding.Tooltip>Raptors with "Bond w/ Mechanic" talent can spray 13 pieces of shrapnel in a wide fan.
+  <YAMJCS.ShrapnelBleeding.DisplayName>(Bond with Mechanic) Shrapnel Bleeding Damage</YAMJCS.ShrapnelBleeding.DisplayName>
+  <YAMJCS.ShrapnelBleeding.Tooltip>Raptors with this talent can spray 13 pieces of shrapnel in a wide fan.
 This is the amount of Bleeding damage each piece of shrapnel does.</YAMJCS.ShrapnelBleeding.Tooltip>
-  <YAMJCS.ShrapnelBleeding.DisplayCategory>Combat</YAMJCS.ShrapnelBleeding.DisplayCategory>
+  <YAMJCS.ShrapnelBleeding.DisplayCategory>Talents</YAMJCS.ShrapnelBleeding.DisplayCategory>
+
+  <YAMJCS.ChargedBiteDamageBonus.DisplayName>(Bond with Security) Charged Bite Damage Bonus</YAMJCS.ChargedBiteDamageBonus.DisplayName>
+  <YAMJCS.ChargedBiteDamageBonus.Tooltip>Bonus damage of a fully charged creature attack.
+example: 0.5 = +50% damage bonus.</YAMJCS.ChargedBiteDamageBonus.Tooltip>
+  <YAMJCS.ChargedBiteDamageBonus.DisplayCategory>Talents</YAMJCS.ChargedBiteDamageBonus.DisplayCategory>
+
+  <YAMJCS.ChargedBiteStun.DisplayName>(Bond with Security) Charged Bite Stun</YAMJCS.ChargedBiteStun.DisplayName>
+  <YAMJCS.ChargedBiteStun.Tooltip>Amount of stun applied by a fully charged creature attack.
+On a 100 max vitality target (like humans), this is the duration of the stun in seconds.
+Stun duration scales inversely with max vitality; tougher creatures are stunned for less.</YAMJCS.ChargedBiteStun.Tooltip>
+  <YAMJCS.ChargedBiteStun.DisplayCategory>Talents</YAMJCS.ChargedBiteStun.DisplayCategory>
+
+  <YAMJCS.ChargedBiteCooldown.DisplayName>(Bond with Security) Charged Bite Charge Time</YAMJCS.ChargedBiteCooldown.DisplayName>
+  <YAMJCS.ChargedBiteCooldown.Tooltip>Time it takes, in seconds, for the charged bite to be ready on its own.</YAMJCS.ChargedBiteCooldown.Tooltip>
+  <YAMJCS.ChargedBiteCooldown.DisplayCategory>Talents</YAMJCS.ChargedBiteCooldown.DisplayCategory>
+
+  <YAMJCS.ChargedBiteCooldownReward.DisplayName>(Bond with Security) Marked Target Cooldown Reward</YAMJCS.ChargedBiteCooldownReward.DisplayName>
+  <YAMJCS.ChargedBiteCooldownReward.Tooltip>Creature attacks against marked targets removes this many seconds from the charged bite's cooldown.</YAMJCS.ChargedBiteCooldownReward.Tooltip>
+  <YAMJCS.ChargedBiteCooldownReward.DisplayCategory>Talents</YAMJCS.ChargedBiteCooldownReward.DisplayCategory>
+
+  <YAMJCS.HandlerMarkDuration.DisplayName>(Bond with Security) Handler Mark Duration</YAMJCS.HandlerMarkDuration.DisplayName>
+  <YAMJCS.HandlerMarkDuration.Tooltip>How long a character is considered "marked" for when damaged by a handler.</YAMJCS.HandlerMarkDuration.Tooltip>
+  <YAMJCS.HandlerMarkDuration.DisplayCategory>Talents</YAMJCS.HandlerMarkDuration.DisplayCategory>
+
+    <!--combat-->
+  
     <!--sleep-->
   <YAMJCS.SleepWindupTime.DisplayName>Sleep Wind-up Time</YAMJCS.SleepWindupTime.DisplayName>
   <YAMJCS.SleepWindupTime.Tooltip>The amount of time, in seconds, it takes for raptors to fall asleep (talent required).</YAMJCS.SleepWindupTime.Tooltip>
@@ -169,6 +186,10 @@ This is the amount of Bleeding damage each piece of shrapnel does.</YAMJCS.Shrap
   <yamjConfig.SleepWindupTime.float>5</yamjConfig.SleepWindupTime.float>
   <yamjConfig.DoctorBondBurnResist.percent>20</yamjConfig.DoctorBondBurnResist.percent>
   <yamjConfig.DoctorBondPoisonResist.percent>20</yamjConfig.DoctorBondPoisonResist.percent>
+  <yamjConfig.ChargedBiteDamageBonus.percent>50</yamjConfig.ChargedBiteDamageBonus.percent>
+  <yamjConfig.ChargedBiteStun>6</yamjConfig.ChargedBiteStun>
+  <yamjConfig.ChargedBiteCooldown.int>60</yamjConfig.ChargedBiteCooldown.int>
+  <yamjConfig.HandlerMarkDuration.int>15</yamjConfig.HandlerMarkDuration.int>
 
   <!--Job.xml-->
   <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>
@@ -183,6 +204,7 @@ This is the amount of Bleeding damage each piece of shrapnel does.</YAMJCS.Shrap
   <yamjHint.pickUp>[[key]] Pick up</yamjHint.pickUp>
   <yamjHint.forceOpenBeak>[[use]] Force open (Beak)</yamjHint.forceOpenBeak>
   <yamjHint.forceCloseBeak>[[use]] Force closed (Beak)</yamjHint.forceCloseBeak>
+  <yamjHint.designateHandler>[[key]] Designate as Handler</yamjHint.designateHandler>
   <!--UI Elements-->
   <yamjUi.speak>speak</yamjUi.speak>
   <yamjUi.speakTooltip>open known words</yamjUi.speakTooltip>
@@ -444,16 +466,16 @@ Reading a Book near the snoozing raptor is bound to be really relaxing.</afflict
   
 
   <!-- Bond with Captain -->
-  <talentname.YAMJBondCaptain>Best in Show (Bond with Captain)</talentname.YAMJBondCaptain>
-  <talentdescription.YAMJBondCaptain>Well, aren't you just the best raptor on any sub out there! Your fame knows no bounds.
+  <talentname.YAMJBondCaptain>Big Dog (Bond with Captain)</talentname.YAMJBondCaptain>
+  <talentdescription.YAMJBondCaptain>The captain chose you for a reason.
 ‖color:red‖WORK IN PROGRESS‖color:end‖
 Learn to steer using the navigation terminal.</talentdescription.YAMJBondCaptain>
   <afflictionname.YAMJBondCaptainBuff>Best in Show</afflictionname.YAMJBondCaptainBuff>
   <afflictiondescription.YAMJBondCaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.YAMJBondCaptainBuff>
   
   <!-- Bond with Doctor -->
-  <talentname.YAMJBondDoctor>Therapy's Left Claw (Bond with Medic)</talentname.YAMJBondDoctor>
-  <talentdescription.YAMJBondDoctor>You're the perfect test subject.
+  <talentname.YAMJBondDoctor>Plague Rat (Bond with Medic)</talentname.YAMJBondDoctor>
+  <talentdescription.YAMJBondDoctor>Hopefully your crewmates are immune to whatever you're harboring...
 You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
 You and your allies gain [burnResist]% resistance to [burn] and [poisonResist]% resistance to [poison].
 You can store genetic material in your gut, identifying and refining it over time.
@@ -462,25 +484,25 @@ All player raptor bites have a strong chance to be poisonous.</talentdescription
   <afflictionname.yamjDoctorPoisonResist>Poison Resistance</afflictionname.yamjDoctorPoisonResist>
   
   <!-- Bond with Security -->
-  <afflictionname.YAMJBondSecurityBuff>Guard Dog</afflictionname.YAMJBondSecurityBuff>
-  <afflictiondescription.YAMJBondSecurityBuff>Your skill with weapons and turrets is bolstered due to the Guard Dog.</afflictiondescription.YAMJBondSecurityBuff>
-  <afflictionname.YAMJRaptorBite>Raptor Bite</afflictionname.YAMJRaptorBite>
-  <afflictiondescription.YAMJRaptorBite>Fully charged and ready to nibble!</afflictiondescription.YAMJRaptorBite>
-  <talentname.YAMJBondSecurity>Guard Dog (Bond with Security)</talentname.YAMJBondSecurity>
+  <talentname.YAMJBondSecurity>Heat-Seeking Missile (Bond with Security)</talentname.YAMJBondSecurity>
   <talentdescription.YAMJBondSecurity>Trained by Security to be the best Guard Dog this side of europa.
-‖color:red‖WORK IN PROGRESS‖color:end‖</talentdescription.YAMJBondSecurity>
+‖color:red‖WORK IN PROGRESS‖color:end‖
+Your creature attacks charge up over [maxCharge] seconds.
+A fully charged attack deals +[damageBonus]% damage and applies [stun] seconds of stun.
+You can designate a crewmate as a handler, and their attacks will apply a mark to targets.
+Marked targets are visible through walls, and creature attacks against them refund [refund] seconds of cooldown for the charged bite.</talentdescription.YAMJBondSecurity>
+  <afflictionname.yamjBiteCharge>Raptor Bite</afflictionname.yamjBiteCharge> <!--todo change this garbage-->
+  <afflictiondescription.yamjBiteCharge>Fully charged and ready to nibble!</afflictiondescription.yamjBiteCharge>
   
   <!-- Bond with Engineer -->
   <talentname.YAMJBondEngineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBondEngineer>
-  <talentdescription.YAMJBondEngineer>Hanging out with the Engineer has taught you a few things, alongside maybe a little bit too much radiation intake.
+  <talentdescription.YAMJBondEngineer>Hanging out with the Engineer might have resulted in a little bit too much radiation intake.
 ‖color:red‖WORK IN PROGRESS‖color:end‖
 Gain the ability to eat fuel rods. They digest slowly, but aren't very healthy...</talentdescription.YAMJBondEngineer>
-  <afflictionname.YAMJBondEngineerBuff>Radiation Rascal</afflictionname.YAMJBondEngineerBuff>
-  <afflictiondescription.YAMJBondEngineerBuff>Your skill with electronics and repairing is bolstered due to the Radiation Rascal.</afflictiondescription.YAMJBondEngineerBuff>
   
   <!-- Bond with Mechanic -->
-  <talentname.YAMJBondMechanic>Tool Seeker (Bond with Mechanic)</talentname.YAMJBondMechanic>
-  <talentdescription.YAMJBondMechanic>You've picked up some tricks on how to better seek out what a mechanic requires.
+  <talentname.YAMJBondMechanic>Overachiever (Bond with Mechanic)</talentname.YAMJBondMechanic>
+  <talentdescription.YAMJBondMechanic>You know how to seek out what a mechanic requires.
 You gain the mechanic's [scrapSavant] talent, allowing you to find more scrap when looting.
 You can sense ores at a distance and through walls.
 Your creature attacks can mine ores.

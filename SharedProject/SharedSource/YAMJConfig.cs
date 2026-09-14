@@ -7,7 +7,7 @@ namespace YAMJCS;
 
 public static class YAMJConfig {
     private const string ConfigTokenPrefix = "yamjConfig.";
-    private const string ConfigAttribute = "configoverride";
+    private const string ConfigOverrideAttribute = "configoverride";
     private static readonly MethodInfo? TalentDescriptionSetter = AccessTools.PropertySetter(typeof(TalentPrefab), nameof(TalentPrefab.Description));
     private static readonly FieldInfo? AfflictionConfigElement = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.configElement));
     private static readonly FieldInfo? AfflictionEffects = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.effects));
@@ -34,6 +34,7 @@ public static class YAMJConfig {
     public static bool RaptorVisionShowDead => GetBool("RaptorVisionShowDead") ?? true;
     public static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
     public static float ShrapnelSpitCost => GetFloat("ShrapnelSpitCost") ?? 30f;
+    public static float HandlerMarkDuration => GetFloat("HandlerMarkDuration") ?? 15f;
         //combat 
     //(XML only) 
         //sleep 
@@ -87,6 +88,13 @@ public static class YAMJConfig {
         Bind(configService, thisPackage, "ShrapnelSpitCost");
         Bind(configService, thisPackage, "ShrapnelLacerations");
         Bind(configService, thisPackage, "ShrapnelBleeding");
+        Bind(configService, thisPackage, "ChargedBiteDamageBonus");
+        Bind(configService, thisPackage, "ChargedBiteStun");
+        Bind(configService, thisPackage, "ChargedBiteCooldown");
+        Bind(configService, thisPackage, "ChargedBiteCooldownReward");
+        Bind(configService, thisPackage, "HandlerMarkDuration");
+        //combat
+        
         //sleep 
         Bind(configService, thisPackage, "SleepWindupTime");
         Bind(configService, thisPackage, "SleepHealSelfDamage");
@@ -128,20 +136,6 @@ public static class YAMJConfig {
         #endif
     }
     
-    // For rebuilding talent descriptions based on config 
-    private static bool UsesConfigTokens(TalentPrefab talent) {
-        foreach (ContentXElement descriptionElement in talent.ConfigElement.GetChildElements("Description")) {
-            foreach (ContentXElement replaceElement in descriptionElement.GetChildElements("Replace")) {
-                string? value = replaceElement.GetAttributeString("value", string.Empty);
-                if (value is null) { continue; }
-                if (value.StartsWith(ConfigTokenPrefix, StringComparison.OrdinalIgnoreCase)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    
     public static void RebuildTalentDescriptions() {
         if (TalentDescriptionSetter is null) {
             YAMJ.Log("TalentPrefab.Description property setter not found");
@@ -170,36 +164,7 @@ public static class YAMJConfig {
 
         //YAMJ.Log($"Refreshed {counter} talent descriptions from config");
     }
-
-    // converts <yamjConfig.configName.format> into the number value 
-    private static string ResolveConfigToken(string value) {
-        if (value is null) { return string.Empty; }
-        if (!value.StartsWith(ConfigTokenPrefix, StringComparison.OrdinalIgnoreCase)) { return string.Empty; }
-
-        string noPrefix = value.Substring(ConfigTokenPrefix.Length);
-        string configName = noPrefix;
-        string format = string.Empty;
-
-        int separatorIndex = noPrefix.IndexOf('.');
-        if (separatorIndex >= 0) {
-            configName = noPrefix.Substring(0, separatorIndex);
-            format = noPrefix.Substring(separatorIndex + 1);
-        }
-
-        if (!boundSettings.TryGetValue(configName, out ISettingBase? setting)) {
-            YAMJ.Log($"Description token '{value}' has no bound setting, using text default");
-            return string.Empty;
-        }
-
-        return FormatSetting(setting, format);
-    }
     
-    private static string FormatValue(float value, string format) {
-        if (format == "percent") { return Math.Round(value * 100f).ToString(); }
-        if (format == "percentInverse") { return Math.Round(100f - value * 100f).ToString(); }
-        if (format == "int") { return Math.Round(value).ToString(); }
-        return value.ToString("0.##");
-    }
     
     public static void DisposeConfig() {
         foreach (ISettingBase setting in boundSettings.Values) {
@@ -215,11 +180,20 @@ public static class YAMJConfig {
     }
     #endif
     
+    private static void SetAfflictionField(AfflictionPrefab affliction, string attributeName, float value) {
+        FieldInfo? field = typeof(AfflictionPrefab).GetField(attributeName, BindingFlags.Public | BindingFlags.Instance| BindingFlags.IgnoreCase);
+        if (field is null || field.FieldType != typeof(float)) {
+            YAMJ.Log($"Config override FAILED on affliction '{affliction.Identifier}': no float field named '{attributeName}'.");
+            return;
+        }
+        field.SetValue(affliction, value);
+    }
+    
     public static void ApplyConfigToTalentXml() {
         int counter = 0;
         foreach (TalentPrefab talent in TalentPrefab.TalentPrefabs) {
             foreach (XElement element in talent.ConfigElement.Element.Descendants()) {
-                XAttribute? configOverride = element.Attribute(ConfigAttribute);
+                XAttribute? configOverride = element.Attribute(ConfigOverrideAttribute);
                 if (configOverride is null) { continue; }
                 counter += ApplyAttributeBindings(element, configOverride.Value);
             }
@@ -230,14 +204,14 @@ public static class YAMJConfig {
     public static void ApplyConfigToItemXml() {
         foreach (ItemPrefab item in ItemPrefab.Prefabs) {
             foreach (XElement element in item.ConfigElement.Element.Descendants()) {
-                XAttribute? configOverride = element.Attribute(ConfigAttribute);
+                XAttribute? configOverride = element.Attribute(ConfigOverrideAttribute);
                 if (configOverride is null) { continue; }
                 ApplyAttributeBindings(element, configOverride.Value);
             }
         }
     }
     
-    private static int ApplyAttributeBindings(XElement element, string bindings) {
+    private static int ApplyAttributeBindings(XElement element, string bindings, Action<string, float>? onApplied = null) {
         int counter = 0;
         foreach (string binding in bindings.Split(';', StringSplitOptions.RemoveEmptyEntries)) {
             string[] parts = binding.Split('=');
@@ -248,12 +222,14 @@ public static class YAMJConfig {
 
             float? configValue = GetFloat(valueName);
             if (configValue is null) {
-                YAMJ.Log($"{ConfigAttribute} binding '{binding}' has no bound setting, leaving XML default");
+                YAMJ.Log($"{ConfigOverrideAttribute} binding '{binding}' has no bound setting, leaving XML default");
                 continue;
             }
 
             // invariant required, the game parses XML floats with InvariantCulture 
             element.SetAttributeValue(attributeName, configValue.Value.ToString("0.#####", System.Globalization.CultureInfo.InvariantCulture));
+            
+            onApplied?.Invoke(attributeName, configValue.Value);
             counter++;
         }
         return counter;
@@ -271,10 +247,11 @@ public static class YAMJConfig {
             if (configElement is null) { continue; }
 
             int applied = 0;
-            foreach (XElement element in configElement.Element.Descendants()) {
-                XAttribute? configOverride = element.Attribute(ConfigAttribute);
+            foreach (XElement element in configElement.Element.DescendantsAndSelf()) {
+                XAttribute? configOverride = element.Attribute(ConfigOverrideAttribute);
                 if (configOverride is null) { continue; }
-                applied += ApplyAttributeBindings(element, configOverride.Value);
+                Action<string, float>? onRootApplied = element == configElement.Element ? (name, value) => SetAfflictionField(affliction, name, value) : null;
+                applied += ApplyAttributeBindings(element, configOverride.Value, onRootApplied);
             }
 
             if (applied == 0) { continue; }
@@ -296,6 +273,45 @@ public static class YAMJConfig {
         }
     }
     
+// Localization 
+
+    // For rebuilding talent descriptions based on config 
+    private static bool UsesConfigTokens(TalentPrefab talent) {
+        foreach (ContentXElement descriptionElement in talent.ConfigElement.GetChildElements("Description")) {
+            foreach (ContentXElement replaceElement in descriptionElement.GetChildElements("Replace")) {
+                string? value = replaceElement.GetAttributeString("value", string.Empty);
+                if (value is null) { continue; }
+                if (value.StartsWith(ConfigTokenPrefix, StringComparison.OrdinalIgnoreCase)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // converts <yamjConfig.configName.format> into a string representing the number value 
+    private static string ResolveConfigToken(string value) {
+        if (value is null) { return string.Empty; }
+        if (!value.StartsWith(ConfigTokenPrefix, StringComparison.OrdinalIgnoreCase)) { return string.Empty; }
+
+        string noPrefix = value.Substring(ConfigTokenPrefix.Length);
+        string configName = noPrefix;
+        string format = string.Empty;
+
+        int separatorIndex = noPrefix.IndexOf('.');
+        if (separatorIndex >= 0) {
+            configName = noPrefix.Substring(0, separatorIndex);
+            format = noPrefix.Substring(separatorIndex + 1);
+        }
+
+        if (!boundSettings.TryGetValue(configName, out ISettingBase? setting)) {
+            YAMJ.Log($"Description token '{value}' has no bound setting, using text default");
+            return string.Empty;
+        }
+
+        return FormatSetting(setting, format);
+    }
+
     private static string FormatSetting(ISettingBase setting, string format) {
         ISettingBase<float>? floatSetting = setting as ISettingBase<float>;
         if (floatSetting is not null) { return FormatValue(floatSetting.Value, format); }
@@ -315,7 +331,15 @@ public static class YAMJConfig {
         return setting.GetStringValue();
     }
     
-    // Setting Getters 
+    private static string FormatValue(float value, string format) {
+        if (format == "percent") { return Math.Round(value * 100f).ToString(); }
+        if (format == "percentInverse") { return Math.Round(100f - value * 100f).ToString(); }
+        if (format == "int") { return Math.Round(value).ToString(); }
+        return value.ToString("0.##");
+    }
+    
+    
+// Setting Getters 
     private static float? GetFloat(string name) {
         if (!boundSettings.TryGetValue(name, out ISettingBase? setting)) { return null; }
         ISettingBase<float>? typed = setting as ISettingBase<float>;

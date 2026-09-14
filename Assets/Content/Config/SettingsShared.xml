@@ -66,14 +66,29 @@
         <Setting Name="ShrapnelSpitCost" Type="rangeFloat"
                  Value="30" Min="0" Max="100" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
-        
-        <!-- Combat -->
         <Setting Name="ShrapnelLacerations" Type="rangeFloat"
                  Value="12" Min="0" Max="100" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="ShrapnelBleeding" Type="rangeFloat"
                  Value="5" Min="0" Max="100" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteDamageBonus" Type="rangeFloat"
+                 Value="0.50" Min="0.00" Max="10.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteStun" Type="rangeFloat"
+                 Value="6" Min="0" Max="30" Steps="61"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteCooldown" Type="rangeFloat"
+                 Value="60" Min="5" Max="120" Steps="116"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteCooldownReward" Type="rangeFloat"
+                 Value="6" Min="0" Max="120" Steps="121"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="HandlerMarkDuration" Type="rangeFloat"
+                 Value="15" Min="1" Max="60" Steps="60"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        
+        <!-- Combat -->
                  
         <!-- Sleep -->
         

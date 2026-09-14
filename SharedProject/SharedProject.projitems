@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\AssemblySettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorAim.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorBondSecurity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorCanOpener.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorGut.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorInventory.cs" />

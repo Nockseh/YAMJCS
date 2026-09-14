@@ -842,45 +842,72 @@
   
   <Talent identifier="YAMJBondSecurity">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBondSecurity" />
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
-              <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBondSecurityBuff" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
+    <Description tag="talentdescription.YAMJBondSecurity">
+      <Replace tag="[maxCharge]" value="yamjConfig.ChargedBiteCooldown.int" color="gui.orange" />
+      <Replace tag="[damageBonus]" value="yamjConfig.ChargedBiteDamageBonus.percent" color="gui.green" />
+      <Replace tag="[stun]" value="yamjConfig.ChargedBiteStun" color="gui.green" />
+      <Replace tag="[refund]" value="yamjConfig.ChargedBiteCooldownReward.float" color="gui.orange" />
+    </Description>
+    <!-- passive charge: +1 per second, full at yamjBiteCharge's maxstrength -->
     <AbilityGroupInterval interval="1">
       <Abilities>
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
             <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
-              <Affliction identifier="YAMJRaptorBite" amount="1.0" />
+              <Affliction identifier="yamjBiteCharge" amount="1.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
+    <!-- fully charged attack: bonus damage and stun -->
     <AbilityGroupEffect abilityeffecttype="OnAttack">
       <Conditions>
-        <AbilityConditionHasAffliction afflictionidentifier="YAMJRaptorBite" minimumpercentage="1.0" />
-        <AbilityConditionAttackData ignorenonharmfulattacks="true" weapontype="NoWeapon" />
+        <AbilityConditionHasAffliction afflictionidentifier="yamjBiteCharge" minimumpercentage="1.00" />
+        <AbilityConditionAttackData weapontype="NoWeapon" />
+        <AbilityConditionCharacter targettypes="Alive" />
       </Conditions>
       <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="1.25" />
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.5" configoverride="addeddamagemultiplier=ChargedBiteDamageBonus" />
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="UseTarget">
+              <Affliction identifier="stun" amount="6" configoverride="amount=ChargedBiteStun" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupEffect>
-    <AbilityGroupEffect abilityeffecttype="OnAttackResult">
+    <!-- spend charge on max (conditions should match the group above) -->
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="yamjBiteCharge" minimumpercentage="1.00" />
+        <AbilityConditionAttackData weapontype="NoWeapon" />
+        <AbilityConditionCharacter targettypes="Alive" />
+      </Conditions>
       <Abilities>
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
             <StatusEffect type="OnAbility" target="This">
-              <ReduceAffliction identifier="YAMJRaptorBite" strength="10.0" />
+              <ReduceAffliction identifier="yamjBiteCharge" strength="1000" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupEffect>
+    <!-- partial refund if target marked (last) -->
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="NoWeapon" />
+        <AbilityConditionCharacter targettypes="Alive">
+          <Conditional yamjMarked="gt 0" />
+        </AbilityConditionCharacter>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
+              <Affliction identifier="yamjBiteCharge" amount="20" configoverride="amount=ChargedBiteCooldownReward" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>

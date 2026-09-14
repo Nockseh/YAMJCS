@@ -44,7 +44,7 @@ internal static partial class YAMJ
     }
 
     // Helper Functions //
-    private static AfflictionPrefab? FindAfflictionPrefab(Identifier id) {
+    public static AfflictionPrefab? FindAfflictionPrefab(Identifier id) {
         AfflictionPrefab.Prefabs.TryGet(id, out AfflictionPrefab? prefab);
         if (prefab is null) {
             Log($"Affliction prefab {id} not found");
