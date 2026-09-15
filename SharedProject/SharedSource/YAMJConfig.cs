@@ -93,6 +93,7 @@ public static class YAMJConfig {
         Bind(configService, thisPackage, "ChargedBiteCooldown");
         Bind(configService, thisPackage, "ChargedBiteCooldownReward");
         Bind(configService, thisPackage, "HandlerMarkDuration");
+        Bind(configService, thisPackage, "ClearVisionRange");
         //combat
         
         //sleep 

@@ -309,7 +309,7 @@
         <AbilityConditionRagdolled />
       </Conditions>
       <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="300" allowself="true">
+        <CharacterAbilityApplyStatusEffects maxdistance="300" nearbycharactersappliestoenemies="false">
           <StatusEffects>
             <StatusEffect type="OnAbility" target="NearbyCharacters" range="300">
               <!-- Heals Allies at half the rate -->
@@ -471,7 +471,7 @@
         <AbilityConditionAllyNearby distance="1000" />
       </Conditions>
       <Abilities>
-        <CharacterAbilityApplyStatusEffectsToAllies allowclientsimulation="true" maxdistance="1000" allowself="true">
+        <CharacterAbilityApplyStatusEffectsToAllies allowclientsimulation="true" maxdistance="1000">
           <StatusEffects>
             <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
               <Affliction identifier="YAMJVouchBuff" amount="1.0" />
@@ -770,7 +770,7 @@
     </AbilityGroupInterval>
     <AbilityGroupInterval interval="0.5">
       <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="750" allowself="false">
+        <CharacterAbilityApplyStatusEffects maxdistance="750" nearbycharactersappliestoself="false" nearbycharactersappliestoallies="true" nearbycharactersappliestoenemies="false" >
           <StatusEffects>
             <StatusEffect type="OnAbility" target="NearbyCharacters" range="800" setvalue="true" disabledeltatime="true">
               <Conditional isplayer="true" />
@@ -848,7 +848,20 @@
       <Replace tag="[stun]" value="yamjConfig.ChargedBiteStun" color="gui.green" />
       <Replace tag="[refund]" value="yamjConfig.ChargedBiteCooldownReward.float" color="gui.orange" />
     </Description>
-    <!-- passive charge: +1 per second, full at yamjBiteCharge's maxstrength -->
+    <!-- nearby crewmates: suit vision cones removed -->
+    <AbilityGroupInterval interval="0.5">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects nearbycharactersappliestoself="false" nearbycharactersappliestoenemies="false">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="NearbyCharacters" Range="2000" setvalue="true" disabledeltatime="true" configoverride="Range=ClearVisionRange">
+              <Conditional isplayer="true" />
+              <Affliction identifier="yamjClearVision" strength="2" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <!-- passive bite charge: +1 per second, full at yamjBiteCharge's maxstrength -->
     <AbilityGroupInterval interval="1">
       <Abilities>
         <CharacterAbilityApplyStatusEffects>

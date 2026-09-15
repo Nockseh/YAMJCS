@@ -199,6 +199,10 @@
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,1" sheetelementsize="128,128" color="255,0,0,255" origin="0,0" />
     <Effect minstrength="0" maxstrength="15" strengthchange="-1" configoverride="maxStrength=HandlerMarkDuration" />
   </Affliction>
+  <!-- remove suit vision obstruction [Hidden] -->
+  <Affliction identifier="yamjClearVision" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="2" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000">
+    <Effect minstrength="0" maxstrength="2" strengthchange="-1" />
+  </Affliction>
     <!--========-->
   
     <!--Engineer-->

@@ -140,6 +140,10 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <YAMJCS.HandlerMarkDuration.DisplayName>(Bond with Security) Handler Mark Duration</YAMJCS.HandlerMarkDuration.DisplayName>
   <YAMJCS.HandlerMarkDuration.Tooltip>How long a character is considered "marked" for when damaged by a handler.</YAMJCS.HandlerMarkDuration.Tooltip>
   <YAMJCS.HandlerMarkDuration.DisplayCategory>Talents</YAMJCS.HandlerMarkDuration.DisplayCategory>
+  
+  <YAMJCS.ClearVisionRange.DisplayName>(Bond with Security) Clear Vision Range</YAMJCS.ClearVisionRange.DisplayName>
+  <YAMJCS.ClearVisionRange.Tooltip>Raptors with this talent will remove the suit vision obstruction effect from crewmates in this radius.</YAMJCS.ClearVisionRange.Tooltip>
+  <YAMJCS.ClearVisionRange.DisplayCategory>Talents</YAMJCS.ClearVisionRange.DisplayCategory>
 
     <!--combat-->
   

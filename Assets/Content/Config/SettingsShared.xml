@@ -87,6 +87,9 @@
         <Setting Name="HandlerMarkDuration" Type="rangeFloat"
                  Value="15" Min="1" Max="60" Steps="60"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ClearVisionRange" Type="rangeFloat"
+                 Value="2000" Min="0" Max="20000" Steps="81"
+                 NetSync="TwoWay" ShowInMenus="true" />
         
         <!-- Combat -->
                  
