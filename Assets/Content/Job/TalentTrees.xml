@@ -34,8 +34,8 @@
         <TalentOption identifier="YAMJGunner" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJBond_Security" />
-        <TalentOption identifier="YAMJBond_Doctor" />
+        <TalentOption identifier="YAMJBondSecurity" />
+        <TalentOption identifier="YAMJBondMechanic" />
       </TalentOptions>
     </SubTree>
     <!-- Predator -->
@@ -54,7 +54,7 @@
       </TalentOptions>
       <TalentOptions>
         <TalentOption identifier="YAMJRelentless" />
-        <TalentOption identifier="YAMJBond_Captain" />
+        <TalentOption identifier="YAMJBondCaptain" />
       </TalentOptions>
     </SubTree>
     <!-- Student -->
@@ -72,8 +72,8 @@
         <TalentOption identifier="YAMJClownCollege" />
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="YAMJBond_Mechanic" />
-        <TalentOption identifier="YAMJBond_Engineer" />
+        <TalentOption identifier="YAMJBondDoctor" />
+        <TalentOption identifier="YAMJBondEngineer" />
       </TalentOptions>
     </SubTree>
   </TalentTree>

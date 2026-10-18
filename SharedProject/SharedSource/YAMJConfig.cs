@@ -7,61 +7,55 @@ namespace YAMJCS;
 
 public static class YAMJConfig {
     private const string ConfigTokenPrefix = "yamjConfig.";
-    private const string ConfigAttribute = "configoverride";
+    private const string ConfigOverrideAttribute = "configoverride";
     private static readonly MethodInfo? TalentDescriptionSetter = AccessTools.PropertySetter(typeof(TalentPrefab), nameof(TalentPrefab.Description));
     private static readonly FieldInfo? AfflictionConfigElement = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.configElement));
     private static readonly FieldInfo? AfflictionEffects = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.effects));
     
     #region Server Settings
     // Shared Settings
-        //hunger
+        //hunger 
     public static float HungerRate => GetFloat("HungerRate") ?? 0.015f;
     public static float EatingHungerReduction => GetFloat("EatingHungerReduction") ?? 4f;
     public static float DigestionUpdateInterval => GetFloat("DigestionUpdateInterval") ?? 2f;
-        //digestion hunger
+        //digestion hunger 
     public static float BasicFoodHungerReduction => GetFloat("BasicFoodHungerReduction") ?? 1.0f;
     public static float EngineerFoodHungerReduction => GetFloat("EngineerFoodHungerReduction") ?? 0.1f;
     public static float MechanicFoodHungerReduction => GetFloat("MechanicFoodHungerReduction") ?? 0.1f;
     public static float DoctorFoodHungerReduction => GetFloat("DoctorFoodHungerReduction") ?? -0.1f;
-        //digestion condition
+        //digestion condition 
     public static float BasicFoodConditionReduction => GetFloat("BasicFoodConditionReduction") ?? 1.0f;
     public static float EngineerFoodConditionReduction => GetFloat("EngineerFoodConditionReduction") ?? 0.01f;
     public static float MechanicFoodConditionReduction => GetFloat("MechanicFoodConditionReduction") ?? 0.2f;
     public static float DoctorFoodConditionReduction => GetFloat("DoctorFoodConditionReduction") ?? -0.01f;
-        //talents
+        //talents 
     public static float RaptorVisionRange => GetFloat("RaptorVisionRange") ?? 1500f;
+    public static float OreVisionRange => GetFloat("OreVisionRange") ?? 5000f;
     public static bool RaptorVisionShowDead => GetBool("RaptorVisionShowDead") ?? true;
     public static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
-    public static float FamiliarWatersDamageBonus => GetFloat("FamiliarWatersDamageBonus") ?? 0.25f;
-        //sleep
-    public static float SleepWindupTime => GetFloat("SleepWindupTime") ?? 5;
-    public static float SleepHealSelfDamage => GetFloat("SleepHealSelfDamage") ?? 0.16f;
-    public static float SleepHealSelfBurn => GetFloat("SleepHealSelfBurn") ?? 0.10f;
-    public static float SleepHealSelfBleeding => GetFloat("SleepHealSelfBleeding") ?? 0.06f;
-    public static float SleepHealSelfBloodLoss => GetFloat("SleepHealSelfBloodLoss") ?? 0.10f;
-    public static float SleepHealOthersDamage => GetFloat("SleepHealOthersDamage") ?? 0.08f;
-    public static float SleepHealOthersBurn => GetFloat("SleepHealOthersBurn") ?? 0.05f;
-    public static float SleepHealOthersBleeding => GetFloat("SleepHealOthersBleeding") ?? 0.03f;
-    public static float SleepHealOthersBloodLoss => GetFloat("SleepHealOthersBloodLoss") ?? 0.05f;
+    public static float ShrapnelSpitCost => GetFloat("ShrapnelSpitCost") ?? 30f;
+    public static float HandlerMarkDuration => GetFloat("HandlerMarkDuration") ?? 15f;
+        //combat 
+    //(XML only) 
+        //sleep 
+    //(XML only) 
     #endregion
     
-    // Client Settings
+    // Client Settings 
     #if CLIENT
-        // this prevents superfluous allocation, i think
         private static readonly KeyOrMouse DefaultRaptorVisionKey = Keys.V;
         private static readonly KeyOrMouse DefaultQuickChatKey = Keys.B;
-    
+        private static readonly Color DefaultRaptorVisionColor = new Color(255, 127, 0, 255);
+        private static readonly Color DefaultOreVisionColor = new Color(90, 255, 200, 255);
+        
         public static KeyOrMouse RaptorVisionKey => GetKey("RaptorVisionKey") ?? DefaultRaptorVisionKey;
         public static KeyOrMouse QuickChatKey => GetKey("QuickChatKey") ?? DefaultQuickChatKey;
-        public static Color RaptorVisionColor => new Color(
-            GetInt("RaptorVisionRed") ?? 255,
-            GetInt("RaptorVisionGreen") ?? 127,
-            GetInt("RaptorVisionBlue") ?? 0,
-            GetInt("RaptorVisionAlpha") ?? 255
-        );
+        
+        public static Color RaptorVisionColor = DefaultRaptorVisionColor;
+        public static Color OreVisionColor = DefaultOreVisionColor;
     #endif
     
-    //settings binding
+    //settings binding 
     private static readonly Dictionary<string, ISettingBase> boundSettings = new();
 
     public static void InitializeConfig(IConfigService configService, IPluginManagementService pluginService) {
@@ -69,7 +63,7 @@ public static class YAMJConfig {
             YAMJ.Log("Could not resolve content package 'YAMJCS', config not initialized");
             return;
         }
-        //hunger
+        //hunger 
         Bind(configService, thisPackage, "HungerRate");
         Bind(configService, thisPackage, "EatingHungerReduction");
         Bind(configService, thisPackage, "DigestionUpdateInterval");
@@ -83,12 +77,26 @@ public static class YAMJConfig {
         Bind(configService, thisPackage, "EngineerFoodConditionReduction");
         Bind(configService, thisPackage, "MechanicFoodConditionReduction");
         Bind(configService, thisPackage, "DoctorFoodConditionReduction");
-        //talents
+        //talents 
         Bind(configService, thisPackage, "RaptorVisionRange");
         Bind(configService, thisPackage, "RaptorVisionShowDead");
+        Bind(configService, thisPackage, "OreVisionRange");
         Bind(configService, thisPackage, "CanOpenerDamageBonus");
         Bind(configService, thisPackage, "FamiliarWatersDamageBonus");
-        //sleep
+        Bind(configService, thisPackage, "DoctorBondBurnResist");
+        Bind(configService, thisPackage, "DoctorBondPoisonResist");
+        Bind(configService, thisPackage, "ShrapnelSpitCost");
+        Bind(configService, thisPackage, "ShrapnelLacerations");
+        Bind(configService, thisPackage, "ShrapnelBleeding");
+        Bind(configService, thisPackage, "ChargedBiteDamageBonus");
+        Bind(configService, thisPackage, "ChargedBiteStun");
+        Bind(configService, thisPackage, "ChargedBiteCooldown");
+        Bind(configService, thisPackage, "ChargedBiteCooldownReward");
+        Bind(configService, thisPackage, "HandlerMarkDuration");
+        Bind(configService, thisPackage, "ClearVisionRange");
+        //combat
+        
+        //sleep 
         Bind(configService, thisPackage, "SleepWindupTime");
         Bind(configService, thisPackage, "SleepHealSelfDamage");
         Bind(configService, thisPackage, "SleepHealSelfBurn");
@@ -101,10 +109,9 @@ public static class YAMJConfig {
         #if CLIENT
         Bind(configService, thisPackage, "RaptorVisionKey");
         Bind(configService, thisPackage, "QuickChatKey");
-        Bind(configService, thisPackage, "RaptorVisionRed");
-        Bind(configService, thisPackage, "RaptorVisionGreen");
-        Bind(configService, thisPackage, "RaptorVisionBlue");
-        Bind(configService, thisPackage, "RaptorVisionAlpha");
+        Bind(configService, thisPackage, "RaptorVisionColor");
+        Bind(configService, thisPackage, "OreVisionColor");
+        RefreshColors();
         #endif
 
         YAMJ.Log($"Bound {boundSettings.Count} config settings: {string.Join(", ", boundSettings.Keys)}");
@@ -119,25 +126,15 @@ public static class YAMJConfig {
         }
     }
 
-    private static void OnConfigValueChanged(ISettingBase setting) {
+    private static void OnConfigValueChanged(ISettingBase setting) { //todo don't refresh everything every time
         YAMJ.Log($"Config '{setting.InternalName}' changed to {setting.GetStringValue()}");
         ApplyConfigToTalentXml();
         RebuildTalentDescriptions();
         ApplyConfigToAfflictionXml();
-    }
-    
-    // For rebuilding talent descriptions based on config
-    private static bool UsesConfigTokens(TalentPrefab talent) {
-        foreach (ContentXElement descriptionElement in talent.ConfigElement.GetChildElements("Description")) {
-            foreach (ContentXElement replaceElement in descriptionElement.GetChildElements("Replace")) {
-                string? value = replaceElement.GetAttributeString("value", string.Empty);
-                if (value is null) { continue; }
-                if (value.StartsWith(ConfigTokenPrefix, StringComparison.OrdinalIgnoreCase)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        ApplyConfigToItemXml();
+        #if CLIENT
+            RefreshColors();
+        #endif
     }
     
     public static void RebuildTalentDescriptions() {
@@ -152,7 +149,7 @@ public static class YAMJConfig {
                 continue;
             }
 
-            // mirrors TalentPrefab's constructor, but with live values substituted
+            // mirrors TalentPrefab's constructor, but with live values substituted 
             LocalizedString description = string.Empty;
             foreach (ContentXElement descriptionElement in talent.ConfigElement.GetChildElements("Description")) {
                 TextManager.ConstructDescription(ref description, descriptionElement, ResolveConfigToken);
@@ -166,10 +163,134 @@ public static class YAMJConfig {
             counter++;
         }
 
-        YAMJ.Log($"Refreshed {counter} talent descriptions from config");
+        //YAMJ.Log($"Refreshed {counter} talent descriptions from config");
+    }
+    
+    
+    public static void DisposeConfig() {
+        foreach (ISettingBase setting in boundSettings.Values) {
+            setting.OnValueChanged -= OnConfigValueChanged;
+        }
+        boundSettings.Clear();
     }
 
-    // converts <yamjConfig.configName.format> into the number value
+    #if CLIENT
+    public static void RefreshColors() {
+        RaptorVisionColor = GetColor("RaptorVisionColor") ?? DefaultRaptorVisionColor;
+        OreVisionColor = GetColor("OreVisionColor") ?? DefaultOreVisionColor;   
+    }
+    #endif
+    
+    private static void SetAfflictionField(AfflictionPrefab affliction, string attributeName, float value) {
+        FieldInfo? field = typeof(AfflictionPrefab).GetField(attributeName, BindingFlags.Public | BindingFlags.Instance| BindingFlags.IgnoreCase);
+        if (field is null || field.FieldType != typeof(float)) {
+            YAMJ.Log($"Config override FAILED on affliction '{affliction.Identifier}': no float field named '{attributeName}'.");
+            return;
+        }
+        field.SetValue(affliction, value);
+    }
+    
+    public static void ApplyConfigToTalentXml() {
+        int counter = 0;
+        foreach (TalentPrefab talent in TalentPrefab.TalentPrefabs) {
+            foreach (XElement element in talent.ConfigElement.Element.Descendants()) {
+                XAttribute? configOverride = element.Attribute(ConfigOverrideAttribute);
+                if (configOverride is null) { continue; }
+                counter += ApplyAttributeBindings(element, configOverride.Value);
+            }
+        }
+        //YAMJ.Log($"Applied config to {counter} talent XML values");
+    }
+    
+    public static void ApplyConfigToItemXml() {
+        foreach (ItemPrefab item in ItemPrefab.Prefabs) {
+            foreach (XElement element in item.ConfigElement.Element.Descendants()) {
+                XAttribute? configOverride = element.Attribute(ConfigOverrideAttribute);
+                if (configOverride is null) { continue; }
+                ApplyAttributeBindings(element, configOverride.Value);
+            }
+        }
+    }
+    
+    private static int ApplyAttributeBindings(XElement element, string bindings, Action<string, float>? onApplied = null) {
+        int counter = 0;
+        foreach (string binding in bindings.Split(';', StringSplitOptions.RemoveEmptyEntries)) {
+            string[] parts = binding.Split('=');
+            if (parts.Length != 2) { continue; }
+
+            string attributeName = parts[0].Trim();
+            string valueName = parts[1].Trim();
+
+            float? configValue = GetFloat(valueName);
+            if (configValue is null) {
+                YAMJ.Log($"{ConfigOverrideAttribute} binding '{binding}' has no bound setting, leaving XML default");
+                continue;
+            }
+
+            // invariant required, the game parses XML floats with InvariantCulture 
+            element.SetAttributeValue(attributeName, configValue.Value.ToString("0.#####", System.Globalization.CultureInfo.InvariantCulture));
+            
+            onApplied?.Invoke(attributeName, configValue.Value);
+            counter++;
+        }
+        return counter;
+    }
+    
+    public static void ApplyConfigToAfflictionXml() {
+        if (AfflictionConfigElement is null || AfflictionEffects is null) {
+            YAMJ.Log("AfflictionPrefab internals not found, affliction overrides skipped");
+            return;
+        }
+
+        int counter = 0;
+        foreach (AfflictionPrefab affliction in AfflictionPrefab.Prefabs) {
+            ContentXElement? configElement = AfflictionConfigElement.GetValue(affliction) as ContentXElement;
+            if (configElement is null) { continue; }
+
+            int applied = 0;
+            foreach (XElement element in configElement.Element.DescendantsAndSelf()) {
+                XAttribute? configOverride = element.Attribute(ConfigOverrideAttribute);
+                if (configOverride is null) { continue; }
+                Action<string, float>? onRootApplied = element == configElement.Element ? (name, value) => SetAfflictionField(affliction, name, value) : null;
+                applied += ApplyAttributeBindings(element, configOverride.Value, onRootApplied);
+            }
+
+            if (applied == 0) { continue; }
+            RebuildAfflictionEffects(affliction, configElement);
+            counter += applied;
+        }
+
+        //YAMJ.Log($"Applied config to {counter} affliction XML values");
+    }
+    
+    private static void RebuildAfflictionEffects(AfflictionPrefab affliction, ContentXElement configElement) {
+        List<AfflictionPrefab.Effect>? effects = AfflictionEffects?.GetValue(affliction) as List<AfflictionPrefab.Effect>;
+        if (effects is null) { return; }
+
+        effects.Clear();
+        foreach (ContentXElement subElement in configElement.Elements()) {
+            if (subElement.Name.ToString().ToLowerInvariant() != "effect") { continue; }
+            effects.Add(new AfflictionPrefab.Effect(subElement, affliction.Name.Value));
+        }
+    }
+    
+// Localization 
+
+    // For rebuilding talent descriptions based on config 
+    private static bool UsesConfigTokens(TalentPrefab talent) {
+        foreach (ContentXElement descriptionElement in talent.ConfigElement.GetChildElements("Description")) {
+            foreach (ContentXElement replaceElement in descriptionElement.GetChildElements("Replace")) {
+                string? value = replaceElement.GetAttributeString("value", string.Empty);
+                if (value is null) { continue; }
+                if (value.StartsWith(ConfigTokenPrefix, StringComparison.OrdinalIgnoreCase)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // converts <yamjConfig.configName.format> into a string representing the number value 
     private static string ResolveConfigToken(string value) {
         if (value is null) { return string.Empty; }
         if (!value.StartsWith(ConfigTokenPrefix, StringComparison.OrdinalIgnoreCase)) { return string.Empty; }
@@ -191,93 +312,7 @@ public static class YAMJConfig {
 
         return FormatSetting(setting, format);
     }
-    
-    private static string FormatValue(float value, string format) {
-        if (format == "percent") { return Math.Round(value * 100f).ToString(); }
-        if (format == "percentInverse") { return Math.Round(100f - value * 100f).ToString(); }
-        if (format == "int") { return Math.Round(value).ToString(); }
-        return value.ToString("0.##");
-    }
-    
-    public static void DisposeConfig() {
-        foreach (ISettingBase setting in boundSettings.Values) {
-            setting.OnValueChanged -= OnConfigValueChanged;
-        }
-        boundSettings.Clear();
-    }
-    
-    public static void ApplyConfigToTalentXml() {
-        int counter = 0;
-        foreach (TalentPrefab talent in TalentPrefab.TalentPrefabs) {
-            foreach (XElement element in talent.ConfigElement.Element.Descendants()) {
-                XAttribute? configOverride = element.Attribute(ConfigAttribute);
-                if (configOverride is null) { continue; }
-                counter += ApplyAttributeBindings(element, configOverride.Value);
-            }
-        }
-        YAMJ.Log($"Applied config to {counter} talent XML values");
-    }
 
-    private static int ApplyAttributeBindings(XElement element, string bindings) {
-        int counter = 0;
-        foreach (string binding in bindings.Split(';', StringSplitOptions.RemoveEmptyEntries)) {
-            string[] parts = binding.Split('=');
-            if (parts.Length != 2) { continue; }
-
-            string attributeName = parts[0].Trim();
-            string valueName = parts[1].Trim();
-
-            float? configValue = GetFloat(valueName);
-            if (configValue is null) {
-                YAMJ.Log($"{ConfigAttribute} binding '{binding}' has no bound setting, leaving XML default");
-                continue;
-            }
-
-            // invariant required, the game parses XML floats with InvariantCulture
-            element.SetAttributeValue(attributeName, configValue.Value.ToString("0.#####", System.Globalization.CultureInfo.InvariantCulture));
-            counter++;
-        }
-        return counter;
-    }
-    
-    public static void ApplyConfigToAfflictionXml() {
-        if (AfflictionConfigElement is null || AfflictionEffects is null) {
-            YAMJ.Log("AfflictionPrefab internals not found, affliction overrides skipped");
-            return;
-        }
-
-        int counter = 0;
-        foreach (AfflictionPrefab affliction in AfflictionPrefab.Prefabs) {
-            ContentXElement? configElement = AfflictionConfigElement.GetValue(affliction) as ContentXElement;
-            if (configElement is null) { continue; }
-
-            int applied = 0;
-            foreach (XElement element in configElement.Element.Descendants()) {
-                XAttribute? configOverride = element.Attribute(ConfigAttribute);
-                if (configOverride is null) { continue; }
-                applied += ApplyAttributeBindings(element, configOverride.Value);
-            }
-
-            if (applied == 0) { continue; }
-            RebuildAfflictionEffects(affliction, configElement);
-            counter += applied;
-        }
-
-        YAMJ.Log($"Applied config to {counter} affliction XML values");
-    }
-
-    // the prefab parses Effects once on load, so editing the XML alone does nothing
-    private static void RebuildAfflictionEffects(AfflictionPrefab affliction, ContentXElement configElement) {
-        List<AfflictionPrefab.Effect>? effects = AfflictionEffects?.GetValue(affliction) as List<AfflictionPrefab.Effect>;
-        if (effects is null) { return; }
-
-        effects.Clear();
-        foreach (ContentXElement subElement in configElement.Elements()) {
-            if (subElement.Name.ToString().ToLowerInvariant() != "effect") { continue; }
-            effects.Add(new AfflictionPrefab.Effect(subElement, affliction.Name.Value));
-        }
-    }
-    
     private static string FormatSetting(ISettingBase setting, string format) {
         ISettingBase<float>? floatSetting = setting as ISettingBase<float>;
         if (floatSetting is not null) { return FormatValue(floatSetting.Value, format); }
@@ -297,7 +332,15 @@ public static class YAMJConfig {
         return setting.GetStringValue();
     }
     
-    // Setting Getters
+    private static string FormatValue(float value, string format) {
+        if (format == "percent") { return Math.Round(value * 100f).ToString(); }
+        if (format == "percentInverse") { return Math.Round(100f - value * 100f).ToString(); }
+        if (format == "int") { return Math.Round(value).ToString(); }
+        return value.ToString("0.##");
+    }
+    
+    
+// Setting Getters 
     private static float? GetFloat(string name) {
         if (!boundSettings.TryGetValue(name, out ISettingBase? setting)) { return null; }
         ISettingBase<float>? typed = setting as ISettingBase<float>;
@@ -317,6 +360,18 @@ public static class YAMJConfig {
         ISettingBase<bool>? typed = setting as ISettingBase<bool>;
         if (typed is null) { return null; }
         return typed.Value;
+    }
+    
+    private static Color? GetColor(string name) {
+        if (!boundSettings.TryGetValue(name, out ISettingBase? setting)) { return null; }
+        ISettingBase<string>? typed = setting as ISettingBase<string>;
+        if (typed is null) { return null; }
+        
+        string value = typed.Value.Trim();
+        if (value.Length is not (7 or 9) || value[0] != '#') { return null; }
+        if (!uint.TryParse(value.AsSpan(1), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out _)) { return null; }
+        
+        return XMLExtensions.ParseColor(value, errorMessages: false);
     }
 
 #if CLIENT

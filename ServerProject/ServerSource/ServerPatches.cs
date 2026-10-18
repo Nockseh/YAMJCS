@@ -62,15 +62,10 @@ internal static class CharacterCreateFromPrefabPatch {
 
         CrewManager crewManager = GameMain.GameSession?.CrewManager;
         if (crewManager is null) return;
-        //always says npc playRaptors are New hires but works good enough for now
+        //always says npc playRaptors are New hires but works good enough for now todo fix
         if (!GameMain.GameSession.CrewManager.GetCharacterInfos(true).Contains(__result.Info)) {
             GameMain.NetworkMember?.CreateEntityEvent(__result, new Character.AddToCrewEventData(__result.TeamID, __result.Inventory.AllItems));
             YAMJ.Log("Sent AddToCrew event for player raptor " + __result.Name);
-        }
-
-        if (YAMJ.IsPlayerRaptor(__result)) {
-            Affliction affliction = YAMJ.HungerPrefab.Instantiate(0.01f);
-            __result.CharacterHealth.ApplyAffliction(null, affliction);
         }
     }
 }
@@ -95,8 +90,7 @@ internal static class CorpseEatingPatch {
 
     static void Postfix(Character target, float deltaTime, ref FishAnimController __instance) {
         if (YAMJ.IsPlayerRaptor(__instance.Character) && target.IsDead) {
-            Affliction reduceHunger = new Affliction(YAMJ.HungerPrefab, YAMJConfig.EatingHungerReduction * deltaTime * -1f);
-            __instance.Character.CharacterHealth.ApplyAffliction(null, reduceHunger);
+            RaptorGut.ModifyHunger(__instance.Character.CharacterHealth, YAMJConfig.EatingHungerReduction * deltaTime * -1f);
             Affliction eatingBuff = new Affliction(YAMJ.EatingBuffPrefab, 2f);
             __instance.Character.CharacterHealth.ApplyAffliction(null, eatingBuff, false);
         }

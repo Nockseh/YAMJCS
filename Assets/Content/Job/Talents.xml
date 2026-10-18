@@ -309,7 +309,7 @@
         <AbilityConditionRagdolled />
       </Conditions>
       <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="300" allowself="true">
+        <CharacterAbilityApplyStatusEffects maxdistance="300" nearbycharactersappliestoenemies="false">
           <StatusEffects>
             <StatusEffect type="OnAbility" target="NearbyCharacters" range="300">
               <!-- Heals Allies at half the rate -->
@@ -471,7 +471,7 @@
         <AbilityConditionAllyNearby distance="1000" />
       </Conditions>
       <Abilities>
-        <CharacterAbilityApplyStatusEffectsToAllies allowclientsimulation="true" maxdistance="1000" allowself="true">
+        <CharacterAbilityApplyStatusEffectsToAllies allowclientsimulation="true" maxdistance="1000">
           <StatusEffects>
             <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
               <Affliction identifier="YAMJVouchBuff" amount="1.0" />
@@ -770,7 +770,7 @@
     </AbilityGroupInterval>
     <AbilityGroupInterval interval="0.5">
       <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="750" allowself="false">
+        <CharacterAbilityApplyStatusEffects maxdistance="750" nearbycharactersappliestoself="false" nearbycharactersappliestoallies="true" nearbycharactersappliestoenemies="false" >
           <StatusEffects>
             <StatusEffect type="OnAbility" target="NearbyCharacters" range="800" setvalue="true" disabledeltatime="true">
               <Conditional isplayer="true" />
@@ -813,16 +813,16 @@
   </Talent>
   
   <!--Bonds-->
-  <Talent identifier="YAMJBond_Captain">
+  <Talent identifier="YAMJBondCaptain">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Captain" />
+    <Description tag="talentdescription.YAMJBondCaptain" />
     <AbilityGroupInterval interval="0.5">
       <Abilities>
         <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
           <StatusEffects>
             <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
               <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBond_CaptainBuff" strength="1.0" />
+              <Affliction identifier="YAMJBondCaptainBuff" strength="1.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
@@ -840,47 +840,87 @@
     </AbilityGroupEffect>
   </Talent>
   
-  <Talent identifier="YAMJBond_Security">
+  <Talent identifier="YAMJBondSecurity">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Security" />
+    <Description tag="talentdescription.YAMJBondSecurity">
+      <Replace tag="[maxCharge]" value="yamjConfig.ChargedBiteCooldown.int" color="gui.orange" />
+      <Replace tag="[damageBonus]" value="yamjConfig.ChargedBiteDamageBonus.percent" color="gui.green" />
+      <Replace tag="[stun]" value="yamjConfig.ChargedBiteStun" color="gui.green" />
+      <Replace tag="[refund]" value="yamjConfig.ChargedBiteCooldownReward.float" color="gui.orange" />
+    </Description>
+    <!-- nearby crewmates: suit vision cones removed -->
     <AbilityGroupInterval interval="0.5">
       <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
+        <CharacterAbilityApplyStatusEffects nearbycharactersappliestoself="false" nearbycharactersappliestoenemies="false">
           <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
+            <StatusEffect type="OnAbility" target="NearbyCharacters" Range="2000" setvalue="true" disabledeltatime="true" configoverride="Range=ClearVisionRange">
               <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBond_SecurityBuff" strength="1.0" />
+              <Affliction identifier="yamjClearVision" strength="2" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
+    <!-- passive bite charge: +1 per second, full at yamjBiteCharge's maxstrength -->
     <AbilityGroupInterval interval="1">
       <Abilities>
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
             <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
-              <Affliction identifier="YAMJRaptorBite" amount="1.0" />
+              <Affliction identifier="yamjBiteCharge" amount="1.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
+    <!-- fully charged attack: bonus damage and stun -->
     <AbilityGroupEffect abilityeffecttype="OnAttack">
       <Conditions>
-        <AbilityConditionHasAffliction afflictionidentifier="YAMJRaptorBite" minimumpercentage="1.0" />
-        <AbilityConditionAttackData ignorenonharmfulattacks="true" weapontype="NoWeapon" />
+        <AbilityConditionHasAffliction afflictionidentifier="yamjBiteCharge" minimumpercentage="1.00" />
+        <AbilityConditionAttackData weapontype="NoWeapon" />
+        <AbilityConditionCharacter targettypes="Alive" />
       </Conditions>
       <Abilities>
-        <CharacterAbilityModifyAttackData addeddamagemultiplier="1.25" />
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.5" configoverride="addeddamagemultiplier=ChargedBiteDamageBonus" />
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="UseTarget">
+              <Affliction identifier="stun" amount="6" configoverride="amount=ChargedBiteStun" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupEffect>
-    <AbilityGroupEffect abilityeffecttype="OnAttackResult">
+    <!-- spend charge on max (conditions should match the group above) -->
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="yamjBiteCharge" minimumpercentage="1.00" />
+        <AbilityConditionAttackData weapontype="NoWeapon" />
+        <AbilityConditionCharacter targettypes="Alive" />
+      </Conditions>
       <Abilities>
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
             <StatusEffect type="OnAbility" target="This">
-              <ReduceAffliction identifier="YAMJRaptorBite" strength="10.0" />
+              <ReduceAffliction identifier="yamjBiteCharge" strength="1000" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupEffect>
+    <!-- partial refund if target marked (last) -->
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="NoWeapon" />
+        <AbilityConditionCharacter targettypes="Alive">
+          <Conditional yamjMarked="gt 0" />
+        </AbilityConditionCharacter>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
+              <Affliction identifier="yamjBiteCharge" amount="20" configoverride="amount=ChargedBiteCooldownReward" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
@@ -888,9 +928,9 @@
     </AbilityGroupEffect>
   </Talent>
   
-  <Talent identifier="YAMJBond_Engineer">
+  <Talent identifier="YAMJBondEngineer">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Engineer">
+    <Description tag="talentdescription.YAMJBondEngineer">
       <Replace tag="[talentName]" value="talentname.lightningwizard" color="gui.orange" />
     </Description>
     <AbilityGroupInterval interval="0.5">
@@ -899,7 +939,7 @@
           <StatusEffects>
             <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
               <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBond_EngineerBuff" strength="1.0" />
+              <Affliction identifier="YAMJBondEngineerBuff" strength="1.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>
@@ -919,23 +959,12 @@
     <AddedRecipe itemidentifier="mudraptorengihelm" />
   </Talent>
   
-  <Talent identifier="YAMJBond_Mechanic">
+  <Talent identifier="YAMJBondMechanic">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Mechanic">
-      <Replace tag="[talentName]" value="talentname.scrapsavant" color="gui.orange" />
+    <Description tag="talentdescription.YAMJBondMechanic">
+      <Replace tag="[scrapSavant]" value="talentname.scrapsavant" color="gui.orange" />
     </Description>
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
-              <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBond_MechanicBuff" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
+    <!-- give scrap savant talent to self -->
     <AbilityGroupInterval interval="1" maxtriggercount="1">
       <Abilities>
         <CharacterAbilityApplyStatusEffects>
@@ -949,26 +978,20 @@
     </AbilityGroupInterval>
   </Talent>
   
-  <Talent identifier="YAMJBond_Doctor">
+  <Talent identifier="YAMJBondDoctor">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="4,2" sheetelementsize="128,128" />
-    <Description tag="talentdescription.YAMJBond_Doctor">
+    <Description tag="talentdescription.YAMJBondDoctor">
       <Replace tag="[geneHarvester]" value="talentname.geneharvester" color="gui.orange" />
+      <Replace tag="[burnResist]" value="yamjConfig.DoctorBondBurnResist.percent" color="gui.green" />
+      <Replace tag="[burn]" value="afflictiontype.burn" color="gui.orange" />
+      <Replace tag="[poisonResist]" value="yamjConfig.DoctorBondPoisonResist.percent" color="gui.green" />
+      <Replace tag="[poison]" value="afflictiontype.poison" color="gui.orange" />
     </Description>
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Mudraptor Thermal Medical Helm" color="gui.orange" />
     </Description>
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects maxdistance="1500" allowself="true">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setvalue="true" disabledeltatime="true">
-              <Conditional isplayer="true" />
-              <Affliction identifier="YAMJBond_DoctorBuff" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
+    <AddedRecipe itemidentifier="mudraptormedichelm" />
+    <!-- give gene harvester talent to self -->
     <AbilityGroupInterval interval="1" maxtriggercount="1">
       <Abilities>
         <CharacterAbilityApplyStatusEffects>
@@ -980,7 +1003,19 @@
         </CharacterAbilityApplyStatusEffects>
       </Abilities>
     </AbilityGroupInterval>
-    <AddedRecipe itemidentifier="mudraptormedichelm" />
+    <!-- give resistance buffs to all crew -->
+    <AbilityGroupInterval interval="3">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies allowself="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" setvalue="true" disabledeltatime="true">
+              <Affliction identifier="yamjDoctorBurnResist" strength="1.0" />
+              <Affliction identifier="yamjDoctorPoisonResist" strength="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
   </Talent>
   
 </Talents>

@@ -2,21 +2,17 @@
 <!-- Client-only settings -->
 <Configuration>
     <Settings>
-        <Setting Name="RaptorVisionKey" Type="control" Value="V"
+        <Setting Name="RaptorVisionKey" Type="control"
+                 Value="V"
                  ShowInMenus="true" />
-        <Setting Name="QuickChatKey" Type="control" Value="B"
+        <Setting Name="QuickChatKey" Type="control"
+                 Value="B"
                  ShowInMenus="true" />
-        <Setting Name="RaptorVisionRed" Type="rangeInt"
-                 Value="255" Min="0" Max="255" Steps="256"
+        <Setting Name="RaptorVisionColor" Type="string"
+                 Value="#FF7F00FF"
                  ShowInMenus="true" />
-        <Setting Name="RaptorVisionGreen" Type="rangeInt"
-                 Value="127" Min="0" Max="255" Steps="256"
-                 ShowInMenus="true" />
-        <Setting Name="RaptorVisionBlue" Type="rangeInt"
-                 Value="0" Min="0" Max="255" Steps="256"
-                 ShowInMenus="true" />
-        <Setting Name="RaptorVisionAlpha" Type="rangeInt"
-                 Value="255" Min="0" Max="255" Steps="256"
+        <Setting Name="OreVisionColor" Type="string"
+                 Value="#5AFFC8FF"
                  ShowInMenus="true" />
     </Settings>
 </Configuration>

@@ -7,10 +7,14 @@ namespace YAMJCS;
 internal static partial class YAMJ
 {
     // Constants //
-    public const string PlayerRaptorSpecies = "Mudraptor_player";
-    public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk";
-    public const string PlayerRaptorJobId = "PlayerMudraptorJob";
+    public const string PlayerRaptorSpecies = "Mudraptor_player"; //todo convert to id
+    public const string PlayerRaptorHuskSpecies = "Mudraptor_playerhusk"; //todo convert to id
+    public const string PlayerRaptorJobId = "PlayerMudraptorJob"; //todo convert to id
     public static readonly Identifier HungerAfflictionId = "yamjHunger".ToIdentifier();
+    public static readonly Identifier SatiatedAfflictionId = "yamjSatiated".ToIdentifier();
+    public static readonly Identifier EatingBuffAfflictionId = "yamjEating".ToIdentifier();
+    public static readonly Identifier OreInGutId = "yamjOreInGut".ToIdentifier();
+    public static readonly Identifier MetalInGutId = "yamjMetalInGut".ToIdentifier();
     public static readonly Identifier RaptorBabySpecies = "RaptorBaby".ToIdentifier();
     public static readonly Identifier RaptorBabyItemId = "raptorbabyitem".ToIdentifier();
     public static readonly Identifier RaptorOnlyTag = "yamjraptoronly".ToIdentifier();
@@ -18,9 +22,19 @@ internal static partial class YAMJ
     public static readonly Identifier[] MechanicFood = new Identifier[] {"ore","scrap"};
     public static readonly Identifier[] EngineerFood = new Identifier[] {"reactorfuel"};
     public static readonly Identifier[] DoctorFood = new Identifier[] {"unidentifiedgeneticmaterial", "geneticmaterial"};
+    public static readonly Identifier[] ShrapnelAmmo = new Identifier[] {"munition_core","munition_tip"};
     // vars
-    public static AfflictionPrefab? HungerPrefab;
-    public static AfflictionPrefab? EatingBuffPrefab;
+    private static AfflictionPrefab? hungerPrefab = null;
+    private static AfflictionPrefab? satiatedPrefab = null;
+    private static AfflictionPrefab? eatingBuffPrefab = null;
+    private static AfflictionPrefab? oreInGutPrefab = null;
+    private static AfflictionPrefab? metalInGutPrefab = null;
+    public static AfflictionPrefab? HungerPrefab => hungerPrefab ??= FindAfflictionPrefab(HungerAfflictionId);
+    public static AfflictionPrefab? SatiatedPrefab => satiatedPrefab ??= FindAfflictionPrefab(SatiatedAfflictionId);
+    public static AfflictionPrefab? EatingBuffPrefab => eatingBuffPrefab ??= FindAfflictionPrefab(EatingBuffAfflictionId);
+    public static AfflictionPrefab? OreInGutPrefab => oreInGutPrefab ??= FindAfflictionPrefab(OreInGutId);
+    public static AfflictionPrefab? MetalInGutPrefab => metalInGutPrefab ??= FindAfflictionPrefab(MetalInGutId);
+    
     public static ItemPrefab? RaptorBabyItemPrefab;
     public static CharacterPrefab? PlayerRaptorPrefab;
     
@@ -30,6 +44,13 @@ internal static partial class YAMJ
     }
 
     // Helper Functions //
+    public static AfflictionPrefab? FindAfflictionPrefab(Identifier id) {
+        AfflictionPrefab.Prefabs.TryGet(id, out AfflictionPrefab? prefab);
+        if (prefab is null) {
+            Log($"Affliction prefab {id} not found");
+        }
+        return prefab;
+    }
     public static CharacterPrefab? FindPlayerRaptorPrefab() {
         if (PlayerRaptorPrefab is null) {
             PlayerRaptorPrefab = CharacterPrefab.FindBySpeciesName(PlayerRaptorSpecies.ToIdentifier());
@@ -69,7 +90,7 @@ internal static partial class YAMJ
     public static bool HasTalent(Character character, Identifier talentId) {
         HashSet<Identifier> talents = character.Info.UnlockedTalents;
         if (talents == null || talents.Count == 0) return false;
-        if (talents.Contains(talentId.ToIdentifier())) {
+        if (talents.Contains(talentId)) {
             return true;
         } else {
             return false;
@@ -93,5 +114,7 @@ internal static partial class YAMJ
         YAMJConfig.InitializeConfig(configService, pluginService);
         YAMJConfig.ApplyConfigToTalentXml();
         YAMJConfig.RebuildTalentDescriptions();
+        YAMJConfig.ApplyConfigToAfflictionXml();
+        YAMJConfig.ApplyConfigToItemXml();
     }
 }

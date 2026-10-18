@@ -48,12 +48,50 @@
         <Setting Name="RaptorVisionShowDead" Type="bool"
                  Value="true"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="OreVisionRange" Type="rangeFloat"
+                 Value="5000.0" Min="2000.0" Max="20000.0" Steps="91"
+                 NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="CanOpenerDamageBonus" Type="rangeFloat"
                  Value="3.00" Min="0.0" Max="10.00" Steps="41"
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="FamiliarWatersDamageBonus" Type="rangeFloat"
                  Value="0.25" Min="0.0" Max="5.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondBurnResist" Type="rangeFloat"
+                 Value="0.20" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondPoisonResist" Type="rangeFloat"
+                 Value="0.20" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ShrapnelSpitCost" Type="rangeFloat"
+                 Value="30" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ShrapnelLacerations" Type="rangeFloat"
+                 Value="12" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ShrapnelBleeding" Type="rangeFloat"
+                 Value="5" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteDamageBonus" Type="rangeFloat"
+                 Value="0.50" Min="0.00" Max="10.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteStun" Type="rangeFloat"
+                 Value="6" Min="0" Max="30" Steps="61"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteCooldown" Type="rangeFloat"
+                 Value="60" Min="5" Max="120" Steps="116"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ChargedBiteCooldownReward" Type="rangeFloat"
+                 Value="6" Min="0" Max="120" Steps="121"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="HandlerMarkDuration" Type="rangeFloat"
+                 Value="15" Min="1" Max="60" Steps="60"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ClearVisionRange" Type="rangeFloat"
+                 Value="2000" Min="0" Max="20000" Steps="81"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        
+        <!-- Combat -->
                  
         <!-- Sleep -->
         

@@ -51,9 +51,9 @@ internal static class Character_UpdateAll {
 
 [HarmonyPatch] //allows baby raptors to be picked up with LMB
 internal static class RaptorBbyPickup {
-    static MethodBase TargetMethod() => PatchTargets.Character_DoInteractionUpdate;
+    private static MethodBase TargetMethod() => PatchTargets.Character_DoInteractionUpdate;
 
-    static void Postfix(Character __instance) {
+    private static void Postfix(Character __instance) {
         Character? focusedCharacter = __instance.FocusedCharacter;
         if (focusedCharacter is null || !YAMJ.IsRaptorBaby(focusedCharacter)) { return; }
         if (focusedCharacter.Removed || focusedCharacter.IsDead) { return; }

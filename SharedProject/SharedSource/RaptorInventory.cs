@@ -61,9 +61,9 @@ internal static partial class PatchTargets {
 internal static class RaptorInventory {
     // every slot that counts as wearing the item, Hands and Any are deliberately left out
     public const InvSlotType WearSlots = InvSlotType.Bag | InvSlotType.InnerClothes | InvSlotType.OuterClothes | InvSlotType.Head | InvSlotType.Headset | InvSlotType.Card;
-    private static readonly Identifier BondWithMechanic = "YAMJBond_Mechanic".ToIdentifier();
-    private static readonly Identifier BondWithEngineer = "YAMJBond_Engineer".ToIdentifier();
-    private static readonly Identifier BondWithDoctor = "YAMJBond_Doctor".ToIdentifier();
+    private static readonly Identifier BondWithMechanic = "YAMJBondMechanic".ToIdentifier();
+    private static readonly Identifier BondWithEngineer = "YAMJBondEngineer".ToIdentifier();
+    private static readonly Identifier BondWithDoctor = "YAMJBondDoctor".ToIdentifier();
 
     // Helper Functions
     public static bool CanBeWorn(Item item, Character character) {
@@ -85,7 +85,7 @@ internal static class RaptorInventory {
             return true;
         }
 
-        if (item.HasTag(YAMJ.MechanicFood) && character.HasTalent(BondWithMechanic)) {
+        if ((item.HasTag(YAMJ.MechanicFood) || item.HasTag(YAMJ.ShrapnelAmmo)) && character.HasTalent(BondWithMechanic)) {
             return true;
         }
 
