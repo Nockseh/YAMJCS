@@ -63,12 +63,15 @@ internal static class MarkVision {
         GameMain.LightManager.SolidColorEffect.Parameters["blurDistance"].SetValue(0.01f + MathF.Sin(effectState) * 0.005f);
         GameMain.LightManager.SolidColorEffect.CurrentTechnique.Passes[0].Apply();
         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, transformMatrix: Screen.Selected.Cam.Transform, effect: GameMain.LightManager.SolidColorEffect);
-
+        
+        Character? handler = null;
+        RaptorBondSecurity.HandlerBonds.TryGetValue(character, out handler);
+        
         foreach (Character c in Character.CharacterList) {
             if (c == user || !c.Enabled || c.Removed) { continue; }
 
             float markStrength =  c.CharacterHealth.GetAfflictionStrengthByIdentifier(RaptorBondSecurity.MarkAfflictionId);
-            if ( !(markStrength > 0f) && c != RaptorBondSecurity.HandlerBonds[character]) { continue; }
+            if ( !(markStrength > 0f) && c != handler) { continue; }
             if (c.IsDead) { continue; }
 
             float dist = Vector2.DistanceSquared(refEntity.WorldPosition, c.WorldPosition);
@@ -122,6 +125,11 @@ internal static class MarkTarget {
         Character attacker = character;
         if (attacker.Removed || victim.Removed || victim.IsDead) { return; }
         if (!RaptorBondSecurity.HandlerBonds.ContainsValue(attacker)) { return; }
+        
+        //handlers cant mark their own raptors
+        Character? victimsHandler = null;
+        RaptorBondSecurity.HandlerBonds.TryGetValue(victim, out victimsHandler);
+        if (victimsHandler == attacker) { return; }
         
         Affliction? mark = victim.CharacterHealth.GetAffliction(RaptorBondSecurity.MarkAfflictionId, false);
 

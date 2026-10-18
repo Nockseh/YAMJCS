@@ -853,7 +853,7 @@
       <Abilities>
         <CharacterAbilityApplyStatusEffects nearbycharactersappliestoself="false" nearbycharactersappliestoenemies="false">
           <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" Range="2000" setvalue="true" disabledeltatime="true" configoverride="Range=ClearVisionRange">
+            <StatusEffect type="OnAbility" target="NearbyCharacters" Range="2000" setvalue="true" disabledeltatime="true" multiplyafflictionsbymaxvitality="true" configoverride="Range=ClearVisionRange">
               <Conditional isplayer="true" />
               <Affliction identifier="yamjClearVision" strength="2" />
             </StatusEffect>
@@ -920,7 +920,7 @@
         <CharacterAbilityApplyStatusEffects>
           <StatusEffects>
             <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
-              <Affliction identifier="yamjBiteCharge" amount="20" configoverride="amount=ChargedBiteCooldownReward" />
+              <Affliction identifier="yamjBiteCharge" amount="6" configoverride="amount=ChargedBiteCooldownReward" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffects>

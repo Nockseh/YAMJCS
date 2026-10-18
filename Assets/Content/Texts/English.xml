@@ -494,7 +494,7 @@ All player raptor bites have a strong chance to be poisonous.</talentdescription
   <talentdescription.YAMJBondSecurity>Trained by Security to be the best Guard Dog this side of europa.
 ‖color:red‖WORK IN PROGRESS‖color:end‖
 Your creature attacks charge up over [maxCharge] seconds.
-A fully charged attack deals +[damageBonus]% damage and applies [stun] seconds of stun.
+A fully charged attack deals +[damageBonus]% damage and applies up to [stun] seconds of stun.
 You can designate a crewmate as a handler, and their attacks will apply a mark to targets.
 Marked targets are visible through walls, and creature attacks against them refund [refund] seconds of cooldown for the charged bite.</talentdescription.YAMJBondSecurity>
   <afflictionname.yamjBiteCharge>Raptor Bite</afflictionname.yamjBiteCharge> <!--todo change this garbage-->
