@@ -266,9 +266,9 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <entityname.dumb.repairTool>Fix Thing</entityname.dumb.repairTool>
   <entitydescription.dumb.repairTool>For boat?</entitydescription.dumb.repairTool>
   <entityname.dumb.weapon>Hurt Thing</entityname.dumb.weapon>
-  <entitydescription.dumb.weapon>For killing.</entitydescription.dumb.weapon>
-  <entityname.dumb.clothing>Soft Human Shell</entityname.dumb.clothing>
-  <entitydescription.dumb.clothing>Weak.</entitydescription.dumb.clothing>
+  <entitydescription.dumb.weapon>To hunt?</entitydescription.dumb.weapon>
+  <entityname.dumb.clothing>Skins</entityname.dumb.clothing>
+  <entitydescription.dumb.clothing>Soft.</entitydescription.dumb.clothing>
   <entityname.dumb.medichem>Medicine</entityname.dumb.medichem>
   <entitydescription.dumb.medichem>???</entitydescription.dumb.medichem>
   <entityname.dumb.tech>Thing</entityname.dumb.tech>
@@ -277,7 +277,7 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <entitydescription.dumb.ammobox>Does nothing on its own.</entitydescription.dumb.ammobox>
   <entityname.dumb.ammosmall>Teeth</entityname.dumb.ammosmall>
   <entitydescription.dumb.ammosmall>Does nothing on its own.</entitydescription.dumb.ammosmall>
-  <entityname.dumb.deepdiving>Hard Human Shell</entityname.dumb.deepdiving>
+  <entityname.dumb.deepdiving>Human Carapace</entityname.dumb.deepdiving>
   <entitydescription.dumb.deepdiving>Helps humans swim.</entitydescription.dumb.deepdiving>
   <entityname.dumb.scooter>Slave Fish?</entityname.dumb.scooter>
   <entitydescription.dumb.scooter>What?</entitydescription.dumb.scooter>
@@ -287,6 +287,8 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <entitydescription.alienlarge.ore>???</entitydescription.alienlarge.ore>
   <entityname.dumb.aliensmall>Thing</entityname.dumb.aliensmall>
   <entitydescription.dumb.aliensmall>???</entitydescription.dumb.aliensmall>
+  <entityname.dumb.helmet>Shell</entityname.dumb.helmet>
+  <entitydescription.dumb.helmet>???</entitydescription.dumb.helmet>
   
   <!--Talent Items-->
   <entityname.yamjBackpack>Mudraptor Backpack</entityname.yamjBackpack>

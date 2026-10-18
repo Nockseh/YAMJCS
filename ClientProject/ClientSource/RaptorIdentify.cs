@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using Barotrauma.Items.Components;
+using HarmonyLib;
 
 namespace YAMJCS;
 
@@ -17,8 +18,13 @@ internal static partial class PatchTargets {
 }
 
 internal static class RaptorIdentify {
+    
     private static readonly (Identifier[] itemTag, Identifier[] appraisalTalents, string langTag)[] itemCategories = {
     // tags higher on the list take priority
+        (["textdisplay"], 
+            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],  
+            "textdisplay"),
+    
         (["weapon"], 
             ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],  
             "weapon"),
@@ -66,31 +72,93 @@ internal static class RaptorIdentify {
         (["smallalienartifact"],
             ["YAMJSpeechAdvanced"],
             "aliensmall"),
+        
+        (["helmet"],
+            ["YAMJSpeechAdvanced", "YAMJSpeechCombat"],
+            "helmet"),
     };
+
+    private static Dictionary<Identifier, Identifier[]> additionalTagTable = new() {
+        //["ironhelmet"] = ["helmet"],
+        //["chitinhelmet"] = ["helmet"],
+        //["ballistichelmet1"] = ["helmet"],
+        //["ballistichelmet2"] = ["helmet"],
+        //["ballistichelmet3"] = ["helmet"],
+    };
+    
+    // tags worked out from an item's components, filled in by InferTags
+    private static readonly Dictionary<Identifier, Identifier[]?> inferredTagCache = new();
     
     private static readonly Dictionary<string, ItemPrefab?> artPrefabCache = new();
     
     public static string? ResolveDumbKey(Item? item) {
         if (item is null) { return null; }
-
-        Character? controlled = Character.Controlled;
-        if (controlled is null) { return null; }
         
-        if (item.HasTag("yamjraptoronly")) { return null; } //any item that is FOR raptors is auto-identified
+        if (item.HasTag(YAMJ.RaptorOnlyTag)) { return null; } //any item that is FOR raptors is auto-identified 
+        
+        Identifier[]? additionalTags = GetAdditionalTags(item);
+        Identifier[]? inferredTags = InferTags(item);
         
         string? key = null;
         foreach ((Identifier[] itemTags, Identifier[] appraisalTalents, string langTag) in itemCategories) {
-            if (!HasAnyTag(item, itemTags)) { continue; }
-            if (YAMJ.HasAnyTalent(controlled, appraisalTalents)) { return null; } //any identifiable category identifies the item
-            key ??= langTag; //remember the first unidentifiable match and keep looking
+            if (!HasAnyTag(item, itemTags, additionalTags, inferredTags)) { continue; }
+            if (YAMJ.HasAnyTalent(Character.Controlled, appraisalTalents)) { return null; } //any identifiable category identifies the item 
+            key ??= langTag; //remember the first unidentifiable match and keep looking 
         }
 
         return key;
     }
 
-    private static bool HasAnyTag(Item item, Identifier[] tags) { //yes i know Item.HasTag(IEnumerable<>) exists, this is cheaper on allocation
+    //yes i know Item.HasTag(IEnumerable<>) exists, this is cheaper on allocation 
+    private static bool HasAnyTag(Item item, Identifier[] tags, Identifier[]? additionalTags, Identifier[]? inferredTags) {
         foreach (Identifier tag in tags) {
             if (item.HasTag(tag)) { return true; }
+            if (ContainsTag(additionalTags, tag)) { return true; }
+            if (ContainsTag(inferredTags, tag)) { return true; }
+        }
+        return false;
+    }
+    
+    private static bool ContainsTag(Identifier[]? tags, Identifier tag) {
+        return tags is not null && Array.IndexOf(tags, tag) >= 0;
+    }
+    
+    private static Identifier[]? GetAdditionalTags(Item item) {
+        additionalTagTable.TryGetValue(item.Prefab.Identifier, out Identifier[]? tags);
+        return tags;
+    }
+    
+    //tags worked out from the item's components, built the first time a prefab is seen and cached
+    private static Identifier[]? InferTags(Item item) {
+        Identifier prefabId = item.Prefab.Identifier;
+        if (inferredTagCache.TryGetValue(prefabId, out Identifier[]? cached)) { return cached; }
+
+        List<Identifier>? inferred = null;
+        if (IsHelmet(item)) { (inferred ??= new()).Add("helmet".ToIdentifier()); }
+
+        Identifier[]? result = inferred?.ToArray();
+        inferredTagCache[prefabId] = result; //null cached, so items with nothing to infer don't re-run 
+        return result;
+    }
+
+    //worn on the head and resists at least one kind of damage
+    private static bool IsHelmet(Item item) {
+        Wearable? wearable = item.GetComponent<Wearable>();
+        if (wearable is null) { return false; }
+
+        bool isHeadSlot = false;
+        foreach (InvSlotType slotType in wearable.AllowedSlots) {
+            if (slotType.HasFlag(InvSlotType.Head)) {
+                isHeadSlot = true;
+                break;
+            }
+        }
+        if (!isHeadSlot) { return false; }
+
+        foreach (DamageModifier damageModifier in wearable.DamageModifiers) {
+            if (damageModifier.DamageMultiplier < 0.8f) {
+                return true;
+            }
         }
         return false;
     }
@@ -131,6 +199,7 @@ internal static class RaptorIdentify {
 
     public static void ClearCache() {
         artPrefabCache.Clear();
+        inferredTagCache.Clear();
     }
 }
 
@@ -139,8 +208,11 @@ internal static class ItemOverrideInventorySpriteGet {
     static MethodBase TargetMethod() => PatchTargets.Item_OverrideInventorySprite_Get;
 
     static void Postfix(Item __instance, ref Sprite? __result) {
+        Character? controlled = Character.Controlled;
+        if (!YAMJ.IsPlayerRaptor(controlled)) { return; }
+        
         if (__result is not null) { return; } //something already set an override, leave it alone? not sure when this happens normally
-
+        
         __result = RaptorIdentify.GetInventorySprite(__instance);
     }
 }
@@ -150,7 +222,10 @@ internal static class ItemDrawSpriteSwap {
     static MethodBase TargetMethod() => PatchTargets.Item_Draw;
 
     static void Prefix(Item __instance, ref Sprite? ___activeSprite, out Sprite? __state) {
-        __state = null; //allows returning without swapping anything
+        __state = null;
+        Character? controlled = Character.Controlled;
+        if (!YAMJ.IsPlayerRaptor(controlled)) { return; }
+        
         if (___activeSprite is null) { return; } //spriteless item, don't give it one
 
         Sprite? replacement = RaptorIdentify.GetWorldSprite(__instance);
@@ -172,12 +247,12 @@ internal static class ItemNameGet {
 
     static bool Prefix(Item __instance, ref string __result) {
         Character? controlled = Character.Controlled;
-        if (YAMJ.IsPlayerRaptor(controlled)) {
-            string? key = RaptorIdentify.ResolveDumbKey(__instance);
-            if (key is not null) {
-                __result = TextManager.Get("entityname.dumb." + key).Value;
-                return false;
-            }
+        if (!YAMJ.IsPlayerRaptor(controlled)) { return true; }
+        
+        string? key = RaptorIdentify.ResolveDumbKey(__instance);
+        if (key is not null) {
+            __result = TextManager.Get("entityname.dumb." + key).Value;
+            return false;
         }
         return true;
     }
@@ -189,12 +264,12 @@ internal static class ItemDescGet {
 
     static bool Prefix(Item __instance, ref string __result) {
         Character? controlled = Character.Controlled;
-        if (YAMJ.IsPlayerRaptor(controlled)) {
-            string? key = RaptorIdentify.ResolveDumbKey(__instance);
-            if (key is not null) {
-                __result = TextManager.Get("entitydescription.dumb." + key).Value;
-                return false;
-            }
+        if (!YAMJ.IsPlayerRaptor(controlled)) { return true; }
+
+        string? key = RaptorIdentify.ResolveDumbKey(__instance);
+        if (key is not null) {
+            __result = TextManager.Get("entitydescription.dumb." + key).Value;
+            return false;
         }
         return true;
     }

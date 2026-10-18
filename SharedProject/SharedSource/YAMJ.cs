@@ -90,7 +90,7 @@ internal static partial class YAMJ
     public static bool HasTalent(Character character, Identifier talentId) {
         HashSet<Identifier> talents = character.Info.UnlockedTalents;
         if (talents == null || talents.Count == 0) return false;
-        if (talents.Contains(talentId.ToIdentifier())) {
+        if (talents.Contains(talentId)) {
             return true;
         } else {
             return false;
