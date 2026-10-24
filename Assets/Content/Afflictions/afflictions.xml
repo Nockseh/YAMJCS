@@ -1,102 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Afflictions>
-    <Affliction name="Shield Block" identifier="shieldblock"
+    <Affliction name="Shield Block" identifier="shieldBlock"
                 type="stonewall"
-                isbuff="true"
-                limbspecific="false"
-                maxstrength="1"
-                treatmentthreshold="1000"
-                iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
-        <Effect minstrength="0" maxstrength="10" strengthchange="-5" resistancefor="damage,stun" minresistance="0.45"
-                maxresistance="0.45"/>
-        <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,0" sheetelementsize="128,128" color="10,193,114,255"
+                isBuff="true"
+                limbSpecific="false"
+                maxStrength="1"
+                treatmentThreshold="1000"
+                iconColors="33,75,78;126,211,224;126,211,224;227,247,249">
+        <Effect minStrength="0" maxStrength="10" strengthChange="-5" resistanceFor="damage,stun" minResistance="0.45"
+                maxResistance="0.45"/>
+        <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,0" sheetElementSize="128,128" color="10,193,114,255"
               origin="0,0"/>
     </Affliction>
 
-    <Affliction Identifier="yamjHunger"
-                Type="debuff" IsBuff="false" limbspecific="false"
-                HealCostMultiplier="50"
-                ActivationThreshold="0"
-                ShowIconThreshold="10"
-                ShowBarInHealthMenu="true"
-                MaxStrength="100"
-                TreatmentThreshold="50"
-                IconColors="240,244,195;130,119,23"
-                AfflictionOverlayAlphaIsLinear="false"> <!-- todo Targets="Mudraptor_player,Mudraptor_playerhusk" -->
-        <Icon Texture="Content/UI/MainIconsAtlas.png" SourceRect="128,384,128,128" Origin="0,0"/>
+    <Affliction identifier="yamjHunger"
+                type="debuff" isBuff="false" limbSpecific="false"
+                healCostMultiplier="50"
+                activationThreshold="0"
+                showIconThreshold="10"
+                showBarInHealthMenu="true"
+                maxStrength="100"
+                treatmentThreshold="50"
+                iconColors="240,244,195;130,119,23"
+                afflictionOverlayAlphaIsLinear="false"> <!-- todo Targets="Mudraptor_player,Mudraptor_playerhusk" -->
+        <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="128,384,128,128" origin="0,0"/>
         <AfflictionOverlay texture="%ModDir%/UI/HungerOverlay.png"/>
-        <Effect MinStrength="0" MaxStrength="15" StrengthChange="0"
-                MinVitalityDecrease="0.00" MaxVitalityDecrease="0.00" MultiplyByMaxVitality="true"
-                MinSpeedMultiplier="1.00" MaxSpeedMultiplier="1.00"
-                MinAfflictionOverlayAlphaMultiplier="0.00" MaxAfflictionOverlayAlphaMultiplier="0.00"
+        <Effect minStrength="0" maxStrength="15" strengthChange="0"
+                minVitalityDecrease="0.00" maxVitalityDecrease="0.00" multiplyByMaxVitality="true"
+                minSpeedMultiplier="1.00" maxSpeedMultiplier="1.00"
+                minAfflictionOverlayAlphaMultiplier="0.00" maxAfflictionOverlayAlphaMultiplier="0.00"
         />
-        <Effect MinStrength="15" MaxStrength="35" StrengthChange="0"
-                MinVitalityDecrease="0.00" MaxVitalityDecrease="0.10" MultiplyByMaxVitality="true"
-                MinSpeedMultiplier="1.00" MaxSpeedMultiplier="0.95"
-                ResistanceFor="stun,incrementalstun,progressivestun"
-                MinResistance="0.00" MaxResistance="-0.10"
-                MinAfflictionOverlayAlphaMultiplier="0.00" MaxAfflictionOverlayAlphaMultiplier="0.15">
-            <StatValue StatType="MeleeAttackMultiplier" MinValue="0.00" MaxValue="-0.15"/>
+        <Effect minStrength="15" maxStrength="35" strengthChange="0"
+                minVitalityDecrease="0.00" maxVitalityDecrease="0.10" multiplyByMaxVitality="true"
+                minSpeedMultiplier="1.00" maxSpeedMultiplier="0.95"
+                resistanceFor="stun,incrementalstun,progressivestun"
+                minResistance="0.00" maxResistance="-0.10"
+                minAfflictionOverlayAlphaMultiplier="0.00" maxAfflictionOverlayAlphaMultiplier="0.15">
+            <StatValue statType="MeleeAttackMultiplier" minValue="0.00" maxValue="-0.15"/>
         </Effect>
-        <Effect MinStrength="35" MaxStrength="55" StrengthChange="0"
-                MinVitalityDecrease="0.10" MaxVitalityDecrease="0.35" MultiplyByMaxVitality="true"
-                MinSpeedMultiplier="0.95" MaxSpeedMultiplier="0.85"
-                ResistanceFor="stun,incrementalstun,progressivestun"
-                MinResistance="-0.10" MaxResistance="-0.50"
-                MinAfflictionOverlayAlphaMultiplier="0.15" MaxAfflictionOverlayAlphaMultiplier="0.35">
-            <StatValue StatType="MeleeAttackMultiplier" MinValue="-0.15" MaxValue="-0.30"/>
+        <Effect minStrength="35" maxStrength="55" strengthChange="0"
+                minVitalityDecrease="0.10" maxVitalityDecrease="0.35" multiplyByMaxVitality="true"
+                minSpeedMultiplier="0.95" maxSpeedMultiplier="0.85"
+                resistanceFor="stun,incrementalstun,progressivestun"
+                minResistance="-0.10" maxResistance="-0.50"
+                minAfflictionOverlayAlphaMultiplier="0.15" maxAfflictionOverlayAlphaMultiplier="0.35">
+            <StatValue statType="MeleeAttackMultiplier" minValue="-0.15" maxValue="-0.30"/>
         </Effect>
-        <Effect MinStrength="55" MaxStrength="75" StrengthChange="0"
-                MinVitalityDecrease="0.35" MaxVitalityDecrease="0.70" MultiplyByMaxVitality="true"
-                MinSpeedMultiplier="0.85" MaxSpeedMultiplier="0.70"
-                ResistanceFor="stun,incrementalstun,progressivestun"
-                MinResistance="-0.50" MaxResistance="-1.00"
-                MinAfflictionOverlayAlphaMultiplier="0.35" MaxAfflictionOverlayAlphaMultiplier="0.75">
-            <StatValue StatType="MeleeAttackMultiplier" MinValue="-0.30" MaxValue="-0.50"/>
+        <Effect minStrength="55" maxStrength="75" strengthChange="0"
+                minVitalityDecrease="0.35" maxVitalityDecrease="0.70" multiplyByMaxVitality="true"
+                minSpeedMultiplier="0.85" maxSpeedMultiplier="0.70"
+                resistanceFor="stun,incrementalstun,progressivestun"
+                minResistance="-0.50" maxResistance="-1.00"
+                minAfflictionOverlayAlphaMultiplier="0.35" maxAfflictionOverlayAlphaMultiplier="0.75">
+            <StatValue statType="MeleeAttackMultiplier" minValue="-0.30" maxValue="-0.50"/>
         </Effect>
-        <Effect MinStrength="75" MaxStrength="100" StrengthChange="0"
-                MinVitalityDecrease="0.50" MaxVitalityDecrease="2.01" MultiplyByMaxVitality="true"
-                MinSpeedMultiplier="0.95" MaxSpeedMultiplier="0.40"
-                ResistanceFor="stun,incrementalstun,progressivestun"
-                MinResistance="-1.00" MaxResistance="-2.00"
-                MinAfflictionOverlayAlphaMultiplier="0.90" MaxAfflictionOverlayAlphaMultiplier="1.00"
-                MinGrainStrength="0.0" MaxGrainStrength="20.0" GrainColor="127,40,5,255">
-            <StatValue StatType="MeleeAttackMultiplier" MinValue="-0.10" MaxValue="-0.50"/>
+        <Effect minStrength="75" maxStrength="100" strengthChange="0"
+                minVitalityDecrease="0.50" maxVitalityDecrease="2.01" multiplyByMaxVitality="true"
+                minSpeedMultiplier="0.95" maxSpeedMultiplier="0.40"
+                resistanceFor="stun,incrementalstun,progressivestun"
+                minResistance="-1.00" maxResistance="-2.00"
+                minAfflictionOverlayAlphaMultiplier="0.90" maxAfflictionOverlayAlphaMultiplier="1.00"
+                minGrainStrength="0.0" maxGrainStrength="20.0" grainColor="127,40,5,255">
+            <StatValue statType="MeleeAttackMultiplier" minValue="-0.10" maxValue="-0.50"/>
         </Effect>
-        <Description Target="Self" TextIdentifier="afflictiondescription.yamjHunger.self.veryLow"       MinStrength="0"     MaxStrength="15"/>
-        <Description Target="Self" TextIdentifier="afflictiondescription.yamjHunger.self.low"           MinStrength="15"    MaxStrength="35"/>
-        <Description Target="Self" TextIdentifier="afflictiondescription.yamjHunger.self.medium"        MinStrength="35"    MaxStrength="55"/>
-        <Description Target="Self" TextIdentifier="afflictiondescription.yamjHunger.self.high"          MinStrength="55"    MaxStrength="75"/>
-        <Description Target="Self" TextIdentifier="afflictiondescription.yamjHunger.self.veryHigh"      MinStrength="75"    MaxStrength="100"/>
-        <Description Target="OtherCharacter" TextIdentifier="afflictiondescription.yamjHunger.veryLow"  MinStrength="0"     MaxStrength="15"/>
-        <Description Target="OtherCharacter" TextIdentifier="afflictiondescription.yamjHunger.low"      MinStrength="15"    MaxStrength="35"/>
-        <Description Target="OtherCharacter" TextIdentifier="afflictiondescription.yamjHunger.medium"   MinStrength="35"    MaxStrength="55"/>
-        <Description Target="OtherCharacter" TextIdentifier="afflictiondescription.yamjHunger.high"     MinStrength="55"    MaxStrength="75"/>
-        <Description Target="OtherCharacter" TextIdentifier="afflictiondescription.yamjHunger.veryHigh" MinStrength="75"    MaxStrength="100"/>
+        <Description target="Self" textIdentifier="afflictiondescription.yamjHunger.self.veryLow"       minStrength="0"     maxStrength="15"/>
+        <Description target="Self" textIdentifier="afflictiondescription.yamjHunger.self.low"           minStrength="15"    maxStrength="35"/>
+        <Description target="Self" textIdentifier="afflictiondescription.yamjHunger.self.medium"        minStrength="35"    maxStrength="55"/>
+        <Description target="Self" textIdentifier="afflictiondescription.yamjHunger.self.high"          minStrength="55"    maxStrength="75"/>
+        <Description target="Self" textIdentifier="afflictiondescription.yamjHunger.self.veryHigh"      minStrength="75"    maxStrength="100"/>
+        <Description target="OtherCharacter" textIdentifier="afflictiondescription.yamjHunger.veryLow"  minStrength="0"     maxStrength="15"/>
+        <Description target="OtherCharacter" textIdentifier="afflictiondescription.yamjHunger.low"      minStrength="15"    maxStrength="35"/>
+        <Description target="OtherCharacter" textIdentifier="afflictiondescription.yamjHunger.medium"   minStrength="35"    maxStrength="55"/>
+        <Description target="OtherCharacter" textIdentifier="afflictiondescription.yamjHunger.high"     minStrength="55"    maxStrength="75"/>
+        <Description target="OtherCharacter" textIdentifier="afflictiondescription.yamjHunger.veryHigh" minStrength="75"    maxStrength="100"/>
     </Affliction>
 
-    <Affliction Identifier="yamjSatiated"
-                Type="buff" IsBuff="true" limbspecific="false"
-                ShowBarInHealthMenu="true"
-                ActivationThreshold="0"
-                ShowIconThreshold="1"
-                MaxStrength="100"
-                IconColors="184,255,196;0,204,102;159,129,51;128,53,0"
-                Targets="Mudraptor_player,Mudraptor_playerhusk">
-        <Icon Texture="Content/UI/MainIconsAtlas.png" SourceRect="128,384,128,128" Origin="0,0"/>
+    <Affliction identifier="yamjSatiated"
+                type="buff" isBuff="true" limbSpecific="false"
+                showBarInHealthMenu="true"
+                activationThreshold="0"
+                showIconThreshold="1"
+                maxStrength="100"
+                iconColors="184,255,196;0,204,102;159,129,51;128,53,0"
+                targets="Mudraptor_player,Mudraptor_playerhusk">
+        <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="128,384,128,128" origin="0,0"/>
         <!-- Low -->
-        <Effect MinStrength="0" MaxStrength="50" StrengthChange="0"
-                MinVitalityDecrease="0.00" MaxVitalityDecrease="-0.25" MultiplyByMaxVitality="true"
-                MinSpeedMultiplier="1.00" MaxSpeedMultiplier="1.00">
-        <StatValue StatType="MeleeAttackMultiplier" MinValue="0.00" MaxValue="0.05"/>
+        <Effect minStrength="0" maxStrength="50" strengthChange="0"
+                minVitalityDecrease="0.00" maxVitalityDecrease="-0.25" multiplyByMaxVitality="true"
+                minSpeedMultiplier="1.00" maxSpeedMultiplier="1.00">
+        <StatValue statType="MeleeAttackMultiplier" minValue="0.00" maxValue="0.05"/>
         </Effect>
         <!-- High -->
-        <Effect MinStrength="50" MaxStrength="100" StrengthChange="0"
-                MinVitalityDecrease="-0.25" MaxVitalityDecrease="-0.50" MultiplyByMaxVitality="true"
-                MinSpeedMultiplier="1.00" MaxSpeedMultiplier="0.60"
-                ResistanceFor="stun,incrementalstun,progressivestun"
-                MinResistance="0.00" MaxResistance="-0.25">
-            <StatValue StatType="MeleeAttackMultiplier" MinValue="0.05" MaxValue="-0.20"/>
+        <Effect minStrength="50" maxStrength="100" strengthChange="0"
+                minVitalityDecrease="-0.25" maxVitalityDecrease="-0.50" multiplyByMaxVitality="true"
+                minSpeedMultiplier="1.00" maxSpeedMultiplier="0.60"
+                resistanceFor="stun,incrementalstun,progressivestun"
+                minResistance="0.00" maxResistance="-0.25">
+            <StatValue statType="MeleeAttackMultiplier" minValue="0.05" maxValue="-0.20"/>
             <StatusEffect type="OnActive" target="Character">
                 <!-- I promise these are actually rates per-second (applied every frame) -->
                 <ReduceAffliction type="damage" strength="0.25" />
@@ -104,23 +104,23 @@
             </StatusEffect>
         </Effect>
         
-        <Description Target="Self" TextIdentifier="afflictiondescription.yamjSatiated.self.low"       MinStrength="0"     MaxStrength="50"/>
-        <Description Target="OtherCharacter" TextIdentifier="afflictiondescription.yamjSatiated.low"  MinStrength="0"     MaxStrength="50"/>
-        <Description Target="Self" TextIdentifier="afflictiondescription.yamjSatiated.self.high"       MinStrength="50"     MaxStrength="100"/>
-        <Description Target="OtherCharacter" TextIdentifier="afflictiondescription.yamjSatiated.high"  MinStrength="50"     MaxStrength="100"/>
+        <Description target="Self" textIdentifier="afflictiondescription.yamjSatiated.self.low"       minStrength="0"     maxStrength="50"/>
+        <Description target="OtherCharacter" textIdentifier="afflictiondescription.yamjSatiated.low"  minStrength="0"     maxStrength="50"/>
+        <Description target="Self" textIdentifier="afflictiondescription.yamjSatiated.self.high"       minStrength="50"     maxStrength="100"/>
+        <Description target="OtherCharacter" textIdentifier="afflictiondescription.yamjSatiated.high"  minStrength="50"     maxStrength="100"/>
     </Affliction>
     
-    <Affliction Identifier="yamjEating"
-                Type="strengthbuff"
-                IsBuff="true"
-                ActivationThreshold="0"
-                ShowIconThreshold="3"
-                ShowBarInHealthMenu="false"
-                MaxStrength="2"
-                IconColors="240,244,195;130,119,23"
-                Targets="Mudraptor_player,Mudraptor_playerhusk">
-        <Effect MinStrength="0" MaxStrength="2" StrengthChange="-1"
-                MinVitalityDecrease="-0.26" MaxVitalityDecrease="0.00" MultiplyByMaxVitality="true"/>
+    <Affliction identifier="yamjEating"
+                type="strengthbuff"
+                isBuff="true"
+                activationThreshold="0"
+                showIconThreshold="3"
+                showBarInHealthMenu="false"
+                maxStrength="2"
+                iconColors="240,244,195;130,119,23"
+                targets="Mudraptor_player,Mudraptor_playerhusk">
+        <Effect minStrength="0" maxStrength="2" strengthChange="-1"
+                minVitalityDecrease="-0.26" maxVitalityDecrease="0.00" multiplyByMaxVitality="true"/>
     </Affliction>
 
 </Afflictions>

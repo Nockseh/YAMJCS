@@ -4,13 +4,19 @@ using Microsoft.Xna.Framework.Graphics;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase GUITextBox_Select => 
+    internal static MethodBase GameScreen_Update =>
+        AccessTools.DeclaredMethod(
+            typeof(GameScreen),
+            nameof(GameScreen.Update),
+            new[] { typeof(double) }) ??
+        throw new Exception("GameScreen.Update(double) not found");
+    internal static MethodBase GUITextBox_Select => 
         AccessTools.Method(
             typeof(GUITextBox),
             nameof(GUITextBox.Select)) ??
         throw new Exception("GUITextBox.Select() not found");
 
-    public static MethodBase CharacterHUD_Draw =>
+    internal static MethodBase CharacterHUD_Draw =>
         AccessTools.Method(
             typeof(CharacterHUD),
             nameof(CharacterHUD.Draw),
@@ -21,37 +27,37 @@ internal static partial class PatchTargets {
             }) ??
         throw new Exception("CharacterHUD.Draw(SpriteBatch, Character, Camera) not found");
 
-    public static MethodBase CharacterHUD_AddToGUIUpdateList =>
+    internal static MethodBase CharacterHUD_AddToGUIUpdateList =>
         AccessTools.Method(
             typeof(CharacterHUD),
             nameof(CharacterHUD.AddToGUIUpdateList)) ??
         throw new Exception("CharacterHUD.AddToGUIUpdateList() not found");
 
-    public static MethodBase Character_CanAim_Get =>
+    internal static MethodBase Character_CanAim_Get =>
         AccessTools.PropertyGetter(
             typeof(Character),
             nameof(Character.CanAim)) ??
         throw new Exception("Character.CanAim {get} not found");
     
-    public static MethodBase Repairable_CreateGUI =>
+    internal static MethodBase Repairable_CreateGUI =>
         AccessTools.DeclaredMethod(
             typeof(Repairable),
             nameof(Repairable.CreateGUI)) ??
         throw new Exception("Repairable.CreateGUI() not found");
     
-    public static MethodBase CrewManager_CanIssueOrders_Get =>
+    internal static MethodBase CrewManager_CanIssueOrders_Get =>
         AccessTools.PropertyGetter(
             typeof(CrewManager),
             nameof(CrewManager.CanIssueOrders)) ??
         throw new Exception("CrewManager.CanIssueOrders {get} not found");
 
-    public static MethodBase Item_OverrideInventorySprite_Get =>
+    internal static MethodBase Item_OverrideInventorySprite_Get =>
         AccessTools.PropertyGetter(
             typeof(Item),
             nameof(Item.OverrideInventorySprite)) ??
         throw new Exception("Item.OverrideInventorySprite {get} not found");
         
-    public static MethodBase Item_Draw =>
+    internal static MethodBase Item_Draw =>
         AccessTools.Method(
             typeof(Item),
             nameof(Item.Draw),
@@ -63,6 +69,25 @@ internal static partial class PatchTargets {
                 typeof(float?)
             }) ??
         throw new Exception("Item.Draw(SpriteBatch, bool, bool, Color?, float?) not found");
+}
+
+[HarmonyPatch] //client-side frame tick: timers and input hooks here v ONLY WORKS MID-ROUND
+internal static class GameScreenUpdatePatch {
+    private static MethodBase TargetMethod() => PatchTargets.GameScreen_Update;
+
+    private static double captainBondRaptorScanTimer = 0f;
+
+    private static void Postfix(double deltaTime) {
+        RaptorSpeech.Update();
+        RaptorHeadset.Update();
+        RaptorVision.Update();
+
+        captainBondRaptorScanTimer += deltaTime;
+        if (captainBondRaptorScanTimer >= RaptorLocator.RAPTOR_SCAN_INTERVAL) {
+            captainBondRaptorScanTimer = 0.0;
+            RaptorLocator.RefreshRaptorList();
+        }
+    }
 }
 
 [HarmonyPatch] //prevents pRaptors from using the chatbox to send msgs
@@ -91,12 +116,7 @@ internal static class CharHudAddToUpdateList { //basically fires every frame
     static void Postfix() {
         //TODO: initialize these somewhere cleaner where they don't have to ignore every frame
         RaptorSpeech.Initialize(); //automatically ignores extra calls
-        RaptorSpeech.Update();
-        
         RaptorHeadset.Initialize(); //automatically ignores extra calls
-        RaptorHeadset.Update();
-        
-        RaptorVision.Update();
     }
 }
 
@@ -124,10 +144,10 @@ internal static class CharacterCanAimGet {
                 }
             }
             
-            if (!YAMJ.HasTalent(__instance, "YAMJSpeechCombat") && holdingWeapon) {
+            if (!__instance.HasTalent("yamjSpeechCombat".ToIdentifier()) && holdingWeapon) {
                 __result = false;
             }
-            if (!YAMJ.HasTalent(__instance, "YAMJCanUseTools") && holdingTool) {
+            if (!__instance.HasTalent("yamjCanUseTools".ToIdentifier()) && holdingTool) {
                 __result = false;
             }
             
@@ -148,7 +168,8 @@ internal static class RepairableCreateGUI {
         GUIButton.OnClickedHandler oldOnClicked = __instance.RepairButton.OnClicked;
 
         __instance.RepairButton.OnClicked = (btn, obj) => {
-            if (YAMJ.IsPlayerRaptor(Character.Controlled) && !YAMJ.HasTalent(Character.Controlled, "YAMJCanUseTools")) {
+            Character? controlled = Character.Controlled;
+            if (controlled is not null && YAMJ.IsPlayerRaptor(controlled) && !controlled.HasTalent("yamjCanUseTools".ToIdentifier())) {
                 YAMJClient.ShowWarning(TextManager.Get("yamjMsg.cantRepair").Value);
             }
 

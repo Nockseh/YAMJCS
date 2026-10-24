@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase LightManager_UpdateObstructVision =>
+    internal static MethodBase LightManager_UpdateObstructVision =>
         AccessTools.Method(
             typeof(LightManager),
             nameof(LightManager.UpdateObstructVision),

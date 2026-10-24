@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase FishAnimController_UpdateAnim =>
+    internal static MethodBase FishAnimController_UpdateAnim =>
         AccessTools.DeclaredMethod(
             typeof(FishAnimController),
             nameof(FishAnimController.UpdateAnim),
@@ -16,8 +16,8 @@ internal static partial class PatchTargets {
 
 internal static class RaptorAim {
     // Configuration //
-    public const float HeadAimTorque = 100f;
-    public const float FlipDeadzone = 100f;
+    internal const float HeadAimTorque = 100f;
+    internal const float FlipDeadzone = 100f;
     
     private static LimbJoint? FindNeckJoint(Ragdoll ragdoll) {
         foreach (LimbJoint joint in ragdoll.LimbJoints) {

@@ -4,77 +4,77 @@ using HarmonyLib;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase Item_Name_Get =>
+    internal static MethodBase Item_Name_Get =>
         AccessTools.PropertyGetter(
             typeof(Item),
             nameof(Item.Name)) ??
         throw new Exception("Item.Name {get} not found");
         
-    public static MethodBase Item_Description_Get =>
+    internal static MethodBase Item_Description_Get =>
         AccessTools.PropertyGetter(
             typeof(Item),
             nameof(Item.Description)) ??
         throw new Exception("Item.Description {get} not found");
 }
 
-internal static class RaptorIdentify {
+internal static class Appraisal {
     
     private static readonly (Identifier[] itemTag, Identifier[] appraisalTalents, string langTag)[] itemCategories = {
     // tags higher on the list take priority
         (["textdisplay"], 
-            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],  
+            ["yamjSpeechCombat", "yamjSpeechAdvanced"],  
             "textdisplay"),
     
         (["weapon"], 
-            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],  
+            ["yamjSpeechCombat", "yamjSpeechAdvanced"],  
             "weapon"),
             
         (["tool"],
-            ["YAMJCanUseTools", "YAMJSpeechBasic", "YAMJSpeechAdvanced"],   
+            ["yamjCanUseTools", "yamjSpeechBasic", "yamjSpeechAdvanced"],   
             "repairTool"),
             
         (["ore"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "ore"),
             
         (["clothing"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "clothing"),
             
         (["deepdiving"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "deepdiving"),
             
         (["medical", "chem"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "medichem"),
             
         (["ammobox"],
-            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],
+            ["yamjSpeechCombat", "yamjSpeechAdvanced"],
             "ammobox"),
             
         (["handheldammo"],
-            ["YAMJSpeechCombat", "YAMJSpeechAdvanced"],
+            ["yamjSpeechCombat", "yamjSpeechAdvanced"],
             "ammosmall"),
             
         (["scooter"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "scooter"),
             
         (["logic", "sonar", "sensor", "signal", "sound", "lightcomponent", "mobilebattery", "detonator"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "tech"),
             
         (["alienartifact"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "alienlarge"),
             
         (["smallalienartifact"],
-            ["YAMJSpeechAdvanced"],
+            ["yamjSpeechAdvanced"],
             "aliensmall"),
         
         (["helmet"],
-            ["YAMJSpeechAdvanced", "YAMJSpeechCombat"],
+            ["yamjSpeechAdvanced", "yamjSpeechCombat"],
             "helmet"),
     };
 
@@ -91,7 +91,7 @@ internal static class RaptorIdentify {
     
     private static readonly Dictionary<string, ItemPrefab?> artPrefabCache = new();
     
-    public static string? ResolveDumbKey(Item? item) {
+    internal static string? ResolveDumbKey(Item? item) {
         if (item is null) { return null; }
         
         if (item.HasTag(YAMJ.RaptorOnlyTag)) { return null; } //any item that is FOR raptors is auto-identified 
@@ -175,7 +175,7 @@ internal static class RaptorIdentify {
     }
     
     //replacement for the item's in-world sprite
-    public static Sprite? GetWorldSprite(Item item) {
+    internal static Sprite? GetWorldSprite(Item item) {
         string? key = ResolveDumbKey(item);
         if (key is null) { return null; }
 
@@ -185,7 +185,7 @@ internal static class RaptorIdentify {
     }
     
     //replacement for the item's inventory icon
-    public static Sprite? GetInventorySprite(Item item) {
+    internal static Sprite? GetInventorySprite(Item item) {
         string? key = ResolveDumbKey(item);
         if (key is null) { return null; }
 
@@ -197,7 +197,7 @@ internal static class RaptorIdentify {
         return sprite;
     }
 
-    public static void ClearCache() {
+    internal static void ClearCache() {
         artPrefabCache.Clear();
         inferredTagCache.Clear();
     }
@@ -213,7 +213,7 @@ internal static class ItemOverrideInventorySpriteGet {
         
         if (__result is not null) { return; } //something already set an override, leave it alone? not sure when this happens normally
         
-        __result = RaptorIdentify.GetInventorySprite(__instance);
+        __result = Appraisal.GetInventorySprite(__instance);
     }
 }
 
@@ -228,7 +228,7 @@ internal static class ItemDrawSpriteSwap {
         
         if (___activeSprite is null) { return; } //spriteless item, don't give it one
 
-        Sprite? replacement = RaptorIdentify.GetWorldSprite(__instance);
+        Sprite? replacement = Appraisal.GetWorldSprite(__instance);
         if (replacement is null || ReferenceEquals(replacement, ___activeSprite)) { return; }
 
         __state = ___activeSprite;
@@ -249,7 +249,7 @@ internal static class ItemNameGet {
         Character? controlled = Character.Controlled;
         if (!YAMJ.IsPlayerRaptor(controlled)) { return true; }
         
-        string? key = RaptorIdentify.ResolveDumbKey(__instance);
+        string? key = Appraisal.ResolveDumbKey(__instance);
         if (key is not null) {
             __result = TextManager.Get("entityname.dumb." + key).Value;
             return false;
@@ -266,7 +266,7 @@ internal static class ItemDescGet {
         Character? controlled = Character.Controlled;
         if (!YAMJ.IsPlayerRaptor(controlled)) { return true; }
 
-        string? key = RaptorIdentify.ResolveDumbKey(__instance);
+        string? key = Appraisal.ResolveDumbKey(__instance);
         if (key is not null) {
             __result = TextManager.Get("entitydescription.dumb." + key).Value;
             return false;

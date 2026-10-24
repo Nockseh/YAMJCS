@@ -6,7 +6,7 @@ namespace YAMJCS;
     
 internal static partial class PatchTargets {
         
-    public static MethodBase Character_DoInteractionUpdate =>
+    internal static MethodBase Character_DoInteractionUpdate =>
         AccessTools.Method(
             typeof(Character),
             nameof(Character.DoInteractionUpdate),
@@ -16,7 +16,7 @@ internal static partial class PatchTargets {
             }) ??
         throw new Exception("Character.DoInteractionUpdate(float, Vector2) not found");
 
-    public static MethodBase Character_UpdateAll =>
+    internal static MethodBase Character_UpdateAll =>
         AccessTools.Method(
             typeof(Character),
             nameof(Character.UpdateAll),
@@ -32,6 +32,7 @@ internal static class Character_UpdateAll {
     static MethodBase TargetMethod() => PatchTargets.Character_UpdateAll;
 
     private static float digestionTimer = 0f;
+    private static float captainProxTimer = 0f;
 
     static void Postfix(float deltaTime) {
         if (GameMain.NetworkMember is { IsClient: true }) { return; }
@@ -45,6 +46,12 @@ internal static class Character_UpdateAll {
                 if (character.Removed || character.IsDead || !YAMJ.IsPlayerRaptor(character)) { continue; }
                 RaptorGut.Digest(character, elapsed);
             }
+        }
+
+        captainProxTimer += deltaTime;
+        if (captainProxTimer >= YAMJConfig.CaptainProxUpdateInterval) {
+            captainProxTimer = 0f;
+            BondCaptain.UpdateProximity();
         }
     }
 }

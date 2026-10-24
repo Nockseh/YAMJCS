@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="YAMJCS" modversion="1.0" corepackage="false">
+<contentpackage name="YAMJCS" modVersion="1.0" corePackage="false">
     <Jobs file="%ModDir%/Job/Jobs.xml" />
     <TalentTrees file="%ModDir%/Job/TalentTrees.xml" />
     <Talents file="%ModDir%/Job/Talents.xml" />

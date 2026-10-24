@@ -34,9 +34,9 @@ internal static partial class PatchTargets {
 
 }
 
-internal static class RaptorAttack {
+internal static class CreatureAttack {
     private const float MINING_AMOUNT = 5f;
-    internal static readonly Identifier MechanicBondId = "YAMJBondMechanic".ToIdentifier();
+    internal static readonly Identifier MechanicBondId = "yamjBondMechanic".ToIdentifier();
     
     internal static void TryMineOre(Limb limb) {
         if (limb.character.Submarine is not null) { return; } // submarines have their own sim coords, not usable 
@@ -74,9 +74,9 @@ internal static class RaptorBeakMiningPatch {
         Character? character = __instance.character;
         if (character is null || character.Removed || !character.IsPlayer) { return; }
         if (!YAMJ.IsPlayerRaptor(character)) { return; }
-        if (!YAMJ.HasTalent(character, RaptorAttack.MechanicBondId)) { return; }
+        if (!character.HasTalent(CreatureAttack.MechanicBondId)) { return; }
 
-        RaptorAttack.TryMineOre(__instance);
+        CreatureAttack.TryMineOre(__instance);
     }
 }
 
@@ -111,7 +111,7 @@ internal static class CanOpenerAttackPatch {
         if (structure is null) { return; } //structures only
         
         if (!YAMJ.IsPlayerRaptor(attacker)) { return; }
-        if (!YAMJ.HasTalent(attacker, RaptorCanOpener.TalentId)) { return; }
+        if (!attacker.HasTalent(CanOpener.TalentId)) { return; }
         
         __state = __instance.DamageMultiplier;
         __instance.DamageMultiplier *= 1f + YAMJConfig.CanOpenerDamageBonus; //other damage mults exist (genes) so we mult the mult instead of add

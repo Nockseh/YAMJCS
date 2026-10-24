@@ -11,13 +11,14 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\AssemblySettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorAim.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorBondSecurity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorCanOpener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\BondCaptain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\BondSecurity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\CanOpener.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorGut.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorInventory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorNames.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorPeriscope.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorAttack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Periscope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\CreatureAttack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorSteering.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\SharedPatches.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\YAMJ.cs" />

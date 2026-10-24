@@ -1,17 +1,19 @@
-﻿namespace YAMJCS;
+﻿using OneOf.Types;
 
-public class RaptorSpeech {
+namespace YAMJCS;
+
+internal class RaptorSpeech {
     private static GUIFrame? root;
     private static GUIButton? toggleButton;
     private static GUIFrame? popupFrame;
     private static GUILayoutGroup? basicListLayout;
     private static GUILayoutGroup? advListLayout;
     private static GUILayoutGroup? combatListLayout;
-    private static GUIDragHandle? dragHandle; //TODO add back in later
+    //private static GUIDragHandle? dragHandle; //TODO add back in later
 
-    private static readonly Identifier BasicTalent = "YAMJSpeechBasic".ToIdentifier();
-    private static readonly Identifier AdvancedTalent = "YAMJSpeechAdvanced".ToIdentifier();
-    private static readonly Identifier CombatTalent = "YAMJSpeechCombat".ToIdentifier();
+    private static readonly Identifier BasicTalent = "yamjSpeechBasic".ToIdentifier();
+    private static readonly Identifier AdvancedTalent = "yamjSpeechAdvanced".ToIdentifier();
+    private static readonly Identifier CombatTalent = "yamjSpeechCombat".ToIdentifier();
 
     private static readonly Identifier[] BasicWords = [
         "raptorWord.me".ToIdentifier(),
@@ -60,7 +62,7 @@ public class RaptorSpeech {
     private static string composedString = "";
     //private static IEnumerable? wordCache;
 
-    public static void Initialize() {
+    internal static void Initialize() {
         if (!YAMJ.IsPlayerRaptor(Character.Controlled)) return;
         if (root is not null) return;
         
@@ -78,6 +80,7 @@ public class RaptorSpeech {
             ToolTip = TextManager.Get("yamjUi.speakTooltip".ToIdentifier()).Value
         };
         toggleButton.OnClicked = (_, _) => {
+            if (popupFrame is null) throw new Exception("RaptorSpeech.popupFrame is null");
             popupFrame.Visible = !popupFrame.Visible;
             if (popupFrame.Visible) {
                 RebuildWordButtons();
@@ -118,7 +121,7 @@ public class RaptorSpeech {
         YAMJ.Log("Intialized raptor speech hud");
     }
 
-    public static void Update() {
+    internal static void Update() {
         if (root is null) return;
         Character? controlled = Character.Controlled;
         bool enabled = controlled is not null && YAMJ.IsPlayerRaptor(controlled);
@@ -137,7 +140,7 @@ public class RaptorSpeech {
         }
     }
     
-    public static void RebuildWordButtons() {
+    internal static void RebuildWordButtons() {
         if (combatListLayout is null) return; //checking for initialized
 
         basicListLayout.ClearChildren();

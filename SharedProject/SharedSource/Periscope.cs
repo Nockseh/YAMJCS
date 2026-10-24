@@ -4,12 +4,16 @@ using HarmonyLib;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase Controller_Select =>
+    internal static MethodBase Controller_Select =>
         AccessTools.DeclaredMethod(
             typeof(Controller),
             nameof(Controller.Select),
             new[] { typeof(Character) }) ??
         throw new Exception("Controller.Select(Character) not found");
+}
+
+internal static class Periscope {
+    internal static readonly Identifier TalentId = "yamjGunner".ToIdentifier();
 }
 
 [HarmonyPatch] // gates periscope (turret) usage behind talent
@@ -19,7 +23,7 @@ internal static class PeriscopePatch {
     static bool Prefix(Controller __instance, Character activator, ref bool __result) {
         if (!YAMJ.IsPlayerRaptor(activator)) { return true; }
         if (!__instance.Item.HasTag(Tags.Periscope)) { return true; }
-        if (YAMJ.HasTalent(activator, "YAMJGunner")) { return true; }
+        if (activator.HasTalent(Periscope.TalentId)) { return true; }
 
         #if CLIENT
             if (activator == Character.Controlled) {

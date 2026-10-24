@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase CharacterInfo_LoadHeadElement =>
+    internal static MethodBase CharacterInfo_LoadHeadElement =>
         AccessTools.Method(
             typeof(CharacterInfo),
             nameof(CharacterInfo.LoadHeadElement),
@@ -14,7 +14,7 @@ internal static partial class PatchTargets {
             }) ??
         throw new Exception("CharacterInfo.LoadHeadElement(bool, bool) not found");
 
-    public static MethodBase CharacterInfo_DrawIcon =>
+    internal static MethodBase CharacterInfo_DrawIcon =>
         AccessTools.Method(
             typeof(CharacterInfo),
             nameof(CharacterInfo.DrawIcon),
@@ -26,20 +26,20 @@ internal static partial class PatchTargets {
             }) ??
         throw new Exception("CharacterInfo.DrawIcon(SpriteBatch, Vector2, Vector2, bool) not found");
 
-    public static MethodBase Character_LoadHeadAttachments =>
+    internal static MethodBase Character_LoadHeadAttachments =>
         AccessTools.Method(
             typeof(Character),
             nameof(Character.LoadHeadAttachments)) ??
         throw new Exception("Character.LoadHeadAttachments not found");
         
-    public static MethodBase AppearanceCustomizationMenu_OpenHeadSelection =>
+    internal static MethodBase AppearanceCustomizationMenu_OpenHeadSelection =>
         AccessTools.Method(
             typeof(CharacterInfo.AppearanceCustomizationMenu),
             nameof(CharacterInfo.AppearanceCustomizationMenu.OpenHeadSelection)) ??
         throw new Exception("AppearanceCustomizationMenu.OpenHeadSelection() not found");
 }
 
-internal static class RaptorPortrait {
+internal static class Portraits {
     private static CharacterInfo? template;
     private static ContentXElement? spriteElement;
     private static string? spriteFile;
@@ -61,12 +61,12 @@ internal static class RaptorPortrait {
         foreach (object? entry in prefs) {
             if (entry is null) { return false; }
             object? prefab = AccessTools.Field(entry.GetType(), "Prefab")?.GetValue(entry);
-            return prefab is JobPrefab job && string.Equals(job.Identifier.Value, YAMJ.PlayerRaptorJobId, StringComparison.OrdinalIgnoreCase);
+            return prefab is JobPrefab job && job.Identifier == YAMJ.PlayerRaptorJobId;
         }
         return false;
     }
 
-    public static bool ShouldUseRaptorHead(CharacterInfo? info) {
+    internal static bool ShouldUseRaptorHead(CharacterInfo? info) {
         if (info is null) { return false; }
         if (YAMJ.HasPlayerRaptorJob(info)) { return true; }
         
@@ -74,10 +74,10 @@ internal static class RaptorPortrait {
         return ReferenceEquals(info, GameMain.Client?.CharacterInfo) && RaptorIsTopJobPreference();
     }
 
-    public static Sprite? CreateHeadSprite() =>
+    internal static Sprite? CreateHeadSprite() =>
         TryResolveSource() ? new Sprite(spriteElement, "", spriteFile) : null;
         
-    public static Sprite? CreateHeadSprite(Vector2 sheetIndex) {
+    internal static Sprite? CreateHeadSprite(Vector2 sheetIndex) {
         Sprite? sprite = CreateHeadSprite();
         if (sprite is null) { return null; }
 
@@ -90,10 +90,10 @@ internal static class RaptorPortrait {
         return sprite;
     }
     
-    public static Sprite? CreatePortraitSprite() =>
+    internal static Sprite? CreatePortraitSprite() =>
         TryResolveSource() ? new Sprite(spriteElement, "", spriteFile) { RelativeOrigin = Vector2.Zero } : null;
 
-    public static List<Identifier> GetSpriteTags() {
+    internal static List<Identifier> GetSpriteTags() {
         if (!TryResolveSource()) {
             return new List<Identifier>();
         }
@@ -166,7 +166,7 @@ internal static class RaptorPortrait {
         return false;
     }
 
-    public static void SetPrivateProperty(object instance, string propertyName, object? value) {
+    internal static void SetPrivateProperty(object instance, string propertyName, object? value) {
         AccessTools.PropertySetter(instance.GetType(), propertyName)
             .Invoke(instance, new[] { value });
     }
@@ -177,19 +177,19 @@ internal static class CharacterInfoLoadHeadElement {
     static MethodBase TargetMethod() => PatchTargets.CharacterInfo_LoadHeadElement;
 
     static bool Prefix(CharacterInfo __instance, bool loadHeadSprite, bool loadHeadSpriteTags) {
-        if (!RaptorPortrait.ShouldUseRaptorHead(__instance)) {
+        if (!Portraits.ShouldUseRaptorHead(__instance)) {
             return true;
         }
 
         if (loadHeadSprite) {
-            Sprite? headSprite = RaptorPortrait.CreateHeadSprite();
+            Sprite? headSprite = Portraits.CreateHeadSprite();
             if (headSprite is null) {
                 return true;
             } //fall back to the human head rather than draw nothing
 
-            RaptorPortrait.SetPrivateProperty(__instance, nameof(CharacterInfo.HeadSprite), headSprite);
-            RaptorPortrait.SetPrivateProperty(__instance, nameof(CharacterInfo.Portrait),
-                RaptorPortrait.CreatePortraitSprite());
+            Portraits.SetPrivateProperty(__instance, nameof(CharacterInfo.HeadSprite), headSprite);
+            Portraits.SetPrivateProperty(__instance, nameof(CharacterInfo.Portrait),
+                Portraits.CreatePortraitSprite());
 
             //the human hair/beard/moustache/face sprites would otherwise be drawn over the snout
             AccessTools.Field(typeof(CharacterInfo), "attachmentSprites")
@@ -198,7 +198,7 @@ internal static class CharacterInfoLoadHeadElement {
 
         if (loadHeadSpriteTags) {
             AccessTools.Property(typeof(CharacterInfo), nameof(CharacterInfo.SpriteTags))
-                .SetValue(__instance, RaptorPortrait.GetSpriteTags());
+                .SetValue(__instance, Portraits.GetSpriteTags());
             AccessTools.Field(typeof(CharacterInfo), "spriteTagsLoaded")
                 .SetValue(__instance, true);
         }
@@ -213,7 +213,7 @@ internal static class CharacterInfoDrawIcon {
 
     static bool Prefix(CharacterInfo __instance, SpriteBatch spriteBatch, Vector2 screenPos, Vector2 targetAreaSize,
         bool flip) {
-        if (!RaptorPortrait.ShouldUseRaptorHead(__instance)) {
+        if (!Portraits.ShouldUseRaptorHead(__instance)) {
             return true;
         }
 
@@ -283,7 +283,7 @@ internal static class AppearanceMenuOpenHeadSelection {
     static MethodBase TargetMethod() => PatchTargets.AppearanceCustomizationMenu_OpenHeadSelection;
 
     static void Postfix(CharacterInfo.AppearanceCustomizationMenu __instance) {
-        if (!RaptorPortrait.ShouldUseRaptorHead(__instance.CharacterInfo)) { return; }
+        if (!Portraits.ShouldUseRaptorHead(__instance.CharacterInfo)) { return; }
         if (__instance.HeadSelectionList is null) { return; }
 
         //the menu removes everything in this list when the grid is rebuilt or disposed
@@ -295,7 +295,7 @@ internal static class AppearanceMenuOpenHeadSelection {
             if (button.UserData is not CharacterInfo.HeadPreset preset) { continue; }
             if (button.GetChild<GUIImage>() is not GUIImage image) { continue; }
 
-            Sprite? raptorHead = RaptorPortrait.CreateHeadSprite(preset.SheetIndex);
+            Sprite? raptorHead = Portraits.CreateHeadSprite(preset.SheetIndex);
             if (raptorHead is null) { return; }
 
             owned?.Add(raptorHead);

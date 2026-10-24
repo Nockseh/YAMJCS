@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Jobs>
-  <Job identifier="PlayerMudraptorJob" allowalways="true" minkarma="0" uicolor="0.35,0.84,0.50" vitalitymodifier="0" pricemultiplier="0.8" idlebehavior="Active">
+  <Job identifier="playerMudraptorJob" allowAlways="true" minKarma="0" uiColor="0.35,0.84,0.50" vitalityModifier="0" priceMultiplier="0.8" idleBehavior="Active">
     <Jobicon>
-      <sprite texture="%ModDir%/Job/YAMJIcons.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
+      <sprite texture="%ModDir%/Job/YAMJIcons.png" sourceRect="0,0,128,128" origin="0.5,0.5" />
     </Jobicon>
     <JobiconSmall>
-      <sprite texture="%ModDir%/Job/YAMJIcons.png" sourcerect="284,100,28,28" origin="0.5,0.5" />
+      <sprite texture="%ModDir%/Job/YAMJIcons.png" sourceRect="284,100,28,28" origin="0.5,0.5" />
     </JobiconSmall>
     <Skills>
       <Skill identifier="weapons" level="10,30" />
@@ -16,28 +16,28 @@
     </Skills>
     <!-- the player spawns with a "raptorstartitem" that is removed once they are inside the game, this item is here to show an icon in the server menu. (But can also be used to give the player an affliction) -->
     <ItemSet>
-      <Item identifier="raptorstartitem" equip="true" outfit="true" />
-      <Item identifier="idcard" equip="true" showpreview="false" />
-      <Item identifier="headset" equip="true" showpreview="false" />
-      <Item identifier="jumptalentitem" equip="true" />
+      <Item identifier="raptorStartItem" equip="true" outfit="true" />
+      <Item identifier="idcard" equip="true" showPreview="false" />
+      <Item identifier="headset" equip="true" showPreview="false" />
+      <Item identifier="jumpTalentItem" equip="true" />
       <PreviewSprites dims="120,109">
-        <sprite texture="%ModDir%/Job/YAMJIcons.png" sourcerect="256,0,100,100" offset="0,0" />
+        <sprite texture="%ModDir%/Job/YAMJIcons.png" sourceRect="256,0,100,100" offset="0,0" />
       </PreviewSprites>
     </ItemSet>
     <!-- Another itemset is given to fix some stuff with UI in the server menu, and later will be used to have different sets (custom clothing, etc) -->
     <ItemSet>
-      <Item identifier="raptorstartitem" equip="true" outfit="true" />
-      <Item identifier="idcard" equip="true" showpreview="false" />
-      <Item identifier="headset" equip="true" showpreview="false" />
-      <Item identifier="jumptalentitem" equip="true" />
+      <Item identifier="raptorStartItem" equip="true" outfit="true" />
+      <Item identifier="idcard" equip="true" showPreview="false" />
+      <Item identifier="headset" equip="true" showPreview="false" />
+      <Item identifier="jumpTalentItem" equip="true" />
       <PreviewSprites dims="120,109">
-        <sprite texture="%ModDir%/Job/YAMJIcons.png" sourcerect="256,0,100,100" offset="0,0" />
+        <sprite texture="%ModDir%/Job/YAMJIcons.png" sourceRect="256,0,100,100" offset="0,0" />
       </PreviewSprites>
     </ItemSet>
     <AutonomousObjectives>
-      <Order identifier="fightintruders" prioritymodifier="1" />
-      <Order identifier="repairsystems" prioritymodifier="0.2" />
-      <Order identifier="fixleaks" prioritymodifier="0.1" />
+      <Order identifier="fightintruders" priorityModifier="1" />
+      <Order identifier="repairsystems" priorityModifier="0.2" />
+      <Order identifier="fixleaks" priorityModifier="0.1" />
     </AutonomousObjectives>
     <AppropriateOrders>
       <Order identifier="fightintruders" />

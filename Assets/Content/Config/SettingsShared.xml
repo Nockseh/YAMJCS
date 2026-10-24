@@ -2,6 +2,14 @@
 <Configuration>
     <Settings>
     
+        <!-- Performance -->
+        <Setting Name="CaptainProxUpdateInterval" Type="rangeFloat"
+                 Value="2.0" Min="0.25" Max="10.0" Steps="40"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DigestionUpdateInterval" Type="rangeFloat"
+                 Value="2.0" Min="0.5" Max="30.0" Steps="60"
+                 NetSync="TwoWay" ShowInMenus="true" />
+    
         <!-- Hunger -->
         
         <Setting Name="HungerRate" Type="rangeFloat"
@@ -9,9 +17,6 @@
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="EatingHungerReduction" Type="rangeFloat"
                  Value="4.0" Min="0.0" Max="20.0" Steps="101"
-                 NetSync="TwoWay" ShowInMenus="true" />
-        <Setting Name="DigestionUpdateInterval" Type="rangeFloat"
-                 Value="2.0" Min="0.5" Max="30.0" Steps="60"
                  NetSync="TwoWay" ShowInMenus="true" />
         <!-- Digestion (Hunger Reduction) -->
         <Setting Name="BasicFoodHungerReduction" Type="rangeFloat"
@@ -90,7 +95,25 @@
         <Setting Name="ClearVisionRange" Type="rangeFloat"
                  Value="2000" Min="0" Max="20000" Steps="81"
                  NetSync="TwoWay" ShowInMenus="true" />
-        
+        <Setting Name="CaptainProxBuffResist" Type="rangeFloat"
+                 Value="0.3" Min="0.0" Max="1.0" Steps="21"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SicDuration" Type="rangeFloat"
+                 Value="30" Min="1" Max="120" Steps="120"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SicCooldown" Type="rangeFloat"
+                 Value="180" Min="0" Max="600" Steps="121"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SicMoveBonus" Type="rangeFloat"
+                 Value="0.10" Min="0.0" Max="1.0" Steps="21"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SicAttackBonus" Type="rangeFloat"
+                 Value="0.25" Min="0.0" Max="2.0" Steps="41"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SicStunResist" Type="rangeFloat"
+                 Value="0.5" Min="0.0" Max="1.0" Steps="21"
+                 NetSync="TwoWay" ShowInMenus="true" />
+
         <!-- Combat -->
                  
         <!-- Sleep -->

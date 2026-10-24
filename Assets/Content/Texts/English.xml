@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="false" translatedname="English">
 
-  <!-- Client Settings -->
+  <!--region Client Settings -->
   <YAMJCS.RaptorVisionKey.DisplayName>Raptor Vision Keybind</YAMJCS.RaptorVisionKey.DisplayName>
   <YAMJCS.RaptorVisionKey.DisplayCategory>Client</YAMJCS.RaptorVisionKey.DisplayCategory>
   <YAMJCS.RaptorVisionKey.Tooltip>Button to toggle thermal vision as a raptor (requires talent).</YAMJCS.RaptorVisionKey.Tooltip>
@@ -18,8 +18,16 @@
   <YAMJCS.OreVisionColor.DisplayName>Ore Vision Color</YAMJCS.OreVisionColor.DisplayName>
   <YAMJCS.OreVisionColor.DisplayCategory>Client</YAMJCS.OreVisionColor.DisplayCategory>
   <YAMJCS.OreVisionColor.Tooltip>Color of "Bond with Mechanic" ore vision effect, in #RRGGBBAA or #RRGGBB format.</YAMJCS.OreVisionColor.Tooltip>
-
-  <!-- Shared Settings -->
+  <!--endregion-->
+  <!--region Shared Settings -->
+    <!--performance-->
+  <YAMJCS.DigestionUpdateInterval.DisplayName>Digestion Update Interval</YAMJCS.DigestionUpdateInterval.DisplayName>
+  <YAMJCS.DigestionUpdateInterval.Tooltip>Time between gut digestion updates, in seconds. Does not affect rate of digestion.</YAMJCS.DigestionUpdateInterval.Tooltip>
+  <YAMJCS.DigestionUpdateInterval.DisplayCategory>Performance</YAMJCS.DigestionUpdateInterval.DisplayCategory>
+  
+  <YAMJCS.CaptainProxUpdateInterval.DisplayName>Captain Proximity Check Interval</YAMJCS.CaptainProxUpdateInterval.DisplayName>
+  <YAMJCS.CaptainProxUpdateInterval.Tooltip>Time (in seconds) between checks to see if a captain is nearby any raptors with the "Big Dog (Bond with Captain)" talent.</YAMJCS.CaptainProxUpdateInterval.Tooltip>
+  <YAMJCS.CaptainProxUpdateInterval.DisplayCategory>Performance</YAMJCS.CaptainProxUpdateInterval.DisplayCategory>
     <!--hunger-->
   <YAMJCS.HungerRate.DisplayName>Hunger Rate</YAMJCS.HungerRate.DisplayName>
   <YAMJCS.HungerRate.Tooltip>How much hunger a player raptor gains per second.
@@ -30,10 +38,6 @@ At the max value 0.5, it takes about 3 minutes.</YAMJCS.HungerRate.Tooltip>
   <YAMJCS.EatingHungerReduction.DisplayName>Eating Hunger Reduction</YAMJCS.EatingHungerReduction.DisplayName>
   <YAMJCS.EatingHungerReduction.Tooltip>How much hunger is reduced per second when player raptors are eating corpses.</YAMJCS.EatingHungerReduction.Tooltip>
   <YAMJCS.EatingHungerReduction.DisplayCategory>Hunger</YAMJCS.EatingHungerReduction.DisplayCategory>
-    
-  <YAMJCS.DigestionUpdateInterval.DisplayName>Digestion Update Interval</YAMJCS.DigestionUpdateInterval.DisplayName>
-  <YAMJCS.DigestionUpdateInterval.Tooltip>Time between gut digestion updates, in seconds. Does not affect rate of digestion.</YAMJCS.DigestionUpdateInterval.Tooltip>
-  <YAMJCS.DigestionUpdateInterval.DisplayCategory>Hunger</YAMJCS.DigestionUpdateInterval.DisplayCategory>
     <!--digestion (hunger) -->
   <YAMJCS.BasicFoodHungerReduction.DisplayName>Basic Food Hunger Reduction</YAMJCS.BasicFoodHungerReduction.DisplayName>
   <YAMJCS.BasicFoodHungerReduction.Tooltip>How much a player raptor's hunger is reduced by (per second) for each piece of normal food in their gut.</YAMJCS.BasicFoodHungerReduction.Tooltip>
@@ -145,6 +149,34 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <YAMJCS.ClearVisionRange.Tooltip>Raptors with this talent will remove the suit vision obstruction effect from crewmates in this radius.</YAMJCS.ClearVisionRange.Tooltip>
   <YAMJCS.ClearVisionRange.DisplayCategory>Talents</YAMJCS.ClearVisionRange.DisplayCategory>
 
+  <YAMJCS.CaptainProxBuffResist.DisplayName>(Bond with Captain) Captain Damage Resistance</YAMJCS.CaptainProxBuffResist.DisplayName>
+  <YAMJCS.CaptainProxBuffResist.Tooltip>Damage, bleeding and burn resistance granted to the captain while a bonded raptor is nearby, and when siccing a raptor.
+example: 0.3 = 30% resistance.</YAMJCS.CaptainProxBuffResist.Tooltip>
+  <YAMJCS.CaptainProxBuffResist.DisplayCategory>Talents</YAMJCS.CaptainProxBuffResist.DisplayCategory>
+
+  <YAMJCS.SicDuration.DisplayName>(Bond with Captain) Sic 'Em Duration</YAMJCS.SicDuration.DisplayName>
+  <YAMJCS.SicDuration.Tooltip>How long (in seconds) a sicced raptor keeps its bonuses, and the captain keeps their matching resistance buff.</YAMJCS.SicDuration.Tooltip>
+  <YAMJCS.SicDuration.DisplayCategory>Talents</YAMJCS.SicDuration.DisplayCategory>
+
+  <YAMJCS.SicCooldown.DisplayName>(Bond with Captain) Sic 'Em Cooldown</YAMJCS.SicCooldown.DisplayName>
+  <YAMJCS.SicCooldown.Tooltip>Time (in seconds) before the same raptor can be sicced again.</YAMJCS.SicCooldown.Tooltip>
+  <YAMJCS.SicCooldown.DisplayCategory>Talents</YAMJCS.SicCooldown.DisplayCategory>
+
+  <YAMJCS.SicMoveBonus.DisplayName>(Bond with Captain) Sic 'Em Movement Bonus</YAMJCS.SicMoveBonus.DisplayName>
+  <YAMJCS.SicMoveBonus.Tooltip>Movement speed bonus a raptor gains while sicced, on land and in water.
+example: 0.1 = +10% speed.</YAMJCS.SicMoveBonus.Tooltip>
+  <YAMJCS.SicMoveBonus.DisplayCategory>Talents</YAMJCS.SicMoveBonus.DisplayCategory>
+
+  <YAMJCS.SicAttackBonus.DisplayName>(Bond with Captain) Sic 'Em Attack Bonus</YAMJCS.SicAttackBonus.DisplayName>
+  <YAMJCS.SicAttackBonus.Tooltip>Bonus attack damage a raptor deals while sicced.
+example: 0.25 = +25% damage.</YAMJCS.SicAttackBonus.Tooltip>
+  <YAMJCS.SicAttackBonus.DisplayCategory>Talents</YAMJCS.SicAttackBonus.DisplayCategory>
+
+  <YAMJCS.SicStunResist.DisplayName>(Bond with Captain) Sic 'Em Stun Resistance</YAMJCS.SicStunResist.DisplayName>
+  <YAMJCS.SicStunResist.Tooltip>Stun resistance a raptor gains while sicced.
+example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
+  <YAMJCS.SicStunResist.DisplayCategory>Talents</YAMJCS.SicStunResist.DisplayCategory>
+
     <!--combat-->
   
     <!--sleep-->
@@ -183,8 +215,9 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <YAMJCS.SleepHealOthersBloodLoss.DisplayName>Sleep Blood Loss Healing (Allies)</YAMJCS.SleepHealOthersBloodLoss.DisplayName>
   <YAMJCS.SleepHealOthersBloodLoss.Tooltip>The amount of blood loss per second that sleeping raptors heal their allies for.</YAMJCS.SleepHealOthersBloodLoss.Tooltip>
   <YAMJCS.SleepHealOthersBloodLoss.DisplayCategory>Sleep</YAMJCS.SleepHealOthersBloodLoss.DisplayCategory>
+  <!--endregion-->
 
-  <!-- Config Text Tags (For config values read in-game)-->
+  <!--Config Value Tags (For config values read in-game)-->
   <yamjConfig.CanOpenerDamageBonus.percent>300</yamjConfig.CanOpenerDamageBonus.percent>
   <yamjConfig.FamiliarWatersDamageBonus.percent>25</yamjConfig.FamiliarWatersDamageBonus.percent>
   <yamjConfig.SleepWindupTime.float>5</yamjConfig.SleepWindupTime.float>
@@ -193,11 +226,11 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <yamjConfig.ChargedBiteDamageBonus.percent>50</yamjConfig.ChargedBiteDamageBonus.percent>
   <yamjConfig.ChargedBiteStun>6</yamjConfig.ChargedBiteStun>
   <yamjConfig.ChargedBiteCooldown.int>60</yamjConfig.ChargedBiteCooldown.int>
+  <yamjConfig.ChargedBiteCooldownReward.float>6</yamjConfig.ChargedBiteCooldownReward.float>
   <yamjConfig.HandlerMarkDuration.int>15</yamjConfig.HandlerMarkDuration.int>
-
   <!--Job.xml-->
-  <jobName.PlayerMudraptorJob>Mudraptor</jobName.PlayerMudraptorJob>
-  <jobdescription.PlayerMudraptorJob>The return of Man's best friend.</jobdescription.PlayerMudraptorJob>
+  <jobname.playerMudraptorJob>Mudraptor</jobname.playerMudraptorJob>
+  <jobdescription.playerMudraptorJob>The return of Man's best friend.</jobdescription.playerMudraptorJob>
   <!--GUI Messages-->
   <yamjMsg.cantSpeak>raptors can't speak normally</yamjMsg.cantSpeak>
   <yamjMsg.cantUseItem>you don't know how to use that yet</yamjMsg.cantUseItem>
@@ -209,11 +242,14 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <yamjHint.forceOpenBeak>[[use]] Force open (Beak)</yamjHint.forceOpenBeak>
   <yamjHint.forceCloseBeak>[[use]] Force closed (Beak)</yamjHint.forceCloseBeak>
   <yamjHint.designateHandler>[[key]] Designate as Handler</yamjHint.designateHandler>
+  <yamjHint.sicRaptor>[[key]] Sic 'Em</yamjHint.sicRaptor>
   <!--UI Elements-->
   <yamjUi.speak>speak</yamjUi.speak>
   <yamjUi.speakTooltip>open known words</yamjUi.speakTooltip>
   <yamjUi.quickChat>quick chat</yamjUi.quickChat>
   <yamjUi.quickChatTooltip>open preset radio messages</yamjUi.quickChatTooltip>
+  
+<!--region Communication-->
   <!--QuickChat Headset -->
   <yamjRadial.msg1>Affirmative.</yamjRadial.msg1>
   <yamjRadial.msg2>Negative.</yamjRadial.msg2>
@@ -262,7 +298,12 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <raptorWord.come>come</raptorWord.come>
   <raptorWord.hurt>hurt</raptorWord.hurt>
   <raptorWord.exclamation>!</raptorWord.exclamation>
+<!--endregion-->
+  
+<!--region Items-->
   <!-- Low Intelligence Item Names/Descriptions -->
+  <entityname.dumb.textdisplay>Sign</entityname.dumb.textdisplay>
+  <entitydescription.dumb.textdisplay> </entitydescription.dumb.textdisplay>
   <entityname.dumb.repairTool>Fix Thing</entityname.dumb.repairTool>
   <entitydescription.dumb.repairTool>For boat?</entitydescription.dumb.repairTool>
   <entityname.dumb.weapon>Hurt Thing</entityname.dumb.weapon>
@@ -284,7 +325,7 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <entityname.dumb.ore>Rock</entityname.dumb.ore>
   <entitydescription.dumb.ore>Hard.</entitydescription.dumb.ore>
   <entityname.dumb.alienlarge>Thing</entityname.dumb.alienlarge>
-  <entitydescription.alienlarge.ore>???</entitydescription.alienlarge.ore>
+  <entitydescription.dumb.alienlarge>???</entitydescription.dumb.alienlarge>
   <entityname.dumb.aliensmall>Thing</entityname.dumb.aliensmall>
   <entitydescription.dumb.aliensmall>???</entitydescription.dumb.aliensmall>
   <entityname.dumb.helmet>Shell</entityname.dumb.helmet>
@@ -298,16 +339,16 @@ Stun duration scales inversely with max vitality; tougher creatures are stunned 
   <entityname.yamjBackpackCaravan>Mudraptor Caravan Backpack</entityname.yamjBackpackCaravan>
   <entitydescription.yamjBackpackCaravan>A massive, heavy backpack for storing large items, containers, and children. 
 Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan>
-  <entityname.flareYAMJ>Bio Flare</entityname.flareYAMJ>
-  <entitydescription.flareYAMJ>A bright sponge that glows when in contact with skin.</entitydescription.flareYAMJ>
-  <entityname.raptorguitar>Raptor Guitar</entityname.raptorguitar>
-  <entitydescription.raptorguitar>A dark blue guitar created by the one and only Guitar Raptor.</entitydescription.raptorguitar>
-  <entityname.raptorcowboyhat>Raptorboy Hat</entityname.raptorcowboyhat>
-  <entitydescription.raptorcowboyhat>Be rootin', be tootin', be shootin', but most importantly, launch nuclear shells at pirates.</entitydescription.raptorcowboyhat>
+  <entityname.yamjFlare>Bio Flare</entityname.yamjFlare>
+  <entitydescription.yamjFlare>A bright sponge that glows when in contact with skin.</entitydescription.yamjFlare>
+  <entityname.raptorGuitar>Raptor Guitar</entityname.raptorGuitar>
+  <entitydescription.raptorGuitar>A dark blue guitar created by the one and only Guitar Raptor.</entitydescription.raptorGuitar>
+  <entityname.raptorCowboyHat>Raptorboy Hat</entityname.raptorCowboyHat>
+  <entitydescription.raptorCowboyHat>Be rootin', be tootin', be shootin', but most importantly, launch nuclear shells at pirates.</entitydescription.raptorCowboyHat>
   <!--Fabrication-->
-  <fabricationheader.YAMJanyplant>Any plant</fabricationheader.YAMJanyplant>
-  <fabricationheader.petegg>Any pet egg</fabricationheader.petegg>
-  <fabricationdescription.mudraptordna>Minimum strength: 25%</fabricationdescription.mudraptordna>
+  <fabricationheader.yamjAnyPlant>Any plant</fabricationheader.yamjAnyPlant>
+  <fabricationheader.petEgg>Any pet egg</fabricationheader.petEgg>
+  <fabricationdescription.mudraptorDna>Minimum strength: 25%</fabricationdescription.mudraptorDna>
   <!--Armor Items-->
   <entityname.yamjHelmetBasic>Mudraptor Helmet</entityname.yamjHelmetBasic>
   <entitydescription.yamjHelmetBasic>A strong helmet made to fit the mudraptor.</entitydescription.yamjHelmetBasic>
@@ -330,101 +371,109 @@ Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan
   <!--Other items-->
   <entityname.yamjArmorRemover>Mudraptor Armor Remover</entityname.yamjArmorRemover>
   <entitydescription.yamjArmorRemover>A special tool for removing armor from your friendly mudraptors.</entitydescription.yamjArmorRemover>
-  <entityname.jumptalentitem>Jump Serum</entityname.jumptalentitem>
-  <entitydescription.jumptalentitem>After injecting this, you gain the ability to jump by ragdolling. Very useful for mudraptors.</entitydescription.jumptalentitem>
-  <talentdescription.YAMJJump>yump!</talentdescription.YAMJJump>
-  <entityname.yamjBabyBook>Mudraptor Training Book</entityname.yamjBabyBook>
-  <entitydescription.yamjBabyBook>A book with instructions on how to train your mudraptor pet to lay down, and be carried.</entitydescription.yamjBabyBook>
+  <entityname.jumpTalentItem>Jump Serum</entityname.jumpTalentItem>
+  <entitydescription.jumpTalentItem>After injecting this, you gain the ability to jump by ragdolling. Very useful for mudraptors.</entitydescription.jumpTalentItem>
+  <talentname.yamjJump>Jump</talentname.yamjJump>
+  <talentdescription.yamjJump>yump!</talentdescription.yamjJump>
   <entityname.yamjRiotShield>Mudraptor Shield</entityname.yamjRiotShield>
   <entitydescription.yamjRiotShield>A shield made of mudraptor shell, capable of stopping small arms fire.</entitydescription.yamjRiotShield>
+<!--endregion-->
+
   <!--Mudraptor Talents-->
-  <talenttree.YAMJTree1>Hired Claw</talenttree.YAMJTree1>
-  <talenttree.YAMJTree2>Predator</talenttree.YAMJTree2>
-  <talenttree.YAMJTree3>Student</talenttree.YAMJTree3>
+  <talenttree.yamjTree1>Hired Claw</talenttree.yamjTree1>
+  <talenttree.yamjTree2>Predator</talenttree.yamjTree2>
+  <talenttree.yamjTree3>Student</talenttree.yamjTree3>
   <!--General Tier 1-->
-  <talentname.YAMJCanUseTools>Handy</talentname.YAMJCanUseTools>
-  <talentdescription.YAMJCanUseTools>Learn to properly hold and use tools.</talentdescription.YAMJCanUseTools>
-  <talentname.YAMJSpeechBasic>Speech (Basic)</talentname.YAMJSpeechBasic>
-  <talentdescription.YAMJSpeechBasic>Gain the ability to speak, and learn a few basic words.</talentdescription.YAMJSpeechBasic>
-  <talentname.YAMJArmor>Natural Armor</talentname.YAMJArmor>
-  <talentdescription.YAMJArmor>Gain the ability to form a hard shell and an extra [amount]% reduction to damage</talentdescription.YAMJArmor>
-  <talentname.YAMJEgg>Mudraptor Mother</talentname.YAMJEgg>
-  <talentdescription.YAMJEgg>Gain the ability to foster mudraptor eggs, and the recipe for mudraptor shields to protect them.</talentdescription.YAMJEgg>
-  <talentname.YAMJFlare>Bio Flare</talentname.YAMJFlare>
-  <talentdescription.YAMJFlare>Gain the recipe for Bio Flares, sponges that glow very brightly when held. Gain one after every mission.</talentdescription.YAMJFlare>
-  <talentname.YAMJSleepTime>Raptor Nap</talentname.YAMJSleepTime>
-  <talentdescription.YAMJSleepTime>Ragdolling for [seconds] seconds grants the Sleepy Raptor bonus, healing damage over time but only while on land. 
-Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.YAMJSleepTime>
+  <talentname.yamjCanUseTools>Handy</talentname.yamjCanUseTools>
+  <talentdescription.yamjCanUseTools>Learn to properly hold and use tools.</talentdescription.yamjCanUseTools>
+  <talentname.yamjSpeechBasic>Speech (Basic)</talentname.yamjSpeechBasic>
+  <talentdescription.yamjSpeechBasic>Gain the ability to speak, and learn a few basic words.</talentdescription.yamjSpeechBasic>
+  <talentname.yamjArmor>Natural Armor</talentname.yamjArmor>
+  <talentdescription.yamjArmor>Gain the ability to form a hard shell and an extra [amount]% reduction to damage</talentdescription.yamjArmor>
+  <talentname.yamjEgg>Mudraptor Mother</talentname.yamjEgg>
+  <talentdescription.yamjEgg>Gain the ability to foster mudraptor eggs, and the recipe for mudraptor shields to protect them.</talentdescription.yamjEgg>
+  <talentname.yamjFlare>Bio Flare</talentname.yamjFlare>
+  <talentdescription.yamjFlare>Gain the recipe for Bio Flares, sponges that glow very brightly when held. Gain one after every mission.</talentdescription.yamjFlare>
+  <talentname.yamjSleepTime>Raptor Nap</talentname.yamjSleepTime>
+  <talentdescription.yamjSleepTime>Ragdolling for [seconds] seconds grants the Sleepy Raptor bonus, healing damage over time but only while on land. 
+Burn recovery rate is much slower than normal damage recovery during this effect.</talentdescription.yamjSleepTime>
   <!--General Tier 2-->
-  <talentname.YAMJBackpack>Raptor Backpack</talentname.YAMJBackpack>
-  <talentdescription.YAMJBackpack>Make mudraptor backpacks. 
-5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.YAMJBackpack>
-  <talentname.YAMJFlareIce>Cold Bio Flare</talentname.YAMJFlareIce>
-  <talentdescription.YAMJFlareIce>An ice cold sponge that glows very brightly when held. It slows down any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareIce>
-  <talentname.YAMJFlareFire>Hot Bio Flare</talentname.YAMJFlareFire>
-  <talentdescription.YAMJFlareFire>A flaming red hot sponge that glows very brightly when held. It slowly burns any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.YAMJFlareFire>
-  <talentname.YAMJBestFriend>Man's Best Friend</talentname.YAMJBestFriend>
-  <talentdescription.YAMJBestFriend>Nearby crewmates gain +[walkspeed]% Walk/Run Speed and +[swimspeed]% Swim Speed. 
-You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.YAMJBestFriend>
-  <talentname.YAMJSleepTime2>Contagious Nap</talentname.YAMJSleepTime2>
-  <talentdescription.YAMJSleepTime2>Naps become stronger. 
+  <talentname.yamjBackpack>Raptor Backpack</talentname.yamjBackpack>
+  <talentdescription.yamjBackpack>Make mudraptor backpacks. 
+5 slots for small/medium items and 1 slot for children. Can store suits and ammo boxes.</talentdescription.yamjBackpack>
+  <talentname.yamjFlareIce>Cold Bio Flare</talentname.yamjFlareIce>
+  <talentdescription.yamjFlareIce>An ice cold sponge that glows very brightly when held. It slows down any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.yamjFlareIce>
+  <talentname.yamjFlareFire>Hot Bio Flare</talentname.yamjFlareFire>
+  <talentdescription.yamjFlareFire>A flaming red hot sponge that glows very brightly when held. It slowly burns any hostiles near you while held. You generate one whenever a mission is completed. The effect of the flare does not harm yourself or humans.</talentdescription.yamjFlareFire>
+  <talentname.yamjBestFriend>Man's Best Friend</talentname.yamjBestFriend>
+  <talentdescription.yamjBestFriend>Nearby crewmates gain +[walkspeed]% Walk/Run Speed and +[swimspeed]% Swim Speed. 
+You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.yamjBestFriend>
+  <talentname.yamjSleepTime2>Contagious Nap</talentname.yamjSleepTime2>
+  <talentdescription.yamjSleepTime2>Naps become stronger. 
 Humans now also gain the [affliction] bonus if they're near you while you nap. 
-They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.YAMJSleepTime2>
-  <talentname.YAMJVouch>Vouch</talentname.YAMJVouch>
-  <talentdescription.YAMJVouch>test</talentdescription.YAMJVouch>
-  <talentname.YAMJCanOpener>Can Opener</talentname.YAMJCanOpener>
-  <talentdescription.YAMJCanOpener>Deal [amount]% more ‖color:gui.orange‖Creature Attack‖color:end‖ damage to structures.\nGain the ability to force doors open without a crowbar.</talentdescription.YAMJCanOpener>
+They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.yamjSleepTime2>
+  <talentname.yamjVouch>Vouch</talentname.yamjVouch>
+  <talentdescription.yamjVouch>test</talentdescription.yamjVouch>
+  <talentname.yamjCanOpener>Can Opener</talentname.yamjCanOpener>
+  <talentdescription.yamjCanOpener>Deal [amount]% more ‖color:gui.orange‖Creature Attack‖color:end‖ damage to structures.\nGain the ability to force doors open without a crowbar.</talentdescription.yamjCanOpener>
   <!--Hired Claw -->
-  <talentname.YAMJSpeechCombat>Combat Training</talentname.YAMJSpeechCombat>
-  <talentdescription.YAMJSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.YAMJSpeechCombat>
-  <talentname.YAMJArmorPirate>Pirate Raptor</talentname.YAMJArmorPirate>
-  <talentdescription.YAMJArmorPirate>Learn new ways to protect yourself. 
-Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorPirate>
-  <talentname.YAMJBackpackCaravan>Pack Mule</talentname.YAMJBackpackCaravan>
-  <talentdescription.YAMJBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 
-9 slots for items, 2 for containers, 1 for children. Slows movement when equipped.</talentdescription.YAMJBackpackCaravan>
-  <talentname.YAMJHeatSignature>Heat Signature</talentname.YAMJHeatSignature>
-  <talentdescription.YAMJHeatSignature>Gain the ability to sense nearby bodies.</talentdescription.YAMJHeatSignature>
-  <talentname.YAMJGunner>Gunner</talentname.YAMJGunner>
-  <talentdescription.YAMJGunner>Learn to operate the submarine's turret periscopes, and deal [amount]% more damage with them.</talentdescription.YAMJGunner>
-  <talentname.YAMJHumanoid>Humanoid Instinct</talentname.YAMJHumanoid>
-  <talentdescription.YAMJHumanoid>Gain a [amount]% power increase to melee weapons and firearms.</talentdescription.YAMJHumanoid>
+  <talentname.yamjSpeechCombat>Combat Training</talentname.yamjSpeechCombat>
+  <talentdescription.yamjSpeechCombat>Learn to properly hold and use weapons, and gain violent new vocabulary.</talentdescription.yamjSpeechCombat>
+  <talentname.yamjArmorPirate>Pirate Raptor</talentname.yamjArmorPirate>
+  <talentdescription.yamjArmorPirate>Learn new ways to protect yourself. 
+Gain an additional [amount]% reduction to damage.</talentdescription.yamjArmorPirate>
+  <talentname.yamjBackpackCaravan>Pack Mule</talentname.yamjBackpackCaravan>
+  <talentdescription.yamjBackpackCaravan>Make heavy-duty mudraptor backpacks capable of storing larger items and containers. 
+9 slots for items, 2 for containers, 1 for children. Slows movement when equipped.</talentdescription.yamjBackpackCaravan>
+  <talentname.yamjHeatSignature>Heat Signature</talentname.yamjHeatSignature>
+  <talentdescription.yamjHeatSignature>Gain the ability to sense nearby bodies.</talentdescription.yamjHeatSignature>
+  <talentname.yamjGunner>Gunner</talentname.yamjGunner>
+  <talentdescription.yamjGunner>Learn to operate the submarine's turret periscopes, and deal [amount]% more damage with them.</talentdescription.yamjGunner>
+  <talentname.yamjHumanoid>Humanoid Instinct</talentname.yamjHumanoid>
+  <talentdescription.yamjHumanoid>Gain a [amount]% power increase to melee weapons and firearms.</talentdescription.yamjHumanoid>
   <!--Predator -->
-  <talentname.YAMJArmorVet>Tough Nut</talentname.YAMJArmorVet>
-  <talentdescription.YAMJArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.YAMJArmorVet>
-  <talentname.YAMJNeurotoxin>Neurotoxin</talentname.YAMJNeurotoxin>
-  <talentdescription.YAMJNeurotoxin>Your creature attack will occasionally launch a ball of caustic spit.</talentdescription.YAMJNeurotoxin>
-  <talentname.YAMJBloodthirsty>Bloodthirsty</talentname.YAMJBloodthirsty>
-  <talentdescription.YAMJBloodthirsty>The scent of your own blood only fuels your frenzy.</talentdescription.YAMJBloodthirsty>
-  <talentname.YAMJFamiliarWaters>Familiar Waters</talentname.YAMJFamiliarWaters>
-  <talentdescription.YAMJFamiliarWaters>It's all coming back to you. While submerged in water, you gain the following:</talentdescription.YAMJFamiliarWaters>
-  <talentname.YAMJSwimSpeed>Feisty</talentname.YAMJSwimSpeed>
-  <talentdescription.YAMJSwimSpeed>Get in, ravage, get out.</talentdescription.YAMJSwimSpeed>
-  <talentname.YAMJMonsterInstinct>Monstrous</talentname.YAMJMonsterInstinct>
-  <talentdescription.YAMJMonsterInstinct>The old ways of combat are strong in your mind. 
-Your creature attacks gain [damage]% damage and [piercing]% piercing.</talentdescription.YAMJMonsterInstinct>
-  <talentname.YAMJRelentless>Relentless</talentname.YAMJRelentless>
-  <talentdescription.YAMJRelentless>Your eyes glare with a burning passion for blood. 
-Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.YAMJRelentless>
-  <talentdescription.YAMJRelentless2>Whenever you fall below 0 health, you will remain fully conscious for [duration] seconds and your attacks receive +300% power.</talentdescription.YAMJRelentless2>
+  <talentname.yamjArmorVet>Tough Nut</talentname.yamjArmorVet>
+  <talentdescription.yamjArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.yamjArmorVet>
+  <talentname.yamjNeurotoxin>Neurotoxin</talentname.yamjNeurotoxin>
+  <talentdescription.yamjNeurotoxin>Your creature attack will occasionally launch a ball of caustic spit.</talentdescription.yamjNeurotoxin>
+  <talentname.yamjBloodthirsty>Bloodthirsty</talentname.yamjBloodthirsty>
+  <talentdescription.yamjBloodthirsty>The scent of your own blood only fuels your frenzy.</talentdescription.yamjBloodthirsty>
+  <talentname.yamjFamiliarWaters>Familiar Waters</talentname.yamjFamiliarWaters>
+  <talentdescription.yamjFamiliarWaters>It's all coming back to you. While submerged in water, you gain the following:</talentdescription.yamjFamiliarWaters>
+  <talentname.yamjSwimSpeed>Feisty</talentname.yamjSwimSpeed>
+  <talentdescription.yamjSwimSpeed>Get in, ravage, get out.</talentdescription.yamjSwimSpeed>
+  <talentname.yamjMonsterInstinct>Monstrous</talentname.yamjMonsterInstinct>
+  <talentdescription.yamjMonsterInstinct>The old ways of combat are strong in your mind. 
+Your creature attacks gain [damage]% damage and [piercing]% piercing.</talentdescription.yamjMonsterInstinct>
+  <talentname.yamjRelentless>Relentless</talentname.yamjRelentless>
+  <talentdescription.yamjRelentless>Your eyes glare with a burning passion for blood. 
+Gain +[speed]% Speed and +[health]% Max Health.</talentdescription.yamjRelentless>
+  <talentdescription.yamjRelentless2>Whenever you fall below 0 health, you will remain fully conscious for [duration] seconds and your attacks receive +300% power.</talentdescription.yamjRelentless2>
   <!--Student -->
-  <talentname.YAMJSpeechAdvanced>Linguist</talentname.YAMJSpeechAdvanced>
-  <talentdescription.YAMJSpeechAdvanced>Learn several new words, as well as the names of most foreign items.
-  Gain [amount]% [poisonresist].
-  Gain [amount]% [burnresist].</talentdescription.YAMJSpeechAdvanced>
-  <talentname.YAMJBackpackBio>Bio Backpack</talentname.YAMJBackpackBio>
-  <talentdescription.YAMJBackpackBio>Make mudraptor backpacks lined with glowing chemicals.
-7 slots for items, 2 for children.</talentdescription.YAMJBackpackBio>
-  <talentname.YAMJSkillGain>Quick Learner</talentname.YAMJSkillGain>
-  <talentname.YAMJRepairSpeed>Hydrophobe</talentname.YAMJRepairSpeed>
-  <talentdescription.YAMJGuitarRaptor>Anyone hearing your music will be invigorated with the desire to do more, gaining a +10 bonus to All Skills. If you keep playing, people around you will gain 10 XP at random.</talentdescription.YAMJGuitarRaptor>
-  <talentname.YAMJGuardianAngel>Guardian Angel</talentname.YAMJGuardianAngel>
-  <talentdescription.YAMJGuardianAngel>Enemies will prioritize attacking you over your allies, and you take [amount]% less damage.</talentdescription.YAMJGuardianAngel>
-  <talentname.YAMJClownCollege>Clown College for Raptors</talentname.YAMJClownCollege>
-  <talentdescription.YAMJClownCollege>The Honkmother's reach goes far in these deep dark waters...</talentdescription.YAMJClownCollege>
-  <talentname.YAMJMachinist>Machinist</talentname.YAMJMachinist>
-  <talentdescription.YAMJMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.YAMJMachinist>
+  <talentname.yamjSpeechAdvanced>Linguist</talentname.yamjSpeechAdvanced>
+  <talentdescription.yamjSpeechAdvanced>Learn several new words, as well as the names of most foreign items.
+Gain [amount]% [poisonresist].
+Gain [amount]% [burnresist].</talentdescription.yamjSpeechAdvanced>
+  <talentname.yamjBackpackBio>Bio Backpack</talentname.yamjBackpackBio>
+  <talentdescription.yamjBackpackBio>Make mudraptor backpacks lined with glowing chemicals.
+7 slots for items, 2 for children.</talentdescription.yamjBackpackBio>
+  <talentname.yamjSkillGain>Quick Learner</talentname.yamjSkillGain>
+  <talentname.yamjRepairSpeed>Hydrophobe</talentname.yamjRepairSpeed>
+  <talentdescription.yamjGuitarRaptor>Anyone hearing your music will be invigorated with the desire to do more, gaining a +10 bonus to All Skills. If you keep playing, people around you will gain 10 XP at random.</talentdescription.yamjGuitarRaptor>
+  <talentname.yamjGuardianAngel>Guardian Angel</talentname.yamjGuardianAngel>
+  <talentdescription.yamjGuardianAngel>Enemies will prioritize attacking you over your allies, and you take [amount]% less damage.</talentdescription.yamjGuardianAngel>
+  <talentname.yamjClownCollege>Clown College for Raptors</talentname.yamjClownCollege>
+  <talentdescription.yamjClownCollege>The Honkmother's reach goes far in these deep dark waters...</talentdescription.yamjClownCollege>
+  <talentname.yamjMachinist>Machinist</talentname.yamjMachinist>
+  <talentdescription.yamjMachinist>All crewmembers besides yourself can craft items at [amount] higher quality.</talentdescription.yamjMachinist>
+  
   <!-- Afflictions! -->
+  <afflictionname.yamjNeurotoxin>Neurotoxin</afflictionname.yamjNeurotoxin>
+  <afflictiondescription.yamjNeurotoxin><!--todo add flavor text--></afflictiondescription.yamjNeurotoxin>
+  
+  <afflictionname.yamjBloodthirstyBuff>Bloodthirsty</afflictionname.yamjBloodthirstyBuff>
+  <afflictiondescription.yamjBloodthirstyBuff>Just getting started.<!--todo add effect description--></afflictiondescription.yamjBloodthirstyBuff>
+  
   <afflictiontype.burn>Burn</afflictiontype.burn>
   <afflictiontype.poison>Poison</afflictiontype.poison>
   
@@ -441,86 +490,99 @@ A frantic surge of energy burns through what remains as the body begins to fail.
   <afflictiondescription.yamjHunger.self.high>Starving... dying.</afflictiondescription.yamjHunger.self.high>
   <afflictiondescription.yamjHunger.self.veryHigh>‖color:gui.red‖Need food NOW! Seek! Kill! Eat!‖color:end‖</afflictiondescription.yamjHunger.self.veryHigh>
 
+  <afflictionname.yamjEating>Eating</afflictionname.yamjEating>
+  <afflictiondescription.yamjEating> </afflictiondescription.yamjEating>
+
   <afflictionname.yamjSatiated>Satiated</afflictionname.yamjSatiated>
   <afflictiondescription.yamjSatiated.self.low>Not hungry.</afflictiondescription.yamjSatiated.self.low>
   <afflictiondescription.yamjSatiated.self.high>Ate too much.</afflictiondescription.yamjSatiated.self.high>
   <afflictiondescription.yamjSatiated.low>A well-fed raptor is a happy raptor.</afflictiondescription.yamjSatiated.low>
   <afflictiondescription.yamjSatiated.high>Subject is showing signs of postprandial somnolence. Sluggish and drowsy.</afflictiondescription.yamjSatiated.high>
   
-  <afflictionname.YAMJGuardianSelf>Guardian Angel</afflictionname.YAMJGuardianSelf>
-  <afflictiondescription.YAMJGuardianAngelBuff>Your bleeding heart drives you to defend your allies to the last breath.</afflictiondescription.YAMJGuardianAngelBuff>
-  <afflictionname.YAMJGuardianOther>Guarded</afflictionname.YAMJGuardianOther>
-  <afflictiondescription.YAMJGuardianOther>You're being protected by nearby ally.</afflictiondescription.YAMJGuardianOther>
+  <afflictionname.yamjGuardianSelf>Guardian Angel</afflictionname.yamjGuardianSelf>
+  <afflictiondescription.yamjGuardianSelf>Drawing attention away from nearby allies.</afflictiondescription.yamjGuardianSelf>
+  <afflictionname.yamjGuardianOther>Guarded</afflictionname.yamjGuardianOther>
+  <afflictiondescription.yamjGuardianOther>Being protected by nearby ally.</afflictiondescription.yamjGuardianOther>
   
-  <afflictionname.YAMJBestFriendBuff>My Best Friend</afflictionname.YAMJBestFriendBuff>
-  <afflictiondescription.YAMJBestFriendBuff>The Mudraptor close to you is bolstering your actions.
+  <afflictionname.yamjBestFriendBuff>My Best Friend</afflictionname.yamjBestFriendBuff>
+  <afflictiondescription.yamjBestFriendBuff>The Mudraptor close to you is bolstering your actions.
 ‖color:gui.green‖+20%‖color:end‖ ‖color:gui.orange‖Walk/Run Speed.‖color:end‖
 ‖color:gui.green‖+40%‖color:end‖ ‖color:gui.orange‖Swim Speed.‖color:end‖
-‖color:gui.green‖+75%‖color:end‖ ‖color:gui.orange‖Water Flow Resistance.‖color:end‖</afflictiondescription.YAMJBestFriendBuff>
-  <afflictionname.YAMJBestFriendBuffSelf>Best Friends</afflictionname.YAMJBestFriendBuffSelf>
-  <afflictiondescription.YAMJBestFriendBuffSelf>‖color:gui.green‖+75% Water Flow Resistance.‖color:gui.end‖</afflictiondescription.YAMJBestFriendBuffSelf>
+‖color:gui.green‖+75%‖color:end‖ ‖color:gui.orange‖Water Flow Resistance.‖color:end‖</afflictiondescription.yamjBestFriendBuff>
+  <afflictionname.yamjBestFriendBuffSelf>Best Friends</afflictionname.yamjBestFriendBuffSelf>
+  <afflictiondescription.yamjBestFriendBuffSelf>‖color:gui.green‖+75% Water Flow Resistance.‖color:gui.end‖</afflictiondescription.yamjBestFriendBuffSelf>
   
-  <afflictionname.YAMJSleepTimeIcon>Raptor Nap</afflictionname.YAMJSleepTimeIcon>
-  <afflictiondescription.YAMJSleepTimeIcon>While under the effects of Raptor Nap, your vitality is slowly regenerating.
-Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.YAMJSleepTimeIcon>
+  <afflictionname.yamjSleepTimeIcon>Raptor Nap</afflictionname.yamjSleepTimeIcon>
+  <afflictiondescription.yamjSleepTimeIcon>While under the effects of Raptor Nap, your vitality is slowly regenerating.
+Reading a Book near the snoozing raptor is bound to be really relaxing.</afflictiondescription.yamjSleepTimeIcon>
   
-  <afflictionname.YAMJguitarraptorbuff>Guitar Raptor Serenade</afflictionname.YAMJguitarraptorbuff>
-  <afflictiondescription.YAMJguitarraptorbuff>Guitar Raptor's songs invigorate you with a passion to do more.</afflictiondescription.YAMJguitarraptorbuff>
+  <afflictionname.yamjGuitarRaptorBuff>Guitar Raptor Serenade</afflictionname.yamjGuitarRaptorBuff>
+  <afflictiondescription.yamjGuitarRaptorBuff>Guitar Raptor's songs invigorate you with a passion to do more.</afflictiondescription.yamjGuitarRaptorBuff>
   
-  <afflictionname.YAMJFamiliarWaterBuff>Familiar Waters</afflictionname.YAMJFamiliarWaterBuff>
-  <afflictiondescription.YAMJFamiliarWaterBuff>You know exactly what you're doing and where you are.</afflictiondescription.YAMJFamiliarWaterBuff>
+  <afflictionname.yamjFamiliarWaterBuff>Familiar Waters</afflictionname.yamjFamiliarWaterBuff>
+  <afflictiondescription.yamjFamiliarWaterBuff>You know exactly what you're doing and where you are.</afflictiondescription.yamjFamiliarWaterBuff>
   
 
   <!-- Bond with Captain -->
-  <talentname.YAMJBondCaptain>Big Dog (Bond with Captain)</talentname.YAMJBondCaptain>
-  <talentdescription.YAMJBondCaptain>The captain chose you for a reason.
-‖color:red‖WORK IN PROGRESS‖color:end‖
-Learn to steer using the navigation terminal.</talentdescription.YAMJBondCaptain>
-  <afflictionname.YAMJBondCaptainBuff>Best in Show</afflictionname.YAMJBondCaptainBuff>
-  <afflictiondescription.YAMJBondCaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.YAMJBondCaptainBuff>
+  <talentname.yamjBondCaptain>Big Dog (Bond with Captain)</talentname.yamjBondCaptain>
+  <talentdescription.yamjBondCaptain>The captain chose you for a reason.
+Learn to steer using the navigation terminal.
+You are marked on the sonar.
+The captain always knows where you are.
+You always know where the submarine is.
+When nearby, the captain gains [resist]% resistance to damage, bleeding, and burns.
+Every [cooldown]s, the captain can sic you for [duration]s, granting:
+    +[speed]% speed
+    +[attack]% attack power
+    +[stun]% stun resist
+    Immunity to unconsciousness and death
+During your frenzy, the captain is provided with [awayResist]% damage resistance.</talentdescription.yamjBondCaptain>
+  <afflictionname.yamjBondCaptainBuff>Best in Show</afflictionname.yamjBondCaptainBuff>
+  <afflictiondescription.yamjBondCaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.yamjBondCaptainBuff>
   
   <!-- Bond with Doctor -->
-  <talentname.YAMJBondDoctor>Plague Rat (Bond with Medic)</talentname.YAMJBondDoctor>
-  <talentdescription.YAMJBondDoctor>Hopefully your crewmates are immune to whatever you're harboring...
+  <talentname.yamjBondDoctor>Plague Rat (Bond with Medic)</talentname.yamjBondDoctor>
+  <talentdescription.yamjBondDoctor>Hopefully your crewmates are immune to whatever you're harboring...
 You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
 You and your allies gain [burnResist]% resistance to [burn] and [poisonResist]% resistance to [poison].
 You can store genetic material in your gut, identifying and refining it over time.
-All player raptor bites have a strong chance to be poisonous.</talentdescription.YAMJBondDoctor>
+All player raptor bites have a strong chance to be poisonous.</talentdescription.yamjBondDoctor>
   <afflictionname.yamjDoctorBurnResist>Burn Resistance</afflictionname.yamjDoctorBurnResist>
+  <afflictiondescription.yamjDoctorBurnResist><!-- todo add value tag--></afflictiondescription.yamjDoctorBurnResist>
   <afflictionname.yamjDoctorPoisonResist>Poison Resistance</afflictionname.yamjDoctorPoisonResist>
+  <afflictiondescription.yamjDoctorPoisonResist><!-- todo add value tag--></afflictiondescription.yamjDoctorPoisonResist>
   
   <!-- Bond with Security -->
-  <talentname.YAMJBondSecurity>Heat-Seeking Missile (Bond with Security)</talentname.YAMJBondSecurity>
-  <talentdescription.YAMJBondSecurity>Trained by Security to be the best Guard Dog this side of europa.
-‖color:red‖WORK IN PROGRESS‖color:end‖
+  <talentname.yamjBondSecurity>Heat-Seeking Missile (Bond with Security)</talentname.yamjBondSecurity>
+  <talentdescription.yamjBondSecurity><!--todo flavor text-->
 Your creature attacks charge up over [maxCharge] seconds.
 A fully charged attack deals +[damageBonus]% damage and applies up to [stun] seconds of stun.
 You can designate a crewmate as a handler, and their attacks will apply a mark to targets.
-Marked targets are visible through walls, and creature attacks against them refund [refund] seconds of cooldown for the charged bite.</talentdescription.YAMJBondSecurity>
+Marked targets are visible through walls, and creature attacks against them refund [refund] seconds of cooldown for the charged bite.</talentdescription.yamjBondSecurity>
   <afflictionname.yamjBiteCharge>Raptor Bite</afflictionname.yamjBiteCharge> <!--todo change this garbage-->
   <afflictiondescription.yamjBiteCharge>Fully charged and ready to nibble!</afflictiondescription.yamjBiteCharge>
   
   <!-- Bond with Engineer -->
-  <talentname.YAMJBondEngineer>Radiation Rascal (Bond with Engineer)</talentname.YAMJBondEngineer>
-  <talentdescription.YAMJBondEngineer>Hanging out with the Engineer might have resulted in a little bit too much radiation intake.
+  <talentname.yamjBondEngineer>Radiation Rascal (Bond with Engineer)</talentname.yamjBondEngineer>
+  <talentdescription.yamjBondEngineer>Hanging out with the Engineer might have resulted in a little bit too much radiation intake.
 ‖color:red‖WORK IN PROGRESS‖color:end‖
-Gain the ability to eat fuel rods. They digest slowly, but aren't very healthy...</talentdescription.YAMJBondEngineer>
+Gain the ability to eat fuel rods. They digest slowly, but aren't very healthy...</talentdescription.yamjBondEngineer>
   
   <!-- Bond with Mechanic -->
-  <talentname.YAMJBondMechanic>Overachiever (Bond with Mechanic)</talentname.YAMJBondMechanic>
-  <talentdescription.YAMJBondMechanic>You know how to seek out what a mechanic requires.
+  <talentname.yamjBondMechanic>Overachiever (Bond with Mechanic)</talentname.yamjBondMechanic>
+  <talentdescription.yamjBondMechanic><!--todo add flavor text-->
 You gain the mechanic's [scrapSavant] talent, allowing you to find more scrap when looting.
 You can sense ores at a distance and through walls.
 Your creature attacks can mine ores.
 Your gut can store ore, scrap, and ammo metals.
 Having ore in your gut provides 15% damage and stun resistance (non-stackable).
-Having ammo metals in your gut allows you to spit shrapnel.</talentdescription.YAMJBondMechanic>
+Having ammo metals in your gut allows you to spit shrapnel.</talentdescription.yamjBondMechanic>
   
-  <afflictionname.YAMJimplacable>Relentless</afflictionname.YAMJimplacable>
-  <afflictiondescription.YAMJimplacable>‖color:red‖KILL! KILL! KILL!‖color:end‖</afflictiondescription.YAMJimplacable>
+  <afflictionname.yamjImplacable>Relentless</afflictionname.yamjImplacable>
+  <afflictiondescription.yamjImplacable>‖color:red‖KILL! KILL! KILL!‖color:end‖</afflictiondescription.yamjImplacable>
   
-  <afflictionname.YAMJVouchBuff>Friend of Mudraptors</afflictionname.YAMJVouchBuff>
-  <afflictiondescription.YAMJVouchBuff.self>Mudraptors should leave you alone, for now...</afflictiondescription.YAMJVouchBuff.self>
-  <afflictiondescription.YAMJVouchBuff.other.low>The subject carries traces of mudraptor pheromones. The scent is fading.</afflictiondescription.YAMJVouchBuff.other.low>
-  <afflictiondescription.YAMJVouchBuff.other.high>The subject is saturated with mudraptor pheromones and is unlikely to be recognized as prey.</afflictiondescription.YAMJVouchBuff.other.high>
+  <afflictionname.yamjVouchBuff>Friend of Mudraptors</afflictionname.yamjVouchBuff>
+  <afflictiondescription.yamjVouchBuff.self>Mudraptors should leave you alone, for now...</afflictiondescription.yamjVouchBuff.self>
+  <afflictiondescription.yamjVouchBuff.other.low>The subject carries traces of mudraptor pheromones. The scent is fading.</afflictiondescription.yamjVouchBuff.other.low>
+  <afflictiondescription.yamjVouchBuff.other.high>The subject is saturated with mudraptor pheromones and is unlikely to be recognized as prey.</afflictiondescription.yamjVouchBuff.other.high>
 </infotexts>

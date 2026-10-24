@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace YAMJCS;
 
 internal static partial class PatchTargets {
-    public static MethodBase CharacterInventory_TryPutItem_Index =>
+    internal static MethodBase CharacterInventory_TryPutItem_Index =>
         AccessTools.Method(
             typeof(CharacterInventory),
             nameof(CharacterInventory.TryPutItem),
@@ -20,7 +20,7 @@ internal static partial class PatchTargets {
             }) ??
         throw new Exception("CharacterInventory.TryPutItem(Item, int, bool, bool, Character, ...) not found");
         
-    public static MethodBase CharacterInventory_CanBePutInSlot =>
+    internal static MethodBase CharacterInventory_CanBePutInSlot =>
         AccessTools.Method(
             typeof(CharacterInventory),
             nameof(CharacterInventory.CanBePutInSlot),
@@ -31,7 +31,7 @@ internal static partial class PatchTargets {
             }) ??
         throw new Exception("CharacterInventory.CanBePutInSlot(Item, int, bool) not found");
 
-    public static MethodBase CharacterInventory_TryPutItem_AllowedSlots =>
+    internal static MethodBase CharacterInventory_TryPutItem_AllowedSlots =>
         AccessTools.Method(
             typeof(CharacterInventory),
             nameof(CharacterInventory.TryPutItem),
@@ -48,7 +48,7 @@ internal static partial class PatchTargets {
 #if CLIENT
 // unfortunately the client determines if it even sends the request to server so i gotta patch that too
 // here seems like the best place to put it
-    public static MethodBase Item_AllowedSlots_Get =>
+    internal static MethodBase Item_AllowedSlots_Get =>
         AccessTools.PropertyGetter(
             typeof(Item),
             nameof(Item.AllowedSlots)
@@ -60,13 +60,13 @@ internal static partial class PatchTargets {
 
 internal static class RaptorInventory {
     // every slot that counts as wearing the item, Hands and Any are deliberately left out
-    public const InvSlotType WearSlots = InvSlotType.Bag | InvSlotType.InnerClothes | InvSlotType.OuterClothes | InvSlotType.Head | InvSlotType.Headset | InvSlotType.Card;
-    private static readonly Identifier BondWithMechanic = "YAMJBondMechanic".ToIdentifier();
-    private static readonly Identifier BondWithEngineer = "YAMJBondEngineer".ToIdentifier();
-    private static readonly Identifier BondWithDoctor = "YAMJBondDoctor".ToIdentifier();
+    internal const InvSlotType WearSlots = InvSlotType.Bag | InvSlotType.InnerClothes | InvSlotType.OuterClothes | InvSlotType.Head | InvSlotType.Headset | InvSlotType.Card;
+    private static readonly Identifier BondWithMechanic = "yamjBondMechanic".ToIdentifier();
+    private static readonly Identifier BondWithEngineer = "yamjBondEngineer".ToIdentifier();
+    private static readonly Identifier BondWithDoctor = "yamjBondDoctor".ToIdentifier();
 
     // Helper Functions
-    public static bool CanBeWorn(Item item, Character character) {
+    internal static bool CanBeWorn(Item item, Character character) {
         if (item.HasTag(YAMJ.RaptorOnlyTag) && !YAMJ.IsPlayerRaptor(character)) {
             return false;
         }
@@ -74,13 +74,13 @@ internal static class RaptorInventory {
         return true;
     }
     
-    public static bool IsGutSlot(CharacterInventory inventory, int index) {
+    internal static bool IsGutSlot(CharacterInventory inventory, int index) {
         if (!YAMJ.IsPlayerRaptor(inventory.character)) { return false; } //only pRaptor HealthInterface slots are considered "gut" slots
         InvSlotType[] slotTypes = inventory.SlotTypes;
         return slotTypes[index].HasFlag(InvSlotType.HealthInterface);
     }
 
-    public static bool CanDigest(Item item, Character character) {
+    internal static bool CanDigest(Item item, Character character) {
         if (item.HasTag(YAMJ.BasicFood)) {
             return true;
         }
@@ -102,7 +102,7 @@ internal static class RaptorInventory {
     
     // GrantSlots() and RevokeSlots() are no longer used but might be useful
     /*
-    public static InvSlotType GrantSlots(Item item, InvSlotType slotTypes) {
+    internal static InvSlotType GrantSlots(Item item, InvSlotType slotTypes) {
         InvSlotType granted = InvSlotType.None;
         foreach (InvSlotType flag in EnumExtensions.GetIndividualFlags(slotTypes)) {
             
@@ -125,7 +125,7 @@ internal static class RaptorInventory {
         return granted;
     }
     
-    public static void RevokeSlots(Item item, InvSlotType slotTypes) {
+    internal static void RevokeSlots(Item item, InvSlotType slotTypes) {
         foreach (InvSlotType flag in EnumExtensions.GetIndividualFlags(slotTypes)) {
             if (flag == InvSlotType.None) { continue; }
             foreach (Pickable pickable in item.GetComponents<Pickable>()) {
@@ -149,7 +149,7 @@ internal static class RaptorInventory {
                 typeof(bool)    //triggerOnInsertedEffects = true
             });
 
-    public static bool PutInSlot(CharacterInventory inventory, Item item, int index, Character user, bool createNetworkEvent, bool triggerOnInsertedEffects) {
+    internal static bool PutInSlot(CharacterInventory inventory, Item item, int index, Character user, bool createNetworkEvent, bool triggerOnInsertedEffects) {
         if (PutItemMethod is null) {
             YAMJ.Log("CharacterInventory.PutItem() not found");
             return false;

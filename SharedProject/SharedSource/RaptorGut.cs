@@ -1,6 +1,6 @@
 ﻿namespace YAMJCS;
 
-public static class RaptorGut {
+internal static class RaptorGut {
     private static readonly Identifier UnidentifiedGeneTag = "unidentifiedgeneticmaterial".ToIdentifier();
     private static readonly Identifier GeneTag = "geneticmaterial".ToIdentifier();
     private static readonly Identifier DepletedFuelTag = "depletedfuel".ToIdentifier();
@@ -32,7 +32,7 @@ public static class RaptorGut {
         if (vitalityScale <= 0f) { vitalityScale = 1f; }
         charHealth.AddAffliction(prefab.Instantiate(amount * vitalityScale));
     }
-    public static void ModifyHunger(CharacterHealth charHealth, float amount) {
+    internal static void ModifyHunger(CharacterHealth charHealth, float amount) {
         if (amount > 0f) {
             //amount = hunger added
             float currentSatiety = charHealth.GetAfflictionStrengthByIdentifier(YAMJ.SatiatedAfflictionId, false);
@@ -100,7 +100,7 @@ public static class RaptorGut {
         }
     }
 
-    public static void Digest(Character character, float deltaTime) {
+    internal static void Digest(Character character, float deltaTime) {
 
         float hungerDelta = YAMJConfig.HungerRate;
         

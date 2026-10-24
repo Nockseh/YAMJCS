@@ -2,7 +2,7 @@
 
 namespace YAMJCS;
 
-public class RaptorHeadset {
+internal class RaptorHeadset {
     private const string ItemIdentifier = "raptorHeadset";
     
     private const int Radius = 210;
@@ -26,11 +26,11 @@ public class RaptorHeadset {
     private static GUIFrame? wheelFrame;
     private static bool radialMenuOpen;
 
-    public static bool IsEligible(Character? character) {
+    internal static bool IsEligible(Character? character) {
         return character is not null && !character.Removed && !character.IsDead && character.HasEquippedItem(ItemIdentifier);
     }
 
-    public static void Initialize() {
+    internal static void Initialize() {
         if (toggleButton is not null) return;
 
         toggleButton = new GUIButton(
@@ -96,7 +96,7 @@ public class RaptorHeadset {
         YAMJ.Log("Initialized raptor headset radial menu");
     }
     
-    public static void Update() {
+    internal static void Update() {
         if (toggleButton is null || wheelFrame is null) return;
         Character? controlled = Character.Controlled;
         bool eligible = IsEligible(controlled);

@@ -6,7 +6,7 @@ namespace YAMJCS;
 
 internal static partial class PatchTargets {
     
-    public static MethodBase Character_Create_FromPrefab =>
+    internal static MethodBase Character_Create_FromPrefab =>
         AccessTools.Method(
             typeof(Character),
             nameof(Character.Create),
@@ -24,13 +24,13 @@ internal static partial class PatchTargets {
             }) ?? 
         throw new Exception("Character.Create(CharacterPrefab, ...) not found");
 
-    public static MethodBase Repairable_CheckCharacterSuccess =>
+    internal static MethodBase Repairable_CheckCharacterSuccess =>
         AccessTools.Method(
             typeof(Repairable),
             nameof(Repairable.CheckCharacterSuccess)) ??
         throw new Exception("Repairable.CheckCharacterSuccess(...) not found");
 
-    public static MethodBase FishAnimController_DragCharacter =>
+    internal static MethodBase FishAnimController_DragCharacter =>
         AccessTools.Method(
             typeof(FishAnimController),
             nameof(FishAnimController.DragCharacter)) ??
@@ -60,10 +60,11 @@ internal static class CharacterCreateFromPrefabPatch {
         if (!YAMJ.HasPlayerRaptorJob(characterInfo)) return;
         //GameMain.GameSession?.CrewManager?.AddCharacter(__result); //don't use this, copies to data then spawns from data
 
-        CrewManager crewManager = GameMain.GameSession?.CrewManager;
+        if (GameMain.GameSession is null) return;
+        CrewManager? crewManager = GameMain.GameSession.CrewManager;
         if (crewManager is null) return;
         //always says npc playRaptors are New hires but works good enough for now todo fix
-        if (!GameMain.GameSession.CrewManager.GetCharacterInfos(true).Contains(__result.Info)) {
+        if (!crewManager.GetCharacterInfos(true).Contains(__result.Info)) {
             GameMain.NetworkMember?.CreateEntityEvent(__result, new Character.AddToCrewEventData(__result.TeamID, __result.Inventory.AllItems));
             YAMJ.Log("Sent AddToCrew event for player raptor " + __result.Name);
         }
@@ -77,7 +78,7 @@ internal static class CheckRepairSuccess {
     static void Postfix(Character character, Item bestRepairItem, ref bool __result) {
         if (!__result) return;
         if (YAMJ.IsPlayerRaptor(character)) {
-            if (!YAMJ.HasTalent(character, "YAMJCanUseTools")) {
+            if (!character.HasTalent("yamjCanUseTools".ToIdentifier())) {
                 __result = false;
             }
         }
@@ -101,15 +102,15 @@ internal static class CorpseEatingPatch {
 [HarmonyPatch(typeof(EnemyAIController), nameof(EnemyAIController.GetTargetingTags))]
 internal static class VouchTargetingPatch {
     private static readonly Identifier MudraptorGroup = "mudraptor".ToIdentifier();
-    private static readonly Identifier VouchBuff = "YAMJVouchBuff".ToIdentifier();
+    private static readonly Identifier VouchBuff = "yamjVouchBuff".ToIdentifier();
     
     private static void Postfix(EnemyAIController __instance, AITarget aiTarget, IEnumerable<Identifier> __result)
     {
-        List<Identifier> targetTags = __result as List<Identifier>;
-        if (targetTags == null || targetTags.Count == 0) { return; }
+        List<Identifier>? targetTags = __result as List<Identifier>;
+        if (targetTags is null || targetTags.Count == 0) { return; }
 
-        Character targetCharacter = aiTarget.Entity as Character;
-        if (targetCharacter == null || targetCharacter.IsDead) { return; }
+        Character? targetCharacter = aiTarget.Entity as Character;
+        if (targetCharacter is null || targetCharacter.IsDead) { return; }
         
         Character enemyCharacter = __instance.Character;
         

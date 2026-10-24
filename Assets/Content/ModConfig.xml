@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModConfig>
-    <Assembly File="%ModDir%/bin/Client/Windows/YAMJCS.dll" Target="Client" Platform="Windows"/>
-    <Assembly File="%ModDir%/bin/Server/Windows/YAMJCS.dll" Target="Server" Platform="Windows"/>
-    <Assembly File="%ModDir%/bin/Client/Linux/YAMJCS.dll" Target="Client" Platform="Linux"/>
-    <Assembly File="%ModDir%/bin/Server/Linux/YAMJCS.dll" Target="Server" Platform="Linux"/>
-    <Assembly File="%ModDir%/bin/Client/OSX/YAMJCS.dll" Target="Client" Platform="OSX"/>
-    <Assembly File="%ModDir%/bin/Server/OSX/YAMJCS.dll" Target="Server" Platform="OSX"/>
+    <Assembly file="%ModDir%/bin/Client/Windows/YAMJCS.dll" target="Client" platform="Windows"/>
+    <Assembly file="%ModDir%/bin/Server/Windows/YAMJCS.dll" target="Server" platform="Windows"/>
+    <Assembly file="%ModDir%/bin/Client/Linux/YAMJCS.dll" target="Client" platform="Linux"/>
+    <Assembly file="%ModDir%/bin/Server/Linux/YAMJCS.dll" target="Server" platform="Linux"/>
+    <Assembly file="%ModDir%/bin/Client/OSX/YAMJCS.dll" target="Client" platform="OSX"/>
+    <Assembly file="%ModDir%/bin/Server/OSX/YAMJCS.dll" target="Server" platform="OSX"/>
     
     <!-- This is a sample config setup, change/delete it as needed. -->
-    <Config File="%ModDir%/Config/SettingsClient.xml" Target="Client" />
-    <Config File="%ModDir%/Config/SettingsShared.xml"  />
-    <Config File="%ModDir%/Config/SettingsServer.xml" Target="Server" />
+    <Config file="%ModDir%/Config/SettingsClient.xml" target="Client" />
+    <Config file="%ModDir%/Config/SettingsShared.xml"  />
+    <Config file="%ModDir%/Config/SettingsServer.xml" target="Server" />
 </ModConfig>

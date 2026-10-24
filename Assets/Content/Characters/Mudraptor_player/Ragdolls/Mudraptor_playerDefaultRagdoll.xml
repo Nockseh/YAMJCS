@@ -6,7 +6,7 @@
     <lightsource castshadows="false" Color="255,255,255,0" Range="0" Scale="1" Offset="-18,28" Rotation="0" Directional="False" Flicker="0" FlickerSpeed="1" PulseFrequency="0" PulseAmount="0" BlinkFrequency="0">
       <lighttexture Texture="Content/Lights/pointlight_bright.png" Origin="0.5,0.5" Size="1,1" />
       <sprite texture="Content/Characters/Watcher/gazerage.png" sourcerect="124,0,100,54" origin="0.5,0.5" size="1,1" alpha="1" />
-      <conditional relentlessgaze="gt 0" />
+      <conditional relentlessGaze="gt 0" />
     </lightsource>
   </limb>
   <limb mass="0" Name="Chest" ID="2" Type="None" SecondaryType="None" Notes="" Scale="1" Flip="True" MirrorVertically="False" MirrorHorizontally="False" Hide="False" SpriteOrientation="NaN" InheritLimbDepth="None" SteerForce="5" Radius="50" Height="0" Width="100" Density="10" IgnoreCollisions="False" AngularDamping="7" AttackPriority="2" PullPos="0,0" StepOffset="0,0" RefJoint="-1" MouthPos="0,0" EatTorque="50" EatImpulse="2" ConstantTorque="0" ConstantAngle="0" AttackForceMultiplier="1" MinSeveranceDamage="0.8" CanBeSeveredAlive="False" SeveredFadeOutTime="10" ApplyTailAngle="False" ApplySineMovement="True" SineFrequencyMultiplier="1" SineAmplitudeMultiplier="1" BlinkFrequency="0" BlinkDurationIn="0.2" BlinkDurationOut="0.5" BlinkHoldTime="0" BlinkRotationIn="0" BlinkRotationOut="45" BlinkForce="50" OnlyBlinkInWater="False" UseTextureOffsetForBlinking="False" BlinkTextureOffsetIn="0.5,0.5" BlinkTextureOffsetOut="0.5,0.5" BlinkTransitionIn="Linear" BlinkTransitionOut="Linear" HealthIndex="1" Friction="0.3" Restitution="0.05" CanEnterSubmarine="True" InheritHiding="None">
@@ -46,7 +46,7 @@
       <Affliction Strength="17"  Identifier="bitewounds"     Probability="1.00" MultiplyByMaxVitality="False" />
       <Affliction Strength="17"  Identifier="bleeding"       Probability="0.25" MultiplyByMaxVitality="False" />
       <Affliction Strength="2"   Identifier="infection"      Probability="0.25" MultiplyByMaxVitality="False" />
-      <Affliction Strength="5"   Identifier="YAMJNeurotoxin" Probability="0.75" MultiplyByMaxVitality="False" />
+      <Affliction Strength="5"   Identifier="yamjNeurotoxin" Probability="0.75" MultiplyByMaxVitality="False" />
       <Conditional targetself="true" yamjDoctorPoisonResist="gt 0" />
     </attack>
   </limb>
@@ -64,7 +64,7 @@
             RootForceWorldEnd="0,0" RootTransitionEasing="Linear" Torque="0" ApplyForcesOnlyOnce="True" TargetImpulse="0" 
             TargetImpulseWorld="0,0" TargetForce="0" TargetForceWorld="0,0" SubmarineImpactMultiplier="1" SeverLimbsProbability="0" 
             Priority="3" Blink="False">
-      <Conditional targetself="true" YAMJNeurotoxinBuff="gt 0" />
+      <Conditional targetself="true" yamjNeurotoxinBuff="gt 0" />
       <StatusEffect type="OnFailure" target="This">
         <SpawnItem identifier="yamjNeurotoxinProjectile" spawnposition="This" count="1" aimspread="2" rotationtype="Limb" rotation="0" />
       </StatusEffect>

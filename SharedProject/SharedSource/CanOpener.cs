@@ -31,8 +31,8 @@ internal static partial class PatchTargets {
         throw new Exception("Items.Components.Door.HasRequiredItems(Character, bool, LocalizedString) not found");
 }
 
-internal static class RaptorCanOpener {
-    internal static readonly Identifier TalentId = "YAMJCanOpener".ToIdentifier();
+internal static class CanOpener {
+    internal static readonly Identifier TalentId = "yamjCanOpener".ToIdentifier();
 }
 
 [HarmonyPatch] // can opener: open doors as if you had a crowbar
@@ -44,7 +44,7 @@ internal static class CanOpenerCrowbarPatch {
         if (__instance.IsBroken) { return; }
 
         if (!YAMJ.IsPlayerRaptor(character)) { return; }
-        if (!YAMJ.HasTalent(character, RaptorCanOpener.TalentId)) { return; }
+        if (!character.HasTalent(CanOpener.TalentId)) { return; }
         
         if (__instance.IsOpen) {
             __instance.Msg = "yamjHint.forceCloseBeak";

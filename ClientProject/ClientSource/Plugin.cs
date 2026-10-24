@@ -5,11 +5,11 @@ namespace YAMJCS
     public partial class Plugin : IAssemblyPlugin
     {
         // Client-specific code
-        public IConfigService ConfigService { get; set; }
-        public IPluginManagementService PluginService { get; set; }
-        public ILoggerService LoggerService { get; set; }
+        public IConfigService? ConfigService { get; set; }
+        public IPluginManagementService? PluginService { get; set; }
+        public ILoggerService? LoggerService { get; set; }
         //vars
-        public Harmony? HarmonyInstance;
+        internal Harmony? HarmonyInstance;
         internal static Plugin? PluginInstance { get; private set; }
         
         public void Initialize() {
@@ -30,12 +30,14 @@ namespace YAMJCS
         public void PreInitPatching() { }
 
         public void OnLoadCompleted() {
-            YAMJ.SharedOnLoadCompleted(ConfigService, PluginService);
+            if (ConfigService is not null && PluginService is not null) {
+                YAMJ.SharedOnLoadCompleted(ConfigService, PluginService);   
+            }
         }
 
         public void Dispose() {
             YAMJ.SharedDispose();
-            RaptorIdentify.ClearCache();
+            Appraisal.ClearCache();
             YAMJConfig.RebuildTalentDescriptions();
         }
     }

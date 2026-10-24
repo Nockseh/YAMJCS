@@ -5,41 +5,42 @@ using HarmonyLib;
 
 namespace YAMJCS;
 
-public static class YAMJConfig {
+internal static class YAMJConfig {
     private const string ConfigTokenPrefix = "yamjConfig.";
     private const string ConfigOverrideAttribute = "configoverride";
     private static readonly MethodInfo? TalentDescriptionSetter = AccessTools.PropertySetter(typeof(TalentPrefab), nameof(TalentPrefab.Description));
     private static readonly FieldInfo? AfflictionConfigElement = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.configElement));
     private static readonly FieldInfo? AfflictionEffects = AccessTools.Field(typeof(AfflictionPrefab), nameof(AfflictionPrefab.effects));
     
-    #region Server Settings
+#region C# Settings
     // Shared Settings
+        //performance
+    internal static float DigestionUpdateInterval => GetFloat("DigestionUpdateInterval") ?? 2f;
+    internal static float CaptainProxUpdateInterval => GetFloat("CaptainProxUpdateInterval") ?? 2f;
         //hunger 
-    public static float HungerRate => GetFloat("HungerRate") ?? 0.015f;
-    public static float EatingHungerReduction => GetFloat("EatingHungerReduction") ?? 4f;
-    public static float DigestionUpdateInterval => GetFloat("DigestionUpdateInterval") ?? 2f;
+    internal static float HungerRate => GetFloat("HungerRate") ?? 0.015f;
+    internal static float EatingHungerReduction => GetFloat("EatingHungerReduction") ?? 4f;
         //digestion hunger 
-    public static float BasicFoodHungerReduction => GetFloat("BasicFoodHungerReduction") ?? 1.0f;
-    public static float EngineerFoodHungerReduction => GetFloat("EngineerFoodHungerReduction") ?? 0.1f;
-    public static float MechanicFoodHungerReduction => GetFloat("MechanicFoodHungerReduction") ?? 0.1f;
-    public static float DoctorFoodHungerReduction => GetFloat("DoctorFoodHungerReduction") ?? -0.1f;
+    internal static float BasicFoodHungerReduction => GetFloat("BasicFoodHungerReduction") ?? 1.0f;
+    internal static float EngineerFoodHungerReduction => GetFloat("EngineerFoodHungerReduction") ?? 0.1f;
+    internal static float MechanicFoodHungerReduction => GetFloat("MechanicFoodHungerReduction") ?? 0.1f;
+    internal static float DoctorFoodHungerReduction => GetFloat("DoctorFoodHungerReduction") ?? -0.1f;
         //digestion condition 
-    public static float BasicFoodConditionReduction => GetFloat("BasicFoodConditionReduction") ?? 1.0f;
-    public static float EngineerFoodConditionReduction => GetFloat("EngineerFoodConditionReduction") ?? 0.01f;
-    public static float MechanicFoodConditionReduction => GetFloat("MechanicFoodConditionReduction") ?? 0.2f;
-    public static float DoctorFoodConditionReduction => GetFloat("DoctorFoodConditionReduction") ?? -0.01f;
+    internal static float BasicFoodConditionReduction => GetFloat("BasicFoodConditionReduction") ?? 1.0f;
+    internal static float EngineerFoodConditionReduction => GetFloat("EngineerFoodConditionReduction") ?? 0.01f;
+    internal static float MechanicFoodConditionReduction => GetFloat("MechanicFoodConditionReduction") ?? 0.2f;
+    internal static float DoctorFoodConditionReduction => GetFloat("DoctorFoodConditionReduction") ?? -0.01f;
         //talents 
-    public static float RaptorVisionRange => GetFloat("RaptorVisionRange") ?? 1500f;
-    public static float OreVisionRange => GetFloat("OreVisionRange") ?? 5000f;
-    public static bool RaptorVisionShowDead => GetBool("RaptorVisionShowDead") ?? true;
-    public static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
-    public static float ShrapnelSpitCost => GetFloat("ShrapnelSpitCost") ?? 30f;
-    public static float HandlerMarkDuration => GetFloat("HandlerMarkDuration") ?? 15f;
+    internal static float RaptorVisionRange => GetFloat("RaptorVisionRange") ?? 1500f;
+    internal static float OreVisionRange => GetFloat("OreVisionRange") ?? 5000f;
+    internal static bool RaptorVisionShowDead => GetBool("RaptorVisionShowDead") ?? true;
+    internal static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
+    internal static float ShrapnelSpitCost => GetFloat("ShrapnelSpitCost") ?? 30f;
+    internal static float HandlerMarkDuration => GetFloat("HandlerMarkDuration") ?? 15f;
         //combat 
     //(XML only) 
         //sleep 
     //(XML only) 
-    #endregion
     
     // Client Settings 
     #if CLIENT
@@ -48,25 +49,30 @@ public static class YAMJConfig {
         private static readonly Color DefaultRaptorVisionColor = new Color(255, 127, 0, 255);
         private static readonly Color DefaultOreVisionColor = new Color(90, 255, 200, 255);
         
-        public static KeyOrMouse RaptorVisionKey => GetKey("RaptorVisionKey") ?? DefaultRaptorVisionKey;
-        public static KeyOrMouse QuickChatKey => GetKey("QuickChatKey") ?? DefaultQuickChatKey;
+        internal static KeyOrMouse RaptorVisionKey => GetKey("RaptorVisionKey") ?? DefaultRaptorVisionKey;
+        internal static KeyOrMouse QuickChatKey => GetKey("QuickChatKey") ?? DefaultQuickChatKey;
         
-        public static Color RaptorVisionColor = DefaultRaptorVisionColor;
-        public static Color OreVisionColor = DefaultOreVisionColor;
+        internal static Color RaptorVisionColor = DefaultRaptorVisionColor;
+        internal static Color OreVisionColor = DefaultOreVisionColor;
     #endif
+    
+#endregion
     
     //settings binding 
     private static readonly Dictionary<string, ISettingBase> boundSettings = new();
 
-    public static void InitializeConfig(IConfigService configService, IPluginManagementService pluginService) {
+    internal static void InitializeConfig(IConfigService configService, IPluginManagementService pluginService) {
         if (!pluginService.TryGetPackageForPlugin<Plugin>(out ContentPackage thisPackage) || thisPackage is null) {
             YAMJ.Log("Could not resolve content package 'YAMJCS', config not initialized");
             return;
         }
-        //hunger 
+        //performance
+        Bind(configService, thisPackage, "DigestionUpdateInterval");
+        Bind(configService, thisPackage, "CaptainProxUpdateInterval");
+        
+        #region hunger
         Bind(configService, thisPackage, "HungerRate");
         Bind(configService, thisPackage, "EatingHungerReduction");
-        Bind(configService, thisPackage, "DigestionUpdateInterval");
         
         Bind(configService, thisPackage, "BasicFoodHungerReduction");
         Bind(configService, thisPackage, "EngineerFoodHungerReduction");
@@ -77,26 +83,41 @@ public static class YAMJConfig {
         Bind(configService, thisPackage, "EngineerFoodConditionReduction");
         Bind(configService, thisPackage, "MechanicFoodConditionReduction");
         Bind(configService, thisPackage, "DoctorFoodConditionReduction");
-        //talents 
-        Bind(configService, thisPackage, "RaptorVisionRange");
-        Bind(configService, thisPackage, "RaptorVisionShowDead");
+        #endregion
+        
+        #region talents
         Bind(configService, thisPackage, "OreVisionRange");
         Bind(configService, thisPackage, "CanOpenerDamageBonus");
         Bind(configService, thisPackage, "FamiliarWatersDamageBonus");
+        //heat signature
+        Bind(configService, thisPackage, "RaptorVisionRange");
+        Bind(configService, thisPackage, "RaptorVisionShowDead");
+        //bond with doctor
         Bind(configService, thisPackage, "DoctorBondBurnResist");
         Bind(configService, thisPackage, "DoctorBondPoisonResist");
+        //bond with mechanic
         Bind(configService, thisPackage, "ShrapnelSpitCost");
         Bind(configService, thisPackage, "ShrapnelLacerations");
         Bind(configService, thisPackage, "ShrapnelBleeding");
+        //bond with security
         Bind(configService, thisPackage, "ChargedBiteDamageBonus");
         Bind(configService, thisPackage, "ChargedBiteStun");
         Bind(configService, thisPackage, "ChargedBiteCooldown");
         Bind(configService, thisPackage, "ChargedBiteCooldownReward");
         Bind(configService, thisPackage, "HandlerMarkDuration");
         Bind(configService, thisPackage, "ClearVisionRange");
+        //bond with captain
+        Bind(configService, thisPackage, "SicCooldown");
+        Bind(configService, thisPackage, "SicDuration");
+        Bind(configService, thisPackage, "CaptainProxBuffResist");
+        Bind(configService, thisPackage, "SicStunResist");
+        Bind(configService, thisPackage, "SicMoveBonus");
+        Bind(configService, thisPackage, "SicAttackBonus");
+        #endregion
+        
         //combat
         
-        //sleep 
+        #region sleep
         Bind(configService, thisPackage, "SleepWindupTime");
         Bind(configService, thisPackage, "SleepHealSelfDamage");
         Bind(configService, thisPackage, "SleepHealSelfBurn");
@@ -106,6 +127,8 @@ public static class YAMJConfig {
         Bind(configService, thisPackage, "SleepHealOthersBurn");
         Bind(configService, thisPackage, "SleepHealOthersBleeding");
         Bind(configService, thisPackage, "SleepHealOthersBloodLoss");
+        #endregion
+        
         #if CLIENT
         Bind(configService, thisPackage, "RaptorVisionKey");
         Bind(configService, thisPackage, "QuickChatKey");
@@ -137,7 +160,7 @@ public static class YAMJConfig {
         #endif
     }
     
-    public static void RebuildTalentDescriptions() {
+    internal static void RebuildTalentDescriptions() {
         if (TalentDescriptionSetter is null) {
             YAMJ.Log("TalentPrefab.Description property setter not found");
             return;
@@ -167,7 +190,7 @@ public static class YAMJConfig {
     }
     
     
-    public static void DisposeConfig() {
+    internal static void DisposeConfig() {
         foreach (ISettingBase setting in boundSettings.Values) {
             setting.OnValueChanged -= OnConfigValueChanged;
         }
@@ -175,7 +198,7 @@ public static class YAMJConfig {
     }
 
     #if CLIENT
-    public static void RefreshColors() {
+    internal static void RefreshColors() {
         RaptorVisionColor = GetColor("RaptorVisionColor") ?? DefaultRaptorVisionColor;
         OreVisionColor = GetColor("OreVisionColor") ?? DefaultOreVisionColor;   
     }
@@ -190,7 +213,7 @@ public static class YAMJConfig {
         field.SetValue(affliction, value);
     }
     
-    public static void ApplyConfigToTalentXml() {
+    internal static void ApplyConfigToTalentXml() {
         int counter = 0;
         foreach (TalentPrefab talent in TalentPrefab.TalentPrefabs) {
             foreach (XElement element in talent.ConfigElement.Element.Descendants()) {
@@ -202,7 +225,7 @@ public static class YAMJConfig {
         //YAMJ.Log($"Applied config to {counter} talent XML values");
     }
     
-    public static void ApplyConfigToItemXml() {
+    internal static void ApplyConfigToItemXml() {
         foreach (ItemPrefab item in ItemPrefab.Prefabs) {
             foreach (XElement element in item.ConfigElement.Element.Descendants()) {
                 XAttribute? configOverride = element.Attribute(ConfigOverrideAttribute);
@@ -236,7 +259,7 @@ public static class YAMJConfig {
         return counter;
     }
     
-    public static void ApplyConfigToAfflictionXml() {
+    internal static void ApplyConfigToAfflictionXml() {
         if (AfflictionConfigElement is null || AfflictionEffects is null) {
             YAMJ.Log("AfflictionPrefab internals not found, affliction overrides skipped");
             return;

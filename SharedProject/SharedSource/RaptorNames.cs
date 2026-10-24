@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace YAMJCS {
 
     internal static partial class PatchTargets {
-        public static MethodBase CharacterInfo_GetName =>
+        internal static MethodBase CharacterInfo_GetName =>
             AccessTools.Method(
                 typeof(CharacterInfo),
                 "GetName",

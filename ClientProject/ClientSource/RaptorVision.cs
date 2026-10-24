@@ -6,8 +6,8 @@ using HarmonyLib;
 namespace YAMJCS;
 
 internal class RaptorVision {
-    private static readonly Identifier HeatSignatureTalent = "YAMJHeatSignature".ToIdentifier();
-    private static readonly Identifier OreVisionTalent = "YAMJBondMechanic".ToIdentifier();
+    private static readonly Identifier HeatSignatureTalent = "yamjHeatSignature".ToIdentifier();
+    private static readonly Identifier OreVisionTalent = "yamjBondMechanic".ToIdentifier();
     private const double ORE_SCAN_INTERVAL = 2.0;
 
     private static List<LevelResource> _oreCache = new();
@@ -21,10 +21,10 @@ internal class RaptorVision {
             YAMJ.IsPlayerRaptor(character) &&
             !character.Removed &&
             !character.IsDead &&
-            (YAMJ.HasTalent(character, HeatSignatureTalent) || YAMJ.HasTalent(character, OreVisionTalent));
+            (character.HasTalent(HeatSignatureTalent) || character.HasTalent(OreVisionTalent));
     }
 
-    public static void Update() {
+    internal static void Update() {
         Character? controlled = Character.Controlled;
 
         if (!IsEligible(controlled)) {
@@ -37,16 +37,16 @@ internal class RaptorVision {
         }
     }
 
-    public static void Draw(SpriteBatch spriteBatch, Character character, Camera camera) {
+    internal static void Draw(SpriteBatch spriteBatch, Character character, Camera camera) {
         if (!_raptorVisionEnabled || GUI.DisableHUD || character != Character.Controlled || !IsEligible(character)) { return; }
 
         float effectState = (float)(Timing.TotalTimeUnpaused % 10000.0);
 
-        if (YAMJ.HasTalent(character, HeatSignatureTalent)) {
+        if (character.HasTalent(HeatSignatureTalent)) {
             StatusHUD.DrawThermalOverlay(spriteBatch, refEntity: character, user: character, YAMJConfig.RaptorVisionColor, YAMJConfig.RaptorVisionRange, effectState, YAMJConfig.RaptorVisionShowDead);
         }
 
-        if (YAMJ.HasTalent(character, OreVisionTalent)) {
+        if (character.HasTalent(OreVisionTalent)) {
             DrawOreVision(spriteBatch, character, camera, effectState);
         }
     }

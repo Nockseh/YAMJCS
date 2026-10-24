@@ -9,7 +9,7 @@ namespace YAMJCS
         public IPluginManagementService PluginService { get; set; }
         public ILoggerService LoggerService { get; set; }
         //vars
-        public Harmony? HarmonyInstance;
+        internal Harmony? HarmonyInstance;
         internal static Plugin? PluginInstance { get; private set; }
         
         public void Initialize() {

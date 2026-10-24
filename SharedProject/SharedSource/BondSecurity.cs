@@ -29,13 +29,14 @@ internal static partial class PatchTargets {
         throw new Exception("GameSession.StartRound(LevelData, bool, SubmarineInfo, SubmarineInfo) not found");
 }
 
-public static class RaptorBondSecurity {
-    internal static readonly Identifier TalentId = "YAMJBondSecurity".ToIdentifier();
+//also see: Client/RaptorLocator.cs
+internal static class BondSecurity {
+    internal static readonly Identifier TalentId = "yamjBondSecurity".ToIdentifier();
     internal static readonly Identifier MarkAfflictionId = "yamjMarked".ToIdentifier();
     private static AfflictionPrefab? _markAfflictionPrefab;
-    internal static readonly AfflictionPrefab? MarkAfflictionPrefab = _markAfflictionPrefab ??= YAMJ.FindAfflictionPrefab(MarkAfflictionId);
+    internal static  AfflictionPrefab? MarkAfflictionPrefab => _markAfflictionPrefab ??= YAMJ.FindAfflictionPrefab(MarkAfflictionId);
     
-    public static Dictionary<Character, Character> HandlerBonds =  new();
+    internal static Dictionary<Character, Character> HandlerBonds =  new();
 }
 
 #if CLIENT
@@ -45,7 +46,7 @@ internal static class MarkVision {
     
     private static void Postfix(SpriteBatch spriteBatch, Character character, Camera cam) {
         if (character != Character.Controlled || !YAMJ.IsPlayerRaptor(character)) { return; }
-        if (!character.HasTalent(RaptorBondSecurity.TalentId)) { return; }
+        if (!character.HasTalent(BondSecurity.TalentId)) { return; }
         
         // arguments for ripped function below 
         Entity refEntity = character;
@@ -65,12 +66,12 @@ internal static class MarkVision {
         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, transformMatrix: Screen.Selected.Cam.Transform, effect: GameMain.LightManager.SolidColorEffect);
         
         Character? handler = null;
-        RaptorBondSecurity.HandlerBonds.TryGetValue(character, out handler);
+        BondSecurity.HandlerBonds.TryGetValue(character, out handler);
         
         foreach (Character c in Character.CharacterList) {
             if (c == user || !c.Enabled || c.Removed) { continue; }
 
-            float markStrength =  c.CharacterHealth.GetAfflictionStrengthByIdentifier(RaptorBondSecurity.MarkAfflictionId);
+            float markStrength =  c.CharacterHealth.GetAfflictionStrengthByIdentifier(BondSecurity.MarkAfflictionId);
             if ( !(markStrength > 0f) && c != handler) { continue; }
             if (c.IsDead) { continue; }
 
@@ -99,7 +100,7 @@ internal static class DesignateHandler {
     private static MethodBase TargetMethod() => PatchTargets.Character_DoInteractionUpdate;
 
     private static void Postfix(Character __instance) {
-        if (!YAMJ.IsPlayerRaptor(__instance) || !YAMJ.HasTalent(__instance, RaptorBondSecurity.TalentId)) { return; }
+        if (!YAMJ.IsPlayerRaptor(__instance) || !__instance.HasTalent(BondSecurity.TalentId)) { return; }
         if ( !__instance.CanInteract || __instance.IsIncapacitated) { return; }
         
         Character? focusedCharacter = __instance.FocusedCharacter;
@@ -112,7 +113,7 @@ internal static class DesignateHandler {
         
         if (!__instance.IsKeyHit(InputType.Select)) { return; }
 
-        RaptorBondSecurity.HandlerBonds[__instance] = focusedCharacter;
+        BondSecurity.HandlerBonds[__instance] = focusedCharacter;
     }
 }
 
@@ -124,25 +125,25 @@ internal static class MarkTarget {
         Character victim = __instance;
         Character attacker = character;
         if (attacker.Removed || victim.Removed || victim.IsDead) { return; }
-        if (!RaptorBondSecurity.HandlerBonds.ContainsValue(attacker)) { return; }
+        if (!BondSecurity.HandlerBonds.ContainsValue(attacker)) { return; }
         
         //handlers cant mark their own raptors
         Character? victimsHandler = null;
-        RaptorBondSecurity.HandlerBonds.TryGetValue(victim, out victimsHandler);
+        BondSecurity.HandlerBonds.TryGetValue(victim, out victimsHandler);
         if (victimsHandler == attacker) { return; }
         
-        Affliction? mark = victim.CharacterHealth.GetAffliction(RaptorBondSecurity.MarkAfflictionId, false);
+        Affliction? mark = victim.CharacterHealth.GetAffliction(BondSecurity.MarkAfflictionId, false);
 
-        if (RaptorBondSecurity.MarkAfflictionPrefab is null) {
+        if (BondSecurity.MarkAfflictionPrefab is null) {
             YAMJ.Log("MarkAfflictionPrefab is null, aborting");
             return;
         }
         
         if (mark is not null) {
-            mark.Strength = RaptorBondSecurity.MarkAfflictionPrefab.MaxStrength;
+            mark.Strength = BondSecurity.MarkAfflictionPrefab.MaxStrength;
             victim.HealthUpdateInterval = 0f; //trigger sync manually 
         } else {
-            mark = RaptorBondSecurity.MarkAfflictionPrefab.Instantiate(RaptorBondSecurity.MarkAfflictionPrefab.MaxStrength * (victim.MaxVitality /100f), attacker);
+            mark = BondSecurity.MarkAfflictionPrefab.Instantiate(BondSecurity.MarkAfflictionPrefab.MaxStrength * (victim.MaxVitality /100f), attacker);
             victim.CharacterHealth.AddAffliction(mark, false);
         }
     }
@@ -153,6 +154,6 @@ internal static class ClearHandlerBonds {
     private static MethodBase TargetMethod() => PatchTargets.GameSession_StartRound;
 
     private static void Postfix() {
-        RaptorBondSecurity.HandlerBonds.Clear();
+        BondSecurity.HandlerBonds.Clear();
     }
 }
