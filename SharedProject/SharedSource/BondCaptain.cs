@@ -5,22 +5,6 @@ namespace YAMJCS;
 internal static class BondCaptain {
     internal static readonly Identifier TalentId = "yamjBondCaptain".ToIdentifier();
     internal static readonly Identifier CaptainJobId = "captain".ToIdentifier();
-    internal static readonly Identifier SicBuffId = "yamjSicBuff".ToIdentifier();
-    internal static readonly Identifier CaptainProxBuffId = "yamjCaptainProxBuff".ToIdentifier();
-    internal static readonly Identifier SicCooldownId = "yamjSicCooldown".ToIdentifier();
-    internal static readonly Identifier SicAwayBuffId = "yamjSicAwayBuff".ToIdentifier();
-    
-    private static AfflictionPrefab? _captainProxBuffPrefab;
-    internal static AfflictionPrefab? CaptainProxBuffPrefab => _captainProxBuffPrefab ??= YAMJ.FindAfflictionPrefab(CaptainProxBuffId);
-    
-    private static AfflictionPrefab? _sicCooldownPrefab;
-    internal static AfflictionPrefab? SicCooldownPrefab => _sicCooldownPrefab ??= YAMJ.FindAfflictionPrefab(SicCooldownId);
-    
-    private static AfflictionPrefab? _sicBuffPrefab;
-    internal static AfflictionPrefab? SicBuffPrefab => _sicBuffPrefab ??= YAMJ.FindAfflictionPrefab(SicBuffId);
-
-    private static AfflictionPrefab? _sicAwayBuffPrefab;
-    internal static AfflictionPrefab? SicAwayBuffPrefab => _sicAwayBuffPrefab ??= YAMJ.FindAfflictionPrefab(SicAwayBuffId);
     
     //todo move to config
     private static readonly float auraRange = 2000f;
@@ -64,12 +48,13 @@ internal static class BondCaptain {
                 }
             }
 
-            if (CaptainProxBuffPrefab is not null) {
+            AfflictionPrefab? proxBuff = AfflictionPrefabs.CaptainProxBuff;
+            if (proxBuff is not null) {
                 if (isInRange) {
-                    captain.CharacterHealth.AddAffliction(CaptainProxBuffPrefab.Instantiate(1f));
+                    captain.CharacterHealth.AddAffliction(proxBuff.Instantiate(1f));
                 }
                 else {
-                    captain.CharacterHealth.ReduceAfflictionOnAllLimbs(CaptainProxBuffId, CaptainProxBuffPrefab.MaxStrength * 2f);
+                    captain.CharacterHealth.ReduceAfflictionOnAllLimbs(AfflictionIds.CaptainProxBuff, proxBuff.MaxStrength * 2f);
                 }
             } else {
                 YAMJ.Log("YAMJ Bond with Captain proximity buff prefab not found");
@@ -99,11 +84,11 @@ internal static class SicRaptor {
         if (GameMain.NetworkMember is { IsClient: true }) { return; } //server authority
         
         CharacterHealth raptorHealth = focusedCharacter.CharacterHealth;
-        if (raptorHealth.GetAfflictionStrengthByIdentifier(BondCaptain.SicCooldownId, false) > 0f) { return; }
+        if (raptorHealth.GetAfflictionStrengthByIdentifier(AfflictionIds.SicCooldown, false) > 0f) { return; }
 
-        YAMJ.ApplyAtMaxStrength(focusedCharacter, BondCaptain.SicCooldownPrefab);
-        YAMJ.ApplyAtMaxStrength(focusedCharacter, BondCaptain.SicBuffPrefab);
-        YAMJ.ApplyAtMaxStrength(__instance, BondCaptain.SicAwayBuffPrefab);
+        YAMJ.ApplyAtMaxStrength(focusedCharacter, AfflictionPrefabs.SicCooldown);
+        YAMJ.ApplyAtMaxStrength(focusedCharacter, AfflictionPrefabs.SicBuff);
+        YAMJ.ApplyAtMaxStrength(__instance, AfflictionPrefabs.SicAwayBuff);
         
     }
 }

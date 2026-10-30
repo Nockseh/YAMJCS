@@ -92,7 +92,7 @@ internal static class CorpseEatingPatch {
     static void Postfix(Character target, float deltaTime, ref FishAnimController __instance) {
         if (YAMJ.IsPlayerRaptor(__instance.Character) && target.IsDead) {
             RaptorGut.ModifyHunger(__instance.Character.CharacterHealth, YAMJConfig.EatingHungerReduction * deltaTime * -1f);
-            Affliction eatingBuff = new Affliction(YAMJ.EatingBuffPrefab, 2f);
+            Affliction eatingBuff = new Affliction(AfflictionPrefabs.Eating, 2f);
             __instance.Character.CharacterHealth.ApplyAffliction(null, eatingBuff, false);
         }
     }
@@ -102,7 +102,6 @@ internal static class CorpseEatingPatch {
 [HarmonyPatch(typeof(EnemyAIController), nameof(EnemyAIController.GetTargetingTags))]
 internal static class VouchTargetingPatch {
     private static readonly Identifier MudraptorGroup = "mudraptor".ToIdentifier();
-    private static readonly Identifier VouchBuff = "yamjVouchBuff".ToIdentifier();
     
     private static void Postfix(EnemyAIController __instance, AITarget aiTarget, IEnumerable<Identifier> __result)
     {
@@ -118,7 +117,7 @@ internal static class VouchTargetingPatch {
         if (!CharacterParams.CompareGroup(enemyCharacter.Params.Group, MudraptorGroup)) { return; }
             
         //has vouch buff, has not been attacked by
-        if (targetCharacter.CharacterHealth.GetAfflictionStrengthByIdentifier(VouchBuff, true) <= 0.0f) { return; }
+        if (targetCharacter.CharacterHealth.GetAfflictionStrengthByIdentifier(AfflictionIds.VouchBuff, true) <= 0.0f) { return; }
         if (enemyCharacter.GetDamageDoneByAttacker(targetCharacter) > 0.0f) { return; }
 
         // no tags and no matching TargetParams = UpdateTargets drops this character

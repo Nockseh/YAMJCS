@@ -32,9 +32,6 @@ internal static partial class PatchTargets {
 //also see: Client/RaptorLocator.cs
 internal static class BondSecurity {
     internal static readonly Identifier TalentId = "yamjBondSecurity".ToIdentifier();
-    internal static readonly Identifier MarkAfflictionId = "yamjMarked".ToIdentifier();
-    private static AfflictionPrefab? _markAfflictionPrefab;
-    internal static  AfflictionPrefab? MarkAfflictionPrefab => _markAfflictionPrefab ??= YAMJ.FindAfflictionPrefab(MarkAfflictionId);
     
     internal static Dictionary<Character, Character> HandlerBonds =  new();
 }
@@ -71,7 +68,7 @@ internal static class MarkVision {
         foreach (Character c in Character.CharacterList) {
             if (c == user || !c.Enabled || c.Removed) { continue; }
 
-            float markStrength =  c.CharacterHealth.GetAfflictionStrengthByIdentifier(BondSecurity.MarkAfflictionId);
+            float markStrength =  c.CharacterHealth.GetAfflictionStrengthByIdentifier(AfflictionIds.Marked);
             if ( !(markStrength > 0f) && c != handler) { continue; }
             if (c.IsDead) { continue; }
 
@@ -132,18 +129,19 @@ internal static class MarkTarget {
         BondSecurity.HandlerBonds.TryGetValue(victim, out victimsHandler);
         if (victimsHandler == attacker) { return; }
         
-        Affliction? mark = victim.CharacterHealth.GetAffliction(BondSecurity.MarkAfflictionId, false);
+        Affliction? mark = victim.CharacterHealth.GetAffliction(AfflictionIds.Marked, false);
 
-        if (BondSecurity.MarkAfflictionPrefab is null) {
-            YAMJ.Log("MarkAfflictionPrefab is null, aborting");
+        AfflictionPrefab? markPrefab = AfflictionPrefabs.Marked;
+        if (markPrefab is null) {
+            YAMJ.Log("Marked affliction prefab is null, aborting");
             return;
         }
-        
+
         if (mark is not null) {
-            mark.Strength = BondSecurity.MarkAfflictionPrefab.MaxStrength;
+            mark.Strength = markPrefab.MaxStrength;
             victim.HealthUpdateInterval = 0f; //trigger sync manually 
         } else {
-            mark = BondSecurity.MarkAfflictionPrefab.Instantiate(BondSecurity.MarkAfflictionPrefab.MaxStrength * (victim.MaxVitality /100f), attacker);
+            mark = markPrefab.Instantiate(markPrefab.MaxStrength * (victim.MaxVitality /100f), attacker);
             victim.CharacterHealth.AddAffliction(mark, false);
         }
     }

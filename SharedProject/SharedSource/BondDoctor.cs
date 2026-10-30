@@ -4,19 +4,11 @@ namespace YAMJCS;
 
 internal static class BondDoctor {
     internal static readonly Identifier TalentId = "yamjBondDoctor".ToIdentifier();
-    internal static readonly Identifier InfectionId = "yamjDoctorInfection".ToIdentifier();
-    internal static readonly Identifier InfectionCooldownId = "yamjDoctorInfectionCooldown".ToIdentifier();
 
     private static readonly Identifier DamageType = "damage".ToIdentifier();
     private static readonly Identifier BurnType = "burn".ToIdentifier();
     private static readonly Identifier BleedingType = "bleeding".ToIdentifier();
-
-    private static AfflictionPrefab? _infectionPrefab;
-    internal static AfflictionPrefab? InfectionPrefab => _infectionPrefab ??= YAMJ.FindAfflictionPrefab(InfectionId);
-
-    private static AfflictionPrefab? _infectionCooldownPrefab;
-    internal static AfflictionPrefab? InfectionCooldownPrefab => _infectionCooldownPrefab ??= YAMJ.FindAfflictionPrefab(InfectionCooldownId);
-
+    
     internal static bool CanInfect(Character raptor, Character target) {
         if (target == raptor || target.Removed || target.IsDead) { return false; }
         
@@ -29,8 +21,8 @@ internal static class BondDoctor {
         if (!target.IsUnconscious) { return false; }
 
         CharacterHealth health = target.CharacterHealth;
-        if (health.GetAfflictionStrengthByIdentifier(InfectionId, false) > 0f) { return false; }
-        if (health.GetAfflictionStrengthByIdentifier(InfectionCooldownId, false) > 0f) { return false; }
+        if (health.GetAfflictionStrengthByIdentifier(AfflictionIds.Infection, false) > 0f) { return false; }
+        if (health.GetAfflictionStrengthByIdentifier(AfflictionIds.InfectionCooldown, false) > 0f) { return false; }
 
         return true;
     }
@@ -43,8 +35,8 @@ internal static class BondDoctor {
         HealFraction(health, BurnType, fraction);
         HealFraction(health, BleedingType, fraction);
         
-        YAMJ.ApplyAtMaxStrength(target, InfectionPrefab);
-        YAMJ.ApplyAtMaxStrength(target, InfectionCooldownPrefab);
+        YAMJ.ApplyAtMaxStrength(target, AfflictionPrefabs.Infection);
+        YAMJ.ApplyAtMaxStrength(target, AfflictionPrefabs.InfectionCooldown);
     }
 
     private static void HealFraction(CharacterHealth health, Identifier afflictionType, float fraction) {

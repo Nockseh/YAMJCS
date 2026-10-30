@@ -3,6 +3,7 @@
 
   <!--Spit Condition (Neurotoxin) [Hidden]-->
   <Affliction identifier="yamjNeurotoxinBuff" type="talentbuff" isBuff="true" limbSpecific="false" showIconThreshold="1000" showIconToOthersThreshold="1000" showInHealthScannerThreshold="1000" maxStrength="1" treatmentThreshold="1000" iconColors="153,170,187">
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="0,0,128,128" color="255,255,255,255" origin="0,0" />
     <Effect minStrength="0" maxStrength="1" strengthChange="0"/>
   </Affliction>
   
@@ -159,7 +160,7 @@
               maxStrength="1" duration="5"
               showBarInHealthMenu="false" hideIconAfterDelay="true">
     <!--todo vanilla burn icon -->
-    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="768,640,128,128" color="0,204,102,255" origin="0,0"/>
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="256,896,128,128" color="0,204,102,255" origin="0,0"/>
     <Effect minStrength="0" maxStrength="1"
             resistanceFor="burn" minResistance="0.1" maxResistance="0.1"
             configoverride="minResistance=DoctorBondBurnResist;maxResistance=DoctorBondBurnResist"/>
@@ -171,7 +172,7 @@
               maxStrength="1" duration="5"
               showBarInHealthMenu="false" hideIconAfterDelay="true">
     <!--todo vanilla poison icon -->
-    <icon texture="Content/UI/MainIconsAtlas.png" sourceRect="640,640,128,128" color="0,204,102,255" origin="0,0"/>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourceRect="256,896,128,128" color="0,204,102,255" origin="0,0"/>
     <Effect minStrength="0" maxStrength="1"
             resistanceFor="poison" minResistance="0.1" maxResistance="0.1"
             configoverride="minResistance=DoctorBondPoisonResist;maxResistance=DoctorBondPoisonResist"/>
@@ -183,7 +184,7 @@
               maxStrength="1" duration="5"
               showBarInHealthMenu="false" hideIconAfterDelay="true">
     <!--todo icon -->
-    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="768,640,128,128" color="0,204,102,255" origin="0,0"/>
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="256,896,128,128" color="0,204,102,255" origin="0,0"/>
     <Effect minStrength="0" maxStrength="1"
             resistanceFor="debuff,paralysis,slow,nausea" minResistance="0.25" maxResistance="0.25"
             configoverride="minResistance=DoctorBondDebuffResist;maxResistance=DoctorBondDebuffResist"/>
@@ -195,6 +196,7 @@
               treatmentThreshold="1000" showBarInHealthMenu="true"
               configoverride="maxStrength=DoctorBondInfectionDuration">
     <!--todo icon-->
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="512,0,128,128" color="255,255,255,255" origin="0,0" />
     <AfflictionOverlayAnimated texture="%ModDir%/UI/InfectionOverlay.png" columns="8" rows="16" animspeed="20" />
     <Effect minStrength="0" maxStrength="45" strengthChange="-1"
             configoverride="maxStrength=DoctorBondInfectionDuration"
@@ -238,7 +240,7 @@
   </Affliction>
   
   <!-- can't be re-infected until this runs out [Hidden] -->
-  <Affliction identifier="yamjDoctorInfectionCooldown"
+  <Affliction identifier="yamjZombieInfectionCooldown"
               type="talentbuff" isBuff="true" limbSpecific="false"
               maxStrength="120" showBarInHealthMenu="false"
               showIconThreshold="1000" showIconToOthersThreshold="1000"
@@ -253,11 +255,13 @@
     <!--Captain-->
   <Affliction identifier="yamjCaptainProxBuff" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="1" duration="0">
     <!--todo icon and desc-->
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="256,896,128,128" color="255,255,255,255" origin="0,0" />
     <Effect minStrength="0" maxStrength="1" resistanceFor="damage,bleeding,burn" minResistance="0.3" maxResistance="0.3" configoverride="maxResistance=CaptainProxBuffResist;minResistance=CaptainProxBuffResist"/>
   </Affliction>
   
   <Affliction identifier="yamjSicAwayBuff" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="1" duration="0">
     <!--todo icon and desc-->
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="256,896,128,128" color="255,255,255,255" origin="0,0" />
     <Effect minStrength="0" maxStrength="30" strengthChange="-1" resistanceFor="damage,bleeding,burn" minResistance="0.3" maxResistance="0.3" configoverride="maxStrength=SicDuration;maxResistance=CaptainProxBuffResist;minResistance=CaptainProxBuffResist"/>
   </Affliction>
   
@@ -268,6 +272,7 @@
   
   <Affliction identifier="yamjSicBuff" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="30" configoverride="maxStrength=SicDuration" >
     <!-- todo icon and desc-->
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="256,896,128,128" color="255,255,255,255" origin="0,0" />
     <Effect minStrength="0" maxStrength="30" strengthChange="-1" resistanceFor="stun" minResistance="0.5" maxResistance="0.5" configoverride="maxStrength=SicDuration;minResistance=SicStunResist;maxResistance=SicStunResist">
       <StatValue statType="MovementSpeed" value="0.10" configoverride="value=SicMoveBonus" />
       <StatValue statType="AttackMultiplier" value="0.25" configoverride="value=SicAttackBonus" />
@@ -291,6 +296,7 @@
   </Affliction>
   <!-- remove suit vision obstruction [Hidden] -->
   <Affliction identifier="yamjClearVision" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="2" showIconThreshold="1000" showIconToOthersThreshold="1000" showInHealthScannerThreshold="1000">
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="0,0,128,128" color="255,255,255,255" origin="0,0" />
     <Effect minStrength="0" maxStrength="2" strengthChange="-1" />
   </Affliction>
     <!--========-->
@@ -302,7 +308,7 @@
       <StatValue statType="ElectricalSkillBonus" value="30" />
       <StatValue statType="RepairSpeed" value="0.25" />
     </Effect>
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetElementSize="128,128" color="10,193,114,255" origin="0,0" />
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,7" sheetElementSize="128,128" color="10,193,114,255" origin="0,0" />
   </Affliction>
     <!--========-->
   
@@ -311,10 +317,12 @@
   <Affliction identifier="yamjOreInGut"  showBarInHealthMenu="false" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="1" showIconToOthersThreshold="1000" showInHealthScannerThreshold="1000" treatmentThreshold="1000" duration="0" >
     <Effect minStrength="0" maxStrength="1" resistanceFor="damage,stun" minResistance="0.15" maxResistance="0.15"/>
     <!--todo icon-->
-    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="3,2" sheetElementSize="128,128" color="255,255,255,255" origin="0,0" />
+    <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="7,7" sheetElementSize="128,128" color="255,255,255,255" origin="0,0" />
   </Affliction>
     <!-- metal in gut: dummy affliction for spit attack [Hidden] -->
-  <Affliction identifier="yamjMetalInGut"  showBarInHealthMenu="false" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="1" showIconThreshold="1000" showIconToOthersThreshold="1000" showInHealthScannerThreshold="1000" treatmentThreshold="1000" duration="0" />
+  <Affliction identifier="yamjMetalInGut"  showBarInHealthMenu="false" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="1" showIconThreshold="1000" showIconToOthersThreshold="1000" showInHealthScannerThreshold="1000" treatmentThreshold="1000" duration="0">
+      <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sourceRect="896,896,128,128" color="255,255,255,255" origin="0,0" />
+  </Affliction>
     <!--========-->
   
   <!-- Item Afflictions -->
@@ -325,7 +333,7 @@
         <Conditional isPlayer="true" invert="true" />
       </StatusEffect>
     </Effect>
-    <icon texture="Content/UI/MainIconsAtlas.png" sourceRect="640,640,128,128" color="0,255,0,255" origin="0,0" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourceRect="0,0,128,128" color="0,255,0,255" origin="0,0" />
   </Affliction>
   
   <!-- Fire Flare Affliction -->
@@ -337,7 +345,7 @@
         <Affliction identifier="burn" strength="1" />
       </StatusEffect>
     </Effect>
-    <icon texture="Content/UI/MainIconsAtlas.png" sourceRect="640,640,128,128" color="0,255,0,255" origin="0,0" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourceRect="0,0,128,128" color="0,255,0,255" origin="0,0" />
   </Affliction>
 
 </Afflictions>

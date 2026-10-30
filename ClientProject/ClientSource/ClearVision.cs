@@ -20,14 +20,12 @@ internal static partial class PatchTargets {
 
 [HarmonyPatch] //bond with security: crewmates near the raptor don't get suit vision cones 
 internal static class ClearVisionPatch {
-    private static readonly Identifier ClearVisionId = "yamjClearVision".ToIdentifier();
-
     static MethodBase TargetMethod() => PatchTargets.LightManager_UpdateObstructVision;
 
     static void Prefix(LightManager __instance) {
         Character? controlled = Character.Controlled;
         if (controlled is null) { return; }
-        if (controlled.CharacterHealth.GetAfflictionStrengthByIdentifier(ClearVisionId, false) <= 0f) { return; }
+        if (controlled.CharacterHealth.GetAfflictionStrengthByIdentifier(AfflictionIds.ClearVision, false) <= 0f) { return; }
         __instance.ObstructVisionAmount = 0f;
     }
 }

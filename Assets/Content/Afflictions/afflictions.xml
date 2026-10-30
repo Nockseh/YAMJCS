@@ -122,5 +122,44 @@
         <Effect minStrength="0" maxStrength="2" strengthChange="-1"
                 minVitalityDecrease="-0.26" maxVitalityDecrease="0.00" multiplyByMaxVitality="true"/>
     </Affliction>
+    
+    <Affliction identifier="yamjReactive"
+                type="radiationsickness"
+                isBuff="false"
+                limbSpecific="false"
+                indicatorLimb="Torso"
+                showIconThreshold="30"
+                showBarInHealthMenu="true"
+                maxStrength="99"
+                affectMachines="false"
+                iconColors="50,100,50;0,255,0">
+        <!--todo icon-->
+        <!--Low-->
+        <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="896,768,128,128" color="255,255,255,255" origin="0,0" />
+        <Effect minStrength="0" maxStrength="33" strengthChange="-0.08"
+                minVitalityDecrease="0.00" maxVitalityDecrease="0.00" multiplyByMaxVitality="true"
+                grainColor="120,200,60,255" minGrainStrength="0.0" maxGrainStrength="0.0">
+        </Effect>
+        <!--Moderate-->
+        <Effect minStrength="33" maxStrength="66" strengthChange="-0.08"
+                minVitalityDecrease="0.00" maxVitalityDecrease="0.10" multiplyByMaxVitality="true"
+                grainColor="120,200,60,255" minGrainStrength="0.0" maxGrainStrength="0.1">
+            <StatusEffect target="Character" multiplyAfflictionsByMaxVitality="true" interval="10" disableDeltaTime="true">
+                <Affliction identifier="burn" amount="1" divideByLimbCount="true" penetration="1.0" configoverride="amount=ReactiveBurnRate" />
+            </StatusEffect>
+        </Effect>
+        <!--High-->
+        <Effect minStrength="66" maxStrength="99" strengthChange="-0.08"
+                minVitalityDecrease="0.10" maxVitalityDecrease="0.30" multiplyByMaxVitality="true"
+                grainColor="120,200,60,255" minGrainStrength="0.1" maxGrainStrength="0.2">
+            <StatusEffect target="Character" multiplyAfflictionsByMaxVitality="true" interval="10" disableDeltaTime="true">
+                <Affliction identifier="burn" amount="1" divideByLimbCount="true" penetration="1.0" configoverride="amount=ReactiveBurnRate" />
+            </StatusEffect>
+        </Effect>
+        <!--Descriptions-->
+        <Description textIdentifier="afflictiondescription.yamjReactive.low" minStrength="0" maxStrength="33" />
+        <Description textIdentifier="afflictiondescription.yamjReactive.med" minStrength="33" maxStrength="66" />
+        <Description textIdentifier="afflictiondescription.yamjReactive.high" minStrength="66" maxStrength="99" />
+    </Affliction>
 
 </Afflictions>

@@ -35,21 +35,21 @@ internal static class RaptorGut {
     internal static void ModifyHunger(CharacterHealth charHealth, float amount) {
         if (amount > 0f) {
             //amount = hunger added
-            float currentSatiety = charHealth.GetAfflictionStrengthByIdentifier(YAMJ.SatiatedAfflictionId, false);
+            float currentSatiety = charHealth.GetAfflictionStrengthByIdentifier(AfflictionIds.Satiated, false);
             float satietyReduced = Math.Min(amount, currentSatiety);
-            if (satietyReduced > 0f) { charHealth.ReduceAfflictionOnAllLimbs(YAMJ.SatiatedAfflictionId, satietyReduced); }
-            AddStrength(charHealth, YAMJ.HungerPrefab, amount - satietyReduced);
+            if (satietyReduced > 0f) { charHealth.ReduceAfflictionOnAllLimbs(AfflictionIds.Satiated, satietyReduced); }
+            AddStrength(charHealth, AfflictionPrefabs.Hunger, amount - satietyReduced);
             return;
         }
         else {
             //amount = satiety added
             amount = -amount;
-            float currentHunger = charHealth.GetAfflictionStrengthByIdentifier(YAMJ.HungerAfflictionId, false);
+            float currentHunger = charHealth.GetAfflictionStrengthByIdentifier(AfflictionIds.Hunger, false);
             float hungerReduced = Math.Min(amount, currentHunger);
             if (hungerReduced > 0f) {
-                charHealth.ReduceAfflictionOnAllLimbs(YAMJ.HungerAfflictionId, hungerReduced);
+                charHealth.ReduceAfflictionOnAllLimbs(AfflictionIds.Hunger, hungerReduced);
             }
-            AddStrength(charHealth, YAMJ.SatiatedPrefab, amount - hungerReduced);
+            AddStrength(charHealth, AfflictionPrefabs.Satiated, amount - hungerReduced);
             return;
         }
     }
@@ -168,17 +168,17 @@ internal static class RaptorGut {
         
         //apply other effects & modify hunger 
         if (gutContainsOre) {
-            character.CharacterHealth.AddAffliction(YAMJ.OreInGutPrefab.Instantiate(1f));
+            character.CharacterHealth.AddAffliction(AfflictionPrefabs.OreInGut.Instantiate(1f));
         }
         else {
-            character.CharacterHealth.ReduceAfflictionOnAllLimbs(YAMJ.OreInGutId, 2f);
+            character.CharacterHealth.ReduceAfflictionOnAllLimbs(AfflictionIds.OreInGut, 2f);
         }
         
         if (gutContainsMetal) {
-            character.CharacterHealth.AddAffliction(YAMJ.MetalInGutPrefab.Instantiate(1f));
+            character.CharacterHealth.AddAffliction(AfflictionPrefabs.MetalInGut.Instantiate(1f));
         }
         else {
-            character.CharacterHealth.ReduceAfflictionOnAllLimbs(YAMJ.MetalInGutId, 2f);
+            character.CharacterHealth.ReduceAfflictionOnAllLimbs(AfflictionIds.MetalInGut, 2f);
         }
         
         ModifyHunger(character.CharacterHealth, hungerDelta * deltaTime);
