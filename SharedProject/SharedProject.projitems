@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\AssemblySettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\BondDoctor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorAim.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\BondCaptain.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\BondSecurity.cs" />

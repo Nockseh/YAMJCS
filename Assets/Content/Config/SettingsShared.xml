@@ -62,12 +62,29 @@
         <Setting Name="FamiliarWatersDamageBonus" Type="rangeFloat"
                  Value="0.25" Min="0.0" Max="5.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+                 
         <Setting Name="DoctorBondBurnResist" Type="rangeFloat"
-                 Value="0.20" Min="0.00" Max="1.00" Steps="101"
+                 Value="0.10" Min="0.00" Max="1.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="DoctorBondPoisonResist" Type="rangeFloat"
-                 Value="0.20" Min="0.00" Max="1.00" Steps="101"
+                 Value="0.10" Min="0.00" Max="1.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondDebuffResist" Type="rangeFloat"
+                 Value="0.25" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondDebuffResist" Type="rangeFloat"
+                 Value="0.25" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondInfectionDuration" Type="rangeFloat"
+                 Value="45" Min="5" Max="180" Steps="176"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondInfectionCooldown" Type="rangeFloat"
+                 Value="120" Min="0" Max="600" Steps="121"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="DoctorBondInfectionHealFraction" Type="rangeFloat"
+                 Value="0.50" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        
         <Setting Name="ShrapnelSpitCost" Type="rangeFloat"
                  Value="30" Min="0" Max="100" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
@@ -77,6 +94,7 @@
         <Setting Name="ShrapnelBleeding" Type="rangeFloat"
                  Value="5" Min="0" Max="100" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+                 
         <Setting Name="ChargedBiteDamageBonus" Type="rangeFloat"
                  Value="0.50" Min="0.00" Max="10.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
@@ -95,6 +113,7 @@
         <Setting Name="ClearVisionRange" Type="rangeFloat"
                  Value="2000" Min="0" Max="20000" Steps="81"
                  NetSync="TwoWay" ShowInMenus="true" />
+                 
         <Setting Name="CaptainProxBuffResist" Type="rangeFloat"
                  Value="0.3" Min="0.0" Max="1.0" Steps="21"
                  NetSync="TwoWay" ShowInMenus="true" />

@@ -107,6 +107,11 @@ The effect does not stack.</YAMJCS.DoctorBondBurnResist.Tooltip>
   <YAMJCS.DoctorBondPoisonResist.Tooltip>Amount of poison resist (percent) given to all allies.
 The effect does not stack.</YAMJCS.DoctorBondPoisonResist.Tooltip>
   <YAMJCS.DoctorBondPoisonResist.DisplayCategory>Talents</YAMJCS.DoctorBondPoisonResist.DisplayCategory>
+
+  <YAMJCS.DoctorBondPoisonResist.DisplayName>(Bond with Doctor) Debuff Resist</YAMJCS.DoctorBondPoisonResist.DisplayName>
+  <YAMJCS.DoctorBondPoisonResist.Tooltip>Amount of debuff resist (percent) given to all allies.
+The effect does not stack.</YAMJCS.DoctorBondPoisonResist.Tooltip>
+  <YAMJCS.DoctorBondPoisonResist.DisplayCategory>Talents</YAMJCS.DoctorBondPoisonResist.DisplayCategory>
   
   <YAMJCS.ShrapnelSpitCost.DisplayName>(Bond with Mechanic) Shrapnel Spit Cost</YAMJCS.ShrapnelSpitCost.DisplayName>
   <YAMJCS.ShrapnelSpitCost.Tooltip>How much condition is taken from a piece of metal when a raptor spits it out as a shrapnel attack.</YAMJCS.ShrapnelSpitCost.Tooltip>
@@ -221,8 +226,9 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <yamjConfig.CanOpenerDamageBonus.percent>300</yamjConfig.CanOpenerDamageBonus.percent>
   <yamjConfig.FamiliarWatersDamageBonus.percent>25</yamjConfig.FamiliarWatersDamageBonus.percent>
   <yamjConfig.SleepWindupTime.float>5</yamjConfig.SleepWindupTime.float>
-  <yamjConfig.DoctorBondBurnResist.percent>20</yamjConfig.DoctorBondBurnResist.percent>
-  <yamjConfig.DoctorBondPoisonResist.percent>20</yamjConfig.DoctorBondPoisonResist.percent>
+  <yamjConfig.DoctorBondBurnResist.percent>10</yamjConfig.DoctorBondBurnResist.percent>
+  <yamjConfig.DoctorBondPoisonResist.percent>10</yamjConfig.DoctorBondPoisonResist.percent>
+  <yamjConfig.DoctorBondDebuffResist.percent>25</yamjConfig.DoctorBondDebuffResist.percent>
   <yamjConfig.ChargedBiteDamageBonus.percent>50</yamjConfig.ChargedBiteDamageBonus.percent>
   <yamjConfig.ChargedBiteStun>6</yamjConfig.ChargedBiteStun>
   <yamjConfig.ChargedBiteCooldown.int>60</yamjConfig.ChargedBiteCooldown.int>
@@ -476,6 +482,7 @@ Gain [amount]% [burnresist].</talentdescription.yamjSpeechAdvanced>
   
   <afflictiontype.burn>Burn</afflictiontype.burn>
   <afflictiontype.poison>Poison</afflictiontype.poison>
+  <afflictiontype.debuff>Debuff</afflictiontype.debuff>
   
   <afflictionname.yamjHunger>Hungry</afflictionname.yamjHunger>
   <afflictiondescription.yamjHunger.veryLow>A faint restlessness... subject is hungry.</afflictiondescription.yamjHunger.veryLow>
@@ -543,14 +550,19 @@ During your frenzy, the captain is provided with [awayResist]% damage resistance
   <!-- Bond with Doctor -->
   <talentname.yamjBondDoctor>Plague Rat (Bond with Medic)</talentname.yamjBondDoctor>
   <talentdescription.yamjBondDoctor>Hopefully your crewmates are immune to whatever you're harboring...
-You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
-You and your allies gain [burnResist]% resistance to [burn] and [poisonResist]% resistance to [poison].
-You can store genetic material in your gut, identifying and refining it over time.
-All player raptor bites have a strong chance to be poisonous.</talentdescription.yamjBondDoctor>
+    You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
+    You and your allies gain [burnResist]% resistance to [burn], [poisonResist]% resistance to [poison], and [debuffResist]% resistance to [debuff].
+    You can store genetic material in your gut, identifying and refining it over time.
+    All player raptor bites have a strong chance to be poisonous.
+    If you find your allies unconscious, you can give them a fate worse than death...</talentdescription.yamjBondDoctor>
   <afflictionname.yamjDoctorBurnResist>Burn Resistance</afflictionname.yamjDoctorBurnResist>
   <afflictiondescription.yamjDoctorBurnResist><!-- todo add value tag--></afflictiondescription.yamjDoctorBurnResist>
   <afflictionname.yamjDoctorPoisonResist>Poison Resistance</afflictionname.yamjDoctorPoisonResist>
   <afflictiondescription.yamjDoctorPoisonResist><!-- todo add value tag--></afflictiondescription.yamjDoctorPoisonResist>
+  <afflictionname.yamjDoctorDebuffResist>Debuff Resistance</afflictionname.yamjDoctorDebuffResist>
+  <afflictiondescription.yamjDoctorDebufResist><!-- todo add value tag--></afflictiondescription.yamjDoctorDebufResist>
+  <afflictionname.yamjZombieInfection>Infected</afflictionname.yamjZombieInfection>
+  <afflictiondescription.yamjZombieInfection>...?</afflictiondescription.yamjZombieInfection>
   
   <!-- Bond with Security -->
   <talentname.yamjBondSecurity>Heat-Seeking Missile (Bond with Security)</talentname.yamjBondSecurity>

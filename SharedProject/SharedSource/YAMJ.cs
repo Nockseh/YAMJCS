@@ -92,9 +92,16 @@ internal static partial class YAMJ
         return false;
     }
     
-    internal static void ApplyAtMaxStrength(Character character, AfflictionPrefab? prefab) {
-        if (prefab is null) { return; }
-        character.CharacterHealth.AddAffliction(prefab.Instantiate(prefab.MaxStrength * 1000f));
+    public static void ApplyAtMaxStrength(Character? character, AfflictionPrefab? prefab) {
+        if (character is null || character.Removed || prefab is null) { return; }
+
+        CharacterHealth? health = character.CharacterHealth;
+        if (health is null) { return; }
+
+        float vitalityScale = health.MaxVitality / 100f;
+        if (vitalityScale <= 0f) { vitalityScale = 1f; }
+
+        health.AddAffliction(prefab.Instantiate(prefab.MaxStrength * vitalityScale));
     }
     
     //Shared

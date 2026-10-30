@@ -37,6 +37,7 @@ internal static class YAMJConfig {
     internal static float CanOpenerDamageBonus => GetFloat("CanOpenerDamageBonus") ?? 3.00f;
     internal static float ShrapnelSpitCost => GetFloat("ShrapnelSpitCost") ?? 30f;
     internal static float HandlerMarkDuration => GetFloat("HandlerMarkDuration") ?? 15f;
+    internal static float DoctorBondInfectionHealFraction => GetFloat("DoctorBondInfectionHealFraction") ?? 0.5f;
         //combat 
     //(XML only) 
         //sleep 
@@ -95,6 +96,10 @@ internal static class YAMJConfig {
         //bond with doctor
         Bind(configService, thisPackage, "DoctorBondBurnResist");
         Bind(configService, thisPackage, "DoctorBondPoisonResist");
+        Bind(configService, thisPackage, "DoctorBondDebuffResist");
+        Bind(configService, thisPackage, "DoctorBondInfectionDuration");
+        Bind(configService, thisPackage, "DoctorBondInfectionCooldown");
+        Bind(configService, thisPackage, "DoctorBondInfectionHealFraction");
         //bond with mechanic
         Bind(configService, thisPackage, "ShrapnelSpitCost");
         Bind(configService, thisPackage, "ShrapnelLacerations");

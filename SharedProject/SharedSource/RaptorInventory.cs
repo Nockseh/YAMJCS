@@ -19,7 +19,7 @@ internal static partial class PatchTargets {
                 typeof(bool)    //triggerOnInsertedEffects = true
             }) ??
         throw new Exception("CharacterInventory.TryPutItem(Item, int, bool, bool, Character, ...) not found");
-        
+
     internal static MethodBase CharacterInventory_CanBePutInSlot =>
         AccessTools.Method(
             typeof(CharacterInventory),
@@ -44,7 +44,7 @@ internal static partial class PatchTargets {
                 typeof(bool)
             }) ??
         throw new Exception("CharacterInventory.TryPutItem(Item, Character, IEnumerable<InvSlotType>, ...) not found");
-        
+
 #if CLIENT
 // unfortunately the client determines if it even sends the request to server so i gotta patch that too
 // here seems like the best place to put it
@@ -66,18 +66,32 @@ internal static class RaptorInventory {
     private static readonly Identifier BondWithDoctor = "yamjBondDoctor".ToIdentifier();
 
     // Helper Functions
+    internal static bool IsRaptorGear(Item item) {
+        return item.HasTag(YAMJ.RaptorOnlyTag);
+    }
+
     internal static bool CanBeWorn(Item item, Character character) {
-        if (item.HasTag(YAMJ.RaptorOnlyTag) && !YAMJ.IsPlayerRaptor(character)) {
+        if (IsRaptorGear(item) && !YAMJ.IsPlayerRaptor(character)) {
             return false;
         }
-        
+
         return true;
     }
-    
-    internal static bool IsGutSlot(CharacterInventory inventory, int index) {
-        if (!YAMJ.IsPlayerRaptor(inventory.character)) { return false; } //only pRaptor HealthInterface slots are considered "gut" slots
+
+    //only pRaptor slots count as gut/outer-clothes slots for the custom placement rules
+    private static InvSlotType RaptorSlotTypeAt(CharacterInventory inventory, int index) {
+        if (!YAMJ.IsPlayerRaptor(inventory.character)) { return InvSlotType.None; }
         InvSlotType[] slotTypes = inventory.SlotTypes;
-        return slotTypes[index].HasFlag(InvSlotType.HealthInterface);
+        if (slotTypes is null || index < 0 || index >= slotTypes.Length) { return InvSlotType.None; }
+        return slotTypes[index];
+    }
+
+    internal static bool IsGutSlot(CharacterInventory inventory, int index) {
+        return RaptorSlotTypeAt(inventory, index).HasFlag(InvSlotType.HealthInterface);
+    }
+
+    internal static bool IsRaptorOuterClothesSlot(CharacterInventory inventory, int index) {
+        return RaptorSlotTypeAt(inventory, index).HasFlag(InvSlotType.OuterClothes);
     }
 
     internal static bool CanDigest(Item item, Character character) {
@@ -99,13 +113,13 @@ internal static class RaptorInventory {
 
         return false;
     }
-    
+
     // GrantSlots() and RevokeSlots() are no longer used but might be useful
     /*
     internal static InvSlotType GrantSlots(Item item, InvSlotType slotTypes) {
         InvSlotType granted = InvSlotType.None;
         foreach (InvSlotType flag in EnumExtensions.GetIndividualFlags(slotTypes)) {
-            
+
             // if (flag == InvSlotType.None || item.AllowedSlots.Contains(flag)) { continue; }
             // the client is patched to lie about AllowedSlots so i'm pretty sure you can't use the above code anymore
             bool alreadyDeclared = false;
@@ -116,7 +130,7 @@ internal static class RaptorInventory {
                 }
             }
             if (flag == InvSlotType.None || alreadyDeclared) { continue; }
-            
+
             foreach (Pickable pickable in item.GetComponents<Pickable>()) {
                 pickable.AllowedSlots.Add(flag);
             }
@@ -124,7 +138,7 @@ internal static class RaptorInventory {
         }
         return granted;
     }
-    
+
     internal static void RevokeSlots(Item item, InvSlotType slotTypes) {
         foreach (InvSlotType flag in EnumExtensions.GetIndividualFlags(slotTypes)) {
             if (flag == InvSlotType.None) { continue; }
@@ -162,10 +176,10 @@ internal static class RaptorInventory {
 [HarmonyPatch] //custom inventory slot logic - manual item placement
 internal static class CharacterInventory_TryPutItem {
     static MethodBase TargetMethod() => PatchTargets.CharacterInventory_TryPutItem_Index;
-    
+
     static bool Prefix(CharacterInventory __instance, Item item, int index, Character user, bool createNetworkEvent, bool triggerOnInsertedEffects, ref bool __result) {
-        
-        //necessary to replicate vanilla safeguards cus i might exit early
+
+        // It is necessary to replicate vanilla safeguards as this function might exit early.
         if (item is null) { return true; }
         InvSlotType[] slotTypes = __instance.SlotTypes;
         if (slotTypes is null || index < 0 || index >= slotTypes.Length) { return true; }
@@ -177,38 +191,42 @@ internal static class CharacterInventory_TryPutItem {
             return false;
         }
 
-        // allow raptors to eat things
-        if (RaptorInventory.IsGutSlot(__instance, index)) {
-            if (!RaptorInventory.CanDigest(item, __instance.character)) {
-                __result = false;
-                return false;
-            }
+        // allow raptors to eat things and wear raptor clothes
+        bool isGutSlot = RaptorInventory.IsGutSlot(__instance, index);
+        bool isOuterClothesSlot = RaptorInventory.IsRaptorOuterClothesSlot(__instance, index);
+        if (!isGutSlot && !isOuterClothesSlot) { return true; }
 
-            if (__instance.GetItemsAt(index).Any()) { return true; }
-            
-            //vanilla only uses indexes for non-Any slots, must use custom PutInSlot() method
-            if (RaptorInventory.PutInSlot(__instance, item, index, user, createNetworkEvent, triggerOnInsertedEffects)) {
-                __result = true;
-                return false;
-            }
+        if (isGutSlot && !RaptorInventory.CanDigest(item, __instance.character)) {
+            __result = false;
+            return false;
         }
 
-        // default
-        return true;
+        if (isOuterClothesSlot && !RaptorInventory.IsRaptorGear(item)) { return true; }
+        if (__instance.GetItemsAt(index).Any()) { return true; }
+        //index only works for `Any` slots, must use custom PutInSlot() method
+        if (!RaptorInventory.PutInSlot(__instance, item, index, user, createNetworkEvent, triggerOnInsertedEffects)) {
+            return true;
+        }
+        if (isOuterClothesSlot) {
+            item.Equip(__instance.character);
+        }
+
+        __result = true;
+        return false;
     }
 }
 
 [HarmonyPatch] //custom inventory slot logic - allowance prediction, slot glow ui, ai behavior
 internal static class CharacterInventory_CanBePutInSlot {
     static MethodBase TargetMethod() => PatchTargets.CharacterInventory_CanBePutInSlot;
-    
+
     static void Postfix(CharacterInventory __instance, Item item, int i, ref bool __result) {
         //vanilla safeguards
         if (item is null) { return; }
         InvSlotType[] slotTypes = __instance.SlotTypes;
         if (slotTypes is null || i < 0 || i >= slotTypes.Length) { return; }
         InvSlotType slotType = slotTypes[i];
-        
+
         // pRaptor gear is only wearable by raptors
         if (slotType.HasAnyFlag(RaptorInventory.WearSlots)) {
             if (!RaptorInventory.CanBeWorn(item, __instance.character)) {
@@ -216,7 +234,7 @@ internal static class CharacterInventory_CanBePutInSlot {
                 return;
             }
         }
-        
+
         // some things are edible (HealthInterface slots on pRaptors)
         if (RaptorInventory.IsGutSlot(__instance, i)) {
             if (__instance.GetItemsAt(i).Any()) {
@@ -224,14 +242,13 @@ internal static class CharacterInventory_CanBePutInSlot {
                 return; //replicating vanilla safeguards again; non-Any slots only allow SINGLE stacks
             }
 
-            if (RaptorInventory.CanDigest(item, __instance.character)) {
-                __result = true;
-                return;
-            }
-            else {
-                __result = false;
-                return;
-            }
+            __result = RaptorInventory.CanDigest(item, __instance.character);
+            return;
+        }
+
+        // raptor-only gear fits a pRaptor's OuterClothes slot even if its prefab never declares the slot
+        if (RaptorInventory.IsRaptorOuterClothesSlot(__instance, i) && RaptorInventory.IsRaptorGear(item)) {
+            __result = !__instance.GetItemsAt(i).Any();
         }
     }
 }
@@ -248,7 +265,7 @@ internal static class CharacterInventory_AutoEquipPatch {
                 .Where(slot => (slot & RaptorInventory.WearSlots) == InvSlotType.None)
                 .ToList();
         }
-        
+
         //disallow raptors from eating genes without talent (since they have HealthInterface slotType already)
         if (YAMJ.IsPlayerRaptor(__instance.character) && !RaptorInventory.CanDigest(item, __instance.character)) {
             allowedSlots = allowedSlots
@@ -262,16 +279,20 @@ internal static class CharacterInventory_AutoEquipPatch {
 [HarmonyPatch] //client reads edibles as having HealthInterface slotType. THIS IS READ SEVERAL TIMES EVERY FRAME.
 internal static class Item_AllowedSlots_Get {
     static MethodBase TargetMethod() => PatchTargets.Item_AllowedSlots_Get;
-    
+
     static void Postfix(Item __instance, ref IEnumerable<InvSlotType> __result) {
         if (Inventory.DraggingItems.Count == 0 && CharacterHealth.OpenHealthWindow is null) { return; }
 
         Character? controlled = Character.Controlled;
         if (controlled is null || !YAMJ.IsPlayerRaptor(controlled)) { return; }
-        if (!RaptorInventory.CanDigest(__instance, controlled)) { return; }
-        if (__result.Contains(InvSlotType.HealthInterface)) { return; }
 
-        __result = __result.Append(InvSlotType.HealthInterface);
+        if (RaptorInventory.CanDigest(__instance, controlled) && !__result.Contains(InvSlotType.HealthInterface)) {
+            __result = __result.Append(InvSlotType.HealthInterface);
+        }
+
+        if (RaptorInventory.IsRaptorGear(__instance) && !__result.Contains(InvSlotType.OuterClothes)) {
+            __result = __result.Append(InvSlotType.OuterClothes);
+        }
     }
 }
 #endif

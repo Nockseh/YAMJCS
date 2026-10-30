@@ -965,6 +965,8 @@
       <Replace tag="[burn]" value="afflictiontype.burn" color="gui.orange" />
       <Replace tag="[poisonResist]" value="yamjConfig.DoctorBondPoisonResist.percent" color="gui.green" />
       <Replace tag="[poison]" value="afflictiontype.poison" color="gui.orange" />
+      <Replace tag="[debuffResist]" value="yamjConfig.DoctorBondDebuffResist.percent" color="gui.green" />
+      <Replace tag="[debuff]" value="afflictiontype.debuff" color="gui.orange" />
     </Description>
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="Mudraptor Thermal Medical Helm" color="gui.orange" />
@@ -990,6 +992,7 @@
             <StatusEffect type="OnAbility" target="Character" setValue="true" disableDeltaTime="true">
               <Affliction identifier="yamjDoctorBurnResist" strength="1.0" />
               <Affliction identifier="yamjDoctorPoisonResist" strength="1.0" />
+              <Affliction identifier="yamjDoctorDebuffResist" strength="1.0" />
             </StatusEffect>
           </StatusEffects>
         </CharacterAbilityApplyStatusEffectsToAllies>

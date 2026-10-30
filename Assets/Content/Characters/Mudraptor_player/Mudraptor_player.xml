@@ -64,7 +64,7 @@
     <sound File="Content/Characters/Mudraptor/MUDRAPTOR_idle4.ogg" State="Idle" Range="2000" Volume="1" Tags="" />
     <sound File="Content/Characters/Mudraptor/MUDRAPTOR_death1.ogg" State="Die" Range="2000" Volume="1" Tags="" />
     <sound File="Content/Characters/Mudraptor/MUDRAPTOR_death2.ogg" State="Die" Range="2000" Volume="1" Tags="" />
-    <Inventory Slots="Card, Headset, Head, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface, HealthInterface, HealthInterface" AccessibleWhenAlive="True" />
+    <Inventory Slots="Card, Headset, Head, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface, HealthInterface, HealthInterface" AccessibleWhenAlive="True" />
     <Heads>
       <Head tags="head1,raptor" sheetindex="0,0" />
       <Head tags="head2,raptor" sheetindex="1,0" />

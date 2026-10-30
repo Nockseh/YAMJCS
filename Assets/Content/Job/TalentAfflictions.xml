@@ -152,7 +152,8 @@
   
   <!-- Bond Buffs -->
     <!--Doctor-->
-    <!-- 20% burn resist-->
+    
+    <!-- burn resist-->
   <Affliction identifier="yamjDoctorBurnResist"
               type="talentbuff" isBuff="true" limbSpecific="false"
               maxStrength="1" duration="5"
@@ -160,10 +161,11 @@
     <!--todo vanilla burn icon -->
     <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="768,640,128,128" color="0,204,102,255" origin="0,0"/>
     <Effect minStrength="0" maxStrength="1"
-            resistanceFor="burn" minResistance="0.2" maxResistance="0.2"
+            resistanceFor="burn" minResistance="0.1" maxResistance="0.1"
             configoverride="minResistance=DoctorBondBurnResist;maxResistance=DoctorBondBurnResist"/>
   </Affliction>
-    <!-- 20% poison resist -->
+  
+    <!-- poison resist -->
   <Affliction identifier="yamjDoctorPoisonResist"
               type="talentbuff" isBuff="true" limbSpecific="false"
               maxStrength="1" duration="5"
@@ -171,9 +173,81 @@
     <!--todo vanilla poison icon -->
     <icon texture="Content/UI/MainIconsAtlas.png" sourceRect="640,640,128,128" color="0,204,102,255" origin="0,0"/>
     <Effect minStrength="0" maxStrength="1"
-            resistanceFor="poison" minResistance="0.2" maxResistance="0.2"
+            resistanceFor="poison" minResistance="0.1" maxResistance="0.1"
             configoverride="minResistance=DoctorBondPoisonResist;maxResistance=DoctorBondPoisonResist"/>
   </Affliction>
+  
+  <!-- debuff resist -->
+  <Affliction identifier="yamjDoctorDebuffResist"
+              type="talentbuff" isBuff="true" limbSpecific="false"
+              maxStrength="1" duration="5"
+              showBarInHealthMenu="false" hideIconAfterDelay="true">
+    <!--todo icon -->
+    <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="768,640,128,128" color="0,204,102,255" origin="0,0"/>
+    <Effect minStrength="0" maxStrength="1"
+            resistanceFor="debuff,paralysis,slow,nausea" minResistance="0.25" maxResistance="0.25"
+            configoverride="minResistance=DoctorBondDebuffResist;maxResistance=DoctorBondDebuffResist"/>
+  </Affliction>
+
+  <Affliction identifier="yamjZombieInfection"
+              type="talentbuff" isBuff="true" limbSpecific="false"
+              maxStrength="45" showIconThreshold="0" showIconToOthersThreshold="0"
+              treatmentThreshold="1000" showBarInHealthMenu="true"
+              configoverride="maxStrength=DoctorBondInfectionDuration">
+    <!--todo icon-->
+    <AfflictionOverlayAnimated texture="%ModDir%/UI/InfectionOverlay.png" columns="8" rows="16" animspeed="20" />
+    <Effect minStrength="0" maxStrength="45" strengthChange="-1"
+            configoverride="maxStrength=DoctorBondInfectionDuration"
+            minSpeedMultiplier="1.00" maxSpeedMultiplier="0.05"
+            minAfflictionOverlayAlphaMultiplier="0.0" maxAfflictionOverlayAlphaMultiplier="1.0"
+            minScreenBlur="0.0" maxScreenBlur="10.0"
+            minRadialDistort="0.0" maxRadialDistort="0.3"
+            minChromaticAberration="0.0" maxChromaticAberration="2.0"
+            grainColor="120,200,60,255" minGrainStrength="0.0" maxGrainStrength="0.5">
+      <AbilityFlag flagType="AlwaysStayConscious" />
+    </Effect>
+    <PeriodicEffect mininterval="8" maxinterval="16">
+      <!-- rooted for the length of the animation -->
+      <StatusEffect target="Character" SpeedMultiplier="0.0" setvalue="true" duration="1.7" />
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional hasspecifiertag="male"/>
+        <Sound file="Content/Sounds/HUMAN_chokeMale1.ogg" selectionmode="Random" />
+        <Sound file="Content/Sounds/HUMAN_chokeMale2.ogg" />
+        <Sound file="Content/Sounds/HUMAN_chokeMale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional hasspecifiertag="female"/>
+        <Sound file="Content/Sounds/HUMAN_chokeFemale1.ogg" selectionmode="Random" />
+        <Sound file="Content/Sounds/HUMAN_chokeFemale2.ogg" />
+        <Sound file="Content/Sounds/HUMAN_chokeFemale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character" duration="2">
+        <TriggerAnimation Type="Walk" filename="Vomit" priority="10" ExpectedSpecies="Human" />
+      </StatusEffect>
+      <StatusEffect target="Character" targetlimbs="Head" delay="0.3" duration="1">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
+        <Conditional HideFace="eq False" />
+      </StatusEffect>
+      <StatusEffect target="Character" targetlimbs="Head" delay="0.5" offset="0,-20" randomoffset="32">
+        <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="vomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
+        <Conditional HideFace="eq False" />
+      </StatusEffect>
+    </PeriodicEffect>
+  </Affliction>
+  
+  <!-- can't be re-infected until this runs out [Hidden] -->
+  <Affliction identifier="yamjDoctorInfectionCooldown"
+              type="talentbuff" isBuff="true" limbSpecific="false"
+              maxStrength="120" showBarInHealthMenu="false"
+              showIconThreshold="1000" showIconToOthersThreshold="1000"
+              showInHealthScannerThreshold="1000" treatmentThreshold="1000"
+              configoverride="maxStrength=DoctorBondInfectionCooldown">
+    <Effect minStrength="0" maxStrength="120" strengthChange="-1"
+            configoverride="maxStrength=DoctorBondInfectionCooldown" />
+  </Affliction>
+  
     <!--======-->
   
     <!--Captain-->
