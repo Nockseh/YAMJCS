@@ -1,7 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
 
-  <Item name="quickChat headset" identifier="raptorHeadset" category="Equipment" tags="smallitem,mobileradio" description="" cargoContainerIdentifier="metalcrate" impactSoundTag="impact_metal_light">
+  <Item identifier="yamjTeslaHarness" category="Equipment" tags="largeitem,yamjraptoronly" cargoContainerIdentifier="metalcrate" health="100"
+        damagedByMonsters="false" damagedByProjectiles="false" damagedByMeleeWeapons="false" damagedByExplosions="false" damagedByRepairTools="false"
+        impactSoundTag="impact_metal_heavy">
+    <PreferredContainer primary="engcab"/>
+
+    <!--todo sprites-->
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourceRect="64,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourceRect="227,163,48,24" depth="0.6" origin="0.5,0.5" />
+    <Body width="48" height="24" density="15" />
+
+    <Fabricate suitableFabricators="fabricator" requiredTime="120" requiresRecipe="true" hideIfNoRecipe="true" outCondition="0">
+      <RequiredSkill identifier="electrical" level="30" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="3" />
+      <RequiredItem identifier="ballisticfiber" amount="1" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="batterycell" amount="5" />
+    </Fabricate>
+    <Deconstruct time="30">
+      <Item identifier="titanium" amount="3" />
+      <Item identifier="aluminium" amount="2" />
+      <Item identifier="copper" amount="2" />
+      <Item identifier="batterycell" amount="2" />
+    </Deconstruct>
+    
+    <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displayContainedStatus="true" canBeSelected="false" canBePicked="true" pickKey="Select">
+      <!--todo worn sprite vvv-->
+      <sprite name="Tesla Harness Wearable" texture="Content/Items/Tools/tools.png" sourceRect="227,163,48,24" limb="Torso" inheritLimbDepth="true" inheritScale="true" origin="0.5,0.5" />
+      <StatusEffect type="OnWearing" target="Character" setValue="true" disableDeltaTime="true" AllowWhenBroken="true">
+        <Affliction identifier="yamjShockResist" strength="1" />
+      </StatusEffect>
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" controlPose="true" holdAngle="30" holdPos="0,-40" msg="ItemMsgPickUpUse" canBeSelected="false" canBePicked="true" pickKey="Use" />
+    
+    <ItemContainer capacity="3" maxStackSize="1" hideItems="true" slotsPerRow="3" containedStateIndicatorStyle="tank">
+      <SlotIcon slotIndex="0" texture="%ModDir%/UI/batteryChargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
+      <SlotIcon slotIndex="1" texture="%ModDir%/UI/batteryChargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
+      <SlotIcon slotIndex="2" texture="%ModDir%/UI/batteryChargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
+      <Containable items="mobilebattery" excludeBroken="false" excludeFullCondition="true">
+        <StatusEffect type="OnContaining" target="Contained" Condition="5">
+          <Conditional Condition="gt 0" TargetContainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContaining" target="This" Condition="-1" configoverride="Condition=HarnessChargeOutRate">
+          <Conditional Condition="gt 0" />
+        </StatusEffect>
+      </Containable>
+
+      <SlotIcon slotIndex="3" texture="%ModDir%/UI/batteryDischargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
+      <SlotIcon slotIndex="4" texture="%ModDir%/UI/batteryDischargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
+      <SlotIcon slotIndex="5" texture="%ModDir%/UI/batteryDischargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
+      <SubContainer capacity="3" maxStackSize="1">
+        <Containable items="mobilebattery">
+          <StatusEffect type="OnContaining" target="Contained" Condition="-5">
+            <Conditional Condition="lt 100" TargetContainer="true" />
+          </StatusEffect>
+          <StatusEffect type="OnContaining" target="This" Condition="1" configoverride="Condition=HarnessChargeInRate">
+            <Conditional Condition="lt 100" />
+          </StatusEffect>
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+
+  <Item identifier="raptorHeadset" category="Equipment" tags="smallitem,mobileradio" cargoContainerIdentifier="metalcrate" impactSoundTag="impact_metal_light">
     <PreferredContainer primary="crewcab" secondary="divingcab"/>
     <Price basePrice="200">
       <Price storeIdentifier="merchantoutpost" minAvailable="1" />

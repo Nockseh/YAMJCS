@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\CreatureAttack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RaptorSteering.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\SharedPatches.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\TeslaHarness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\YAMJ.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\YAMJConfig.cs" />
   </ItemGroup>

@@ -25,6 +25,9 @@
         <Setting Name="EngineerFoodHungerReduction" Type="rangeFloat"
                  Value="0.1" Min="0.0" Max="5.0" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ReactiveGainRate" Type="rangeFloat"
+                 Value="0.12" Min="0.0" Max="2.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />   
         <Setting Name="MechanicFoodHungerReduction" Type="rangeFloat"
                  Value="0.1" Min="-5.0" Max="5.0" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
@@ -68,9 +71,6 @@
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="DoctorBondPoisonResist" Type="rangeFloat"
                  Value="0.10" Min="0.00" Max="1.00" Steps="101"
-                 NetSync="TwoWay" ShowInMenus="true" />
-        <Setting Name="DoctorBondDebuffResist" Type="rangeFloat"
-                 Value="0.25" Min="0.00" Max="1.00" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="DoctorBondDebuffResist" Type="rangeFloat"
                  Value="0.25" Min="0.00" Max="1.00" Steps="101"
@@ -165,6 +165,12 @@
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="SleepHealOthersBloodLoss" Type="rangeFloat"
                  Value="0.05" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="ReactiveBurnRate" Type="rangeFloat"
+                 Value="1.0" Min="0.0" Max="100.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessShockResist" Type="rangeFloat"
+                 Value="0.8" Min="0.0" Max="1" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
         
     </Settings>

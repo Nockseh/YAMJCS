@@ -1,6 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Afflictions>
 
+  <!-- tesla harness buff -->
+  <Affliction identifier="yamjShockResist"
+              type="talentbuff" isBuff="true" limbSpecific="false"
+              maxStrength="1" duration="2"
+              showBarInHealthMenu="false" hideIconAfterDelay="true">
+    <!--todo icon -->
+    <Icon texture="Content/UI/CommandUIBackground.png" sourceRect="770,768,128,128" color="0,204,102,255" origin="0,0" />
+    <Effect minStrength="0" maxStrength="1"
+            resistanceFor="electricshock" minResistance="0.8" maxResistance="0.8"
+            configoverride="minResistance=TeslaHarnessShockResist;maxResistance=TeslaHarnessShockResist" />
+  </Affliction>
+
+  <!--tesla harness zap (visual effect)-->
+  <Affliction identifier="yamjHarnessDischarge"
+              type="talentbuff" isBuff="false" limbSpecific="false"
+              maxStrength="1" duration="0.6"
+              showBarInHealthMenu="false" showIconThreshold="1000" showIconToOthersThreshold="1000">
+    <Effect minStrength="0" maxStrength="1" strengthChange="-2">
+      <StatusEffect target="Character" interval="0.6" disableDeltaTime="true">
+        <ParticleEmitter particle="ElectricShock" distanceMin="0" distanceMax="50" particleAmount="5"
+                         angleMin="0" angleMax="360" scaleMin="0.1" scaleMax="0.2" />
+        <Sound file="Content/Items/Weapons/WEAPONS_electricalDischarge1.ogg" range="500" />
+      </StatusEffect>
+    </Effect>
+  </Affliction>
+
   <!--Spit Condition (Neurotoxin) [Hidden]-->
   <Affliction identifier="yamjNeurotoxinBuff" type="talentbuff" isBuff="true" limbSpecific="false" showIconThreshold="1000" showIconToOthersThreshold="1000" showInHealthScannerThreshold="1000" maxStrength="1" treatmentThreshold="1000" iconColors="153,170,187">
     <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="0,0,128,128" color="255,255,255,255" origin="0,0" />

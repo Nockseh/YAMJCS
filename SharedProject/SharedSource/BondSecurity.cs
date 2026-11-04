@@ -75,7 +75,7 @@ internal static class MarkVision {
             float dist = Vector2.DistanceSquared(refEntity.WorldPosition, c.WorldPosition);
             if (dist > range * range) { continue; }
 
-            Sprite pingCircle = GUIStyle.UIThermalGlow.Value.Sprite;
+            Sprite pingCircle = GUIStyle.UIThermalGlow.Value!.Sprite;
             foreach (Limb limb in c.AnimController.Limbs) {
                 if (limb.Mass < 0.5f && limb != c.AnimController.MainLimb) { continue; }
                 float noise1 = PerlinNoise.GetPerlin((effectState + limb.Params.ID + c.ID) * 0.01f, (effectState + limb.Params.ID + c.ID) * 0.02f);

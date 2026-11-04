@@ -906,36 +906,14 @@
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
-  
+
   <Talent identifier="yamjBondEngineer">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,2" sheetElementSize="128,128" />
-    <Description tag="talentdescription.yamjBondEngineer">
-      <Replace tag="[talentName]" value="talentname.lightningwizard" color="gui.orange" />
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.yamjTeslaHarness" color="gui.orange" />
     </Description>
-    <AbilityGroupInterval interval="0.5">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects maxDistance="1500" allowSelf="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="NearbyCharacters" range="1500" setValue="true" disableDeltaTime="true">
-              <Conditional isPlayer="true" />
-              <Affliction identifier="yamjBondEngineerBuff" strength="1.0" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-    <AbilityGroupInterval interval="1" maxTriggerCount="1">
-      <Abilities>
-        <CharacterAbilityApplyStatusEffects>
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="This">
-              <GiveTalentInfo talentIdentifiers="lightningwizard" />
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffects>
-      </Abilities>
-    </AbilityGroupInterval>
-    <AddedRecipe itemIdentifier="mudraptorEngiHelm" />
+    <AddedRecipe itemIdentifier="yamjTeslaHarness" />
+    <Description tag="talentdescription.yamjBondEngineer"/>
   </Talent>
   
   <Talent identifier="yamjBondMechanic">

@@ -143,8 +143,8 @@ internal class RaptorSpeech {
     internal static void RebuildWordButtons() {
         if (combatListLayout is null) return; //checking for initialized
 
-        basicListLayout.ClearChildren();
-        advListLayout.ClearChildren();
+        basicListLayout!.ClearChildren();
+        advListLayout!.ClearChildren();
         combatListLayout.ClearChildren();
         
         foreach (Identifier[] wordTable in GetKnownWordTags()) {

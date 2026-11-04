@@ -5,9 +5,9 @@ namespace YAMJCS
     public partial class Plugin : IAssemblyPlugin
     {
         // Server-specific code
-        public IConfigService ConfigService { get; set; }
-        public IPluginManagementService PluginService { get; set; }
-        public ILoggerService LoggerService { get; set; }
+        public IConfigService? ConfigService { get; set; }
+        public IPluginManagementService? PluginService { get; set; }
+        public ILoggerService? LoggerService { get; set; }
         //vars
         internal Harmony? HarmonyInstance;
         internal static Plugin? PluginInstance { get; private set; }
@@ -31,7 +31,7 @@ namespace YAMJCS
         public void PreInitPatching() { } //runs after constructor
 
         public void OnLoadCompleted() { //for code that relies on other plugins
-            YAMJ.SharedOnLoadCompleted(ConfigService, PluginService);
+            YAMJ.SharedOnLoadCompleted(ConfigService!, PluginService!);
         }
 
         public void Dispose() {

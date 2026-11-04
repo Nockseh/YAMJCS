@@ -44,7 +44,7 @@ internal static class Portraits {
     private static ContentXElement? spriteElement;
     private static string? spriteFile;
     private static bool sourceResolved;
-    private static PropertyInfo? jobPreferencesProperty;
+    //private static PropertyInfo? jobPreferencesProperty;
 
     private static bool RaptorIsTopJobPreference() {
         if (GameMain.NetLobbyScreen is null) { return false; }

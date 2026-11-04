@@ -7,7 +7,7 @@
                 maxStrength="1"
                 treatmentThreshold="1000"
                 iconColors="33,75,78;126,211,224;126,211,224;227,247,249">
-        <Effect minStrength="0" maxStrength="10" strengthChange="-5" resistanceFor="damage,stun" minResistance="0.45"
+        <Effect minStrength="0" maxStrength="1" strengthChange="-5" resistanceFor="damage,stun" minResistance="0.45"
                 maxResistance="0.45"/>
         <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,0" sheetElementSize="128,128" color="10,193,114,255"
               origin="0,0"/>

@@ -92,7 +92,7 @@ internal static class RaptorGut {
 
         Entity.Spawner?.AddItemToRemoveQueue(item);
         foreach (DeconstructItem output in outputs) {
-            ItemPrefab outputPrefab = MapEntityPrefab.FindByIdentifier(output.ItemIdentifier) as ItemPrefab;
+            ItemPrefab? outputPrefab = MapEntityPrefab.FindByIdentifier(output.ItemIdentifier) as ItemPrefab;
             if (outputPrefab is null) { continue; }
             for (int i = 0; i < output.Amount; i++) {
                 Entity.Spawner?.AddItemToSpawnQueue(outputPrefab, inventory);
@@ -108,6 +108,7 @@ internal static class RaptorGut {
 
         bool gutContainsOre = false;
         bool gutContainsMetal = false;
+        bool gutContainsRad = false;
         
         // loop through gut inventory 
         for (int i = 0; i < inventory.Capacity; i++) {
@@ -138,14 +139,17 @@ internal static class RaptorGut {
             }
             // Engineer Food
             else if (item.HasTag(YAMJ.EngineerFood)) {
+                gutContainsRad = true;
                 hungerDelta -= YAMJConfig.EngineerFoodHungerReduction;
                 item.Condition  -= YAMJConfig.EngineerFoodConditionReduction * deltaTime;
-                //todo later: apply affliction
                 if (item.Condition <= 0) {
                     Entity.Spawner?.AddItemToRemoveQueue(item);
-                    ItemPrefab.Prefabs.TryGet(DepletedFuelTag, out ItemPrefab? prefab);
-                    if (prefab is not null) {
-                        Entity.Spawner?.AddItemToSpawnQueue(prefab, inventory);
+                    //if rod, spawn depleted rod
+                    if (item.HasTag("reactorfuel".ToIdentifier())) {
+                        ItemPrefab.Prefabs.TryGet(DepletedFuelTag, out ItemPrefab? prefab);
+                        if (prefab is not null) {
+                            Entity.Spawner?.AddItemToSpawnQueue(prefab, inventory);
+                        }
                     }
                 }
             }
@@ -180,6 +184,10 @@ internal static class RaptorGut {
         else {
             character.CharacterHealth.ReduceAfflictionOnAllLimbs(AfflictionIds.MetalInGut, 2f);
         }
+        
+        if (gutContainsRad) {
+            AddStrength(character.CharacterHealth, AfflictionPrefabs.Reactive, YAMJConfig.ReactiveGainRate * deltaTime);
+        } //no `else` branch, decays on its own
         
         ModifyHunger(character.CharacterHealth, hungerDelta * deltaTime);
     }

@@ -20,12 +20,13 @@ internal static class YAMJConfig {
         //hunger 
     internal static float HungerRate => GetFloat("HungerRate") ?? 0.015f;
     internal static float EatingHungerReduction => GetFloat("EatingHungerReduction") ?? 4f;
-        //digestion hunger 
+        //digestion on raptor 
     internal static float BasicFoodHungerReduction => GetFloat("BasicFoodHungerReduction") ?? 1.0f;
     internal static float EngineerFoodHungerReduction => GetFloat("EngineerFoodHungerReduction") ?? 0.1f;
+    internal static float ReactiveGainRate => GetFloat("ReactiveGainRate") ?? 0.12f;
     internal static float MechanicFoodHungerReduction => GetFloat("MechanicFoodHungerReduction") ?? 0.1f;
     internal static float DoctorFoodHungerReduction => GetFloat("DoctorFoodHungerReduction") ?? -0.1f;
-        //digestion condition 
+        //digestion on item 
     internal static float BasicFoodConditionReduction => GetFloat("BasicFoodConditionReduction") ?? 1.0f;
     internal static float EngineerFoodConditionReduction => GetFloat("EngineerFoodConditionReduction") ?? 0.01f;
     internal static float MechanicFoodConditionReduction => GetFloat("MechanicFoodConditionReduction") ?? 0.2f;
@@ -38,6 +39,10 @@ internal static class YAMJConfig {
     internal static float ShrapnelSpitCost => GetFloat("ShrapnelSpitCost") ?? 30f;
     internal static float HandlerMarkDuration => GetFloat("HandlerMarkDuration") ?? 15f;
     internal static float DoctorBondInfectionHealFraction => GetFloat("DoctorBondInfectionHealFraction") ?? 0.5f;
+    internal static float TeslaHarnessRetaliateAbsorb => GetFloat("TeslaHarnessRetaliateAbsorb") ?? 0.15f;
+    internal static float TeslaHarnessRetaliateCost => GetFloat("TeslaHarnessRetaliateCost") ?? 20f;
+    internal static float TeslaHarnessRetaliateStun => GetFloat("TeslaHarnessRetaliateStun") ?? 0.25f;
+    internal static float TeslaHarnessRetaliateBurn => GetFloat("TeslaHarnessRetaliateBurn") ?? 15f;
         //combat 
     //(XML only) 
         //sleep 
@@ -77,6 +82,7 @@ internal static class YAMJConfig {
         
         Bind(configService, thisPackage, "BasicFoodHungerReduction");
         Bind(configService, thisPackage, "EngineerFoodHungerReduction");
+        Bind(configService, thisPackage, "ReactiveGainRate");
         Bind(configService, thisPackage, "MechanicFoodHungerReduction");
         Bind(configService, thisPackage, "DoctorFoodHungerReduction");
         
@@ -104,6 +110,13 @@ internal static class YAMJConfig {
         Bind(configService, thisPackage, "ShrapnelSpitCost");
         Bind(configService, thisPackage, "ShrapnelLacerations");
         Bind(configService, thisPackage, "ShrapnelBleeding");
+        //bond with engineer
+        Bind(configService, thisPackage, "ReactiveBurnRate");
+        Bind(configService, thisPackage, "TeslaHarnessShockResist");
+        Bind(configService, thisPackage, "TeslaHarnessRetaliateAbsorb");
+        Bind(configService, thisPackage, "TeslaHarnessRetaliateCost");
+        Bind(configService, thisPackage, "TeslaHarnessRetaliateStun");
+        Bind(configService, thisPackage, "TeslaHarnessRetaliateBurn");
         //bond with security
         Bind(configService, thisPackage, "ChargedBiteDamageBonus");
         Bind(configService, thisPackage, "ChargedBiteStun");

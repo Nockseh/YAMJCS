@@ -17,7 +17,7 @@ internal static partial class YAMJ
     internal static readonly Identifier RaptorOnlyTag = "yamjraptoronly".ToIdentifier();
     internal static readonly Identifier[] BasicFood = new Identifier[] {"food", "monsterfood", "plant"};
     internal static readonly Identifier[] MechanicFood = new Identifier[] {"ore","scrap"};
-    internal static readonly Identifier[] EngineerFood = new Identifier[] {"reactorfuel"};
+    internal static readonly Identifier[] EngineerFood = new Identifier[] {"reactorfuel,fulgurium,thorium,uranium,uraniumore,brockite,thorianite"};
     internal static readonly Identifier[] DoctorFood = new Identifier[] {"unidentifiedgeneticmaterial", "geneticmaterial"};
     internal static readonly Identifier[] ShrapnelAmmo = new Identifier[] {"munition_core","munition_tip"};
     // vars
@@ -113,53 +113,57 @@ internal static class AfflictionIds {
     internal static readonly Identifier Marked = "yamjMarked";
     internal static readonly Identifier ClearVision = "yamjClearVision";
     internal static readonly Identifier VouchBuff = "yamjVouchBuff";
+    internal static readonly Identifier HarnessDischarge = "yamjHarnessDischarge";
 }
 
 internal static class AfflictionPrefabs {
-    private static AfflictionPrefab? FindAfflictionPrefab(Identifier id) {
+    private static AfflictionPrefab FindAfflictionPrefab(Identifier id) {
         AfflictionPrefab.Prefabs.TryGet(id, out AfflictionPrefab? prefab);
         if (prefab is null) {
-            YAMJ.Log($"Affliction prefab {id} not found");
+            throw new Exception($"Affliction prefab {id} not found");
         }
         return prefab;
     }
     
     private static AfflictionPrefab? hunger = null;
-    internal static AfflictionPrefab? Hunger => hunger ??= FindAfflictionPrefab(AfflictionIds.Hunger);
+    internal static AfflictionPrefab Hunger => hunger ??= FindAfflictionPrefab(AfflictionIds.Hunger);
     
     private static AfflictionPrefab? satiated = null;
-    internal static AfflictionPrefab? Satiated => satiated ??= FindAfflictionPrefab(AfflictionIds.Satiated);
+    internal static AfflictionPrefab Satiated => satiated ??= FindAfflictionPrefab(AfflictionIds.Satiated);
     
     private static AfflictionPrefab? eating = null;
-    internal static AfflictionPrefab? Eating => eating ??= FindAfflictionPrefab(AfflictionIds.Eating);
+    internal static AfflictionPrefab Eating => eating ??= FindAfflictionPrefab(AfflictionIds.Eating);
     
     private static AfflictionPrefab? oreInGut = null;
-    internal static AfflictionPrefab? OreInGut => oreInGut ??= FindAfflictionPrefab(AfflictionIds.OreInGut);
+    internal static AfflictionPrefab OreInGut => oreInGut ??= FindAfflictionPrefab(AfflictionIds.OreInGut);
     
     private static AfflictionPrefab? metalInGut = null;
-    internal static AfflictionPrefab? MetalInGut => metalInGut ??= FindAfflictionPrefab(AfflictionIds.MetalInGut);
+    internal static AfflictionPrefab MetalInGut => metalInGut ??= FindAfflictionPrefab(AfflictionIds.MetalInGut);
 
     private static AfflictionPrefab? reactive = null;
-    internal static AfflictionPrefab? Reactive => reactive ??= FindAfflictionPrefab(AfflictionIds.Reactive);
+    internal static AfflictionPrefab Reactive => reactive ??= FindAfflictionPrefab(AfflictionIds.Reactive);
     
     private static AfflictionPrefab? infection = null;
-    internal static AfflictionPrefab? Infection => infection ??= FindAfflictionPrefab(AfflictionIds.Infection);
+    internal static AfflictionPrefab Infection => infection ??= FindAfflictionPrefab(AfflictionIds.Infection);
 
     private static AfflictionPrefab? infectionCooldown = null;
-    internal static AfflictionPrefab? InfectionCooldown => infectionCooldown ??= FindAfflictionPrefab(AfflictionIds.InfectionCooldown);
+    internal static AfflictionPrefab InfectionCooldown => infectionCooldown ??= FindAfflictionPrefab(AfflictionIds.InfectionCooldown);
 
     private static AfflictionPrefab? sicBuff = null;
-    internal static AfflictionPrefab? SicBuff => sicBuff ??= FindAfflictionPrefab(AfflictionIds.SicBuff);
+    internal static AfflictionPrefab SicBuff => sicBuff ??= FindAfflictionPrefab(AfflictionIds.SicBuff);
 
     private static AfflictionPrefab? sicCooldown = null;
-    internal static AfflictionPrefab? SicCooldown => sicCooldown ??= FindAfflictionPrefab(AfflictionIds.SicCooldown);
+    internal static AfflictionPrefab SicCooldown => sicCooldown ??= FindAfflictionPrefab(AfflictionIds.SicCooldown);
 
     private static AfflictionPrefab? sicAwayBuff = null;
-    internal static AfflictionPrefab? SicAwayBuff => sicAwayBuff ??= FindAfflictionPrefab(AfflictionIds.SicAwayBuff);
+    internal static AfflictionPrefab SicAwayBuff => sicAwayBuff ??= FindAfflictionPrefab(AfflictionIds.SicAwayBuff);
 
     private static AfflictionPrefab? captainProxBuff = null;
-    internal static AfflictionPrefab? CaptainProxBuff => captainProxBuff ??= FindAfflictionPrefab(AfflictionIds.CaptainProxBuff);
+    internal static AfflictionPrefab CaptainProxBuff => captainProxBuff ??= FindAfflictionPrefab(AfflictionIds.CaptainProxBuff);
 
     private static AfflictionPrefab? marked = null;
-    internal static AfflictionPrefab? Marked => marked ??= FindAfflictionPrefab(AfflictionIds.Marked);
+    internal static AfflictionPrefab Marked => marked ??= FindAfflictionPrefab(AfflictionIds.Marked);
+
+    private static AfflictionPrefab? harnessDischarge = null;
+    internal static AfflictionPrefab HarnessDischarge => harnessDischarge ??= FindAfflictionPrefab(AfflictionIds.HarnessDischarge);
 }
