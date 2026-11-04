@@ -105,7 +105,7 @@
   
   <!-- Familiar Water Buff: Bonuses in water -->
   <Affliction identifier="yamjFamiliarWaterBuff" showBarInHealthMenu="false" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="1" treatmentThreshold="1000" iconColors="33,75,78;126,211,224;126,211,224;227,247,249">
-    <Effect minStrength="1" maxStrength="1" strengthChange="0" resistanceFor="stun" minResistance="0.5" maxResistance="0.5">
+    <Effect minStrength="0" maxStrength="1" strengthChange="0" resistanceFor="stun" minResistance="0.5" maxResistance="0.5">
       <StatValue statType="MovementSpeed" value="0.15" />
     </Effect>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="5,0" sheetElementSize="128,128" color="10,193,114,255" origin="0,0" />

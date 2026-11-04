@@ -41,7 +41,7 @@ internal static class YAMJConfig {
     internal static float DoctorBondInfectionHealFraction => GetFloat("DoctorBondInfectionHealFraction") ?? 0.5f;
     internal static float TeslaHarnessRetaliateAbsorb => GetFloat("TeslaHarnessRetaliateAbsorb") ?? 0.15f;
     internal static float TeslaHarnessRetaliateCost => GetFloat("TeslaHarnessRetaliateCost") ?? 20f;
-    internal static float TeslaHarnessRetaliateStun => GetFloat("TeslaHarnessRetaliateStun") ?? 0.25f;
+    internal static float TeslaHarnessRetaliateStun => GetFloat("TeslaHarnessRetaliateStun") ?? 0.5f;
     internal static float TeslaHarnessRetaliateBurn => GetFloat("TeslaHarnessRetaliateBurn") ?? 15f;
         //combat 
     //(XML only) 
@@ -117,6 +117,8 @@ internal static class YAMJConfig {
         Bind(configService, thisPackage, "TeslaHarnessRetaliateCost");
         Bind(configService, thisPackage, "TeslaHarnessRetaliateStun");
         Bind(configService, thisPackage, "TeslaHarnessRetaliateBurn");
+        Bind(configService, thisPackage, "TeslaHarnessChargeInRate");
+        Bind(configService, thisPackage, "TeslaHarnessChargeOutRate");
         //bond with security
         Bind(configService, thisPackage, "ChargedBiteDamageBonus");
         Bind(configService, thisPackage, "ChargedBiteStun");

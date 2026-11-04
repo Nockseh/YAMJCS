@@ -42,7 +42,7 @@
         <StatusEffect type="OnContaining" target="Contained" Condition="5">
           <Conditional Condition="gt 0" TargetContainer="true" />
         </StatusEffect>
-        <StatusEffect type="OnContaining" target="This" Condition="-1" configoverride="Condition=HarnessChargeOutRate">
+        <StatusEffect type="OnContaining" target="This" Condition="-1" configoverride="Condition=TeslaHarnessChargeOutRate">
           <Conditional Condition="gt 0" />
         </StatusEffect>
       </Containable>
@@ -55,7 +55,7 @@
           <StatusEffect type="OnContaining" target="Contained" Condition="-5">
             <Conditional Condition="lt 100" TargetContainer="true" />
           </StatusEffect>
-          <StatusEffect type="OnContaining" target="This" Condition="1" configoverride="Condition=HarnessChargeInRate">
+          <StatusEffect type="OnContaining" target="This" Condition="1" configoverride="Condition=TeslaHarnessChargeInRate">
             <Conditional Condition="lt 100" />
           </StatusEffect>
         </Containable>

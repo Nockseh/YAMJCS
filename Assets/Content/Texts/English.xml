@@ -153,6 +153,30 @@ This is the amount of Bleeding damage each piece of shrapnel does.</YAMJCS.Shrap
   <YAMJCS.TeslaHarnessShockResist.DisplayName>(Bond with Engineer) Tesla Harness Shock Resist</YAMJCS.TeslaHarnessShockResist.DisplayName>
   <YAMJCS.TeslaHarnessShockResist.Tooltip>Percentage resist to electrical attacks to raptors wearing a Tesla Harness.</YAMJCS.TeslaHarnessShockResist.Tooltip>
   <YAMJCS.TeslaHarnessShockResist.DisplayCategory>Talents</YAMJCS.TeslaHarnessShockResist.DisplayCategory>
+
+  <YAMJCS.TeslaHarnessRetaliateCost.DisplayName>(Bond with Engineer) Tesla Harness Retaliation Cost</YAMJCS.TeslaHarnessRetaliateCost.DisplayName>
+  <YAMJCS.TeslaHarnessRetaliateCost.Tooltip>How much charge, in percent, is taken from the tesla harness when absorbing an attack.</YAMJCS.TeslaHarnessRetaliateCost.Tooltip>
+  <YAMJCS.TeslaHarnessRetaliateCost.DisplayCategory>Talents</YAMJCS.TeslaHarnessRetaliateCost.DisplayCategory>
+
+  <YAMJCS.TeslaHarnessRetaliateStun.DisplayName>(Bond with Engineer) Tesla Harness Stun</YAMJCS.TeslaHarnessRetaliateStun.DisplayName>
+  <YAMJCS.TeslaHarnessRetaliateStun.Tooltip>How much stun is applied to nearby attackers when the tesla harness retaliates.</YAMJCS.TeslaHarnessRetaliateStun.Tooltip>
+  <YAMJCS.TeslaHarnessRetaliateStun.DisplayCategory>Talents</YAMJCS.TeslaHarnessRetaliateStun.DisplayCategory>
+
+  <YAMJCS.TeslaHarnessRetaliateBurn.DisplayName>(Bond with Engineer) Tesla Harness Burn</YAMJCS.TeslaHarnessRetaliateBurn.DisplayName>
+  <YAMJCS.TeslaHarnessRetaliateBurn.Tooltip>How much burn is applied to nearby attackers when the tesla harness retaliates.</YAMJCS.TeslaHarnessRetaliateBurn.Tooltip>
+  <YAMJCS.TeslaHarnessRetaliateBurn.DisplayCategory>Talents</YAMJCS.TeslaHarnessRetaliateBurn.DisplayCategory>
+
+  <YAMJCS.TeslaHarnessRetaliateAbsorb.DisplayName>(Bond with Engineer) Tesla Harness Damage Absorption</YAMJCS.TeslaHarnessRetaliateAbsorb.DisplayName>
+  <YAMJCS.TeslaHarnessRetaliateAbsorb.Tooltip>How much damage (percent) is absorbed by the tesla harness when it has sufficient charge.</YAMJCS.TeslaHarnessRetaliateAbsorb.Tooltip>
+  <YAMJCS.TeslaHarnessRetaliateAbsorb.DisplayCategory>Talents</YAMJCS.TeslaHarnessRetaliateAbsorb.DisplayCategory>
+
+  <YAMJCS.TeslaHarnessChargeInRate.DisplayName>(Bond with Engineer) Tesla Harness Siphon Rate</YAMJCS.TeslaHarnessChargeInRate.DisplayName>
+  <YAMJCS.TeslaHarnessChargeInRate.Tooltip>Controls the rate at which the tesla harness draws charge into itself from contained batteries.</YAMJCS.TeslaHarnessChargeInRate.Tooltip>
+  <YAMJCS.TeslaHarnessChargeInRate.DisplayCategory>Talents</YAMJCS.TeslaHarnessChargeInRate.DisplayCategory>
+
+  <YAMJCS.TeslaHarnessChargeOutRate.DisplayName>(Bond with Engineer) Tesla Harness Charge Rate</YAMJCS.TeslaHarnessChargeOutRate.DisplayName>
+  <YAMJCS.TeslaHarnessChargeOutRate.Tooltip>Controls the rate at which the tesla harness uses its own charge to refill contained batteries.</YAMJCS.TeslaHarnessChargeOutRate.Tooltip>
+  <YAMJCS.TeslaHarnessChargeOutRate.DisplayCategory>Talents</YAMJCS.TeslaHarnessChargeOutRate.DisplayCategory>
   
   <!--Bond with Security-->
   <YAMJCS.ChargedBiteDamageBonus.DisplayName>(Bond with Security) Charged Bite Damage Bonus</YAMJCS.ChargedBiteDamageBonus.DisplayName>

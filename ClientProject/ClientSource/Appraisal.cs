@@ -15,6 +15,12 @@ internal static partial class PatchTargets {
             typeof(Item),
             nameof(Item.Description)) ??
         throw new Exception("Item.Description {get} not found");
+        
+    internal static MethodBase Item_GetHUDTexts =>
+        AccessTools.Method(
+            typeof(Item),
+            nameof(Item.GetHUDTexts)) ??
+        throw new Exception("Item.GetHUDTexts() not found");
 }
 
 internal static class Appraisal {
@@ -24,7 +30,6 @@ internal static class Appraisal {
         (["textdisplay"], 
             ["yamjSpeechCombat", "yamjSpeechAdvanced"],  
             "textdisplay"),
-    
         (["weapon"], 
             ["yamjSpeechCombat", "yamjSpeechAdvanced"],  
             "weapon"),
@@ -46,7 +51,7 @@ internal static class Appraisal {
             "deepdiving"),
             
         (["medical", "chem"],
-            ["yamjSpeechAdvanced"],
+            ["yamjBondDoctor"],
             "medichem"),
             
         (["ammobox"],
@@ -79,6 +84,7 @@ internal static class Appraisal {
     };
 
     private static Dictionary<Identifier, Identifier[]> additionalTagTable = new() {
+        ["textdisplay"] = ["textdisplay"],
         //["ironhelmet"] = ["helmet"],
         //["chitinhelmet"] = ["helmet"],
         //["ballistichelmet1"] = ["helmet"],
@@ -272,5 +278,24 @@ internal static class ItemDescGet {
             return false;
         }
         return true;
+    }
+}
+
+[HarmonyPatch] //changes the on-hover name display for in-world items
+internal static class ItemGetHUDTexts {
+    static MethodBase TargetMethod() => PatchTargets.Item_GetHUDTexts;
+
+    static void Postfix(Item __instance, List<ColoredText> __result) {
+        if (!YAMJ.IsPlayerRaptor(Character.Controlled)) { return; }
+
+        string? key = Appraisal.ResolveDumbKey(__instance);
+        if (key is null) { return; }
+
+        string name = TextManager.Get("entityname.dumb." + key).Value;
+        int stackCount = __instance.DroppedStack.Count();
+        if (stackCount > 0) { name += $" x{stackCount}"; } //restore vanilla stack suffix
+
+        ColoredText original = __result[0];
+        __result[0] = new ColoredText(name, original.Color, original.IsCommand, original.IsError);
     }
 }

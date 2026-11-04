@@ -94,6 +94,31 @@
         <Setting Name="ShrapnelBleeding" Type="rangeFloat"
                  Value="5" Min="0" Max="100" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
+
+        <Setting Name="ReactiveBurnRate" Type="rangeFloat"
+                 Value="1.0" Min="0.0" Max="100.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessShockResist" Type="rangeFloat"
+                 Value="0.8" Min="0.0" Max="1" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessChargeInRate" Type="rangeFloat"
+                 Value="1" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessChargeOutRate" Type="rangeFloat"
+                 Value="-1.0" Min="-100" Max="0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessRetaliateAbsorb" Type="rangeFloat"
+                 Value="0.15" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessRetaliateBurn" Type="rangeFloat"
+                 Value="15" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessRetaliateCost" Type="rangeFloat"
+                 Value="20" Min="0" Max="100" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="TeslaHarnessRetaliateStun" Type="rangeFloat"
+                 Value="0.5" Min="0.0" Max="10.0" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
                  
         <Setting Name="ChargedBiteDamageBonus" Type="rangeFloat"
                  Value="0.50" Min="0.00" Max="10.00" Steps="101"
@@ -165,12 +190,6 @@
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="SleepHealOthersBloodLoss" Type="rangeFloat"
                  Value="0.05" Min="0.00" Max="1.00" Steps="101"
-                 NetSync="TwoWay" ShowInMenus="true" />
-        <Setting Name="ReactiveBurnRate" Type="rangeFloat"
-                 Value="1.0" Min="0.0" Max="100.0" Steps="101"
-                 NetSync="TwoWay" ShowInMenus="true" />
-        <Setting Name="TeslaHarnessShockResist" Type="rangeFloat"
-                 Value="0.8" Min="0.0" Max="1" Steps="101"
                  NetSync="TwoWay" ShowInMenus="true" />
         
     </Settings>
