@@ -95,6 +95,8 @@ internal static class ChatBoxFocusPatch {
     private static MethodBase TargetMethod() => PatchTargets.GUITextBox_Select;
 
     static bool Prefix(GUITextBox __instance) {
+        if (!YAMJConfig.SpeechRestrictionEnabled) { return true; }
+        
         ChatBox? chatBox = ChatBox.GetChatBox();
         if (chatBox is null) return true;
         
@@ -183,6 +185,7 @@ internal static class CanIssueOrdersGet {
     static MethodBase TargetMethod() => PatchTargets.CrewManager_CanIssueOrders_Get;
 
     static bool Prefix(ref bool __result) {
+        if (!YAMJConfig.SpeechRestrictionEnabled) { return true; }
         if (YAMJ.IsPlayerRaptor(Character.Controlled)) {
             __result = false;
             return false;

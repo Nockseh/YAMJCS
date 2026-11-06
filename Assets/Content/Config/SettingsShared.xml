@@ -2,6 +2,17 @@
 <Configuration>
     <Settings>
     
+        <!-- Features -->
+        <Setting Name="HungerEnabled" Type="bool"
+                 Value="true"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="SpeechRestrictionEnabled" Type="bool"
+                 Value="true"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="AppraisalEnabled" Type="bool"
+                 Value="true"
+                 NetSync="TwoWay" ShowInMenus="true" />
+        
         <!-- Performance -->
         <Setting Name="CaptainProxUpdateInterval" Type="rangeFloat"
                  Value="2.0" Min="0.25" Max="10.0" Steps="40"

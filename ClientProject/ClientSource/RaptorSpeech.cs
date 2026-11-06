@@ -124,7 +124,7 @@ internal class RaptorSpeech {
     internal static void Update() {
         if (root is null) return;
         Character? controlled = Character.Controlled;
-        bool enabled = controlled is not null && YAMJ.IsPlayerRaptor(controlled);
+        bool enabled = YAMJConfig.SpeechRestrictionEnabled && controlled is not null && YAMJ.IsPlayerRaptor(controlled);
 
         root.Visible = enabled;
 

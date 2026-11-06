@@ -146,6 +146,7 @@ internal static class Appraisal {
     
     internal static string? ResolveDumbKey(Item? item) {
         if (item is null) { return null; }
+        if (!YAMJConfig.AppraisalEnabled) { return null; }//null skips this whole feature
         
         if (item.HasTag(YAMJ.RaptorOnlyTag)) { return null; } //any item that is FOR raptors is auto-identified 
         

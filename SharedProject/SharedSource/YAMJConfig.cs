@@ -14,6 +14,10 @@ internal static class YAMJConfig {
     
 #region C# Settings
     // Shared Settings
+        //feature toggles
+    internal static bool HungerEnabled => GetBool("HungerEnabled") ?? true;
+    internal static bool SpeechRestrictionEnabled => GetBool("SpeechRestrictionEnabled") ?? true;
+    internal static bool AppraisalEnabled => GetBool("AppraisalEnabled") ?? true;
         //performance
     internal static float DigestionUpdateInterval => GetFloat("DigestionUpdateInterval") ?? 2f;
     internal static float CaptainProxUpdateInterval => GetFloat("CaptainProxUpdateInterval") ?? 2f;
@@ -72,6 +76,10 @@ internal static class YAMJConfig {
             YAMJ.Log("Could not resolve content package 'YAMJCS', config not initialized");
             return;
         }
+        //feature toggles
+        Bind(configService, thisPackage, "HungerEnabled");
+        Bind(configService, thisPackage, "SpeechRestrictionEnabled");
+        Bind(configService, thisPackage, "AppraisalEnabled");
         //performance
         Bind(configService, thisPackage, "DigestionUpdateInterval");
         Bind(configService, thisPackage, "CaptainProxUpdateInterval");

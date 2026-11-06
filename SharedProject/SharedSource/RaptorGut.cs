@@ -33,6 +33,11 @@ internal static class RaptorGut {
         charHealth.AddAffliction(prefab.Instantiate(amount * vitalityScale));
     }
     internal static void ModifyHunger(CharacterHealth charHealth, float amount) {
+        if (!YAMJConfig.HungerEnabled) {
+            charHealth.ReduceAfflictionOnAllLimbs(AfflictionIds.Hunger, 99999);
+            return;
+        }
+        
         if (amount > 0f) {
             //amount = hunger added
             float currentSatiety = charHealth.GetAfflictionStrengthByIdentifier(AfflictionIds.Satiated, false);
