@@ -3,7 +3,7 @@
 
   <Item identifier="yamjTeslaHarness" category="Equipment" tags="largeitem,yamjraptoronly" cargoContainerIdentifier="metalcrate" health="100"
         damagedByMonsters="false" damagedByProjectiles="false" damagedByMeleeWeapons="false" damagedByExplosions="false" damagedByRepairTools="false"
-        impactSoundTag="impact_metal_heavy">
+        impactSoundTag="impact_metal_heavy" >
     <PreferredContainer primary="engcab"/>
 
     <!--todo sprites-->
@@ -34,7 +34,7 @@
     </Wearable>
     <Holdable slots="RightHand+LeftHand" controlPose="true" holdAngle="30" holdPos="0,-40" msg="ItemMsgPickUpUse" canBeSelected="false" canBePicked="true" pickKey="Use" />
     
-    <ItemContainer capacity="3" maxStackSize="1" hideItems="true" slotsPerRow="3" containedStateIndicatorStyle="tank">
+    <ItemContainer capacity="3" maxStackSize="1" hideItems="true" slotsPerRow="3" containedStateIndicatorStyle="Battery" showConditionInContainedStateIndicator="true">
       <SlotIcon slotIndex="0" texture="%ModDir%/UI/batteryChargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
       <SlotIcon slotIndex="1" texture="%ModDir%/UI/batteryChargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />
       <SlotIcon slotIndex="2" texture="%ModDir%/UI/batteryChargeSlot.png"    sourceRect="0,0,128,128" origin="0.5,0.5" />

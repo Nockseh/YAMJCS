@@ -798,6 +798,7 @@
   </Talent>
   
   <Talent identifier="yamjNeurotoxin">
+    <Description tag="talentdescription.yamjNeurotoxin"/>
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="2,1" sheetElementSize="128,128" />
     <AbilityGroupInterval interval="1">
       <Abilities>

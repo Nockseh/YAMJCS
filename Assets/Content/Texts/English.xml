@@ -292,10 +292,10 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <jobdescription.playerMudraptorJob>The return of Man's best friend.</jobdescription.playerMudraptorJob>
   <!--GUI Messages-->
   <yamjMsg.cantSpeak>raptors can't speak normally</yamjMsg.cantSpeak>
-  <yamjMsg.cantUseItem>you don't know how to use that yet</yamjMsg.cantUseItem>
-  <yamjMsg.cantRepair>you don't know how to repair that yet</yamjMsg.cantRepair>
+  <yamjMsg.cantUseItem>you don't know how to use that</yamjMsg.cantUseItem>
+  <yamjMsg.cantRepair>you don't know how to fix this</yamjMsg.cantRepair>
   <yamjMsg.noRoomInInventory>no room in inventory</yamjMsg.noRoomInInventory>
-  <yamjMsg.cantSteer>you don't know how to steer</yamjMsg.cantSteer>
+  <yamjMsg.cantSteer>this machine doesn't make sense</yamjMsg.cantSteer>
   <!-- Hints -->
   <yamjHint.pickUp>[[key]] Pick up</yamjHint.pickUp>
   <yamjHint.forceOpenBeak>[[use]] Force open (Beak)</yamjHint.forceOpenBeak>
@@ -363,9 +363,9 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <!-- Low Intelligence Item Names/Descriptions -->
   <entityname.dumb.textdisplay>Sign</entityname.dumb.textdisplay>
   <entitydescription.dumb.textdisplay> </entitydescription.dumb.textdisplay>
-  <entityname.dumb.repairTool>Fix Thing</entityname.dumb.repairTool>
+  <entityname.dumb.repairTool>Fixthing?</entityname.dumb.repairTool>
   <entitydescription.dumb.repairTool>For boat?</entitydescription.dumb.repairTool>
-  <entityname.dumb.weapon>Hurt Thing</entityname.dumb.weapon>
+  <entityname.dumb.weapon>Killthing?</entityname.dumb.weapon>
   <entitydescription.dumb.weapon>To hunt?</entitydescription.dumb.weapon>
   <entityname.dumb.clothing>Skins</entityname.dumb.clothing>
   <entitydescription.dumb.clothing>Soft.</entitydescription.dumb.clothing>
@@ -383,12 +383,22 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <entitydescription.dumb.scooter>What?</entitydescription.dumb.scooter>
   <entityname.dumb.ore>Rock</entityname.dumb.ore>
   <entitydescription.dumb.ore>Hard.</entitydescription.dumb.ore>
-  <entityname.dumb.alienlarge>Thing</entityname.dumb.alienlarge>
-  <entitydescription.dumb.alienlarge>???</entitydescription.dumb.alienlarge>
-  <entityname.dumb.aliensmall>Thing</entityname.dumb.aliensmall>
+  <entityname.dumb.alienlarge>Strange Thing</entityname.dumb.alienlarge>
+  <entitydescription.dumb.alienlarge>You feel uneasy just looking at it.</entitydescription.dumb.alienlarge>
+  <entityname.dumb.aliensmall>Strange Thing</entityname.dumb.aliensmall>
   <entitydescription.dumb.aliensmall>???</entitydescription.dumb.aliensmall>
   <entityname.dumb.helmet>Shell</entityname.dumb.helmet>
-  <entitydescription.dumb.helmet>???</entitydescription.dumb.helmet>
+  <entitydescription.dumb.helmet>Seems tough.</entitydescription.dumb.helmet>
+  <entityname.dumb.machine>Machine</entityname.dumb.machine>
+  <entitydescription.dumb.machine>???</entitydescription.dumb.machine>
+  <entityname.dumb.door>Gate</entityname.dumb.door>
+  <!--entitydescription.dumb.door></entitydescription.dumb.door-->
+  <entityname.dumb.sensor>Device</entityname.dumb.sensor>
+  <entitydescription.dumb.sensor>Some kind of shell?</entitydescription.dumb.sensor>
+  <entityname.dumb.smalldevice>Device</entityname.dumb.smalldevice>
+  <entitydescription.dumb.smalldevice>A small, shelled creature that chirps when you touch it.</entitydescription.dumb.smalldevice>
+  <entityname.dumb.bottle>Bottle of ???</entityname.dumb.bottle>
+  <!--entityname.dumb.bottle></entityname.dumb.bottle-->
   
   <!--Talent Items-->
   <entityname.yamjTeslaHarness>Tesla Harness</entityname.yamjTeslaHarness>
@@ -438,6 +448,10 @@ Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan
   <talentdescription.yamjJump>yump!</talentdescription.yamjJump>
   <entityname.yamjRiotShield>Mudraptor Shield</entityname.yamjRiotShield>
   <entitydescription.yamjRiotShield>A shield made of mudraptor shell, capable of stopping small arms fire.</entitydescription.yamjRiotShield>
+  <entityname.raptorHeadset>QuickChat Headset</entityname.raptorHeadset>
+  <entitydescription.raptorHeadset>Allows communication of a few preset messages.</entitydescription.raptorHeadset>
+  <entityname.raptorBabyItem>Baby Mudraptor</entityname.raptorBabyItem>
+  <entitydescription.raptorBabyItem>pupraptor</entitydescription.raptorBabyItem>
 <!--endregion-->
 
   <!--Mudraptor Talents-->
@@ -446,8 +460,8 @@ Reduces movement speed by 25% while worn.</entitydescription.yamjBackpackCaravan
   <talenttree.yamjTree3>Student</talenttree.yamjTree3>
   <!--General Tier 1-->
   <talentname.yamjCanUseTools>Handy</talentname.yamjCanUseTools>
-  <talentdescription.yamjCanUseTools>Learn to properly hold and use tools.</talentdescription.yamjCanUseTools>
-  <talentname.yamjSpeechBasic>ESL</talentname.yamjSpeechBasic>
+  <talentdescription.yamjCanUseTools>Learn to properly hold and use tools made for human hands.</talentdescription.yamjCanUseTools>
+  <talentname.yamjSpeechBasic>Speech (Basic)</talentname.yamjSpeechBasic>
   <talentdescription.yamjSpeechBasic>Gain the ability to speak, and learn a few basic words.</talentdescription.yamjSpeechBasic>
   <talentname.yamjArmor>Natural Armor</talentname.yamjArmor>
   <talentdescription.yamjArmor>Gain the ability to form a hard shell and an extra [amount]% reduction to damage</talentdescription.yamjArmor>
@@ -474,7 +488,7 @@ You both gain +[waterflowresist]% Water Flow Resistance.</talentdescription.yamj
 Humans now also gain the [affliction] bonus if they're near you while you nap. 
 They also gain +[bookpower]% of the Skill points from books they read while under this effect as well.</talentdescription.yamjSleepTime2>
   <talentname.yamjVouch>Vouch</talentname.yamjVouch>
-  <talentdescription.yamjVouch>test</talentdescription.yamjVouch>
+  <talentdescription.yamjVouch>You and nearby allies will be ignored by mudraptors.</talentdescription.yamjVouch>
   <talentname.yamjCanOpener>Can Opener</talentname.yamjCanOpener>
   <talentdescription.yamjCanOpener>Deal [amount]% more ‖color:gui.orange‖Creature Attack‖color:end‖ damage to structures.\nGain the ability to force doors open without a crowbar.</talentdescription.yamjCanOpener>
   <!--Hired Claw -->
@@ -530,7 +544,7 @@ Gain [amount]% [burnresist].</talentdescription.yamjSpeechAdvanced>
   
   <!-- Afflictions! -->
   <afflictionname.yamjNeurotoxin>Neurotoxin</afflictionname.yamjNeurotoxin>
-  <afflictiondescription.yamjNeurotoxin><!--todo add flavor text--></afflictiondescription.yamjNeurotoxin>
+  <afflictiondescription.yamjNeurotoxin>Suffering the effects of a deadly poison.</afflictiondescription.yamjNeurotoxin>
   
   <afflictionname.yamjBloodthirstyBuff>Bloodthirsty</afflictionname.yamjBloodthirstyBuff>
   <afflictiondescription.yamjBloodthirstyBuff>Just getting started.<!--todo add effect description--></afflictiondescription.yamjBloodthirstyBuff>
@@ -613,11 +627,12 @@ During your frenzy, the captain is provided with [awayResist]% damage resistance
   <!-- Bond with Doctor -->
   <talentname.yamjBondDoctor>Plague Rat (Bond with Medic)</talentname.yamjBondDoctor>
   <talentdescription.yamjBondDoctor>Hopefully your crewmates are immune to whatever you're harboring...
-    You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
-    You and your allies gain [burnResist]% resistance to [burn], [poisonResist]% resistance to [poison], and [debuffResist]% resistance to [debuff].
-    You can store genetic material in your gut, identifying and refining it over time.
-    All player raptor bites have a strong chance to be poisonous.
-    If you find your allies unconscious, you can give them a fate worse than death...</talentdescription.yamjBondDoctor>
+You learn to identify medicines and chemicals.
+You gain the medic's [geneHarvester] talent, allowing you to find genetic material in corpses.
+You and your allies gain [burnResist]% resistance to [burn], [poisonResist]% resistance to [poison], and [debuffResist]% resistance to [debuff].
+You can store genetic material in your gut, identifying and refining it over time.
+All player raptor bites have a strong chance to be poisonous.
+If you find your allies unconscious, you can give them a fate worse than death...</talentdescription.yamjBondDoctor>
   <afflictionname.yamjDoctorBurnResist>Burn Resistance</afflictionname.yamjDoctorBurnResist>
   <afflictiondescription.yamjDoctorBurnResist><!-- todo add value tag--></afflictiondescription.yamjDoctorBurnResist>
   <afflictionname.yamjDoctorPoisonResist>Poison Resistance</afflictionname.yamjDoctorPoisonResist>

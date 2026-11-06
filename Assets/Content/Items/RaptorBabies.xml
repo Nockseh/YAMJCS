@@ -245,7 +245,7 @@
   <!-- Mudraptor eggs END -->
   
   <!-- Mudraptor pet character, as an item -->
-  <Item name="Adorable Mudraptor" identifier="raptorBabyItem" scale="0.5" sonarSize="4" impactSoundTag="impact_soft" hideInMenus="true">
+  <Item name="" identifier="raptorBabyItem" scale="0.5" sonarSize="4" impactSoundTag="impact_soft" hideInMenus="true">
     <InventoryIcon texture="%ModDir%/Characters/RaptorBaby/RaptorBabyItems.png" sourceRect="0,0,128,128" origin="0.5,0.5" /> <!--TODO fix -->
     <Sprite texture="%ModDir%/Characters/RaptorBaby/RaptorBabyInHands.png" depth="0.54" sourceRect="0,0,128,223" origin="0.5,0.5" />
     <Body width="150" height="80" density="10" />

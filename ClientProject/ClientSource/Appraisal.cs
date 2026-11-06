@@ -1,5 +1,6 @@
 ﻿using Barotrauma.Items.Components;
 using HarmonyLib;
+using Label = Barotrauma.Label;
 
 namespace YAMJCS;
 
@@ -21,15 +22,43 @@ internal static partial class PatchTargets {
             typeof(Item),
             nameof(Item.GetHUDTexts)) ??
         throw new Exception("Item.GetHUDTexts() not found");
+        
+    internal static MethodBase ItemContainer_GetUILabel =>
+        AccessTools.DeclaredMethod(
+            typeof(ItemContainer),
+            nameof(ItemContainer.GetUILabel)) ??
+        throw new Exception("ItemContainer.GetUILabel() not found");
+
+    internal static MethodBase ItemContainer_CreateGUI =>
+        AccessTools.DeclaredMethod(
+            typeof(ItemContainer),
+            "CreateGUI") ??
+        throw new Exception("ItemContainer.CreateGUI() not found");
+
+    internal static MethodBase ItemContainer_UpdateHUDComponentSpecific =>
+        AccessTools.DeclaredMethod(
+            typeof(ItemContainer),
+            nameof(ItemContainer.UpdateHUDComponentSpecific)) ??
+        throw new Exception("ItemContainer.UpdateHUDComponentSpecific() not found");
+        
+    internal static MethodBase GameSession_EndRound =>
+        AccessTools.Method(
+            typeof(GameSession),
+            nameof(GameSession.EndRound)) ??
+        throw new Exception("GameSession.EndRound() not found");
 }
 
 internal static class Appraisal {
-    
     private static readonly (Identifier[] itemTag, Identifier[] appraisalTalents, string langTag)[] itemCategories = {
     // tags higher on the list take priority
         (["textdisplay"], 
             ["yamjSpeechCombat", "yamjSpeechAdvanced"],  
             "textdisplay"),
+            
+        (["bottle"],
+            ["yamjSpeechBasic", "yamjSpeechAdvanced"],
+            "bottle"),
+            
         (["weapon"], 
             ["yamjSpeechCombat", "yamjSpeechAdvanced"],  
             "weapon"),
@@ -66,10 +95,6 @@ internal static class Appraisal {
             ["yamjSpeechAdvanced"],
             "scooter"),
             
-        (["logic", "sonar", "sensor", "signal", "sound", "lightcomponent", "mobilebattery", "detonator"],
-            ["yamjSpeechAdvanced"],
-            "tech"),
-            
         (["alienartifact"],
             ["yamjSpeechAdvanced"],
             "alienlarge"),
@@ -81,21 +106,43 @@ internal static class Appraisal {
         (["helmet"],
             ["yamjSpeechAdvanced", "yamjSpeechCombat"],
             "helmet"),
+            
+        (["sonar", "smalldevice", "detonator", "scanner"],
+            ["yamjSpeechAdvanced"],
+            "smalldevice"),
+            
+        (["sensor"],
+            ["yamjSpeechAdvanced"],
+            "sensor"),
+            
+        (["turretammosource", "pump", "command"],
+            ["yamjSpeechAdvanced", "yamjSpeechCombat"],
+            "machine"),
+            
+        (["door"],
+            ["yamjSpeechBasic", "yamjSpeechAdvanced"],
+            "door"),
+            
+        (["circuitboxcomponent", "signal", "sound", "mobilebattery", "detonator"],
+            ["yamjSpeechAdvanced"],
+            "tech"),
     };
 
     private static Dictionary<Identifier, Identifier[]> additionalTagTable = new() {
         ["textdisplay"] = ["textdisplay"],
-        //["ironhelmet"] = ["helmet"],
-        //["chitinhelmet"] = ["helmet"],
-        //["ballistichelmet1"] = ["helmet"],
-        //["ballistichelmet2"] = ["helmet"],
-        //["ballistichelmet3"] = ["helmet"],
+        ["radiojammer"] = ["smalldevice"],
+        ["handhelditemfinder"] = ["smalldevice"],
+        ["reactorpda"] = ["smalldevice"],
+        ["weldingfueltank"] = ["bottle"],
+        ["incendiumfueltank"] = ["bottle"],
+        ["oxygentank"] = ["bottle"],
+        ["oxygenitetank"] = ["bottle"],
     };
     
-    // tags worked out from an item's components, filled in by InferTags
     private static readonly Dictionary<Identifier, Identifier[]?> inferredTagCache = new();
-    
     private static readonly Dictionary<string, ItemPrefab?> artPrefabCache = new();
+    internal static readonly Dictionary<ItemContainer, GUITextBlock> ContainerCache = new();
+    
     
     internal static string? ResolveDumbKey(Item? item) {
         if (item is null) { return null; }
@@ -206,6 +253,7 @@ internal static class Appraisal {
     internal static void ClearCache() {
         artPrefabCache.Clear();
         inferredTagCache.Clear();
+        ContainerCache.Clear();
     }
 }
 
@@ -297,5 +345,49 @@ internal static class ItemGetHUDTexts {
 
         ColoredText original = __result[0];
         __result[0] = new ColoredText(name, original.Color, original.IsCommand, original.IsError);
+    }
+}
+
+[HarmonyPatch] //changes the way container ui labels are retrieved (only fires on initial item load)
+internal static class ItemContainerGetUILabel {
+    static MethodBase TargetMethod() => PatchTargets.ItemContainer_GetUILabel;
+
+    static bool Prefix(ItemContainer __instance, ref LocalizedString __result) {
+        if (__instance.UILabel is not null) { return true; } //has custom label, not item name
+        if (!YAMJ.IsPlayerRaptor(Character.Controlled)) { return true; }
+
+        __result = __instance.Item.Name; //uses Item.Name{get} patch above
+        return false;
+    }
+}
+
+[HarmonyPatch] //tracks container UI header label for overwriting (only fires on initial item load)
+internal static class ItemContainerCreateGUI {
+    static MethodBase TargetMethod() => PatchTargets.ItemContainer_CreateGUI;
+
+    static void Postfix(ItemContainer __instance) {
+        //the header is the first text block that CreateGUI makes
+        GUITextBlock? label = __instance.GuiFrame?.GetAllChildren<GUITextBlock>().FirstOrDefault();
+        if (label is null) { return; }
+        Appraisal.ContainerCache[__instance] = label;
+    }
+}
+
+[HarmonyPatch] //overwrites container UI labels
+internal static class ItemContainerUpdateHUD {
+    static MethodBase TargetMethod() => PatchTargets.ItemContainer_UpdateHUDComponentSpecific;
+
+    static void Postfix(ItemContainer __instance) {
+        if (!Appraisal.ContainerCache.TryGetValue(__instance, out GUITextBlock? label)) { return; }
+        label.Text = __instance.GetUILabel();
+    }
+}
+
+[HarmonyPatch] //cleans up container cache between rounds
+internal static class ClearContainerLabels {
+    static MethodBase TargetMethod() => PatchTargets.GameSession_EndRound;
+
+    static void Postfix() {
+        Appraisal.ContainerCache.Clear();
     }
 }

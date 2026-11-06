@@ -36,4 +36,19 @@
         </LightComponent>
     </Item>
     
+    <Item name="" identifier="yamjDumbSensor" >
+        <InventoryIcon texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourceRect="0,128,64,64" origin="0.5,0.5" />
+        <Sprite texture="%ModDir%/Items/AppraisalItemsAtlas.png" sourceRect="64,80,48,32" origin="0.5,0.5" />
+    </Item>
+    
+    <Item name="" identifier="yamjDumbSmallDevice">
+        <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="128,960,64,64" origin="0.5,0.5" />
+        <Sprite texture="Content/Items/Tools/tools.png" sourcerect="231,102,25,54" origin="0.5,0.5" />
+    </Item>
+    
+    <Item name="" identifier="yamjDumbBottle">
+        <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,0,64,64" origin="0.5,0.5" />
+        <Sprite texture="Content/Items/Tools/tools.png" sourcerect="410,71,24,66" origin="0.5,0.5" />
+    </Item>
+    
 </Items>
