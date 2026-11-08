@@ -77,7 +77,7 @@ internal static class SicRaptor {
         if (!HumanAIController.IsFriendly(__instance, focusedCharacter)) { return; }
         
         #if CLIENT
-            focusedCharacter.SetCustomInteract(null, CharacterHUD.GetCachedHudText("yamjHint.sicRaptor", InputType.Select));
+            YAMJ.SetHint(focusedCharacter, CharacterHUD.GetCachedHudText("yamjHint.sicRaptor", InputType.Select));
         #endif
 
         if (!__instance.IsKeyHit(InputType.Select)) { return; } //reminder: not edge-detected on server

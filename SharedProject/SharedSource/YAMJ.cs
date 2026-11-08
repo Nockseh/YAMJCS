@@ -70,7 +70,7 @@ internal static partial class YAMJ
         return false;
     }
     
-    public static void ApplyAtMaxStrength(Character? character, AfflictionPrefab? prefab) {
+    internal static void ApplyAtMaxStrength(Character? character, AfflictionPrefab? prefab) {
         if (character is null || character.Removed || prefab is null) { return; }
 
         CharacterHealth? health = character.CharacterHealth;
@@ -80,6 +80,11 @@ internal static partial class YAMJ
         if (vitalityScale <= 0f) { vitalityScale = 1f; }
 
         health.AddAffliction(prefab.Instantiate(prefab.MaxStrength * vitalityScale));
+    }
+    
+    internal static void SetHint(Character target, LocalizedString hint) {
+        if (target.onCustomInteract is not null) { return; } //dont overwrite existing prompts
+        target.SetCustomInteract(null, hint);
     }
     
     //Shared
@@ -114,6 +119,7 @@ internal static class AfflictionIds {
     internal static readonly Identifier ClearVision = "yamjClearVision";
     internal static readonly Identifier VouchBuff = "yamjVouchBuff";
     internal static readonly Identifier HarnessDischarge = "yamjHarnessDischarge";
+    internal static readonly Identifier Neurotoxin = "yamjNeurotoxin";
 }
 
 internal static class AfflictionPrefabs {
@@ -166,4 +172,7 @@ internal static class AfflictionPrefabs {
 
     private static AfflictionPrefab? harnessDischarge = null;
     internal static AfflictionPrefab HarnessDischarge => harnessDischarge ??= FindAfflictionPrefab(AfflictionIds.HarnessDischarge);
+
+    private static AfflictionPrefab? neurotoxin = null;
+    internal static AfflictionPrefab Neurotoxin => neurotoxin ??= FindAfflictionPrefab(AfflictionIds.Neurotoxin);
 }

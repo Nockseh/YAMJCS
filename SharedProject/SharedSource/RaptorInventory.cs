@@ -78,6 +78,14 @@ internal static class RaptorInventory {
         return true;
     }
 
+    internal static bool CanWearAsRaptorOuterClothes(Item item) {
+        if (!IsRaptorGear(item)) { return false; }
+        foreach (Pickable pickable in item.GetComponents<Pickable>()) {
+            if (pickable.AllowedSlots.Any(slot => slot.HasFlag(InvSlotType.OuterClothes))) { return true; }
+        }
+        return false;
+    }
+
     //only pRaptor slots count as gut/outer-clothes slots for the custom placement rules
     private static InvSlotType RaptorSlotTypeAt(CharacterInventory inventory, int index) {
         if (!YAMJ.IsPlayerRaptor(inventory.character)) { return InvSlotType.None; }
@@ -191,24 +199,24 @@ internal static class CharacterInventory_TryPutItem {
             return false;
         }
 
-        // allow raptors to eat things and wear raptor clothes
-        bool isGutSlot = RaptorInventory.IsGutSlot(__instance, index);
-        bool isOuterClothesSlot = RaptorInventory.IsRaptorOuterClothesSlot(__instance, index);
-        if (!isGutSlot && !isOuterClothesSlot) { return true; }
-
-        if (isGutSlot && !RaptorInventory.CanDigest(item, __instance.character)) {
+        // pRaptors can only wear raptor-only gear in OuterClothes
+        if (RaptorInventory.IsRaptorOuterClothesSlot(__instance, index) && !RaptorInventory.CanWearAsRaptorOuterClothes(item)) {
             __result = false;
             return false;
         }
 
-        if (isOuterClothesSlot && !RaptorInventory.IsRaptorGear(item)) { return true; }
+        // allow raptors to eat things
+        if (!RaptorInventory.IsGutSlot(__instance, index)) { return true; }
+
+        if (!RaptorInventory.CanDigest(item, __instance.character)) {
+            __result = false;
+            return false;
+        }
+
         if (__instance.GetItemsAt(index).Any()) { return true; }
         //index only works for `Any` slots, must use custom PutInSlot() method
         if (!RaptorInventory.PutInSlot(__instance, item, index, user, createNetworkEvent, triggerOnInsertedEffects)) {
             return true;
-        }
-        if (isOuterClothesSlot) {
-            item.Equip(__instance.character);
         }
 
         __result = true;
@@ -246,9 +254,8 @@ internal static class CharacterInventory_CanBePutInSlot {
             return;
         }
 
-        // raptor-only gear fits a pRaptor's OuterClothes slot even if its prefab never declares the slot
-        if (RaptorInventory.IsRaptorOuterClothesSlot(__instance, i) && RaptorInventory.IsRaptorGear(item)) {
-            __result = !__instance.GetItemsAt(i).Any();
+        if (RaptorInventory.IsRaptorOuterClothesSlot(__instance, i) && !RaptorInventory.CanWearAsRaptorOuterClothes(item)) {
+            __result = false;
         }
     }
 }
@@ -272,6 +279,13 @@ internal static class CharacterInventory_AutoEquipPatch {
                 .Where(slot => !slot.HasFlag(InvSlotType.HealthInterface))
                 .ToList();
         }
+
+        //disallow raptors from auto-equipping anything but raptor-only gear into OuterClothes
+        if (YAMJ.IsPlayerRaptor(__instance.character) && !RaptorInventory.CanWearAsRaptorOuterClothes(item)) {
+            allowedSlots = allowedSlots
+                .Where(slot => !slot.HasFlag(InvSlotType.OuterClothes))
+                .ToList();
+        }
     }
 }
 
@@ -288,10 +302,6 @@ internal static class Item_AllowedSlots_Get {
 
         if (RaptorInventory.CanDigest(__instance, controlled) && !__result.Contains(InvSlotType.HealthInterface)) {
             __result = __result.Append(InvSlotType.HealthInterface);
-        }
-
-        if (RaptorInventory.IsRaptorGear(__instance) && !__result.Contains(InvSlotType.OuterClothes)) {
-            __result = __result.Append(InvSlotType.OuterClothes);
         }
     }
 }

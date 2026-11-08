@@ -19,7 +19,7 @@
     <huskappendage affliction="mudraptorllveteran" path="%ModDir%/Afflictions/Raptorllegappendage3.xml" onlyfromafflictions="true" />
     <huskappendage affliction="mudraptortopfveteran" path="%ModDir%/Afflictions/Raptortopfappendage3.xml" onlyfromafflictions="true" />
     <huskappendage affliction="mudraptortopbveteran" path="%ModDir%/Afflictions/Raptortopbappendage3.xml" onlyfromafflictions="true" />
-    <health StunReduction="0.50" Vitality="250" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="True" BleedingReduction="0.75" BurnReduction="-0.2" ConstantHealthRegeneration="0" HealthRegenerationWhenEating="2" StunImmunity="False" PoisonImmunity="False" PoisonVulnerability="1" EmpVulnerability="0" ApplyMovementPenalties="True" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
+    <health Vitality="250" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="True" BleedingReduction="0.5" BurnReduction="0" ConstantHealthRegeneration="0" HealthRegenerationWhenEating="2" StunImmunity="False" PoisonImmunity="False" PoisonVulnerability="1" EmpVulnerability="0" ApplyMovementPenalties="True" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
       <MedUISilhouette texture="%ModDir%/Characters/Mudraptor_player/mudraptor_healthUI_Silhouette.png" columns="5" rows="2" sourcerect="0,0,1000,830" />
       <!-- replace health interface gene icon with hunger icon TODO make it not suck -->
       <MedUIExtra texture="%ModDir%/UI/HungerMedUIExtra.png" columns="1" rows="1" sourcerect="0,0,256,256" />

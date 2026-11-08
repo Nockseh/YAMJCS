@@ -67,7 +67,7 @@ internal static class RaptorBbyPickup {
         if (!__instance.CanInteract || __instance.IsIncapacitated) { return; }
 
         #if CLIENT
-            focusedCharacter.SetCustomInteract(null, CharacterHUD.GetCachedHudText("yamjHint.pickUp", InputType.Select));
+            YAMJ.SetHint(focusedCharacter, CharacterHUD.GetCachedHudText("yamjHint.pickUp", InputType.Select));
         #endif
 
         if (!__instance.IsKeyHit(InputType.Select)) { return; }

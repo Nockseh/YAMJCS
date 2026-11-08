@@ -16,7 +16,7 @@ internal static class YAMJConfig {
     // Shared Settings
         //feature toggles
     internal static bool HungerEnabled => GetBool("HungerEnabled") ?? true;
-    internal static bool SpeechRestrictionEnabled => GetBool("SpeechRestrictionEnabled") ?? true;
+    internal static bool SpeechRestrictionsEnabled => GetBool("SpeechRestrictionsEnabled") ?? true;
     internal static bool AppraisalEnabled => GetBool("AppraisalEnabled") ?? true;
         //performance
     internal static float DigestionUpdateInterval => GetFloat("DigestionUpdateInterval") ?? 2f;
@@ -48,7 +48,8 @@ internal static class YAMJConfig {
     internal static float TeslaHarnessRetaliateStun => GetFloat("TeslaHarnessRetaliateStun") ?? 0.5f;
     internal static float TeslaHarnessRetaliateBurn => GetFloat("TeslaHarnessRetaliateBurn") ?? 15f;
         //combat 
-    //(XML only) 
+    internal static float PoisonBiteChance => GetFloat("PoisonBiteChance") ?? 0.40f;
+    internal static float PoisonBiteNeuro => GetFloat("PoisonBiteNeuro") ?? 5f;
         //sleep 
     //(XML only) 
     
@@ -78,7 +79,7 @@ internal static class YAMJConfig {
         }
         //feature toggles
         Bind(configService, thisPackage, "HungerEnabled");
-        Bind(configService, thisPackage, "SpeechRestrictionEnabled");
+        Bind(configService, thisPackage, "SpeechRestrictionsEnabled");
         Bind(configService, thisPackage, "AppraisalEnabled");
         //performance
         Bind(configService, thisPackage, "DigestionUpdateInterval");
@@ -144,6 +145,8 @@ internal static class YAMJConfig {
         #endregion
         
         //combat
+        Bind(configService, thisPackage, "PoisonBiteChance");
+        Bind(configService, thisPackage, "PoisonBiteNeuro");
         
         #region sleep
         Bind(configService, thisPackage, "SleepWindupTime");

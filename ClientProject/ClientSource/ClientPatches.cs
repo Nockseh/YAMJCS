@@ -69,6 +69,12 @@ internal static partial class PatchTargets {
                 typeof(float?)
             }) ??
         throw new Exception("Item.Draw(SpriteBatch, bool, bool, Color?, float?) not found");
+        
+    internal static MethodBase CrewManager_UpdateOrderDrag =>
+        AccessTools.DeclaredMethod(
+            typeof(CrewManager),
+            "UpdateOrderDrag") ?? //private, no nameof
+        throw new Exception("CrewManager.UpdateOrderDrag() not found");
 }
 
 [HarmonyPatch] //client-side frame tick: timers and input hooks here v ONLY WORKS MID-ROUND
@@ -95,7 +101,7 @@ internal static class ChatBoxFocusPatch {
     private static MethodBase TargetMethod() => PatchTargets.GUITextBox_Select;
 
     static bool Prefix(GUITextBox __instance) {
-        if (!YAMJConfig.SpeechRestrictionEnabled) { return true; }
+        if (!YAMJConfig.SpeechRestrictionsEnabled) { return true; }
         
         ChatBox? chatBox = ChatBox.GetChatBox();
         if (chatBox is null) return true;
@@ -185,12 +191,28 @@ internal static class CanIssueOrdersGet {
     static MethodBase TargetMethod() => PatchTargets.CrewManager_CanIssueOrders_Get;
 
     static bool Prefix(ref bool __result) {
-        if (!YAMJConfig.SpeechRestrictionEnabled) { return true; }
+        if (!YAMJConfig.SpeechRestrictionsEnabled) { return true; }
         if (YAMJ.IsPlayerRaptor(Character.Controlled)) {
             __result = false;
             return false;
         } else {
             return true;
         }
+    }
+}
+
+[HarmonyPatch] //prevents pRaptors from dragging report buttons onto rooms (skips CanIssueOrders???)
+internal static class CrewManagerUpdateOrderDrag {
+    static MethodBase TargetMethod() => PatchTargets.CrewManager_UpdateOrderDrag;
+
+    static bool Prefix(CrewManager __instance) {
+        if (__instance.DraggedOrderPrefab is null) return true;
+        if (!YAMJConfig.SpeechRestrictionsEnabled) return true;
+        if (!YAMJ.IsPlayerRaptor(Character.Controlled)) return true;
+
+        __instance.DraggedOrderPrefab = null; //die
+        __instance.DragOrder = false;
+        YAMJClient.ShowWarning(TextManager.Get("yamjMsg.cantSpeak").Value);
+        return false;
     }
 }

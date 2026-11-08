@@ -26,6 +26,7 @@ namespace YAMJCS
                 YAMJ.Log($"Patched: {method.DeclaringType?.FullName}.{method.Name}");
             }
             YAMJ.Log("Client plugin initialized.");
+            //RaptorStrideCommand.Register();
         }
         public void PreInitPatching() { }
 
@@ -39,6 +40,7 @@ namespace YAMJCS
             YAMJ.SharedDispose();
             Appraisal.ClearCache();
             YAMJConfig.RebuildTalentDescriptions();
+            //RaptorStrideCommand.Unregister();
         }
     }
 }

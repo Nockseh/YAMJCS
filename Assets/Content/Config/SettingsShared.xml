@@ -6,7 +6,7 @@
         <Setting Name="HungerEnabled" Type="bool"
                  Value="true"
                  NetSync="TwoWay" ShowInMenus="true" />
-        <Setting Name="SpeechRestrictionEnabled" Type="bool"
+        <Setting Name="SpeechRestrictionsEnabled" Type="bool"
                  Value="true"
                  NetSync="TwoWay" ShowInMenus="true" />
         <Setting Name="AppraisalEnabled" Type="bool"
@@ -170,6 +170,9 @@
                  NetSync="TwoWay" ShowInMenus="true" />
 
         <!-- Combat -->
+        <Setting Name="PoisonBiteChance" Type="rangeFloat"
+                 Value="0.40" Min="0.00" Max="1.00" Steps="101"
+                 NetSync="TwoWay" ShowInMenus="true" />
                  
         <!-- Sleep -->
         

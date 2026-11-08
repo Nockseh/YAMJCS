@@ -19,6 +19,19 @@
   <YAMJCS.OreVisionColor.Tooltip>Color of "Bond with Mechanic" ore vision effect, in #RRGGBBAA or #RRGGBB format.</YAMJCS.OreVisionColor.Tooltip>
   <!--endregion-->
   <!--region Shared Settings -->
+    <!--features-->
+  <YAMJCS.HungerEnabled.DisplayName>Enable Hunger</YAMJCS.HungerEnabled.DisplayName>
+  <YAMJCS.HungerEnabled.Tooltip>Enables constantly increasing hunger for player raptors.</YAMJCS.HungerEnabled.Tooltip>
+  <YAMJCS.HungerEnabled.DisplayCategory>Features</YAMJCS.HungerEnabled.DisplayCategory>
+
+  <YAMJCS.SpeechRestrictionsEnabled.DisplayName>Enable Speech Restrictions</YAMJCS.SpeechRestrictionsEnabled.DisplayName>
+  <YAMJCS.SpeechRestrictionsEnabled.Tooltip>Removes the ability for mudraptors to use the chat or command wheel.
+Alternative methods of communication will be provided.</YAMJCS.SpeechRestrictionsEnabled.Tooltip>
+  <YAMJCS.SpeechRestrictionsEnabled.DisplayCategory>Features</YAMJCS.SpeechRestrictionsEnabled.DisplayCategory>
+
+  <YAMJCS.AppraisalEnabled.DisplayName>Enable Item Identification</YAMJCS.AppraisalEnabled.DisplayName>
+  <YAMJCS.AppraisalEnabled.Tooltip>When enabled, mudraptors must learn to identify items via the talent tree.</YAMJCS.AppraisalEnabled.Tooltip>
+  <YAMJCS.AppraisalEnabled.DisplayCategory>Features</YAMJCS.AppraisalEnabled.DisplayCategory>
     <!--performance-->
   <YAMJCS.DigestionUpdateInterval.DisplayName>Digestion Update Interval</YAMJCS.DigestionUpdateInterval.DisplayName>
   <YAMJCS.DigestionUpdateInterval.Tooltip>Time between gut digestion updates, in seconds. Does not affect rate of digestion.</YAMJCS.DigestionUpdateInterval.Tooltip>
@@ -236,6 +249,9 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <YAMJCS.SicStunResist.DisplayCategory>Talents</YAMJCS.SicStunResist.DisplayCategory>
 
     <!--combat-->
+  <YAMJCS.PoisonBiteChance.DisplayName>(Bond with Doctor) Poison Bite Chance</YAMJCS.PoisonBiteChance.DisplayName>
+  <YAMJCS.PoisonBiteChance.Tooltip>Chance (percent) for bite attacks to also inflict Neurotoxin.</YAMJCS.PoisonBiteChance.Tooltip>
+  <YAMJCS.PoisonBiteChance.DisplayCategory>Combat</YAMJCS.PoisonBiteChance.DisplayCategory>
   
     <!--sleep-->
   <YAMJCS.SleepWindupTime.DisplayName>Sleep Wind-up Time</YAMJCS.SleepWindupTime.DisplayName>
@@ -287,6 +303,12 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <yamjConfig.ChargedBiteCooldown.int>60</yamjConfig.ChargedBiteCooldown.int>
   <yamjConfig.ChargedBiteCooldownReward.float>6</yamjConfig.ChargedBiteCooldownReward.float>
   <yamjConfig.HandlerMarkDuration.int>15</yamjConfig.HandlerMarkDuration.int>
+  <yamjConfig.CaptainProxBuffResist.percent>30</yamjConfig.CaptainProxBuffResist.percent>
+  <yamjConfig.SicDuration.int>30</yamjConfig.SicDuration.int>
+  <yamjConfig.SicCooldown.int>180</yamjConfig.SicCooldown.int>
+  <yamjConfig.SicMoveBonus.percent>10</yamjConfig.SicMoveBonus.percent>
+  <yamjConfig.SicAttackBonus.percent>25</yamjConfig.SicAttackBonus.percent>
+  <yamjConfig.SicStunResist.percent>50</yamjConfig.SicStunResist.percent>
   <!--Job.xml-->
   <jobname.playerMudraptorJob>Mudraptor</jobname.playerMudraptorJob>
   <jobdescription.playerMudraptorJob>The return of Man's best friend.</jobdescription.playerMudraptorJob>
@@ -363,9 +385,9 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <!-- Low Intelligence Item Names/Descriptions -->
   <entityname.dumb.textdisplay>Sign</entityname.dumb.textdisplay>
   <entitydescription.dumb.textdisplay> </entitydescription.dumb.textdisplay>
-  <entityname.dumb.repairTool>Fixthing?</entityname.dumb.repairTool>
+  <entityname.dumb.repairTool>Fixing Tool?</entityname.dumb.repairTool>
   <entitydescription.dumb.repairTool>For boat?</entitydescription.dumb.repairTool>
-  <entityname.dumb.weapon>Killthing?</entityname.dumb.weapon>
+  <entityname.dumb.weapon>Hunting Tool?</entityname.dumb.weapon>
   <entitydescription.dumb.weapon>To hunt?</entitydescription.dumb.weapon>
   <entityname.dumb.clothing>Skins</entityname.dumb.clothing>
   <entitydescription.dumb.clothing>Soft.</entitydescription.dumb.clothing>
@@ -390,15 +412,17 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <entityname.dumb.helmet>Shell</entityname.dumb.helmet>
   <entitydescription.dumb.helmet>Seems tough.</entitydescription.dumb.helmet>
   <entityname.dumb.machine>Machine</entityname.dumb.machine>
-  <entitydescription.dumb.machine>???</entitydescription.dumb.machine>
+  <entitydescription.dumb.machine></entitydescription.dumb.machine>
   <entityname.dumb.door>Gate</entityname.dumb.door>
-  <!--entitydescription.dumb.door></entitydescription.dumb.door-->
+  <entitydescription.dumb.door></entitydescription.dumb.door>
   <entityname.dumb.sensor>Device</entityname.dumb.sensor>
   <entitydescription.dumb.sensor>Some kind of shell?</entitydescription.dumb.sensor>
   <entityname.dumb.smalldevice>Device</entityname.dumb.smalldevice>
   <entitydescription.dumb.smalldevice>A small, shelled creature that chirps when you touch it.</entitydescription.dumb.smalldevice>
   <entityname.dumb.bottle>Bottle of ???</entityname.dumb.bottle>
-  <!--entityname.dumb.bottle></entityname.dumb.bottle-->
+  <entitydescription.dumb.bottle></entitydescription.dumb.bottle>
+  <entityname.dumb.computer>Computer</entityname.dumb.computer>
+  <entitydescription.dumb.computer>That's a lot of words...</entitydescription.dumb.computer>
   
   <!--Talent Items-->
   <entityname.yamjTeslaHarness>Tesla Harness</entityname.yamjTeslaHarness>
@@ -510,7 +534,7 @@ Gain an additional [amount]% reduction to damage.</talentdescription.yamjArmorPi
   <talentname.yamjArmorVet>Tough Nut</talentname.yamjArmorVet>
   <talentdescription.yamjArmorVet>Gain the ability to form a hard carapace and helmet capable of withstanding the toughest of blows. Gain an additional [amount]% reduction to damage.</talentdescription.yamjArmorVet>
   <talentname.yamjNeurotoxin>Neurotoxin</talentname.yamjNeurotoxin>
-  <talentdescription.yamjNeurotoxin>Your creature attack will occasionally launch a ball of caustic spit.</talentdescription.yamjNeurotoxin>
+  <talentdescription.yamjNeurotoxin>When aiming, your creature attack will occasionally launch a ball of caustic spit.</talentdescription.yamjNeurotoxin>
   <talentname.yamjBloodthirsty>Bloodthirsty</talentname.yamjBloodthirsty>
   <talentdescription.yamjBloodthirsty>The scent of your own blood only fuels your frenzy.</talentdescription.yamjBloodthirsty>
   <talentname.yamjFamiliarWaters>Familiar Waters</talentname.yamjFamiliarWaters>
@@ -575,12 +599,13 @@ A frantic surge of energy burns through what remains as the body begins to fail.
   <afflictiondescription.yamjSatiated.low>A well-fed raptor is a happy raptor.</afflictiondescription.yamjSatiated.low>
   <afflictiondescription.yamjSatiated.high>Subject is showing signs of postprandial somnolence. Sluggish and drowsy.</afflictiondescription.yamjSatiated.high>
   
+  <afflictionname.yamjReactive>Reactive</afflictionname.yamjReactive>
   <afflictiondescription.yamjReactive.low><!--todo--></afflictiondescription.yamjReactive.low>
   <afflictiondescription.yamjReactive.med><!--todo--></afflictiondescription.yamjReactive.med>
   <afflictiondescription.yamjReactive.high><!--todo--></afflictiondescription.yamjReactive.high>
-  <afflictiondescription.yamjReactive.self.low><!--todo pov dumb--></afflictiondescription.yamjReactive.self.low>
-  <afflictiondescription.yamjReactive.self.med><!--todo pov dumb--></afflictiondescription.yamjReactive.self.med>
-  <afflictiondescription.yamjReactive.self.high><!--todo pov dumb--></afflictiondescription.yamjReactive.self.high>
+  <afflictiondescription.yamjReactive.self.low>Warm all over.</afflictiondescription.yamjReactive.self.low>
+  <afflictiondescription.yamjReactive.self.med>Too warm for comfort. Stomach feels funny...</afflictiondescription.yamjReactive.self.med>
+  <afflictiondescription.yamjReactive.self.high>Ate something bad...</afflictiondescription.yamjReactive.self.high>
   
   <afflictionname.yamjGuardianSelf>Guardian Angel</afflictionname.yamjGuardianSelf>
   <afflictiondescription.yamjGuardianSelf>Drawing attention away from nearby allies.</afflictiondescription.yamjGuardianSelf>
@@ -608,7 +633,7 @@ Reading a Book near the snoozing raptor is bound to be really relaxing.</afflict
   
 
   <!-- Bond with Captain -->
-  <talentname.yamjBondCaptain>Big Dog (Bond with Captain)</talentname.yamjBondCaptain>
+  <talentname.yamjBondCaptain>Top Dog (Bond with Captain)</talentname.yamjBondCaptain>
   <talentdescription.yamjBondCaptain>The captain chose you for a reason.
 Learn to steer using the navigation terminal.
 You are marked on the sonar.
@@ -620,9 +645,15 @@ Every [cooldown]s, the captain can sic you for [duration]s, granting:
     +[attack]% attack power
     +[stun]% stun resist
     Immunity to unconsciousness and death
-During your frenzy, the captain is provided with [awayResist]% damage resistance.</talentdescription.yamjBondCaptain>
-  <afflictionname.yamjBondCaptainBuff>Best in Show</afflictionname.yamjBondCaptainBuff>
-  <afflictiondescription.yamjBondCaptainBuff>Bolstered by the effects of the best raptor around.</afflictiondescription.yamjBondCaptainBuff>
+During your frenzy, the captain is provided with [resist]% damage resistance.</talentdescription.yamjBondCaptain>
+  <afflictionname.yamjBondCaptainProxBuff>Guarded</afflictionname.yamjBondCaptainProxBuff>
+  <afflictiondescription.yamjBondCaptainProxBuff>Your guard dog is nearby.</afflictiondescription.yamjBondCaptainProxBuff>
+  <afflictionname.yamjSicAwayBuff>Guarded</afflictionname.yamjSicAwayBuff> <!--todo-->
+  <afflictiondescription.yamjSicAwayBuff>You're being protected.</afflictiondescription.yamjSicAwayBuff>
+  <afflictionname.yamjSicBuff>Sic 'Em!</afflictionname.yamjSicBuff>
+  <afflictiondescription.yamjSicBuff>All stats are improved, and death is temporarily suppressed. Kill!</afflictiondescription.yamjSicBuff>
+  <afflictionname.yamjSicCooldown>Exhausted</afflictionname.yamjSicCooldown>
+  <afflictiondescription.yamjSicCooldown>Unable to enter a frenzy.</afflictiondescription.yamjSicCooldown>
   
   <!-- Bond with Doctor -->
   <talentname.yamjBondDoctor>Plague Rat (Bond with Medic)</talentname.yamjBondDoctor>
@@ -643,7 +674,7 @@ If you find your allies unconscious, you can give them a fate worse than death..
   <afflictiondescription.yamjZombieInfection>...?</afflictiondescription.yamjZombieInfection>
   
   <!-- Bond with Security -->
-  <talentname.yamjBondSecurity>Heat-Seeking Missile (Bond with Security)</talentname.yamjBondSecurity>
+  <talentname.yamjBondSecurity>Big Wet Missile (Bond with Security)</talentname.yamjBondSecurity>
   <talentdescription.yamjBondSecurity><!--todo flavor text-->
 Your creature attacks charge up over [maxCharge] seconds.
 A fully charged attack deals +[damageBonus]% damage and applies up to [stun] seconds of stun.
@@ -654,8 +685,10 @@ Marked targets are visible through walls, and creature attacks against them refu
   
   <!-- Bond with Engineer -->
   <talentname.yamjBondEngineer>Radiation Rascal (Bond with Engineer)</talentname.yamjBondEngineer>
-  <talentdescription.yamjBondEngineer>Hanging out with the Engineer might have resulted in a little bit too much radiation intake.
-‖color:red‖WORK IN PROGRESS‖color:end‖
+  <talentdescription.yamjBondEngineer>Hanging out with the Engineer might have resulted in too much radiation intake.
+The tesla harness protects you from harm, reducing damage and retaliating against nearby enemies with electrical shocks.
+It also absorbs nearby electrical damage, and provides 80% electric shock resist (even when uncharged).
+It can be charged from batteries or from receiving electrical damage.
 Gain the ability to eat fissile materials. They digest slowly, but aren't very healthy...</talentdescription.yamjBondEngineer>
   
   <!-- Bond with Mechanic -->

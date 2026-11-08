@@ -1,6 +1,5 @@
 ﻿<Mudraptor_playerWalk
   type="Mudraptor_player"
-  MultiplyByDir="False"
   Flip="True"
   FlipCooldown="0.2"
   FlipDelay="0.2"

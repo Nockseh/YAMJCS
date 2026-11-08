@@ -31,12 +31,73 @@ internal static partial class PatchTargets {
                 typeof(Limb)
             }) ??
         throw new Exception("Limb.UpdateAttack(float, Vector2, IDamageable, AttackResult, float, Limb) not found");
+        
+    internal static MethodBase Character_Control =>
+        AccessTools.DeclaredMethod(typeof(Character), nameof(Character.Control)) ??
+        throw new Exception("Character.Control(float, Camera) not found");
 
 }
 
 internal static class CreatureAttack {
     private const float MINING_AMOUNT = 5f;
     internal static readonly Identifier MechanicBondId = "yamjBondMechanic".ToIdentifier();
+    internal const string SpitLimbName = "SpitAttack";
+    internal const string ShrapnelLimbName = "ShrapnelAttack";
+    internal static readonly Identifier DoctorBondTalentId = "yamjBondDoctor".ToIdentifier();
+    
+    private static Limb? FindLimb(Character character, string limbName) {
+        foreach (Limb limb in character.AnimController.Limbs) {
+            if (limb.Name == limbName) { return limb; }
+        }
+        return null;
+    }
+    
+    private static bool LimbIsUsable(Limb? limb, Character character) {
+        if (limb is null) { return false; }
+        if (limb.IsSevered || limb.IsStuck) { return false; }
+
+        Attack? attack = limb.attack;
+        if (attack is null) { return false; }
+        if (attack.CoolDownTimer > 0f) { return false; }
+
+        foreach (PropertyConditional conditional in attack.Conditionals) {
+            if (!conditional.TargetSelf) { continue; }
+            if (!conditional.Matches(character)) { return false; }
+        }
+        return true;
+    }
+    
+    internal static void UpdateSelection(Character character) {
+        Limb[] limbs = character.AnimController.Limbs;
+        
+        foreach (Limb limb in limbs) {
+            Attack? attack = limb.attack;
+            if (attack is not null && attack.IsRunning) { return; }
+        }
+
+        Limb? chosenSpit = null;
+        if (character.IsKeyDown(InputType.Aim)) {
+            Limb? shrapnelLimb = FindLimb(character, ShrapnelLimbName);
+            Limb? spitLimb = FindLimb(character, SpitLimbName);
+            
+            if (LimbIsUsable(shrapnelLimb, character) && RaptorGut.FindShrapnelAmmo(character.Inventory) is not null) {
+                chosenSpit = shrapnelLimb;
+            } else if (LimbIsUsable(spitLimb, character)) {
+                chosenSpit = spitLimb;
+            }
+        }
+
+        foreach (Limb limb in limbs) {
+            if (limb.attack is null) { continue; }
+            if (chosenSpit is null) {
+                //disable ranged attacks
+                limb.Disabled = limb.Name == SpitLimbName || limb.Name == ShrapnelLimbName;
+            } else {
+                //disable all except chosen
+                limb.Disabled = limb != chosenSpit;
+            }
+        }
+    }
     
     internal static void TryMineOre(Limb limb) {
         if (limb.character.Submarine is not null) { return; } // submarines have their own sim coords, not usable 
@@ -62,6 +123,46 @@ internal static class CreatureAttack {
     }
 }
 
+[HarmonyPatch] // decides which creature attack will be used
+internal static class AttackSelectionPatch {
+    static MethodBase TargetMethod() => PatchTargets.Character_Control;
+
+    static void Prefix(Character __instance) {
+        if (__instance.Removed || __instance.IsDead) { return; }
+        if (!__instance.IsPlayer) { return; }
+        if (!YAMJ.IsPlayerRaptor(__instance)) { return; }
+        if (__instance.AnimController is null) { return; }
+        
+        //dont try to assert other players attacks
+        if (GameMain.NetworkMember is { IsClient: true } && __instance != Character.Controlled) { return; }
+
+        CreatureAttack.UpdateSelection(__instance);
+    }
+}
+
+[HarmonyPatch] // bond w/ doctor: any bite has chance to inject neurotoxin
+internal static class PoisonBitePatch {
+    static MethodBase TargetMethod() => PatchTargets.Limb_ExecuteAttack;
+
+    static void Postfix(Limb __instance, IDamageable damageTarget, ref AttackResult attackResult) {
+        if (GameMain.NetworkMember is { IsClient: true }) { return; }
+        if (attackResult.Damage <= 0f) { return; }
+
+        Character? attacker = __instance.character;
+        if (!YAMJ.IsPlayerRaptor(attacker)) { return; }
+
+        Character? victim = damageTarget as Character;
+        if (victim is null || victim.Removed || victim.IsDead) { return; }
+
+        if (__instance.Name != "Jaw" && __instance.Name != "WaterAttack") { return; }
+        if (!attacker.HasTalent(CreatureAttack.DoctorBondTalentId)) { return; }
+        if (Rand.Value() < YAMJConfig.PoisonBiteChance) { return; }
+
+        victim.CharacterHealth.ApplyAffliction(null, AfflictionPrefabs.Neurotoxin.Instantiate(YAMJConfig.PoisonBiteNeuro, attacker));
+        victim.HealthUpdateInterval = 0f; //forces health sync
+    }
+}
+
 [HarmonyPatch] // bond with mechanic: creature attacks mine ores 
 internal static class RaptorBeakMiningPatch {
     private static MethodBase TargetMethod() => PatchTargets.Limb_UpdateAttack;
@@ -80,7 +181,7 @@ internal static class RaptorBeakMiningPatch {
     }
 }
 
-[HarmonyPatch] // cancels the shrapnel attack if the gut doesn't contain valid ammo 
+[HarmonyPatch] // removes condition from shrapnel ammo on spit
 internal static class RaptorShrapnelSpit {
     private static MethodBase TargetMethod() => PatchTargets.Limb_ExecuteAttack;
 

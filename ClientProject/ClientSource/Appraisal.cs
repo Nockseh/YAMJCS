@@ -115,15 +115,19 @@ internal static class Appraisal {
             ["yamjSpeechAdvanced"],
             "sensor"),
             
-        (["turretammosource", "pump", "command"],
+        (["turretammosource", "pump", "sonartransducer", "machine", "battery", "batterycellrecharger", "supercapacitor"],
             ["yamjSpeechAdvanced", "yamjSpeechCombat"],
             "machine"),
+            
+        (["computer", "command"],
+            ["yamjSpeechAdvanced", "yamjBondCaptain"],
+            "computer"),
             
         (["door"],
             ["yamjSpeechBasic", "yamjSpeechAdvanced"],
             "door"),
             
-        (["circuitboxcomponent", "signal", "sound", "mobilebattery", "detonator"],
+        (["circuitboxcomponent", "signal", "mobilebattery"],
             ["yamjSpeechAdvanced"],
             "tech"),
     };
@@ -137,6 +141,11 @@ internal static class Appraisal {
         ["incendiumfueltank"] = ["bottle"],
         ["oxygentank"] = ["bottle"],
         ["oxygenitetank"] = ["bottle"],
+        ["circuitbox"] = ["machine"],
+        ["chargingdock"] = ["machine"],
+        ["terminal"] = ["computer"],
+        ["handheldterminal"] = ["computer"],
+        ["outpostterminal"] = ["computer"],
     };
     
     private static readonly Dictionary<Identifier, Identifier[]?> inferredTagCache = new();

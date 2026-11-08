@@ -285,7 +285,7 @@
     <Effect minStrength="0" maxStrength="1" resistanceFor="damage,bleeding,burn" minResistance="0.3" maxResistance="0.3" configoverride="maxResistance=CaptainProxBuffResist;minResistance=CaptainProxBuffResist"/>
   </Affliction>
   
-  <Affliction identifier="yamjSicAwayBuff" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="1" duration="0">
+  <Affliction identifier="yamjSicAwayBuff" type="talentbuff" isBuff="true" limbSpecific="false" maxStrength="30" configoverride="maxStrength=SicDuration" duration="0">
     <!--todo icon and desc-->
     <Icon texture="Content/UI/MainIconsAtlas.png" sourceRect="256,896,128,128" color="255,255,255,255" origin="0,0" />
     <Effect minStrength="0" maxStrength="30" strengthChange="-1" resistanceFor="damage,bleeding,burn" minResistance="0.3" maxResistance="0.3" configoverride="maxStrength=SicDuration;maxResistance=CaptainProxBuffResist;minResistance=CaptainProxBuffResist"/>

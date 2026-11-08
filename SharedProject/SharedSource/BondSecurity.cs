@@ -104,9 +104,9 @@ internal static class DesignateHandler {
         if (focusedCharacter is null || !focusedCharacter.IsHuman || focusedCharacter.IsDead || focusedCharacter.Removed) { return; }
         if (!HumanAIController.IsFriendly(__instance, focusedCharacter)) { return; }
         
-#if CLIENT
-        focusedCharacter.SetCustomInteract(null, CharacterHUD.GetCachedHudText("yamjHint.designateHandler", InputType.Select));
-#endif
+        #if CLIENT
+            YAMJ.SetHint(focusedCharacter, CharacterHUD.GetCachedHudText("yamjHint.designateHandler", InputType.Select));
+        #endif
         
         if (!__instance.IsKeyHit(InputType.Select)) { return; }
 

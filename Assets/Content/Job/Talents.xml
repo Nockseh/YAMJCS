@@ -816,9 +816,15 @@
   <!--Bonds-->
   <Talent identifier="yamjBondCaptain">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="0,2" sheetElementSize="128,128" />
-    <Description tag="talentdescription.yamjBondCaptain" />
-    
-    </Talent>
+    <Description tag="talentdescription.yamjBondCaptain">
+      <Replace tag="[resist]" value="yamjConfig.CaptainProxBuffResist.percent" color="gui.green" />
+      <Replace tag="[cooldown]" value="yamjConfig.SicCooldown.int" color="gui.orange" />
+      <Replace tag="[duration]" value="yamjConfig.SicDuration.int" color="gui.orange" />
+      <Replace tag="[speed]" value="yamjConfig.SicMoveBonus.percent" color="gui.green" />
+      <Replace tag="[attack]" value="yamjConfig.SicAttackBonus.percent" color="gui.green" />
+      <Replace tag="[stun]" value="yamjConfig.SicStunResist.percent" color="gui.green" />
+    </Description>
+  </Talent>
   
   <Talent identifier="yamjBondSecurity">
     <Icon texture="%ModDir%/Job/YAMJTalentsIcons.png" sheetindex="1,2" sheetElementSize="128,128" />
