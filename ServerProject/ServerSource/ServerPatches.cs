@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Data;
+using System.Reflection;
 using Barotrauma.Items.Components;
 using HarmonyLib;
 
@@ -34,14 +35,21 @@ internal static partial class PatchTargets {
         AccessTools.Method(
             typeof(FishAnimController),
             nameof(FishAnimController.DragCharacter)) ??
-        throw new Exception("FishAnimController.DragCharacter not found");
+        throw new Exception("FishAnimController.DragCharacter() not found");
+
+    internal static MethodBase EnemyAIController_GetTargetingTags =>
+        AccessTools.Method(
+            typeof(EnemyAIController),
+            nameof(EnemyAIController.GetTargetingTags)) ??
+        throw new Exception("EnemyAIController.GetTargetingTags() not found");
 }
 
 [HarmonyPatch]
 internal static class CharacterCreateFromPrefabPatch {
     static MethodBase TargetMethod() => PatchTargets.Character_Create_FromPrefab;
 
-    static void Prefix(ref CharacterPrefab prefab, CharacterInfo? characterInfo) {
+    static void Prefix(ref CharacterPrefab prefab, CharacterInfo? characterInfo, out CharacterTeamType __state) {
+        __state = characterInfo?.TeamID ?? CharacterTeamType.None;
         if (!YAMJ.HasPlayerRaptorJob(characterInfo)) {
             return;
         }
@@ -55,7 +63,7 @@ internal static class CharacterCreateFromPrefabPatch {
         YAMJ.Log("Redirected Character.Create() to playerRaptor spawn");
     }
 
-    static void Postfix(Character? __result, CharacterInfo? characterInfo) {
+    static void Postfix(Character? __result, CharacterInfo? characterInfo, CharacterTeamType __state) {
         if (__result is null) return;
         if (!YAMJ.HasPlayerRaptorJob(characterInfo)) return;
         //GameMain.GameSession?.CrewManager?.AddCharacter(__result); //don't use this, copies to data then spawns from data
@@ -63,6 +71,11 @@ internal static class CharacterCreateFromPrefabPatch {
         if (GameMain.GameSession is null) return;
         CrewManager? crewManager = GameMain.GameSession.CrewManager;
         if (crewManager is null) return;
+        
+        if ((__state is CharacterTeamType.Team1 or CharacterTeamType.Team2) && __result.TeamID != __state) {
+            __result.TeamID = __state;
+        }
+        
         //always says npc playRaptors are New hires but works good enough for now todo fix
         if (!crewManager.GetCharacterInfos(true).Contains(__result.Info)) {
             GameMain.NetworkMember?.CreateEntityEvent(__result, new Character.AddToCrewEventData(__result.TeamID, __result.Inventory.AllItems));
@@ -99,8 +112,9 @@ internal static class CorpseEatingPatch {
 }
 
 
-[HarmonyPatch(typeof(EnemyAIController), nameof(EnemyAIController.GetTargetingTags))]
+[HarmonyPatch]
 internal static class VouchTargetingPatch {
+    static MethodBase TargetMethod() => PatchTargets.EnemyAIController_GetTargetingTags;
     private static readonly Identifier MudraptorGroup = "mudraptor".ToIdentifier();
     
     private static void Postfix(EnemyAIController __instance, AITarget aiTarget, IEnumerable<Identifier> __result)

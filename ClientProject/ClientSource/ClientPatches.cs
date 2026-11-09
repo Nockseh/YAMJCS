@@ -75,6 +75,13 @@ internal static partial class PatchTargets {
             typeof(CrewManager),
             "UpdateOrderDrag") ?? //private, no nameof
         throw new Exception("CrewManager.UpdateOrderDrag() not found");
+
+    internal static MethodBase CrewManager_AddCharacter =>
+        AccessTools.Method(
+            typeof(CrewManager),
+            nameof(CrewManager.AddCharacter),
+            new[] { typeof(Character) }) ??
+        throw new Exception("CrewManager.AddCharacter(Character) not found");
 }
 
 [HarmonyPatch] //client-side frame tick: timers and input hooks here v ONLY WORKS MID-ROUND
@@ -214,5 +221,27 @@ internal static class CrewManagerUpdateOrderDrag {
         __instance.DragOrder = false;
         YAMJClient.ShowWarning(TextManager.Get("yamjMsg.cantSpeak").Value);
         return false;
+    }
+}
+
+[HarmonyPatch] //removes stale CharacterInfos from respawned pRaptors
+internal static class CrewManagerAddCharacter {
+    static MethodBase TargetMethod() => PatchTargets.CrewManager_AddCharacter;
+    
+    static void Prefix(CrewManager __instance, Character character) {
+        if (GameMain.NetworkMember is not { IsClient: true }) { return; }
+        if (!YAMJ.IsPlayerRaptor(character)) { return; }
+        if (character.Removed || character.IsDead) { return; }
+
+        CharacterInfo? info = character.Info;
+        if (info is null) { return; }
+
+        List<CharacterInfo> staleInfos = __instance.GetCharacterInfos(includeReserveBench: true)
+            .Where(ci => ci is not null && ci != info && ci.ID == info.ID)
+            .ToList();
+        foreach (CharacterInfo staleInfo in staleInfos) {
+            __instance.RemoveCharacterInfo(staleInfo);
+            YAMJ.Log($"Removed stale crew info for respawned raptor {info.Name}");
+        }
     }
 }
