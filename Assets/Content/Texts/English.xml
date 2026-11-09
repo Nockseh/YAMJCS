@@ -34,7 +34,8 @@ Alternative methods of communication will be provided.</YAMJCS.SpeechRestriction
   <YAMJCS.AppraisalEnabled.DisplayCategory>Features</YAMJCS.AppraisalEnabled.DisplayCategory>
 
   <YAMJCS.AnimOverrideEnabled.DisplayName>Enable Animation Overrides</YAMJCS.AnimOverrideEnabled.DisplayName>
-  <YAMJCS.AnimOverrideEnabled.Tooltip>Changes the climbing, walking, and running animations for player mudraptors.</YAMJCS.AnimOverrideEnabled.Tooltip>
+  <YAMJCS.AnimOverrideEnabled.Tooltip>Changes the climbing, walking, and running animations for player mudraptors.
+Also allows player raptors to sit with the [crouch] key. Performance impact not measured.</YAMJCS.AnimOverrideEnabled.Tooltip>
   <YAMJCS.AnimOverrideEnabled.DisplayCategory>Features</YAMJCS.AnimOverrideEnabled.DisplayCategory>
     <!--performance-->
   <YAMJCS.DigestionUpdateInterval.DisplayName>Digestion Update Interval</YAMJCS.DigestionUpdateInterval.DisplayName>

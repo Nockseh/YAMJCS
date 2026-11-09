@@ -8,6 +8,7 @@ namespace YAMJCS
         public IConfigService? ConfigService { get; set; }
         public IPluginManagementService? PluginService { get; set; }
         public ILoggerService? LoggerService { get; set; }
+        public INetworkingService? NetworkingService { get; set; }
         //vars
         internal Harmony? HarmonyInstance;
         internal static Plugin? PluginInstance { get; private set; }
