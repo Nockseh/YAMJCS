@@ -428,6 +428,8 @@ example: 0.5 = 50% stun resist.</YAMJCS.SicStunResist.Tooltip>
   <entitydescription.dumb.bottle></entitydescription.dumb.bottle>
   <entityname.dumb.computer>Computer</entityname.dumb.computer>
   <entitydescription.dumb.computer>That's a lot of words...</entitydescription.dumb.computer>
+  <entityname.dumb.stick>Stick</entityname.dumb.stick>
+  <entitydescription.dumb.stick>Thin and cylindrical.</entitydescription.dumb.stick>
   
   <!--Talent Items-->
   <entityname.yamjTeslaHarness>Tesla Harness</entityname.yamjTeslaHarness>

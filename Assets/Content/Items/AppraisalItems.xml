@@ -50,5 +50,10 @@
         <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,0,64,64" origin="0.5,0.5" />
         <Sprite texture="Content/Items/Tools/tools.png" sourcerect="410,71,24,66" origin="0.5,0.5" />
     </Item>
+
+    <Item name="" identifier="yamjDumbStick">
+        <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="128,384,64,64" origin="0.5,0.5" />
+        <Sprite texture="Content/Items/Tools/tools.png" sourcerect="278,157,50,9" origin="0.5,0.5" />
+    </Item>
     
 </Items>

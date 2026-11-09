@@ -46,6 +46,12 @@ internal static partial class PatchTargets {
             typeof(GameSession),
             nameof(GameSession.EndRound)) ??
         throw new Exception("GameSession.EndRound() not found");
+        
+    internal static MethodBase ItemContainer_DrawContainedItems =>
+        AccessTools.DeclaredMethod(
+            typeof(ItemContainer),
+            nameof(ItemContainer.DrawContainedItems)) ??
+        throw new Exception("ItemContainer.DrawContainedItems() not found");
 }
 
 internal static class Appraisal {
@@ -58,6 +64,10 @@ internal static class Appraisal {
         (["bottle"],
             ["yamjSpeechBasic", "yamjSpeechAdvanced"],
             "bottle"),
+            
+        (["stick", "reactorfuel"],
+            ["yamjSpeechBasic", "yamjCanUseTools"],
+            "stick"),
             
         (["weapon"], 
             ["yamjSpeechCombat", "yamjSpeechAdvanced"],  
@@ -146,6 +156,13 @@ internal static class Appraisal {
         ["terminal"] = ["computer"],
         ["handheldterminal"] = ["computer"],
         ["outpostterminal"] = ["computer"],
+        ["flare"] = ["stick"],
+        ["alienflare"] = ["stick"],
+        ["glowstick"] = ["stick"],
+        ["flashlight"] = ["stick"],
+        ["stunbaton"] = ["stick"],
+        ["cigar"] = ["stick"],
+        ["depletedfuel"] = ["stick"],
     };
     
     private static readonly Dictionary<Identifier, Identifier[]?> inferredTagCache = new();
@@ -399,5 +416,37 @@ internal static class ClearContainerLabels {
 
     static void Postfix() {
         Appraisal.ContainerCache.Clear();
+    }
+}
+
+[HarmonyPatch] //swaps the sprites of items drawn in-world inside containers
+internal static class ItemContainerDrawContainedSpriteSwap {
+    static MethodBase TargetMethod() => PatchTargets.ItemContainer_DrawContainedItems;
+
+    private static readonly List<(Item item, Sprite original)> swapped = new();
+
+    static void Prefix(ItemContainer __instance, out int __state) {
+        __state = swapped.Count;
+        if (!YAMJ.IsPlayerRaptor(Character.Controlled)) { return; }
+
+        foreach (ItemContainer.ContainedItem contained in __instance.containedItems) {
+            Item? item = contained.Item;
+            Sprite? original = item?.activeSprite;
+            if (item is null || original is null) { continue; }
+
+            Sprite? replacement = Appraisal.GetWorldSprite(item);
+            if (replacement is null || ReferenceEquals(replacement, original)) { continue; }
+
+            swapped.Add((item, original));
+            item.activeSprite = replacement;
+        }
+    }
+
+    static void Finalizer(int __state) {
+        for (int i = swapped.Count - 1; i >= __state; i--) {
+            (Item item, Sprite original) = swapped[i];
+            item.activeSprite = original;
+        }
+        swapped.RemoveRange(__state, swapped.Count - __state);
     }
 }
