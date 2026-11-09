@@ -32,7 +32,7 @@ namespace YAMJCS
         public void PreInitPatching() { } //runs after constructor
 
         public void OnLoadCompleted() { //for code that relies on other plugins
-            YAMJ.SharedOnLoadCompleted(ConfigService!, PluginService!);
+            YAMJ.SharedOnLoadCompleted(ConfigService!, PluginService!, NetworkingService!);
         }
 
         public void Dispose() {

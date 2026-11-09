@@ -93,12 +93,13 @@ internal static partial class YAMJ
         LoggerService = null;
     }
 
-    internal static void SharedOnLoadCompleted(IConfigService configService, IPluginManagementService pluginService) {
+    internal static void SharedOnLoadCompleted(IConfigService configService, IPluginManagementService pluginService, INetworkingService networkingService) {
         YAMJConfig.InitializeConfig(configService, pluginService);
         YAMJConfig.ApplyConfigToTalentXml();
         YAMJConfig.RebuildTalentDescriptions();
         YAMJConfig.ApplyConfigToAfflictionXml();
         YAMJConfig.ApplyConfigToItemXml();
+        RaptorSitPose.Initialize(networkingService);
     }
 }
 

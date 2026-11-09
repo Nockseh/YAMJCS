@@ -33,7 +33,7 @@ namespace YAMJCS
 
         public void OnLoadCompleted() {
             if (ConfigService is not null && PluginService is not null) {
-                YAMJ.SharedOnLoadCompleted(ConfigService, PluginService);   
+                YAMJ.SharedOnLoadCompleted(ConfigService, PluginService, NetworkingService!);   
             }
         }
 
