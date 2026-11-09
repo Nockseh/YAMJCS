@@ -32,6 +32,10 @@ Alternative methods of communication will be provided.</YAMJCS.SpeechRestriction
   <YAMJCS.AppraisalEnabled.DisplayName>Enable Item Identification</YAMJCS.AppraisalEnabled.DisplayName>
   <YAMJCS.AppraisalEnabled.Tooltip>When enabled, mudraptors must learn to identify items via the talent tree.</YAMJCS.AppraisalEnabled.Tooltip>
   <YAMJCS.AppraisalEnabled.DisplayCategory>Features</YAMJCS.AppraisalEnabled.DisplayCategory>
+
+  <YAMJCS.AnimOverrideEnabled.DisplayName>Enable Animation Overrides</YAMJCS.AnimOverrideEnabled.DisplayName>
+  <YAMJCS.AnimOverrideEnabled.Tooltip>Changes the climbing, walking, and running animations for player mudraptors.</YAMJCS.AnimOverrideEnabled.Tooltip>
+  <YAMJCS.AnimOverrideEnabled.DisplayCategory>Features</YAMJCS.AnimOverrideEnabled.DisplayCategory>
     <!--performance-->
   <YAMJCS.DigestionUpdateInterval.DisplayName>Digestion Update Interval</YAMJCS.DigestionUpdateInterval.DisplayName>
   <YAMJCS.DigestionUpdateInterval.Tooltip>Time between gut digestion updates, in seconds. Does not affect rate of digestion.</YAMJCS.DigestionUpdateInterval.Tooltip>

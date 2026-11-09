@@ -12,6 +12,9 @@
         <Setting Name="AppraisalEnabled" Type="bool"
                  Value="true"
                  NetSync="TwoWay" ShowInMenus="true" />
+        <Setting Name="AnimOverrideEnabled" Type="bool"
+                 Value="true"
+                 NetSync="TwoWay" ShowInMenus="true" />
         
         <!-- Performance -->
         <Setting Name="CaptainProxUpdateInterval" Type="rangeFloat"

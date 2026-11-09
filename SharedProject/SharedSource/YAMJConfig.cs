@@ -18,6 +18,7 @@ internal static class YAMJConfig {
     internal static bool HungerEnabled => GetBool("HungerEnabled") ?? true;
     internal static bool SpeechRestrictionsEnabled => GetBool("SpeechRestrictionsEnabled") ?? true;
     internal static bool AppraisalEnabled => GetBool("AppraisalEnabled") ?? true;
+    internal static bool AnimOverrideEnabled => GetBool("AnimOverrideEnabled") ?? true;
         //performance
     internal static float DigestionUpdateInterval => GetFloat("DigestionUpdateInterval") ?? 2f;
     internal static float CaptainProxUpdateInterval => GetFloat("CaptainProxUpdateInterval") ?? 2f;
@@ -81,6 +82,7 @@ internal static class YAMJConfig {
         Bind(configService, thisPackage, "HungerEnabled");
         Bind(configService, thisPackage, "SpeechRestrictionsEnabled");
         Bind(configService, thisPackage, "AppraisalEnabled");
+        Bind(configService, thisPackage, "AnimOverrideEnabled");
         //performance
         Bind(configService, thisPackage, "DigestionUpdateInterval");
         Bind(configService, thisPackage, "CaptainProxUpdateInterval");
